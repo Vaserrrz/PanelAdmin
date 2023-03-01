@@ -312,15 +312,8 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text' => 'dashboard',
+            'text' => ' Dashboard',
             'url'  => 'admin',
-        ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
         ],
         ['header' => 'MANTENIMIENTO'],
         [
@@ -330,7 +323,7 @@ return [
         ],
         [
             'text' => 'Proveedores',
-            'url'  => '#',
+            'url'  => 'proveedores',
             'icon' => 'fas fa-fw fa-users',
         ],
         [

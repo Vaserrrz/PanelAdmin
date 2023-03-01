@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cliente;
 use Illuminate\Http\Request;
+use App\Models\Proveedor;
 
-class ClienteController extends Controller
+class ProveedorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente::all();
-        return view('clientes', compact('clientes'));
+        $proveedores = Proveedor::all();
+        return view('proveedores', compact('proveedores'));
     }
 
     /**
@@ -36,14 +36,14 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        $cliente = new Cliente();
-        $cliente->nombre = $request->nombre;
-        $cliente->email = $request->email;
-        $cliente->descripcion = $request->descripcion;
-        $cliente->save();
+        $proveedor = new proveedor();
+        $proveedor->nombre = $request->nombre;
+        $proveedor->email = $request->email;
+        $proveedor->descripcion = $request->descripcion;
+        $proveedor->save();
 
 
-        return redirect()->route('clientes');
+        return redirect()->route('proveedores');
     }
 
     /**
@@ -63,7 +63,7 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-  /*  public function edit(Cliente $cliente)
+  /*  public function edit(proveedor $proveedor)
     {
 
 
@@ -78,12 +78,12 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-            $cliente = Cliente::find($id);
-            $cliente->nombre = $request->nombre;
-            $cliente->email = $request->email;
-            $cliente->descripcion = $request->descripcion;
-            $cliente->save();
-            return redirect()->route('clientes');
+            $proveedor = proveedor::find($id);
+            $proveedor->nombre = $request->nombre;
+            $proveedor->email = $request->email;
+            $proveedor->descripcion = $request->descripcion;
+            $proveedor->save();
+            return redirect()->route('proveedores');
     }
 
     /**
@@ -92,9 +92,10 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cliente $cliente){
-        $cliente->delete();
-        return redirect()->route('clientes');
+    public function destroy(proveedor $proveedor){
+        $proveedor->delete();
+        return redirect()->route('proveedores');
     }
 
 }
+
