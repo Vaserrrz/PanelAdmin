@@ -315,37 +315,93 @@ return [
             'text' => ' Dashboard',
             'url'  => 'admin',
         ],
-        ['header' => 'MANTENIMIENTO'],
+        ['header' => 'PRINCIPAL'],
         [
-            'text' => 'Clientes',
+            'text' => 'Menu Clientes',
             'url'  => 'clientes',
             'icon' => 'fas fa-fw fa-address-book',
+            'submenu' => [
+                [
+                    'text' => 'Clientes',
+                    'url'  => 'clientes',
+                ],
+                [
+                    'text' => 'Encargados',
+                    'url'  => '#',
+                ]
+            ],
         ],
         [
-            'text' => 'Proveedores',
-            'url'  => 'proveedores',
-            'icon' => 'fas fa-fw fa-users',
-        ],
-        [
-            'text' => 'Remota',
+            'text' => 'Remota Satelital',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-rss',
         ],
         [
-            'text' => 'Mikrotik_Sat',
+            'text' => 'Mikrotik Satelital',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-server',
             'label' => 'NUEVO',
             'Label_color' => 'primary',
         ],
-        ['header' => 'CONFIGURACIONES'],
         [
-            'text' => 'Perfil',
+            'text' => 'Menu Proveedores',
+            'url'  => 'proveedores',
+            'icon' => 'fas fa-fw fa-card',
+            'submenu' => [
+                [
+                    'text' => 'Proveedores de red',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Planes',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Satelites',
+                    'url'  => '#',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Revendedores',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'Cambiar contraseña',
+            'text' => 'Administracion',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-user',
+            'submenu' => [
+                [
+                    'text' => 'Cuentas por Cobrar',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Cuentas por Pagar',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Realizar Pago',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Socios',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Tecnicos',
+                    'url'  => '#',
+                ],
+            ],
+        ],
+        ['header' => 'CONFIGURACION'],
+        [
+            'text' => 'Usuarios',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Perfiles',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
@@ -387,22 +443,7 @@ return [
                 ],
             ],
         ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+        ['header' => 'MANTENIMIENTO'],
     ],
 
     /*

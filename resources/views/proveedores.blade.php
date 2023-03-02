@@ -100,7 +100,8 @@
                                                     </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form  action="{{ route('proveedores.update',$proveedor->id) }}"  method="POST">
+
+                                                        <form  action="{{ route('proveedores.update', $proveedor->id) }}"  method="POST">
                                                             @csrf
                                                             @method('PUT')
                                                             {{-- Nombre --}}
@@ -128,9 +129,6 @@
                                                                 <button type="submit" class="btn btn-primary">Editar</button>
                                                             </div>
                                                         </form>
-
-
-
                                                     </div>
                                                 </div>
                                                 </div>
