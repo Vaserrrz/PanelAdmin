@@ -312,8 +312,9 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text' => ' Dashboard',
+            'text' => ' Inicio',
             'url'  => 'admin',
+            'icon' => 'fas fa=fw fa-home'
         ],
         ['header' => 'PRINCIPAL'],
         [
@@ -324,10 +325,12 @@ return [
                 [
                     'text' => 'Clientes',
                     'url'  => 'clientes',
+                    'icon' => 'fas fa-fw fa-user-circle',
                 ],
                 [
                     'text' => 'Encargados',
                     'url'  => '#',
+                    'icon' => 'fas fa-fw fa-suitcase'
                 ]
             ],
         ],
@@ -346,51 +349,59 @@ return [
         [
             'text' => 'Menu Proveedores',
             'url'  => 'proveedores',
-            'icon' => 'fas fa-fw fa-card',
+            'icon' => 'fas fa-fw fa-address-card',
             'submenu' => [
                 [
                     'text' => 'Proveedores de red',
                     'url'  => '#',
+                    'icon' => 'fas fa-fx fa-users'
                 ],
                 [
                     'text' => 'Planes',
                     'url'  => '#',
+                    'icon' => 'fas fa-fx fa-bars'
                 ],
                 [
                     'text' => 'Satelites',
                     'url'  => '#',
+                    'icon' => 'fas fa-fx fa-wifi',
                 ],
             ],
         ],
         [
             'text' => 'Revendedores',
             'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-fw fa-sitemap',
         ],
         [
             'text' => 'Administracion',
             'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-fw  fa-book',
             'submenu' => [
                 [
                     'text' => 'Cuentas por Cobrar',
                     'url'  => '#',
+                    'icon' => 'fas fa-fw fa-credit-card',
                 ],
                 [
                     'text' => 'Cuentas por Pagar',
                     'url'  => '#',
+                    'icon' => 'fas fa-fw fa-sticky-note',
                 ],
                 [
                     'text' => 'Realizar Pago',
                     'url'  => '#',
+                    'icon' => 'fas fa-fw fa-credit-card',
                 ],
                 [
                     'text' => 'Socios',
                     'url'  => '#',
+                    'icon' => 'fas fa-fx fa-address-card',
                 ],
                 [
                     'text' => 'Tecnicos',
                     'url'  => '#',
+                    'icon' => 'fas fa-fx fa-male'
                 ],
             ],
         ],
@@ -406,44 +417,10 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text'    => 'Ajustes Avanzados',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
+            'text' => 'MANTENIMIENTO',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-wrench',
         ],
-        ['header' => 'MANTENIMIENTO'],
     ],
 
     /*
