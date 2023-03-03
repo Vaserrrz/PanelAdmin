@@ -90,7 +90,7 @@
                                                 Editar
                                             </button>
                                             {{-- modal editar --}}
-                                            <div class="modal fade" id="modal-editar-{{ $proveedor->id }}"        aria-hidden="true">
+                                            <div class="modal fade" id="modal-editar-{{ $proveedor->id }}" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -100,7 +100,7 @@
                                                     </button>
                                                     </div>
                                                     <div class="modal-body">
-
+                                                        //Agregar
                                                         <form  action="{{ route('proveedores.update', $proveedor->id) }}"  method="POST">
                                                             @csrf
                                                             @method('PUT')

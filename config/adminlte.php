@@ -353,7 +353,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Proveedores de red',
-                    'url'  => '#',
+                    'url'  => 'proveedores',
                     'icon' => 'fas fa-fx fa-users'
                 ],
                 [
