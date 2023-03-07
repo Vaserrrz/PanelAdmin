@@ -329,15 +329,16 @@ return [
                 ],
                 [
                     'text' => 'Encargados',
-                    'url'  => '#',
+                    'url'  => 'encargados',
                     'icon' => 'fas fa-fw fa-suitcase'
                 ]
             ],
         ],
         [
             'text' => 'Remota Satelital',
-            'url'  => 'admin/settings',
+            'url'  => 'remotas',
             'icon' => 'fas fa-fw fa-rss',
+
         ],
         [
             'text' => 'Mikrotik Satelital',
@@ -358,7 +359,7 @@ return [
                 ],
                 [
                     'text' => 'Planes',
-                    'url'  => '#',
+                    'url'  => 'remotas',
                     'icon' => 'fas fa-fx fa-bars'
                 ],
                 [

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Remota;
+use App\Models\Encargado;
 
-class RemotaController extends Controller
+class EncargadoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class RemotaController extends Controller
      */
     public function index()
     {
-        $remotas = Remota::all();
-        return view('remotas', compact('remotas'));
+        $encargados = Encargado::all();
+        return view('encargados', compact('encargados'));
     }
 
     /**
@@ -36,14 +36,14 @@ class RemotaController extends Controller
      */
     public function store(Request $request)
     {
-        $remota = new remota();
-        $remota->nombre = $request->nombre;
-        $remota->email = $request->email;
-        $remota->descripcion = $request->descripcion;
-        $remota->save();
+        $encargado = new encargado();
+        $encargado->nombre = $request->nombre;
+        $encargado->email = $request->email;
+        $encargado->descripcion = $request->descripcion;
+        $encargado->save();
 
 
-        return redirect()->route('remotas');
+        return redirect()->route('encargados');
     }
 
     /**
@@ -63,7 +63,7 @@ class RemotaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-  /*  public function edit(remota $remota)
+  /*  public function edit(encargado $encargado)
     {
 
 
@@ -76,14 +76,14 @@ class RemotaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $REMOTA_ID)
+    public function update(Request $request, $id)
     {
-            $remota = remota::find($REMOTA_ID);
-            $remota->nombre = $request->nombre;
-            $remota->email = $request->email;
-            $remota->descripcion = $request->descripcion;
-            $remota->save();
-            return redirect()->route('remotas');
+            $encargado = encargado::find($id);
+            $encargado->nombre = $request->nombre;
+            $encargado->email = $request->email;
+            $encargado->descripcion = $request->descripcion;
+            $encargado->save();
+            return redirect()->route('encargados');
     }
 
     /**
@@ -92,10 +92,12 @@ class RemotaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(remota $remota){
-        $remota->delete();
-        return redirect()->route('remotas');
+    public function destroy(encargado $encargado){
+        $encargado->delete();
+        return redirect()->route('encargados');
     }
 
 }
+
+
 

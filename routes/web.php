@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\RemotaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\EncargadoController;
 use App\Http\Controllers\ProveedorController;
 
 /*
@@ -44,7 +46,27 @@ Route::put('proveedores/{proveedor}',[ ProveedorController::class,'update'])->na
 Route::delete('proveedores/{proveedor}',[ ProveedorController::class,'destroy'])->name('proveedores.destroy');
 
 
+Route::get('remotas', [RemotaController::class, 'index'])->name('remotas');
+//ruta de guardar
+Route::post('remotas',[ RemotaController::class,'store'])->name('remotas.store');
+// ruta editar
+Route::get('remotas/{remota}/edit',[ RemotaController::class,'edit'])->name('remotas.edit');
+// ruta update
+Route::put('remotas/{remota}',[ RemotaController::class,'update'])->name('remotas.update');
+// Ruta eliminar delete
+Route::delete('remotas/{remota}',[ RemotaController::class,'destroy'])->name('remotas.destroy');
 
+
+
+Route::get('encargados', [Encargados::class, 'index'])->name('encargados');
+//ruta de guardar
+Route::post('encargados',[ Encargados::class,'store'])->name('encargados.store');
+// ruta editar
+Route::get('encargados/{encargado}/edit',[ Encargados::class,'edit'])->name('encargados.edit');
+// ruta update
+Route::put('encargados/{encargado}',[ Encargados::class,'update'])->name('encargados.update');
+// Ruta eliminar delete
+Route::delete('encargados/{encargado}',[ Encargados::class,'destroy'])->name('encargados.destroy');
 
 Route::middleware([
     'auth:sanctum',
