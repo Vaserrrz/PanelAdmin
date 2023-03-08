@@ -21,7 +21,7 @@ Route::get('/', function () {
 
     return view('auth.login');
 });
-
+//CLIENTES
 Route::get('clientes',[ ClienteController::class,'index'])->name('clientes');
 Route::post('clientes',[ ClienteController::class,'store'])->name('clientes.store');
 // ruta editar
@@ -31,10 +31,7 @@ Route::put('clientes/{cliente}',[ ClienteController::class,'update'])->name('cli
 // Ruta eliminar delete
 Route::delete('clientes/{cliente}',[ ClienteController::class,'destroy'])->name('clientes.destroy');
 
-
-
-
-
+//PROVEEDORES
 Route::get('proveedores', [ProveedorController::class, 'index'])->name('proveedores');
 //ruta de guardar
 Route::post('proveedores',[ ProveedorController::class,'store'])->name('proveedores.store');
@@ -45,7 +42,7 @@ Route::put('proveedores/{proveedor}',[ ProveedorController::class,'update'])->na
 // Ruta eliminar delete
 Route::delete('proveedores/{proveedor}',[ ProveedorController::class,'destroy'])->name('proveedores.destroy');
 
-
+//REMOTAS
 Route::get('remotas', [RemotaController::class, 'index'])->name('remotas');
 //ruta de guardar
 Route::post('remotas',[ RemotaController::class,'store'])->name('remotas.store');
@@ -57,16 +54,16 @@ Route::put('remotas/{remota}',[ RemotaController::class,'update'])->name('remota
 Route::delete('remotas/{remota}',[ RemotaController::class,'destroy'])->name('remotas.destroy');
 
 
-
-Route::get('encargados', [Encargados::class, 'index'])->name('encargados');
+//ENCARGADOS
+Route::get('encargados', [EncargadoController::class, 'index'])->name('encargados');
 //ruta de guardar
-Route::post('encargados',[ Encargados::class,'store'])->name('encargados.store');
+Route::post('encargados',[ EncargadoController::class,'store'])->name('encargados.store');
 // ruta editar
-Route::get('encargados/{encargado}/edit',[ Encargados::class,'edit'])->name('encargados.edit');
+Route::get('encargados/{encargado}/edit',[ EncargadoController::class,'edit'])->name('encargados.edit');
 // ruta update
-Route::put('encargados/{encargado}',[ Encargados::class,'update'])->name('encargados.update');
+Route::put('encargados/{encargado}',[ EncargadoController::class,'update'])->name('encargados.update');
 // Ruta eliminar delete
-Route::delete('encargados/{encargado}',[ Encargados::class,'destroy'])->name('encargados.destroy');
+Route::delete('encargados/{encargado}',[ EncargadoController::class,'destroy'])->name('encargados.destroy');
 
 Route::middleware([
     'auth:sanctum',
