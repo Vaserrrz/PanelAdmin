@@ -37,13 +37,24 @@ class ProveedorController extends Controller
     public function store(Request $request)
     {
         $proveedor = new proveedor();
-        $proveedor->nombre = $request->nombre;
-        $proveedor->email = $request->email;
-        $proveedor->descripcion = $request->descripcion;
+        $proveedor->CI_RIF  = $request->CI_RIF ;
+        $proveedor->RAZON = $request->RAZON;
+        $proveedor->DIRECCION = $request->DIRECCION;
+        $proveedor->CONTACTO  = $request->CONTACTO ;
+        $proveedor->METODO_PAGO = $request->METODO_PAGO;
+        $proveedor->DETALLE_PAGO = $request->DETALLE_PAGO;
+        $proveedor->PROVEEDOR_CORREO  = $request->PROVEEDOR_CORREO ;
         $proveedor->save();
 
 
         return redirect()->route('proveedores');
+    }
+
+    public function details()
+    {
+        $proveedores = Proveedor::all();
+        return view('detailsproveedores', compact('proveedores'));
+
     }
 
     /**
@@ -76,12 +87,16 @@ class ProveedorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id )
     {
-            $proveedor = proveedor::find($id);
-            $proveedor->nombre = $request->nombre;
-            $proveedor->email = $request->email;
-            $proveedor->descripcion = $request->descripcion;
+            $proveedor = proveedor::find($id );
+            $proveedor->CI_RIF  = $request->CI_RIF ;
+            $proveedor->RAZON = $request->RAZON;
+            $proveedor->DIRECCION = $request->DIRECCION;
+            $proveedor->CONTACTO  = $request->CONTACTO ;
+            $proveedor->METODO_PAGO = $request->METODO_PAGO;
+            $proveedor->DETALLE_PAGO = $request->DETALLE_PAGO;
+            $proveedor->PROVEEDOR_CORREO  = $request->PROVEEDOR_CORREO ;
             $proveedor->save();
             return redirect()->route('proveedores');
     }

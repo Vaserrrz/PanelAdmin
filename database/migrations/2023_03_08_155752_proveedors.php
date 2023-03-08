@@ -14,13 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('proveedors', function(Blueprint $table){
-            $table->id('PROVEEDOR_ID')->autoIncrement();
+            $table->id('id')->autoIncrement();
             $table->integer('CI_RIF');
             $table->string('RAZON', 150);
             $table->string('DIRECCION', 100);
             $table->string('CONTACTO', 50);
             $table->string('METODO_PAGO', 50);
             $table->string('DETALLE_PAGO', 50);
+            $table->string('PROVEEDOR_CORREO', 50)->unique();
             $table->timestamps();
         });
     }

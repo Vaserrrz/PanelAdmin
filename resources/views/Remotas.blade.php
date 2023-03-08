@@ -138,7 +138,7 @@
 
                                             {{-- Eliminar --}}
                                             {{-- form destroy --}}
-                                            <form action="{{ route('proveedores.destroy', $proveedor) }}" method="POST">
+                                            <form action="{{ route('remotas.destroy', $remota) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
                                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>

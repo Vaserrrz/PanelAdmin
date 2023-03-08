@@ -37,9 +37,17 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $cliente = new Cliente();
-        $cliente->nombre = $request->nombre;
-        $cliente->email = $request->email;
-        $cliente->descripcion = $request->descripcion;
+        $cliente->CI_RIF = $request->CI_RIF;
+        $cliente->CLIENTE_RAZON = $request->CLIENTE_RAZON;
+        $cliente->CLIENTE_DIRECCION = $request->CLIENTE_DIRECCION;
+        $cliente->CLIENTE_DETALLE = $request->CLIENTE_DETALLE;
+        $cliente->CLIENTE_TELF = $request->CLIENTE_TELF;
+        $cliente->CLIENTE_TELF2 = $request->CLIENTE_TELF2;
+        $cliente->CLIENTE_WHATSAPP = $request->CLIENTE_WHATSAPP;
+        $cliente->CLIENTE_TELEGRAM = $request->CLIENTE_TELEGRAM;
+        $cliente->CLIENTE_CORREO  = $request->CLIENTE_CORREO ;
+        $cliente->ENVIO_TELEGRAM = $request->ENVIO_TELEGRAM;
+        $cliente->ENVIO_WHATSAPP = $request->ENVIO_WHATSAPP;
         $cliente->save();
 
 
@@ -52,7 +60,7 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   /* public function show($id)
+   /* public function show($ID)
     {
         //
     }*/
@@ -79,10 +87,21 @@ class ClienteController extends Controller
     public function update(Request $request, $id)
     {
             $cliente = Cliente::find($id);
-            $cliente->nombre = $request->nombre;
-            $cliente->email = $request->email;
-            $cliente->descripcion = $request->descripcion;
+
+            $cliente->CI_RIF = $request->CI_RIF;
+            $cliente->CLIENTE_RAZON = $request->CLIENTE_RAZON;
+            $cliente->CLIENTE_DIRECCION = $request->CLIENTE_DIRECCION;
+            $cliente->CLIENTE_DETALLE = $request->CLIENTE_DETALLE;
+            $cliente->CLIENTE_TELF = $request->CLIENTE_TELF;
+            $cliente->CLIENTE_TELF2 = $request->CLIENTE_TELF2;
+            $cliente->CLIENTE_WHATSAPP = $request->CLIENTE_WHATSAPP;
+            $cliente->CLIENTE_TELEGRAM = $request->CLIENTE_TELEGRAM;
+            $cliente->CLIENTE_CORREO  = $request->CLIENTE_CORREO ;
+            $cliente->ENVIO_TELEGRAM = $request->ENVIO_TELEGRAM;
+            $cliente->ENVIO_WHATSAPP = $request->ENVIO_WHATSAPP;
+
             $cliente->save();
+
             return redirect()->route('clientes');
     }
 

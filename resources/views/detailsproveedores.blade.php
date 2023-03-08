@@ -22,6 +22,7 @@
 
                         <!-- Modal -->
                         <div class="modal fade" id="modal-agregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
                             <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -106,6 +107,7 @@
                             </thead>
                             <tbody>
                                 @forelse ($proveedores as $proveedor)
+
                                     <tr>
                                         <th scope="row">{{ $proveedor->id  }}</th>
                                         <td>
@@ -114,65 +116,6 @@
                                         <td>{{ $proveedor->CI_RIF}}</td>
                                         <td>{{ $proveedor->METODO_PAGO }}</td>
                                         <td>
-                                            {{-- Editar  --}}
-                                            {{-- Buton editar  --}}
-                                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-editar-{{ $proveedor->id  }}">
-                                                Editar
-                                            </button>
-                                            {{-- modal editar --}}
-                                            <div class="modal fade" id="modal-editar-{{ $proveedor->id }}" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Agregar - proveedor</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                    </div>
-                                                    <div class="modal-body">
-
-                                                        <form  action="{{ route('proveedores.update', $proveedor->id) }}"  method="POST">
-                                                            @csrf
-                                                            @method('PUT')
-
-                                                            {{-- CORREO --}}
-                                                            <div class="form-group">
-                                                                <label for="email">Correo</label>
-                                                                <input type="email" class="form-control" id="PROVEEDOR_CORREO" placeholder="Ingrese el correo" name="PROVEEDOR_CORREO" value="{{ $proveedor->PROVEEDOR_CORREO }}">
-                                                            </div>
-
-                                                            {{-- CI/RIF --}}
-                                                            <div class="form-group">
-                                                                <label for="descripcion">CI/RIF</label>
-                                                                <input type="text" class="form-control" id="CI_RIF" placeholder="Ingrese Cedula o RIF del proveedor" name="CI_RIF" value="{{ $proveedor->CI_RIF }}">
-                                                            </div>
-
-                                                            {{-- METODO DE PAGO --}}
-                                                            <div class="form-group">
-                                                                <label for="descripcion">Metodo de Pago</label>
-                                                                <input type="text" class="form-control" id="METODO_PAGO" placeholder="Ingrese el metodo de pago" name="DIRECCION" value="{{ $proveedor->METODO_PAGO }}">
-                                                            </div>
-
-
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                                <button type="submit" class="btn btn-primary">Editar</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                            </div>
-
-
-                                            {{-- Eliminar --}}
-                                            {{-- form destroy --}}
-                                            <form action="{{ route('proveedores.destroy', $proveedor) }}" method="POST">
-                                                @csrf
-                                                @method('delete')
-                                               <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                            </form>
-
                                         </td>
                                     </tr>
 

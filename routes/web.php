@@ -31,6 +31,7 @@ Route::put('clientes/{cliente}',[ ClienteController::class,'update'])->name('cli
 // Ruta eliminar delete
 Route::delete('clientes/{cliente}',[ ClienteController::class,'destroy'])->name('clientes.destroy');
 
+
 //PROVEEDORES
 Route::get('proveedores', [ProveedorController::class, 'index'])->name('proveedores');
 //ruta de guardar
@@ -41,6 +42,9 @@ Route::get('proveedores/{proveedor}/edit',[ ProveedorController::class,'edit'])-
 Route::put('proveedores/{proveedor}',[ ProveedorController::class,'update'])->name('proveedores.update');
 // Ruta eliminar delete
 Route::delete('proveedores/{proveedor}',[ ProveedorController::class,'destroy'])->name('proveedores.destroy');
+//Ruta Detalle
+Route::get('proveedores/{proveedor}',[ ProveedorController::class,'details'])->name('proveedores.details');
+
 
 //REMOTAS
 Route::get('remotas', [RemotaController::class, 'index'])->name('remotas');
@@ -64,6 +68,8 @@ Route::get('encargados/{encargado}/edit',[ EncargadoController::class,'edit'])->
 Route::put('encargados/{encargado}',[ EncargadoController::class,'update'])->name('encargados.update');
 // Ruta eliminar delete
 Route::delete('encargados/{encargado}',[ EncargadoController::class,'destroy'])->name('encargados.destroy');
+//Ruta Detalle
+Route::get('encargados/{encargado}',[ EncargadoController::class,'details'])->name('encargados.details');
 
 Route::middleware([
     'auth:sanctum',

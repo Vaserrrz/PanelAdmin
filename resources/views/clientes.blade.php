@@ -33,25 +33,60 @@
                                 <div class="modal-body">
                                     <form  action="{{ route('clientes.store') }}"  method="POST">
                                         @csrf
-                                        {{-- Nombre --}}
+
+                                        {{-- CI/RIF --}}
                                         <div class="form-group">
-                                          <label for="nombre">Nombre</label>
-                                          <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre" name="nombre">
+                                            <label for="email">CI/RIF</label>
+                                            <input type="text" class="form-control" id="CI/RIF" placeholder="Ingrese Cedula/RIF del cliente" name="CI_RIF">
                                         </div>
 
-                                        {{-- Email --}}
+                                        {{-- RAZON --}}
                                         <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="email" class="form-control" id="email" placeholder="Ingrese el email" name="email">
+                                          <label for="CLIENTE_RAZON">Razon</label>
+                                          <input type="text" class="form-control" id="CLIENTE_RAZON" placeholder="Ingrese la razon social del cliente" name="CLIENTE_RAZON">
                                         </div>
 
-                                        {{-- Descripcion --}}
+                                        {{-- DIRECCION --}}
                                         <div class="form-group">
-                                            <label for="descripcion">Descripcion</label>
-                                            <input type="descripcion" class="form-control" id="descripcion" placeholder="Ingrese una descripcion" name="descripcion">
+                                            <label for="CLIENTE_DIRECCION">Direccion</label>
+                                            <input type="text" class="form-control" id="CLIENTE_DIRECCION" placeholder="Ingrese la direccion del cliente" name="CLIENTE_DIRECCION">
                                         </div>
 
+                                          {{-- DETALLE --}}
+                                          <div class="form-group">
+                                            <label for="CLIENTE_DETALLE">Detalle</label>
+                                            <input type="text" class="form-control" id="CLIENTE_DETALLE" placeholder="Ingrese el detalle" name="CLIENTE_DETALLE">
+                                        </div>
 
+                                         {{-- TELEFONO --}}
+                                         <div class="form-group">
+                                            <label for="CLIENTE_TELF">Telefono</label>
+                                            <input type="text" class="form-control" id="CLIENTE_TELF" placeholder="Ingrese el telefono del cliente " name="CLIENTE_TELF">
+                                        </div>
+
+                                         {{-- TELEFONO 2 --}}
+                                         <div class="form-group">
+                                            <label for="CLIENTE_TELF2">Telefono</label>
+                                            <input type="text" class="form-control" id="CLIENTE_TELF" placeholder="Ingrese el telefono del cliente (2)" name="CLIENTE_TELF2">
+                                        </div>
+
+                                          {{-- WHATSAPP --}}
+                                          <div class="form-group">
+                                            <label for="CLIENTE_WHATSAPP">Whatsapp</label>
+                                            <input type="text" class="form-control" id="CLIENTE_WHATSAPP" placeholder="Ingrese el Whatsapp del cliente" name="CLIENTE_WHATSAPP">
+                                        </div>
+
+                                           {{-- TELEGRAM --}}
+                                           <div class="form-group">
+                                            <label for="CLIENTE_TELEGRAM">Telegram</label>
+                                            <input type="text" class="form-control" id="CLIENTE_TELEGRAM" placeholder="Ingrese el Telegram del cliente" name="CLIENTE_TELEGRAM">
+                                        </div>
+
+                                         {{-- CORREO --}}
+                                         <div class="form-group">
+                                            <label for="CLIENTE_CORREO ">Correo</label>
+                                            <input type="email" class="form-control" id="CLIENTE_CORREO " placeholder="Ingrese el Correo del cliente" name="CLIENTE_CORREO ">
+                                        </div>
 
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -69,28 +104,28 @@
                         <table class="table table-bordered">
                             <thead>
                               <tr>
-                                <th scope="col">#id</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Descripcion</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Razon</th>
+                                <th scope="col">CI/RIF</th>
+                                <th scope="col">Direccion</th>
                                 <th scope="col">Acciones</th>
                               </tr>
                             </thead>
                             <tbody>
                                 @forelse ($clientes as $cliente)
                                     <tr>
-                                        <th scope="row">{{ $cliente->id }}</th>
+                                        <th scope="row">{{ $cliente->ID  }}</th>
                                         <td>{{ $cliente->nombre }}</td>
                                         <td>{{ $cliente->email }}</td>
                                         <td>{{ $cliente->descripcion }}</td>
                                         <td>
                                             {{-- Editar  --}}
                                             {{-- Buton editar  --}}
-                                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-editar-{{ $cliente->id }}">
+                                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-editar-{{ $cliente->ID  }}">
                                                 Editar
                                             </button>
                                             {{-- modal editar --}}
-                                            <div class="modal fade" id="modal-editar-{{ $cliente->id }}"        aria-hidden="true">
+                                            <div class="modal fade" id="modal-editar-{{ $cliente->ID  }}"        aria-hidden="true">
                                                 <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -100,7 +135,7 @@
                                                     </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form  action="{{route('clientes.update',$cliente->id) }}"  method="POST">
+                                                        <form  action="{{route('clientes.update',$cliente->id ) }}"  method="POST">
                                                             @csrf
                                                             @method('PUT')
                                                             {{-- Nombre --}}
