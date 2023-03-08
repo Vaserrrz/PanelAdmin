@@ -359,24 +359,24 @@ return [
                 ],
                 [
                     'text' => 'Planes',
-                    'url'  => 'remotas',
+                    'url'  => 'planes',
                     'icon' => 'fas fa-fx fa-bars'
                 ],
                 [
                     'text' => 'Satelites',
-                    'url'  => '#',
+                    'url'  => 'satelites',
                     'icon' => 'fas fa-fx fa-wifi',
                 ],
             ],
         ],
         [
             'text' => 'Revendedores',
-            'url'  => 'admin/settings',
+            'url'  => 'reevendedores',
             'icon' => 'fas fa-fw fa-sitemap',
         ],
         [
             'text' => 'Administracion',
-            'url'  => 'admin/settings',
+            'url'  => 'administracion',
             'icon' => 'fas fa-fw  fa-book',
             'submenu' => [
                 [

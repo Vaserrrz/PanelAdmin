@@ -37,9 +37,9 @@ class EncargadoController extends Controller
     public function store(Request $request)
     {
         $encargado = new encargado();
-        $encargado->nombre = $request->nombre;
-        $encargado->email = $request->email;
-        $encargado->descripcion = $request->descripcion;
+        $encargado->ENCARGADO_NOMBRE = $request->ENCARGADO_NOMBRE;
+        $encargado->ENCARGADO_CORREO = $request->ENCARGADO_CORREO;
+        $encargado->ENCARGADO_TELF = $request->ENCARGADO_TELF;
         $encargado->save();
 
 
@@ -79,9 +79,9 @@ class EncargadoController extends Controller
     public function update(Request $request, $id)
     {
             $encargado = encargado::find($id);
-            $encargado->nombre = $request->nombre;
-            $encargado->email = $request->email;
-            $encargado->descripcion = $request->descripcion;
+            $encargado->ENCARGADO_NOMBRE = $request->ENCARGADO_NOMBRE;
+            $encargado->ENCARGADO_CORREO = $request->ENCARGADO_CORREO;
+            $encargado->ENCARGADO_TELF = $request->ENCARGADO_TELF;
             $encargado->save();
             return redirect()->route('encargados');
     }

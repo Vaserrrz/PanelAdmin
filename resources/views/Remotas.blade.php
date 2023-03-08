@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Proveedores')
+@section('title', 'Remotas')
 
 @section('content_header')
     <h1>Remotas Satelital</h1>
@@ -69,8 +69,8 @@
                         <table class="table table-bordered">
                             <thead>
                               <tr>
-                                <th scope="col">IP MODEM</th>
-                                <th scope="col">Equipo</th>
+                                <th scope="col">IP</th>
+                                <th scope="col">Nombre</th>
                                 <th scope="col">Cliente</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">IP</th>

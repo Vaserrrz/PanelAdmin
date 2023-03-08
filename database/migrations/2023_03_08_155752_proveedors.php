@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Proveedores', function(Blueprint $table){
+        Schema::create('proveedors', function(Blueprint $table){
             $table->id('PROVEEDOR_ID')->autoIncrement();
             $table->integer('CI_RIF');
             $table->string('RAZON', 150);
@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('CONTACTO', 50);
             $table->string('METODO_PAGO', 50);
             $table->string('DETALLE_PAGO', 50);
+            $table->timestamps();
         });
     }
 
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Proveedores');
+        Schema::dropIfExists('proveedors');
     }
 };

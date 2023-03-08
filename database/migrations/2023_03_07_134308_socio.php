@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('CI_SOCIO');
             $table->integer('TELF_SOCIO');
             $table->string('EMAIL_SOCIO', 150)->unique();
+            $table->timestamps();
         });
     }
 

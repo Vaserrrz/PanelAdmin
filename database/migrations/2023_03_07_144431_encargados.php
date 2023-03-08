@@ -14,11 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Encargados', function(Blueprint $table){
-            $table->id('ENCARGADO_ID')->autoIncrement();
+            $table->id('id')->autoIncrement();
             $table->string('ENCARGADO_NOMBRE');
-            $table->integer('ENCARGADO_TELF');
+            $table->string('ENCARGADO_TELF', 20);
             $table->string('ENCARGADO_CORREO', 100)->unique();
-            $table->boolean('ENVIO_TELEGRAM');
+            $table->boolean('ENVIO_TELEGRAM')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('Encargados');
     }
 };

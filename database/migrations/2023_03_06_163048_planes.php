@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('PLAN_CONTENCION');
             $table->integer('PLAN_COSTO');
             $table->integer('PLAN_PRECIO');
+            $table->timestamps();
         });
     }
 

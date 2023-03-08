@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id('RESELLER_ID');
             $table->string('NOMBRE_RESELLER');
             $table->string('NOC_RESELLER');
-            $table->integer('TELF_RESELLER');
-            $table->integer('TELF2_RESELLER');
+            $table->string('TELF_RESELLER', 20);
+            $table->string('TELF2_RESELLER', 20);
+            $table->timestamps();
         });
     }
 

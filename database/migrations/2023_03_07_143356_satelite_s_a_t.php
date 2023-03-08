@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('SAT_LNB', 50);
             $table->string('SAT_FRECUENCIA', 50);
             $table->string('SAT_BANDAS', 50);
+            $table->timestamps();
         });
     }
 

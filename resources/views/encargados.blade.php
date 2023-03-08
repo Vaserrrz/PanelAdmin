@@ -35,20 +35,20 @@
                                         @csrf
                                         {{-- Nombre --}}
                                         <div class="form-group">
-                                          <label for="nombre">Nombre</label>
-                                          <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre" name="nombre">
+                                          <label for="ENCARGADO_NOMBRE">Nombre</label>
+                                          <input type="text" class="form-control" id="ENCARGADO_NOMBRE" placeholder="Ingrese el nombre del encargado" name="ENCARGADO_NOMBRE">
                                         </div>
 
                                         {{-- Email --}}
                                         <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input type="email" class="form-control" id="email" placeholder="Ingrese el email" name="email">
+                                            <label for="ENCARGADO_CORREO">Correo</label>
+                                            <input type="email" class="form-control" id="ENCARGADO_CORREO" placeholder="Ingrese el correo del encargado" name="ENCARGADO_CORREO">
                                         </div>
 
                                         {{-- Descripcion --}}
                                         <div class="form-group">
-                                            <label for="descripcion">Descripcion</label>
-                                            <input type="descripcion" class="form-control" id="descripcion" placeholder="Ingrese una descripcion" name="descripcion">
+                                            <label for="ENCARGADO_TELF">Telefono</label>
+                                            <input type="integer" class="form-control" id="ENCARGADO_TELF" placeholder="Ingrese el telefono del encargado" name="ENCARGADO_TELF">
                                         </div>
 
 
@@ -69,10 +69,10 @@
                         <table class="table table-bordered">
                             <thead>
                               <tr>
-                                <th scope="col">#id</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Descripcion</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">NOMBRE</th>
+                                <th scope="col">TELEFONO</th>
+                                <th scope="col">CORREO</th>
                                 <th scope="col">Acciones</th>
                               </tr>
                             </thead>
@@ -80,9 +80,9 @@
                                 @forelse ($encargados as $encargado)
                                     <tr>
                                         <th scope="row">{{ $encargado->id }}</th>
-                                        <td>{{ $encargado->nombre }}</td>
-                                        <td>{{ $encargado->email }}</td>
-                                        <td>{{ $encargado->descripcion }}</td>
+                                        <td>{{ $encargado->ENCARGADO_NOMBRE }}</td>
+                                        <td>{{ $encargado->ENCARGADO_TELF }}</td>
+                                        <td>{{ $encargado->ENCARGADO_CORREO }}</td>
                                         <td>
                                             {{-- Editar  --}}
                                             {{-- Buton editar  --}}
@@ -106,19 +106,19 @@
                                                             {{-- Nombre --}}
                                                             <div class="form-group">
                                                               <label for="nombre">Nombre</label>
-                                                              <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre" name="nombre" value="{{ $encargado->nombre }}">
+                                                              <input type="text" class="form-control" id="ENCARGADO_NOMBRE" placeholder="Ingrese el nombre del encargado" name="ENCARGADO_NOMBRE" value="{{ $encargado->ENCARGADO_NOMBRE }}">
                                                             </div>
 
-                                                            {{-- Email --}}
+                                                            {{-- Correo --}}
                                                             <div class="form-group">
-                                                                <label for="email">Email</label>
-                                                                <input type="email" class="form-control" id="email" placeholder="Ingrese el email" name="email" value="{{ $encargado->email }}">
+                                                                <label for="email">Correo</label>
+                                                                <input type="email" class="form-control" id="ENCARGADO_CORREO" placeholder="PRUEBA PLACEHOLDER" name="ENCARGADO_CORREO" value="{{ $encargado->ENCARGADO_CORREO }}">
                                                             </div>
 
-                                                            {{-- Descripcion --}}
+                                                            {{-- Telefono --}}
                                                             <div class="form-group">
-                                                                <label for="descripcion">Descripcion</label>
-                                                                <input type="descripcion" class="form-control" id="descripcion" placeholder="Ingrese una descripcion" name="descripcion" value="{{ $encargado->descripcion }}">
+                                                                <label for="descripcion">Telefono</label>
+                                                                <input type="descripcion" class="form-control" id="ENCARGADO_TELF" placeholder="Ingrese el numero telefonico del encargado" name="ENCARGADO_TELF" value="{{ $encargado->ENCARGADO_TELF }}">
                                                             </div>
 
 

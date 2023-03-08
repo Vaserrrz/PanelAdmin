@@ -15,11 +15,13 @@ return new class extends Migration
     {
         Schema::create('CLientes', function(Blueprint $table){
             $table->id('CLIENTE_ID')->autoIncrement();
+            $table->string('CLIENTE_NOMBRE', 100);
             $table->integer('CI_RIF')->default(20);
             $table->string('CLIENTE_RAZON', 100);
             $table->string('CLIENTE_DIRECCION', 100);
             $table->string('CLIENTE_DETALLE');
-            $table->integer('CLIENTE_TELF');
+            $table->string('CLIENTE_TELF', 20);
+            $table->timestamps();
         });
     }
 
