@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EncargadoController;
 use App\Http\Controllers\ProveedorController;
-
+use App\Http\Controllers\SocioController;
+use App\Http\Controllers\TecnicoController;
+use App\Http\Controllers\Revendedores;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,6 +72,48 @@ Route::put('encargados/{encargado}',[ EncargadoController::class,'update'])->nam
 Route::delete('encargados/{encargado}',[ EncargadoController::class,'destroy'])->name('encargados.destroy');
 //Ruta Detalle
 Route::get('encargados/{encargado}',[ EncargadoController::class,'details'])->name('encargados.details');
+
+
+//SOCIOS
+Route::get('socios', [SocioController::class, 'index'])->name('socios');
+//ruta de guardar
+Route::post('socios',[ SocioController::class,'store'])->name('socios.store');
+// ruta editar
+Route::get('socios/{socio}/edit',[ SocioController::class,'edit'])->name('socios.edit');
+// ruta update
+Route::put('socios/{socio}',[ SocioController::class,'update'])->name('socios.update');
+// Ruta eliminar delete
+Route::delete('socios/{socio}',[ SocioController::class,'destroy'])->name('socios.destroy');
+//Ruta Detalle
+/*Route::get('socios/{socio}',[ SocioController::class,'details'])->name('socios.details');*/
+
+
+//TECNICOS
+Route::get('tecnicos', [TecnicoController::class, 'index'])->name('tecnicos');
+//ruta de guardar
+Route::post('tecnicos',[ TecnicoController::class,'store'])->name('tecnicos.store');
+// ruta editar
+Route::get('tecnicos/{tecnico}/edit',[ TecnicoController::class,'edit'])->name('tecnicos.edit');
+// ruta update
+Route::put('tecnicos/{tecnico}',[ TecnicoController::class,'update'])->name('tecnicos.update');
+// Ruta eliminar delete
+Route::delete('tecnicos/{tecnico}',[ TecnicoController::class,'destroy'])->name('tecnicos.destroy');
+//Ruta Detalle
+/*Route::get('tecnicos/{tecnico}',[ TecnicoController::class,'details'])->name('tecnicos.details');*/
+
+
+//REVENDEDORES
+Route::get('revendedores', [Revendedores::class, 'index'])->name('revendedores');
+//ruta de guardar
+Route::post('revendedores',[ Revendedores::class,'store'])->name('revendedores.store');
+// ruta editar
+Route::get('revendedores/{revendedor}/edit',[ Revendedores::class,'edit'])->name('revendedores.edit');
+// ruta update
+Route::put('revendedores/{revendedor}',[ Revendedores::class,'update'])->name('revendedores.update');
+// Ruta eliminar delete
+Route::delete('revendedores/{revendedor}',[ Revendedores::class,'destroy'])->name('revendedores.destroy');
+//Ruta Detalle
+/*Route::get('revendedores/{revendedor}',[ Revendedores::class,'details'])->name('revendedores.details');*/
 
 Route::middleware([
     'auth:sanctum',

@@ -371,7 +371,7 @@ return [
         ],
         [
             'text' => 'Revendedores',
-            'url'  => 'reevendedores',
+            'url'  => 'hola',
             'icon' => 'fas fa-fw fa-sitemap',
         ],
         [
@@ -396,12 +396,12 @@ return [
                 ],
                 [
                     'text' => 'Socios',
-                    'url'  => '#',
+                    'url'  => 'socios',
                     'icon' => 'fas fa-fx fa-address-card',
                 ],
                 [
                     'text' => 'Tecnicos',
-                    'url'  => '#',
+                    'url'  => 'tecnicos',
                     'icon' => 'fas fa-fx fa-male'
                 ],
             ],
@@ -409,17 +409,17 @@ return [
         ['header' => 'CONFIGURACION'],
         [
             'text' => 'Usuarios',
-            'url'  => 'admin/settings',
+            'url'  => 'usuarios',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Perfiles',
-            'url'  => 'admin/settings',
+            'url'  => 'perfiles',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
             'text' => 'MANTENIMIENTO',
-            'url'  => 'admin/settings',
+            'url'  => 'mantenimiento',
             'icon' => 'fas fa-fw fa-wrench',
         ],
     ],

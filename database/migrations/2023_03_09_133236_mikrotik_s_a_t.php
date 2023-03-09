@@ -13,14 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reseller', function(Blueprint $table){
-            $table->id('RESELLER_ID');
-            $table->string('NOMBRE_RESELLER');
-            $table->string('NOC_RESELLER');
-            $table->string('TELF_RESELLER', 20);
-            $table->string('TELF2_RESELLER', 20);
-            $table->timestamps();
-        });
+        //
     }
 
     /**
@@ -30,6 +23,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reseller');
+        //
     }
 };

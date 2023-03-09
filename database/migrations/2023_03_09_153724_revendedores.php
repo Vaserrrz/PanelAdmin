@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Socio', function(Blueprint $table){
-            $table->id('SOCIO_ID')->autoIncrement();
-            $table->integer('CI_SOCIO');
-            $table->integer('TELF_SOCIO');
-            $table->string('EMAIL_SOCIO', 150)->unique();
+        Schema::create('revendedors', function(Blueprint $table){
+            $table->id('id');
+            $table->string('NOMBRE_RESELLER');
+            $table->string('NOC_RESELLER');
+            $table->string('TELF_RESELLER', 20);
+            $table->string('TELF2_RESELLER', 20);
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Socio');
+        Schema::dropIfExists('revendedors');
     }
 };
