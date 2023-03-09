@@ -342,7 +342,7 @@ return [
         ],
         [
             'text' => 'Mikrotik Satelital',
-            'url'  => 'admin/settings',
+            'url'  => 'mikrotiks',
             'icon' => 'fas fa-fw fa-server',
             'label' => 'NUEVO',
             'Label_color' => 'primary',
@@ -371,7 +371,7 @@ return [
         ],
         [
             'text' => 'Revendedores',
-            'url'  => 'hola',
+            'url'  => 'revendedores',
             'icon' => 'fas fa-fw fa-sitemap',
         ],
         [

@@ -8,6 +8,9 @@ use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\SocioController;
 use App\Http\Controllers\TecnicoController;
 use App\Http\Controllers\Revendedores;
+use App\Http\Controllers\PlanController;
+use App\Http\Controllers\SateliteController;
+use App\Http\Controllers\MikrotikController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -114,6 +117,47 @@ Route::put('revendedores/{revendedor}',[ Revendedores::class,'update'])->name('r
 Route::delete('revendedores/{revendedor}',[ Revendedores::class,'destroy'])->name('revendedores.destroy');
 //Ruta Detalle
 /*Route::get('revendedores/{revendedor}',[ Revendedores::class,'details'])->name('revendedores.details');*/
+
+
+//PLANES
+Route::get('planes', [PlanController::class, 'index'])->name('planes');
+//ruta de guardar
+Route::post('planes',[ PlanController::class,'store'])->name('planes.store');
+// ruta editar
+Route::get('planes/{plan}/edit',[ PlanController::class,'edit'])->name('planes.edit');
+// ruta update
+Route::put('planes/{plan}',[ PlanController::class,'update'])->name('planes.update');
+// Ruta eliminar delete
+Route::delete('planes/{plan}',[ PlanController::class,'destroy'])->name('planes.destroy');
+//Ruta Detalle
+/*Route::get('planes/{plan}',[ PlanController::class,'details'])->name('planes.details');*/
+
+
+//SATELITE
+Route::get('satelites', [SateliteController::class, 'index'])->name('satelites');
+//ruta de guardar
+Route::post('satelites',[ SateliteController::class,'store'])->name('satelites.store');
+// ruta editar
+Route::get('satelites/{satelite}/edit',[ SateliteController::class,'edit'])->name('satelites.edit');
+// ruta update
+Route::put('satelites/{satelite}',[ SateliteController::class,'update'])->name('satelites.update');
+// Ruta eliminar delete
+Route::delete('satelites/{satelite}',[ SateliteController::class,'destroy'])->name('satelites.destroy');
+//Ruta Detalle
+/*Route::get('satelites/{satelite}',[ SateliteController::class,'details'])->name('satelites.details');*/
+
+//MIKROTIK
+Route::get('mikrotiks', [MikrotikController::class, 'index'])->name('mikrotiks');
+//ruta de guardar
+Route::post('mikrotiks',[ MikrotikController::class,'store'])->name('mikrotiks.store');
+// ruta editar
+Route::get('mikrotiks/{Mikrotik}/edit',[ MikrotikController::class,'edit'])->name('mikrotiks.edit');
+// ruta update
+Route::put('mikrotiks/{Mikrotik}',[ MikrotikController::class,'update'])->name('mikrotiks.update');
+// Ruta eliminar delete
+Route::delete('mikrotiks/{Mikrotik}',[ MikrotikController::class,'destroy'])->name('mikrotiks.destroy');
+//Ruta Detalle
+/*Route::get('mikrotiks/{Mikrotik}',[ MikrotikController::class,'details'])->name('mikrotiks.details');*/
 
 Route::middleware([
     'auth:sanctum',

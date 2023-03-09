@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('planes', function(Blueprint $table){
-            $table->id('PLAN_ID')->bigint()->autoIncrement();
+        Schema::create('plans', function(Blueprint $table){
+            $table->id('id')->bigint()->autoIncrement();
             $table->string('PLAN_NOMBRE', 100);
             $table->string('PLAN_SUBIDA');
             $table->string('PLAN_BAJADA');
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('planes');
+        Schema::dropIfExists('plans');
     }
 };

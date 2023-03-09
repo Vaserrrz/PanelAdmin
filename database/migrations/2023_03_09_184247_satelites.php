@@ -14,8 +14,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('SateliteSAT', function(Blueprint $table){
-            $table->id('SAT_ID')->bigint(10)->autoIncrement();
+        Schema::create('Satelites', function(Blueprint $table){
+            $table->id('id')->bigint(10)->autoIncrement();
             $table->string('SAT_NOMBRE', 50);
             $table->string('SAT_DESCRIPCION', 100);
             $table->string('SAT_AZNUT', 50);
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('SateliteSAT');
+        Schema::dropIfExists('Satelites');
     }
 };
