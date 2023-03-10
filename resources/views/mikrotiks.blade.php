@@ -25,7 +25,7 @@
                             <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Agregar - mikrotik</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Agregar - Mikrotik</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -139,6 +139,7 @@
                                 <th scope="col">IP</th>
                                 <th scope="col">IDENTITY</th>
                                 <th scope="col">Serial</th>
+                                <th scope="col">Acciones </th>
                               </tr>
                             </thead>
                             <tbody>
@@ -147,7 +148,7 @@
                                         <th scope="row">{{ $mikrotik->id  }}</th>
 
                                         <td>
-                                            <a href=""> {{ $mikrotik->MK_NOMBRE }}</a>
+                                            <a href="{{route('mikrotiks.details', $mikrotik->id)}}"> {{ $mikrotik->MK_NOMBRE }}</a>
                                         </td>
                                         <td>{{ $mikrotik->MK_IP }}</td>
                                         <td>{{ $mikrotik->MK_SERIAL }}</td>

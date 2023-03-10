@@ -61,7 +61,7 @@ class MikrotikController extends Controller
     public function details()
     {
         $mikrotiks = mikrotik::all();
-        return view('detailsmikrotiks', compact('mikrotiks'));
+        return view('details.mikrotiks', compact('mikrotiks'));
 
     }
 

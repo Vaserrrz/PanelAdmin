@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('REMOTA_SERIAL', 100);
             $table->string('REMOTA_COORDENADA', 100);
             $table->string('REMOTA_BUC', 100);
-            $table->string('REMOTA_BUC_SERIAL, 100');
+            $table->string('REMOTA_BUC_SERIAL', 100);
             $table->string('REMOTA_LNB', 100);
-            $table->string('REMOTA_LNB-SERIAL, 100');
+            $table->string('REMOTA_LNB_SERIAL');
             //$table->foreignID('PLAN_ID');
             $table->boolean('REMOTA_PLANDOWN');
             $table->boolean('REMOTA_PLANUP');

@@ -37,15 +37,40 @@ class RemotaController extends Controller
     public function store(Request $request)
     {
         $remota = new remota();
-        $remota->nombre = $request->nombre;
-        $remota->email = $request->email;
-        $remota->descripcion = $request->descripcion;
+
+        $remota->REMOTA_NODO = $request->REMOTA_NODO;
+        $remota->REMOTA_EQUIPO = $request->REMOTA_EQUIPO;
+        $remota->REMOTA_SERIAL = $request->REMOTA_SERIAL;
+        $remota->REMOTA_COORDENADA = $request->REMOTA_COORDENADA;
+        $remota->REMOTA_BUC = $request->REMOTA_BUC;
+        $remota->REMOTA_BUC_SERIAL = $request->REMOTA_BUC_SERIAL;
+        $remota->REMOTA_LNB = $request->REMOTA_LNB;
+        $remota->REMOTA_LNB_SERIAL = $request->REMOTA_LNB_SERIAL;
+        $remota->REMOTA_PLANDOWN = $request->REMOTA_PLANDOWN;
+        $remota->REMOTA_PLANUP = $request->REMOTA_PLANUP;
+        $remota->REMOTA_COSTO_PLAN = $request->REMOTA_COSTO_PLAN;
+        $remota->REMOTA_RENTA = $request->REMOTA_RENTA;
+        $remota->REMOTA_DIA_CORTE = $request->REMOTA_DIA_CORTE;
+        $remota->REMOTA_DIA_ACTIVACION = $request->REMOTA_DIA_ACTIVACION;
+        $remota->REMOTA_DETALLE = $request->REMOTA_DETALLE;
+        $remota->REMOTA_PLATO = $request->REMOTA_PLATO;
+        $remota->REMOTA_IP_MODEM = $request->REMOTA_IP_MODEM;
+        $remota->REMOTA_IP_GESTION = $request->REMOTA_IP_GESTION;
+        $remota->REMOTA_STATUS = $request->REMOTA_STATUS;
+        $remota->REMOTA_BONDA = $request->REMOTA_BONDA;
+
         $remota->save();
 
 
         return redirect()->route('remotas');
     }
 
+    public function details()
+    {
+        $mikrotiks = remota::all();
+        return view('details.remotas', compact('remotas'));
+
+    }
     /**
      * Display the specified resource.
      *
@@ -79,10 +104,30 @@ class RemotaController extends Controller
     public function update(Request $request, $REMOTA_ID)
     {
             $remota = remota::find($REMOTA_ID);
-            $remota->nombre = $request->nombre;
-            $remota->email = $request->email;
-            $remota->descripcion = $request->descripcion;
+
+            $remota->REMOTA_NODO = $request->REMOTA_NODO;
+            $remota->REMOTA_EQUIPO = $request->REMOTA_EQUIPO;
+            $remota->REMOTA_SERIAL = $request->REMOTA_SERIAL;
+            $remota->REMOTA_COORDENADA = $request->REMOTA_COORDENADA;
+            $remota->REMOTA_BUC = $request->REMOTA_BUC;
+            $remota->REMOTA_BUC_SERIAL = $request->REMOTA_BUC_SERIAL;
+            $remota->REMOTA_LNB = $request->REMOTA_LNB;
+            $remota->REMOTA_LNB_SERIAL = $request->REMOTA_LNB_SERIAL;
+            $remota->REMOTA_PLANDOWN = $request->REMOTA_PLANDOWN;
+            $remota->REMOTA_PLANUP = $request->REMOTA_PLANUP;
+            $remota->REMOTA_COSTO_PLAN = $request->REMOTA_COSTO_PLAN;
+            $remota->REMOTA_RENTA = $request->REMOTA_RENTA;
+            $remota->REMOTA_DIA_CORTE = $request->REMOTA_DIA_CORTE;
+            $remota->REMOTA_DIA_ACTIVACION = $request->REMOTA_DIA_ACTIVACION;
+            $remota->REMOTA_DETALLE = $request->REMOTA_DETALLE;
+            $remota->REMOTA_PLATO = $request->REMOTA_PLATO;
+            $remota->REMOTA_IP_MODEM = $request->REMOTA_IP_MODEM;
+            $remota->REMOTA_IP_GESTION = $request->REMOTA_IP_GESTION;
+            $remota->REMOTA_STATUS = $request->REMOTA_STATUS;
+            $remota->REMOTA_BONDA = $request->REMOTA_BONDA;
+
             $remota->save();
+
             return redirect()->route('remotas');
     }
 

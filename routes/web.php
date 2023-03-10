@@ -61,6 +61,8 @@ Route::get('remotas/{remota}/edit',[ RemotaController::class,'edit'])->name('rem
 Route::put('remotas/{remota}',[ RemotaController::class,'update'])->name('remotas.update');
 // Ruta eliminar delete
 Route::delete('remotas/{remota}',[ RemotaController::class,'destroy'])->name('remotas.destroy');
+//detail
+Route::get('remotas/{remota}',[ RemotaController::class,'details'])->name('remotas.details');
 
 
 //ENCARGADOS
@@ -157,7 +159,7 @@ Route::put('mikrotiks/{Mikrotik}',[ MikrotikController::class,'update'])->name('
 // Ruta eliminar delete
 Route::delete('mikrotiks/{Mikrotik}',[ MikrotikController::class,'destroy'])->name('mikrotiks.destroy');
 //Ruta Detalle
-/*Route::get('mikrotiks/{Mikrotik}',[ MikrotikController::class,'details'])->name('mikrotiks.details');*/
+Route::get('mikrotiks/{Mikrotik}',[ MikrotikController::class,'details'])->name('mikrotiks.details');
 
 Route::middleware([
     'auth:sanctum',
