@@ -130,8 +130,9 @@
                                                     </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form  action="{{ route('satelites.store') }}"  method="POST">
+                                                        <form  action="{{route('satelites.update',$satelite->id ) }}"  method="POST">
                                                             @csrf
+                                                            @method('PUT')
                                                             {{-- Nombre --}}
                                                             <div class="form-group">
                                                               <label for="SAT_NOMBRE">Nombre</label>

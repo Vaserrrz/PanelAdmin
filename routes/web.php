@@ -104,7 +104,7 @@ Route::put('tecnicos/{tecnico}',[ TecnicoController::class,'update'])->name('tec
 // Ruta eliminar delete
 Route::delete('tecnicos/{tecnico}',[ TecnicoController::class,'destroy'])->name('tecnicos.destroy');
 //Ruta Detalle
-/*Route::get('tecnicos/{tecnico}',[ TecnicoController::class,'details'])->name('tecnicos.details');*/
+Route::get('tecnicos/{tecnico}',[ TecnicoController::class,'details'])->name('tecnicos.details');
 
 
 //REVENDEDORES

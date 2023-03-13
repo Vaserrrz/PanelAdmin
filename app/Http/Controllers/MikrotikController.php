@@ -58,10 +58,11 @@ class MikrotikController extends Controller
         return redirect()->route('mikrotiks');
     }
 
-    public function details()
+    public function details(mikrotik $mikrotik, $id)
     {
-        $mikrotiks = mikrotik::all();
-        return view('details.mikrotiks', compact('mikrotiks'));
+         $mikrotik = mikrotik::find($id);
+
+        return view('details.mikrotiks', compact('mikrotik'));
 
     }
 
@@ -97,7 +98,7 @@ class MikrotikController extends Controller
      */
     public function update(Request $request, $id )
     {
-            $mikrotik = mikrotik::find($id );
+            $mikrotik = mikrotik::find($id);
 
             $mikrotik->MK_NOMBRE = $request->MK_NOMBRE;
             $mikrotik->MK_IP = $request->MK_IP;

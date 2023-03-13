@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Mikrotiks')
+@section('title', 'Tecnicos')
 
 @section('content_header')
-    <h1>Mikrotiks Satelital</h1>
+    <h1>Tecnicos</h1>
 @stop
 
 @section('content')
@@ -13,10 +13,10 @@
         <div class="col col-md-12">
             <div class="card">
                 <div class="card-header">
-                    {{$mikrotik->MK_NOMBRE}}
+                    {{$tecnico->TECNICO_NOMBRE}}
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title">Especificaciones </h5>
+                  <h5 class="card-title">Informacion Tecnicos</h5>
                 </div>
           </div>
        </div>
@@ -26,8 +26,7 @@
                         <div class="col col-md-6">
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">IP</label>
-                                <input class="form-control" type="text" value="{{$mikrotik->MK_IP}}" readonly>
-
+                                <input class="form-control" type="text" placeholder="IP Mikrotik" readonly>
                               </div>
                         </div>
 
@@ -35,7 +34,7 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Serial</label>
-                                <input class="form-control" type="text"value="{{$mikrotik->MK_SERIAL}}" readonly>
+                                <input class="form-control" type="text" placeholder="IP Mikrotik" readonly>
                               </div>
                         </div>
         </div>
@@ -44,14 +43,14 @@
             <div class="col">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Identity</label>
-                    <input class="form-control" type="text" value="{{$mikrotik->MK_IDENTITY}}" readonly>
+                    <input class="form-control" type="text" placeholder="IP Mikrotik" readonly>
                 </div>
             </div>
 
             <div class="col">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Modelo</label>
-                    <input class="form-control" type="text" value="{{$mikrotik->MK_MODEL}}" readonly>
+                    <input class="form-control" type="text" placeholder="IP Mikrotik" readonly>
                 </div>
             </div>
         </div>
@@ -60,21 +59,21 @@
                 <div class="col col-md-3">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">USER (VPN)</label>
-                        <input class="form-control" type="text" value="{{$mikrotik->MK_VPNUSER}}" readonly>
+                        <input class="form-control" type="text" placeholder="IP Mikrotik" readonly>
                       </div>
                 </div>
 
                 <div class="col col-md-3">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">PASSWORD (VPN)</label>
-                        <input class="form-control" type="password" value="{{$mikrotik->MK_VPNPASSWORD}}" readonly>
+                        <input class="form-control" type="password" placeholder="IP Mikrotik" readonly>
                       </div>
                 </div>
 
                 <div class="col col-md-6">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">SERVER (VPN)</label>
-                        <input class="form-control" type="text" value="{{$mikrotik->MK_VPNSERVER}}" readonly>
+                        <input class="form-control" type="text" placeholder="IP Mikrotik" readonly>
                       </div>
                 </div>
         </div>
@@ -83,13 +82,14 @@
             <div class="col">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">ETHRCORTE1</label>
-                    <input class="form-control" type="password" value="{{$mikrotik->MK_ETHRCORTE1}}"
+                    <input class="form-control" type="password" placeholder="ETHRCORTE" readonly>
+                  </div>
             </div>
 
             <div class="col">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">ETHRCORTE2</label>
-                    <input class="form-control" type="password" value="{{$mikrotik->MK_ETHRCORTE1}}" readonly>
+                    <input class="form-control" type="password" placeholder="ETHRCORTE2" readonly>
                   </div>
             </div>
        </div>
@@ -98,7 +98,7 @@
         <div class="col col-md-6">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Usuario</label>
-                <input class="form-control" type="text" value="{{$mikrotik->MK_USUARIO}}" readonly>
+                <input class="form-control" type="text" placeholder="IP Mikrotik" readonly>
               </div>
         </div>
 
@@ -106,7 +106,7 @@
         <div class="col">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Contraseña</label>
-                <input class="form-control" type="password" value="{{$mikrotik->MK_CLAVE}}" readonly>
+                <input class="form-control" type="password" placeholder="IP Mikrotik" readonly>
               </div>
         </div>
        </div>
@@ -115,14 +115,14 @@
         <div class="col col-md-2">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Puerto</label>
-                <input class="form-control" type="text" value="{{$mikrotik->MK_PUERTO}}" readonly>
+                <input class="form-control" type="text" placeholder="IP Mikrotik" readonly>
               </div>
         </div>
 
         <div class="col col-md-4">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Protocolo</label>
-                <input class="form-control" type="text" value="{{$mikrotik->MK_PROTOCOLO}}" readonly>
+                <input class="form-control" type="text" placeholder="IP Mikrotik" readonly>
               </div>
         </div>
 

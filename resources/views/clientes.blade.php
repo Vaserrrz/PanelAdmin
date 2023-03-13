@@ -129,7 +129,7 @@
                                                 Editar
                                             </button>
                                             {{-- modal editar --}}
-                                            <div class="modal fade" id="modal-editar-{{ $cliente->id  }}"        aria-hidden="true">
+                                            <div class="modal fade" id="modal-editar-{{$cliente->id}}"        aria-hidden="true">
                                                 <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -139,7 +139,7 @@
                                                     </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form  action="{{ route('clientes.store') }}"  method="POST">
+                                                        <form  action="{{route('clientes.update', $cliente->id)}}"  method="POST">
                                                             @csrf
 
                                                             {{-- CI/RIF --}}

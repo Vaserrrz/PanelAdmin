@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Tecnico;
 use Illuminate\Http\Request;
+use App\Models\tecnico;
 
+/**
+ * Summary of TecnicoController
+ */
 class TecnicoController extends Controller
 {
     /**
@@ -14,7 +17,7 @@ class TecnicoController extends Controller
      */
     public function index()
     {
-        $tecnicos = tecnico::paginate();
+        $tecnicos = tecnico::all();
         return view('tecnicos', compact('tecnicos'));
     }
 
@@ -48,9 +51,16 @@ class TecnicoController extends Controller
 
         $tecnico->save();
 
-
         return redirect()->route('tecnicos');
     }
+
+    public function details(tecnico $tecnico)
+   {
+
+
+
+    return view('details.tecnicos', compact('tecnico'));
+   }
 
     /**
      * Display the specified resource.
@@ -58,7 +68,7 @@ class TecnicoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   /* public function show($ID)
+   /* public function show($id)
     {
         //
     }*/
@@ -82,7 +92,7 @@ class TecnicoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id )
     {
             $tecnico = tecnico::find($id);
 
@@ -95,7 +105,6 @@ class TecnicoController extends Controller
             $tecnico->REEMPLAZO = $request->REEMPLAZO;
 
             $tecnico->save();
-
             return redirect()->route('tecnicos');
     }
 
@@ -111,3 +120,4 @@ class TecnicoController extends Controller
     }
 
 }
+

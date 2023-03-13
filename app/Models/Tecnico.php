@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Tecnico extends Model
 {
     use HasFactory;
+
+    /**
+     */
+    public function __construct() {
+    }
 }

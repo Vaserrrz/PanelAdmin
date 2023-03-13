@@ -74,6 +74,8 @@
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                             <button type="submit" class="btn btn-primary">Guardar</button>
                                         </div>
+
+
                                     </form>
 
 
@@ -87,11 +89,13 @@
                             <thead>
                               <tr>
                                 <th scope="col">ID</th>
+                                <th scope="col">Nombre</th>
                                 <th scope="col">Subida</th>
                                 <th scope="col">Bajada</th>
                                 <th scope="col">Contencion</th>
                                 <th scope="col">Costo Secundario</th>
                                 <th scope="col">Precio</th>
+                                <th scope="col">Acciones</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -105,6 +109,7 @@
                                         <td>{{ $plan->PLAN_CONTENCION }}</td>
                                         <td>{{ $plan->PLAN_COSTO  }}</td>
                                         <td>{{ $plan->PLAN_PRECIO   }}</td>
+
                                         <td>
                                             {{-- Editar  --}}
                                             {{-- Buton editar  --}}
@@ -135,7 +140,7 @@
                                                             {{-- PLAN SUBIDA --}}
                                                             <div class="form-group">
                                                                 <label for="PLAN_SUBIDA">Subida</label>
-                                                                <input type="email" class="form-control" id="PLAN_SUBIDA" placeholder="Ingrese la Subida del plan" name="PLAN_SUBIDA">
+                                                                <input type="text" class="form-control" id="PLAN_SUBIDA" placeholder="Ingrese la Subida del plan" name="PLAN_SUBIDA">
                                                             </div>
 
                                                             {{-- PLAN BAJADA --}}
@@ -160,6 +165,11 @@
                                                             <div class="form-group">
                                                                 <label for="PLAN_PRECIO">Precio</label>
                                                                 <input type="text" class="form-control" id="PLAN_PRECIO" placeholder="Ingrese EL Precio del Plan" name="PLAN_PRECIO">
+                                                            </div>
+
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                <button type="submit" class="btn btn-primary">Guardar</button>
                                                             </div>
                                                         </form>
 

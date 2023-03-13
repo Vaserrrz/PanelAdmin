@@ -82,8 +82,6 @@
                                         </div>
                                     </form>
 
-
-
                                 </div>
                             </div>
                             </div>
@@ -96,10 +94,7 @@
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Correo</th>
                                 <th scope="col">Telefono</th>
-                                <th scope="col">Telefono Secundario</th>
                                 <th scope="col">Zona de Trabajo</th>
-                                <th scope="col">Incidencia</th>
-                                <th scope="col">Reemplazos</th>
                                 <th scope="col">Acciones</th>
                               </tr>
                             </thead>
@@ -108,13 +103,15 @@
                                     <tr>
                                         <th scope="row">{{ $tecnico->id  }}</th>
 
-                                        <td>{{ $tecnico->TECNICO_NOMBRE }}</td>
+                                        <td>
+                                            <a href="{{route('tecnicos.details',$tecnico->id)}}">{{ $tecnico->TECNICO_NOMBRE }}</a>
+                                        </td>
                                         <td>{{ $tecnico->TECNICO_CORREO }}</td>
                                         <td>{{ $tecnico->TECNICO_TELF }}</td>
-                                        <td>{{ $tecnico->TECNICO_TELF2 }}</td>
+
                                         <td>{{ $tecnico->ZONA_TRABAJO  }}</td>
-                                        <td>{{ $tecnico->INCIDENCIA   }}</td>
-                                        <td>{{ $tecnico->REEMPLAZO   }}</td>
+
+
                                         <td>
                                             {{-- Editar  --}}
                                             {{-- Buton editar  --}}
@@ -126,13 +123,13 @@
                                                 <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Agregar - tecnico</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Agregar - Tecnico</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form  action="{{route('tecnicos.update',$tecnico->id ) }}"  method="POST">
+                                                        <form  action="{{route('tecnicos.update', $tecnico->id)}}"  method="POST">
                                                             @csrf
                                                             @method('PUT')
 

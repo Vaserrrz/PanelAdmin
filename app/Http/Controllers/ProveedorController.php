@@ -50,10 +50,11 @@ class ProveedorController extends Controller
         return redirect()->route('proveedores');
     }
 
-    public function details()
+    public function details(PROVEEDOR $PROVEEDOR, $id)
     {
-        $proveedores = Proveedor::all();
-        return view('detailsproveedores', compact('proveedores'));
+         $proveedor = proveedor::find($id);
+
+        return view('details.proveedores', compact('proveedor'));
 
     }
 
