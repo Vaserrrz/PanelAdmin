@@ -16,7 +16,7 @@
                     "Nombre de la Remota"
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title">Especificaciones Mikrotik</h5>
+                  <h5 class="card-title">Especificaciones Remota</h5>
                 </div>
           </div>
        </div>

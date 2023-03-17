@@ -36,7 +36,7 @@
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Serial</label>
                                 <input class="form-control" type="text"value="{{$mikrotik->MK_SERIAL}}" readonly>
-                              </div>
+                            </div>
                         </div>
         </div>
 

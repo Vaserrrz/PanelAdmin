@@ -56,19 +56,20 @@
         </div>
 
         <div class="row">
-                <div class="col col-md-3">
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Detalle de Pago</label>
-                        <input class="form-control" type="text" value="{{$proveedor->DETALLE_PAGO}}" readonly>
-                      </div>
-                </div>
 
-                <div class="col col-md-6">
-                    <div class="form-group">
-                        <label for="exampleFormControlInput1">Correo Electronico</label>
-                        <input class="form-control" type="TEXT" value="{{$proveedor->PROVEEDOR_CORREO}}" readonly>
-                      </div>
+            <div class="col col-md-9">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Correo Electronico</label>
+                    <input class="form-control" type="TEXT" value="{{$proveedor->PROVEEDOR_CORREO}}" readonly>
                 </div>
+            </div>
+
+            <div class="col col-md-3">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Detalle de Pago</label>
+                    <input class="form-control" type="text" value="{{$proveedor->DETALLE_PAGO}}" readonly>
+                </div>
+            </div>
         </div>
 
 

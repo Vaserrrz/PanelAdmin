@@ -25,7 +25,7 @@
                             <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Agregar - Proveedor</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Agregar - remota</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -84,7 +84,7 @@
 
                                           {{-- PLANDOWN --}}
                                           <div class="form-group">
-                                              <label for="REMOTA_PLANDOWN">Plandown</label>
+                                              <label for="REMOTA_PLANDOWN">PlanD own</label>
                                               <input type="text" class="form-control" id="REMOTA_PLANDOWN" placeholder="Ingrese el PLANDOWN de la Remota" name="REMOTA_PLANDOWN">
                                           </div>
 
@@ -167,10 +167,10 @@
                         <table class="table table-bordered">
                             <thead>
                               <tr>
-                                <th scope="col">IP</th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Cliente</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Equipo</th>
+                                <th scope="col">Nodo</th>
+                                <th scope="col">Serial</th>
                                 <th scope="col">IP</th>
                                 <th scope="col">Acciones</th>
                               </tr>
@@ -180,58 +180,154 @@
                                     <tr>
                                         <th scope="row">{{ $remota->id }}</th>
                                         <td>
-                                            <a href="">   {{ $remota->nombre }}</a>
+                                            <a href="">   {{ $remota->REMOTA_EQUIPO }}</a>
                                         </td>
-                                        <td>{{ $remota->email }}</td>
-                                        <td>{{ $remota->descripcion }}</td>
+                                        <td>{{ $remota->REMOTA_NODO }}</td>
+                                        <td>{{ $remota->REMOTA_SERIAL }}</td>
+                                        <td>{{ $remota->REMOTA_IP_MODEM }}</td>
+
                                         <td>
                                             {{-- Editar  --}}
                                             {{-- Buton editar  --}}
-                                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-editar-{{ $proveedor->id }}">
+                                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-editar-{{ $remota->id }}">
                                                 Editar
                                             </button>
                                             {{-- modal editar --}}
-                                            <div class="modal fade" id="modal-editar-{{ $proveedor->id }}" aria-hidden="true">
+                                            <div class="modal fade" id="modal-editar-{{ $remota->id }}" aria-hidden="true">
                                                 <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Agregar - proveedor</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                    </div>
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Agregar - remota</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
                                                     <div class="modal-body">
                                                         //Agregar
-                                                        <form  action="{{ route('remotas.update', $proveedor->id) }}"  method="POST">
+                                                        <form  action="{{ route('remotas.update') }}"  method="POST">
                                                             @csrf
-                                                            @method('PUT')
-                                                            {{-- Nombre --}}
+
+                                                            {{-- NODO --}}
                                                             <div class="form-group">
-                                                              <label for="nombre">Nombre</label>
-                                                              <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre" name="nombre" value="{{ $proveedor->nombre }}">
+                                                                <label for="REMOTA_NODO">NODO</label>
+                                                                <input type="text" class="form-control" id="REMOTA_NODO" placeholder="Ingrese el Nodo de la Remota" name="REMOTA_NODO">
                                                             </div>
 
-                                                            {{-- Email --}}
+                                                              {{-- EQUIPO --}}
                                                             <div class="form-group">
-                                                                <label for="email">Email</label>
-                                                                <input type="email" class="form-control" id="email" placeholder="Ingrese el email" name="email" value="{{ $proveedor->email }}">
+                                                                <label for="REMOTA_EQUIPO">Equipo</label>
+                                                                <input type="text" class="form-control" id="REMOTA_LNB_SERIAL" placeholder="Ingrese el Equipo de la Remota" name="REMOTA_EQUIPO">
                                                             </div>
 
-                                                            {{-- Descripcion --}}
+                                                              {{-- SERIAL --}}
                                                             <div class="form-group">
-                                                                <label for="descripcion">Descripcion</label>
-                                                                <input type="descripcion" class="form-control" id="descripcion" placeholder="Ingrese una descripcion" name="descripcion" value="{{ $proveedor->descripcion }}">
+                                                                <label for="descripcion">Serial</label>
+                                                                <input type="text" class="form-control" id="REMOTA_SERIAL" placeholder="Ingrese el Serial de la Remota" name="REMOTA_SERIAL">
+                                                            </div>
+
+                                                            {{-- COORDENADAS --}}
+                                                            <div class="form-group">
+                                                              <label for="REMOTA_COORDENADA">Coordenadas</label>
+                                                              <input type="text" class="form-control" id="REMOTA_COORDENADA" placeholder="Ingrese las Coordenadas de la Remota" name="REMOTA_COORDENADA">
+                                                            </div>
+
+                                                            {{-- BUC --}}
+                                                            <div class="form-group">
+                                                                <label for="REMOTA_BUC">BUC</label>
+                                                                <input type="text" class="form-control" id="REMOTA_BUC" placeholder="Ingrese el Buc de la Remota" name="REMOTA_BUC">
+                                                            </div>
+
+                                                            {{-- BUC SERIAL --}}
+                                                            <div class="form-group">
+                                                                <label for="REMOTA_BUC_SERIAL">BUC Serial</label>
+                                                                <input type="text" class="form-control" id="REMOTA_BUC_SERIAL" placeholder="Ingrese una descripcion" name="REMOTA_BUC_SERIAL">
+                                                            </div>
+
+                                                            {{-- LNB --}}
+                                                            <div class="form-group">
+                                                                <label for="REMOTA_LNB">LNB</label>
+                                                                <input type="text" class="form-control" id="REMOTA_LNB" placeholder="Ingrese el LNB de la Remota" name="REMOTA_LNB">
+                                                            </div>
+
+                                                              {{-- LNB SERIAL --}}
+                                                            <div class="form-group">
+                                                                <label for="REMOTA_LNB_SERIAL">Serial LNB</label>
+                                                                <input type="text" class="form-control" id="REMOTA_LNB_SERIAL" placeholder="Ingrese el Serial del LNB" name="REMOTA_LNB_SERIAL">
+                                                            </div>
+
+                                                              {{-- PLANDOWN --}}
+                                                            <div class="form-group">
+                                                                <label for="REMOTA_PLANDOWN">PlanD own</label>
+                                                                <input type="text" class="form-control" id="REMOTA_PLANDOWN" placeholder="Ingrese el PLANDOWN de la Remota" name="REMOTA_PLANDOWN">
+                                                            </div>
+
+                                                            {{-- PLANUP --}}
+                                                            <div class="form-group">
+                                                              <label for="REMOTA_PLANUP">PlanUp</label>
+                                                              <input type="text" class="form-control" id="REMOTA_PLANUP" placeholder="Ingrese el PLANUP de la Remota" name="REMOTA_PLANUP">
+                                                            </div>
+
+                                                            {{-- COSTO PLAN --}}
+                                                            <div class="form-group">
+                                                                <label for="REMOTA_COSTO_PLAN">Costo del Plan</label>
+                                                                <input type="text" class="form-control" id="REMOTA_COSTO_PLAN" placeholder="Ingrese el Buc de la Remota" name="REMOTA_COSTO_PLAN">
+                                                            </div>
+
+                                                            {{-- RENTA --}}
+                                                            <div class="form-group">
+                                                                <label for="REMOTA_RENTA">Renta</label>
+                                                                <input type="text" class="form-control" id="REMOTA_RENTA" placeholder="Ingrese una descripcion" name="REMOTA_RENTA">
+                                                            </div>
+
+                                                             {{-- crear un calendario para escoger la fecha --}}
+                                                             {{-- DIA CORTE --}}
+                                                             <div class="form-group">
+                                                                <label for="REMOTA_DIA_CORTE">Dia de Corte</label>
+                                                                <input type="text" class="form-control" id="REMOTA_DIA_CORTE" placeholder="Ingrese el dia de corte de la Remota" name="REMOTA_DIA_CORTE">
+                                                            </div>
+
+                                                              {{-- DIA ACTIVACION --}}
+                                                            <div class="form-group">
+                                                                <label for="REMOTA_DIA_ACTIVACION">Dia Activacion</label>
+                                                                <input type="text" class="form-control" id="REMOTA_DIA_ACTIVACION" placeholder="Ingrese el Buc de la Remota" name="REMOTA_DIA_ACTIVACION">
+                                                            </div>
+
+                                                              {{-- DETALLE --}}
+                                                            <div class="form-group">
+                                                                <label for="REMOTA_RENTA">Detalle</label>
+                                                                <input type="text" class="form-control" id="REMOTA_RENTA" placeholder="Ingrese una descripcion" name="REMOTA_RENTA">
+                                                            </div>
+
+                                                                {{-- PLATO --}}
+                                                            <div class="form-group">
+                                                                <label for="REMOTA_PLATO">Plato</label>
+                                                                <input type="text" class="form-control" id="REMOTA_PLATO" placeholder="Ingrese el Plato de la Remota" name="REMOTA_PLATO">
+                                                            </div>
+
+                                                                {{-- IP MODEM --}}
+                                                            <div class="form-group">
+                                                                <label for="REMOTA_IP_MODEM">IP Modem</label>
+                                                                <input type="text" class="form-control" id="REMOTA_IP_MODEM" placeholder="Ingrese el Plato de la Remota" name="REMOTA_IP_MODEM">
                                                             </div>
 
 
+                                                                {{-- IP GESTION --}}
+                                                            <div class="form-group">
+                                                                    <label for="REMOTA_IP_GESTION">IP Gestion</label>
+                                                                    <input type="text" class="form-control" id="REMOTA_IP_GESTION" placeholder="Ingrese el IP de Gestion de la Remota" name="REMOTA_IP_GESTION">
+                                                            </div>
+
+                                                                {{-- STATUS --}}
+                                                            <div class="form-group">
+                                                                <label for="REMOTA_STATUS">Status</label>
+                                                                <input type="text" class="form-control" id="REMOTA_STATUS" placeholder="Ingrese el Status de la Remota" name="REMOTA_STATUS">
+                                                            </div>
 
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                                <button type="submit" class="btn btn-primary">Editar</button>
+                                                                <button type="submit" class="btn btn-primary">Guardar</button>
                                                             </div>
                                                         </form>
-                                                    </div>
-                                                </div>
                                                 </div>
                                             </div>
 
