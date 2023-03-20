@@ -58,7 +58,7 @@ Route::post('remotas',[ RemotaController::class,'store'])->name('remotas.store')
 // ruta editar
 Route::get('remotas/{remota}/edit',[ RemotaController::class,'edit'])->name('remotas.edit');
 // ruta update
-Route::put('remotas/{remota}',[ RemotaController::class,'update'])->name('remotas.update');
+Route::post('remotas/{remota}',[ RemotaController::class,'update'])->name('remotas.update');
 // Ruta eliminar delete
 Route::delete('remotas/{remota}',[ RemotaController::class,'destroy'])->name('remotas.destroy');
 //detail

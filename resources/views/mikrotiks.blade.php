@@ -173,7 +173,7 @@
                                                         </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form  action="{{ route('mikrotiks.store') }}"  method="POST">
+                                                            <form  action="{{ route('mikrotiks.update', $mikrotik->id) }}"  method="POST">
                                                                 @csrf
 
                                                                 {{-- NOMBRE --}}
@@ -269,7 +269,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
 
                                             {{-- Eliminar --}}
                                             {{-- form destroy --}}

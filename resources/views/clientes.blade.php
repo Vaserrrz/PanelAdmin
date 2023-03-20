@@ -141,7 +141,7 @@
                                                     <div class="modal-body">
                                                         <form  action="{{route('clientes.update', $cliente->id)}}"  method="POST">
                                                             @csrf
-
+                                                            @method('put')
                                                             {{-- CI/RIF --}}
                                                             <div class="form-group">
                                                                 <label for="email">CI/RIF</label>

@@ -36,6 +36,14 @@ class RemotaController extends Controller
      */
     public function store(Request $request)
     {
+
+
+        $request->validate([
+            'REMOTA_NODO' => 'required',
+            'REMOTA_EQUIPO' => 'required'
+        ]);
+
+
         $remota = new remota();
 
         $remota->REMOTA_NODO = $request->REMOTA_NODO;
@@ -59,17 +67,20 @@ class RemotaController extends Controller
         $remota->REMOTA_STATUS = $request->REMOTA_STATUS;
         $remota->REMOTA_BONDA = $request->REMOTA_BONDA;
 
+
+
+
         $remota->save();
 
 
         return redirect()->route('remotas');
     }
 
-    public function details()
-    {
-        $mikrotiks = remota::all();
-        return view('details.remotas', compact('remotas'));
 
+
+    public function details(remota $remota)
+    {
+     return view('details.remotas', compact('remota'));
     }
     /**
      * Display the specified resource.
@@ -101,9 +112,9 @@ class RemotaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $REMOTA_ID)
+    public function update(Request $request, Remota $remota)
     {
-            $remota = remota::find($REMOTA_ID);
+
 
             $remota->REMOTA_NODO = $request->REMOTA_NODO;
             $remota->REMOTA_EQUIPO = $request->REMOTA_EQUIPO;
