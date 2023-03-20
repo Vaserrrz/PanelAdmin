@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Remota;
+use App\Models\Plan;
+use App\Models\Cliente;
 
+/**
+ * Summary of RemotaController
+ */
 class RemotaController extends Controller
 {
     /**
@@ -78,9 +83,13 @@ class RemotaController extends Controller
 
 
 
-    public function details(remota $remota)
+
+    public function details(remota $remota,Plan $plan,Cliente $cliente)
     {
-     return view('details.remotas', compact('remota'));
+        $cliente = $cliente::all();
+        $plan = $plan::all();
+        return view('details.remotas', compact('remota','cliente','plan'));
+
     }
     /**
      * Display the specified resource.

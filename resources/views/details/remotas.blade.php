@@ -32,12 +32,22 @@
                 </div>
             </div>
 
-
             <div class="col">
                 <div class="form-group">
                     <label for="REMOTA_NODO">Nodo</label>
                     <input class="form-control" type="text" value="{{$remota->REMOTA_NODO}}" readonly>
                 </div>
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="inputState">Cliente</label>
+                <select id="inputState" class="form-control">
+                    <option selected>Escoga el cliente...</option>
+                    @forelse($cliente as $cliente)
+                        <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
+                    @empty
+                    @endforelse
+                </select>
             </div>
         </div>
 
@@ -93,7 +103,18 @@
             </div>
 
        </div>
-
+       <div class="row">
+        <div class="form-group col-md-12">
+            <label for="inputState">Plan</label>
+            <select id="inputState" class="form-control">
+                <option selected>Escoga el plan...</option>
+                @forelse($plan as $plan)
+                    <option value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
+                @empty
+                @endforelse
+            </select>
+        </div>
+       </div>
        <div class="row">
             <div class="col col-md-6">
                 <div class="form-group">
@@ -176,28 +197,6 @@
                 <label for="REMOTA_STATUS">Status</label>
                 <input class="form-control" type="text" value="{{$remota->REMOTA_STATUS}}" readonly>
             </div>
-        </div>
-
-
-    </form>
-
-
-        <div class="form-group">
-            <label for="exampleFormControlSelect1">
-                Planes
-            </label>
-                          <select class="form-control" id="exampleFormControlSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
-        </div>
-
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Example textarea</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
 
 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Encargado;
+use App\Models\Cliente;
 
 class EncargadoController extends Controller
 {
@@ -68,7 +69,13 @@ class EncargadoController extends Controller
 
 
     }*/
+    public function details(Encargado $encargado, Cliente $cliente)
+    {
+        $cliente = $cliente::all();
 
+        return view('details.encargados', compact('encargado','cliente'));
+
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -81,7 +88,7 @@ class EncargadoController extends Controller
             $encargado = encargado::find($id);
             $encargado->ENCARGADO_NOMBRE = $request->ENCARGADO_NOMBRE;
             $encargado->ENCARGADO_CORREO = $request->ENCARGADO_CORREO;
-            $encargado->ENCARGADO_TELF = $request->ENCARGADO_TELF;
+            $encargado->                                                                              ENCARGADO_TELF = $request->ENCARGADO_TELF;
             $encargado->save();
             return redirect()->route('encargados');
     }

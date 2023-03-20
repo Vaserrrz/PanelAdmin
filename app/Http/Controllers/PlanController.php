@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Plan;
+use App\Models\Proveedor;
+use App\Models\Revendedor;
 
 class PlanController extends Controller
 {
@@ -51,10 +53,12 @@ class PlanController extends Controller
         return redirect()->route('planes');
     }
 
-    public function details()
+    public function details(plan $plan, Revendedor $revendedor, Proveedor $proveedor)
     {
-        $planes = plan::all();
-        return view('detailsplanes', compact('planes'));
+        $plan = plan::all();
+        $revendedor = revendedor::all();
+        $proveedor = proveedor::all();
+        return view('details.planes', compact('plan','revendedor','proveedor'));
 
     }
 

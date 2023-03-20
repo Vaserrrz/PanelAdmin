@@ -108,6 +108,8 @@
                                 <th scope="col">Razon</th>
                                 <th scope="col">CI/RIF</th>
                                 <th scope="col">Direccion</th>
+                                <th scope="col">Correo</th>
+
                                 <th scope="col">Acciones</th>
                               </tr>
                             </thead>
@@ -122,6 +124,7 @@
                                         </td>
                                         <td>{{ $cliente->CI_RIF }}</td>
                                         <td>{{ $cliente->CLIENTE_DIRECCION }}</td>
+                                        <td>{{ $cliente->CLIENTE_CORREO }}</td>
                                         <td>
                                             {{-- Editar  --}}
                                             {{-- Buton editar  --}}
@@ -145,55 +148,55 @@
                                                             {{-- CI/RIF --}}
                                                             <div class="form-group">
                                                                 <label for="email">CI/RIF</label>
-                                                                <input type="text" class="form-control" id="CI/RIF" placeholder="Ingrese Cedula/RIF del cliente" name="CI_RIF">
+                                                                <input type="text" class="form-control" id="CI/RIF" placeholder="Ingrese Cedula/RIF del cliente" name="CI_RIF" value="{{$cliente->CI_RIF}}">
                                                             </div>
 
                                                             {{-- RAZON --}}
                                                             <div class="form-group">
                                                               <label for="CLIENTE_RAZON">Razon</label>
-                                                              <input type="text" class="form-control" id="CLIENTE_RAZON" placeholder="Ingrese la razon social del cliente" name="CLIENTE_RAZON">
+                                                              <input type="text" class="form-control" id="CLIENTE_RAZON" placeholder="Ingrese la razon social del cliente" name="CLIENTE_RAZON" value="{{$cliente->CLIENTE_RAZON}}">
                                                             </div>
 
                                                             {{-- DIRECCION --}}
                                                             <div class="form-group">
                                                                 <label for="CLIENTE_DIRECCION">Direccion</label>
-                                                                <input type="text" class="form-control" id="CLIENTE_DIRECCION" placeholder="Ingrese la direccion del cliente" name="CLIENTE_DIRECCION">
+                                                                <input type="text" class="form-control" id="CLIENTE_DIRECCION" placeholder="Ingrese la direccion del cliente" name="CLIENTE_DIRECCION" value="{{$cliente->CLIENTE_DIRECCION}}">
                                                             </div>
 
                                                               {{-- DETALLE --}}
                                                               <div class="form-group">
                                                                 <label for="CLIENTE_DETALLE">Detalle</label>
-                                                                <input type="text" class="form-control" id="CLIENTE_DETALLE" placeholder="Ingrese el detalle" name="CLIENTE_DETALLE">
+                                                                <input type="text" class="form-control" id="CLIENTE_DETALLE" placeholder="Ingrese el detalle" name="CLIENTE_DETALLE" value="{{$cliente->CLIENTE_DETALLE}}">
                                                             </div>
 
                                                              {{-- TELEFONO --}}
                                                              <div class="form-group">
                                                                 <label for="CLIENTE_TELF">Telefono</label>
-                                                                <input type="text" class="form-control" id="CLIENTE_TELF" placeholder="Ingrese el telefono del cliente " name="CLIENTE_TELF">
+                                                                <input type="text" class="form-control" id="CLIENTE_TELF" placeholder="Ingrese el telefono del cliente " name="CLIENTE_TELF" value="{{$cliente->CLIENTE_TELF}}">
                                                             </div>
 
                                                              {{-- TELEFONO 2 --}}
                                                              <div class="form-group">
                                                                 <label for="CLIENTE_TELF2">Telefono</label>
-                                                                <input type="text" class="form-control" id="CLIENTE_TELF" placeholder="Ingrese el telefono del cliente (2)" name="CLIENTE_TELF2">
+                                                                <input type="text" class="form-control" id="CLIENTE_TELF" placeholder="Ingrese el telefono del cliente (2)" name="CLIENTE_TELF2" value="{{$cliente->CLIENTE_TELF2}}">
                                                             </div>
 
                                                               {{-- WHATSAPP --}}
                                                               <div class="form-group">
                                                                 <label for="CLIENTE_WHATSAPP">Whatsapp</label>
-                                                                <input type="text" class="form-control" id="CLIENTE_WHATSAPP" placeholder="Ingrese el Whatsapp del cliente" name="CLIENTE_WHATSAPP">
+                                                                <input type="text" class="form-control" id="CLIENTE_WHATSAPP" placeholder="Ingrese el Whatsapp del cliente" name="CLIENTE_WHATSAPP" value="{{$cliente->CLIENTE_WHATSAPP}}">
                                                             </div>
 
                                                                {{-- TELEGRAM --}}
                                                                <div class="form-group">
                                                                 <label for="CLIENTE_TELEGRAM">Telegram</label>
-                                                                <input type="text" class="form-control" id="CLIENTE_TELEGRAM" placeholder="Ingrese el Telegram del cliente" name="CLIENTE_TELEGRAM">
+                                                                <input type="text" class="form-control" id="CLIENTE_TELEGRAM" placeholder="Ingrese el Telegram del cliente" name="CLIENTE_TELEGRAM" value="{{$cliente->CLIENTE_TELEGRAM}}">
                                                             </div>
 
                                                              {{-- CORREO --}}
                                                              <div class="form-group">
                                                                 <label for="CLIENTE_CORREO ">Correo</label>
-                                                                <input type="email" class="form-control" id="CLIENTE_CORREO " placeholder="Ingrese el Correo del cliente" name="CLIENTE_CORREO ">
+                                                                <input type="email" class="form-control" id="CLIENTE_CORREO " placeholder="Ingrese el Correo del cliente" name="CLIENTE_CORREO" value="{{$cliente->CLIENTE_CORREO}}">
                                                             </div>
 
                                                             <div class="modal-footer">

@@ -80,7 +80,10 @@
                                 @forelse ($encargados as $encargado)
                                     <tr>
                                         <th scope="row">{{ $encargado->id }}</th>
-                                        <td>{{ $encargado->ENCARGADO_NOMBRE }}</td>
+
+                                        <td>
+                                            <a href="{{route('encargados.details', $encargado->id)}}"> {{ $encargado->ENCARGADO_NOMBRE }}</a>
+                                        </td>
                                         <td>{{ $encargado->ENCARGADO_TELF }}</td>
                                         <td>{{ $encargado->ENCARGADO_CORREO }}</td>
                                         <td>

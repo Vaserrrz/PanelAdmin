@@ -103,7 +103,9 @@
                                     <tr>
                                         <th scope="row">{{ $plan->id  }}</th>
 
-                                        <td>{{ $plan->PLAN_NOMBRE }}</td>
+                                        <td>
+                                            <a href="{{route('planes.details', $plan->id)}}"> {{ $plan->PLAN_NOMBRE }}</a>
+                                        </td>
                                         <td>{{ $plan->PLAN_SUBIDA }}</td>
                                         <td>{{ $plan->PLAN_BAJADA }}</td>
                                         <td>{{ $plan->PLAN_CONTENCION }}</td>

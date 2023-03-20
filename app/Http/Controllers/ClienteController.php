@@ -37,15 +37,18 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $cliente = new Cliente();
+
+
         $cliente->CI_RIF = $request->CI_RIF;
         $cliente->CLIENTE_RAZON = $request->CLIENTE_RAZON;
+        $cliente->CLIENTE_CO = $request->CLIENTE_RAZON;
+        $cliente->CLIENTE_CORREO  = $request->CLIENTE_CORREO;
         $cliente->CLIENTE_DIRECCION = $request->CLIENTE_DIRECCION;
         $cliente->CLIENTE_DETALLE = $request->CLIENTE_DETALLE;
         $cliente->CLIENTE_TELF = $request->CLIENTE_TELF;
         $cliente->CLIENTE_TELF2 = $request->CLIENTE_TELF2;
         $cliente->CLIENTE_WHATSAPP = $request->CLIENTE_WHATSAPP;
         $cliente->CLIENTE_TELEGRAM = $request->CLIENTE_TELEGRAM;
-        $cliente->CLIENTE_CORREO  = $request->CLIENTE_CORREO ;
         $cliente->ENVIO_TELEGRAM = $request->ENVIO_TELEGRAM;
         $cliente->ENVIO_WHATSAPP = $request->ENVIO_WHATSAPP;
         $cliente->save();
@@ -98,6 +101,7 @@ class ClienteController extends Controller
             $cliente->CLIENTE_TELEGRAM = $request->CLIENTE_TELEGRAM;
             $cliente->CLIENTE_CORREO  = $request->CLIENTE_CORREO ;
             $cliente->ENVIO_TELEGRAM = $request->ENVIO_TELEGRAM;
+            $cliente->CLIENTE_CORREO  = $request->CLIENTE_CORREO ;
             $cliente->ENVIO_WHATSAPP = $request->ENVIO_WHATSAPP;
 
             $cliente->save();

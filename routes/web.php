@@ -132,7 +132,7 @@ Route::put('planes/{plan}',[ PlanController::class,'update'])->name('planes.upda
 // Ruta eliminar delete
 Route::delete('planes/{plan}',[ PlanController::class,'destroy'])->name('planes.destroy');
 //Ruta Detalle
-/*Route::get('planes/{plan}',[ PlanController::class,'details'])->name('planes.details');*/
+Route::get('planes/{plan}',[ PlanController::class,'details'])->name('planes.details');
 
 
 //SATELITE
