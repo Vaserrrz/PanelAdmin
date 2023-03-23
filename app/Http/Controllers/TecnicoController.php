@@ -56,9 +56,7 @@ class TecnicoController extends Controller
 
     public function details(tecnico $tecnico)
    {
-
-
-
+    return $tecnico->TECNICO_CORREO;
     return view('details.tecnicos', compact('tecnico'));
    }
 

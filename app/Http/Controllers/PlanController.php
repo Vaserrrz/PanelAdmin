@@ -53,12 +53,10 @@ class PlanController extends Controller
         return redirect()->route('planes');
     }
 
-    public function details(plan $plan, Revendedor $revendedor, Proveedor $proveedor)
+    public function details(plan $plan, proveedor $proveedor, Revendedor $revendedor)
     {
-        $plan = plan::all();
-        $revendedor = revendedor::all();
-        $proveedor = proveedor::all();
-        return view('details.planes', compact('plan','revendedor','proveedor'));
+
+        return view('details.planes', compact('plan','proveedor','revendedor'));
 
     }
 

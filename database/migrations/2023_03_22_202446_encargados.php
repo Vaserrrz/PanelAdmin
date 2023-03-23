@@ -14,6 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Encargados', function(Blueprint $table){
+
+            $table->unsignedBigInteger('CLIENTE_ID')->unique();
+            $table->foreign('CLIENTE_ID')
+                ->references('id')
+                ->on('clientes')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+
             $table->id('id')->autoIncrement();
             $table->string('ENCARGADO_NOMBRE');
             $table->string('ENCARGADO_TELF', 20);

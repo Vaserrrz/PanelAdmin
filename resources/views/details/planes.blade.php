@@ -26,7 +26,7 @@
             <div class="col col-md-7">
                 <div class="form-group">
                     <label for="plan_CORREO">Nombre</label>
-                    <input class="form-control" type="text" value="{{$plan->PLAN_NOMBRE}}" readonly>
+                    <input class="form-control" type="text" value="" readonly>
                   </div>
             </div>
 
@@ -34,21 +34,21 @@
             <div class="co col-md-5">
                 <div class="form-group">
                     <label for="ZONA_TRABAJO">Subida</label>
-                    <input class="form-control" type="text" value="{{$plan->PLAN_SUBIDA}}" readonly>
+                    <input class="form-control" type="text" value="" readonly>
                 </div>
             </div>
 
             <div class="col col-md-7">
                 <div class="form-group">
                     <label for="plan_CORREO">Bajada</label>
-                    <input class="form-control" type="text" value="{{$plan->PLAN_BAJADA}}" readonly>
+                    <input class="form-control" type="text" value="" readonly>
                 </div>
             </div>
 
             <div class="col col-md-5">
                 <div class="form-group">
                     <label for="plan_CORREO">Contencion</label>
-                    <input class="form-control" type="text" value="{{$plan->PLAN_CONTENCION}}" readonly>
+                    <input class="form-control" type="text" value="" readonly>
                 </div>
             </div>
 

@@ -14,7 +14,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('Satelites', function(Blueprint $table){
+        Schema::create('satelites', function(Blueprint $table){
             $table->id('id')->bigint(10)->autoIncrement();
             $table->string('SAT_NOMBRE', 50);
             $table->string('SAT_DESCRIPCION', 100);
@@ -24,6 +24,19 @@ return new class extends Migration
             $table->string('SAT_FRECUENCIA', 50);
             $table->string('SAT_BANDAS', 50);
             $table->timestamps();
+            $table->unsignedBigInteger('PROVEEDOR_ID')->unique();
+            $table->foreign('PROVEEDOR_ID')
+                ->references('id')
+                ->on('proveedors')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
+            $table->unsignedBigInteger('RESELLER_ID')->unique();
+            $table->foreign('RESELLER_ID')
+                ->references('id')
+                ->on('revendedors')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
@@ -34,6 +47,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Satelites');
+        Schema::dropIfExists('satelites');
     }
 };
