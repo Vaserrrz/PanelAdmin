@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Plan extends Model
 {
     use HasFactory;
+
+    public function remota(){
+        return $this->hasOne('App\Models\Profile');
+    }
 }

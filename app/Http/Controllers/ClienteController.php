@@ -10,7 +10,7 @@ class ClienteController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     *
      */
     public function index()
     {
@@ -41,7 +41,6 @@ class ClienteController extends Controller
 
         $cliente->CI_RIF = $request->CI_RIF;
         $cliente->CLIENTE_RAZON = $request->CLIENTE_RAZON;
-        $cliente->CLIENTE_CO = $request->CLIENTE_RAZON;
         $cliente->CLIENTE_CORREO  = $request->CLIENTE_CORREO;
         $cliente->CLIENTE_DIRECCION = $request->CLIENTE_DIRECCION;
         $cliente->CLIENTE_DETALLE = $request->CLIENTE_DETALLE;

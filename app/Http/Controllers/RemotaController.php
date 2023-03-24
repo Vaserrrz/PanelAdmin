@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\Remota;
 use App\Models\Plan;
 use App\Models\Cliente;
+use App\Models\Proveedor;
+use App\Models\Socio;
+use App\Models\Revendedor;
+use App\Models\Encargado;
+use App\Models\Satelite;
+use GuzzleHttp\Client;
 
 /**
  * Summary of RemotaController
@@ -15,12 +21,22 @@ class RemotaController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     *
      */
-    public function index()
+    public function index(plan $plan,cliente $cliente, Proveedor $proveedor,
+    Socio $socio, Revendedor $revendedor, Encargado $encargado,Satelite $satelite)
     {
+        $plan = Plan::all();
         $remotas = Remota::all();
-        return view('remotas', compact('remotas'));
+        $clientes = Cliente::all();
+        $proveedores = Proveedor::all();
+        $socios = Socio::all();
+        $revendedores = Revendedor::all();
+        $encargados = Encargado::all();
+        $satelites = Satelite::all();
+
+        return view('remotas', compact('remotas','plan','remotas','clientes','proveedores',
+        'socios','revendedores','encargados','satelites'));
     }
 
     /**
@@ -39,16 +55,9 @@ class RemotaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Plan $plan)
     {
-
-
-        $request->validate([
-            'REMOTA_NODO' => 'required',
-            'REMOTA_EQUIPO' => 'required'
-        ]);
-
-
+        $plan = $plan::all();
         $remota = new remota();
 
         $remota->REMOTA_NODO = $request->REMOTA_NODO;
@@ -72,13 +81,22 @@ class RemotaController extends Controller
         $remota->REMOTA_STATUS = $request->REMOTA_STATUS;
         $remota->REMOTA_BONDA = $request->REMOTA_BONDA;
 
+        $remota->CLIENTE_ID = $request->CLIENTE_ID;
+        $remota->PLAN_ID = $request->PLAN_ID;
+        $remota->PROVEEDOR_ID = $request->PROVEEDOR_ID;
+        $remota->SOCIO_ID = $request->SOCIO_ID;
+        $remota->RESELLER_ID = $request->RESELLER_ID;
+        $remota->ENCARGADO_ID = $request->ENCARGADO_ID;
+        $remota->SATELITE_ID = $request->SATELITE_ID;
+
+
 
 
 
         $remota->save();
 
 
-        return redirect()->route('remotas');
+        return redirect()->route('remotas', compact('plan'));
     }
 
 

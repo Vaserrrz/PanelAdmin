@@ -52,10 +52,16 @@
                                             <input type="text" class="form-control" id="CLIENTE_DIRECCION" placeholder="Ingrese la direccion del cliente" name="CLIENTE_DIRECCION">
                                         </div>
 
+                                        {{-- CORREO --}}
+                                        <div class="form-group">
+                                            <label for="CLIENTE_CORREO">Correo</label>
+                                            <input type="email" class="form-control" id="CLIENTE_CORREO" placeholder="Ingrese el Correo del Cliente" name="CLIENTE_CORREO">
+                                          </div>
+
                                           {{-- DETALLE --}}
                                           <div class="form-group">
                                             <label for="CLIENTE_DETALLE">Detalle</label>
-                                            <input type="text" class="form-control" id="CLIENTE_DETALLE" placeholder="Ingrese el detalle" name="CLIENTE_DETALLE">
+                                            <input type="text" class="form-control" id="CLIENTE_DETALLE" placeholder="Ingrese el Detalle" name="CLIENTE_DETALLE">
                                         </div>
 
                                          {{-- TELEFONO --}}
@@ -66,8 +72,8 @@
 
                                          {{-- TELEFONO 2 --}}
                                          <div class="form-group">
-                                            <label for="CLIENTE_TELF2">Telefono</label>
-                                            <input type="text" class="form-control" id="CLIENTE_TELF" placeholder="Ingrese el telefono del cliente (2)" name="CLIENTE_TELF2">
+                                            <label for="CLIENTE_TELF2">Telefono Secundario</label>
+                                            <input type="text" class="form-control" id="CLIENTE_TELF" placeholder="Ingrese el telefono secundario del cliente" name="CLIENTE_TELF2">
                                         </div>
 
                                           {{-- WHATSAPP --}}
@@ -82,11 +88,6 @@
                                             <input type="text" class="form-control" id="CLIENTE_TELEGRAM" placeholder="Ingrese el Telegram del cliente" name="CLIENTE_TELEGRAM">
                                         </div>
 
-                                         {{-- CORREO --}}
-                                         <div class="form-group">
-                                            <label for="CLIENTE_CORREO ">Correo</label>
-                                            <input type="email" class="form-control" id="CLIENTE_CORREO " placeholder="Ingrese el Correo del cliente" name="CLIENTE_CORREO ">
-                                        </div>
 
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

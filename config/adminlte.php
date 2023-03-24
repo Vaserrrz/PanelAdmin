@@ -328,6 +328,11 @@ return [
                     'icon' => 'fas fa-fw fa-user-circle',
                 ],
                 [
+                    'text' => 'Editar',
+                    'url'  => 'editar',
+                    'icon' => 'fas fa-fw fa-user-circle',
+                ],
+                [
                     'text' => 'Encargados',
                     'url'  => 'encargados',
                     'icon' => 'fas fa-fw fa-suitcase'

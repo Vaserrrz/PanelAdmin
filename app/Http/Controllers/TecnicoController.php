@@ -10,11 +10,7 @@ use App\Models\tecnico;
  */
 class TecnicoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $tecnicos = tecnico::all();
@@ -56,7 +52,7 @@ class TecnicoController extends Controller
 
     public function details(tecnico $tecnico)
    {
-    return $tecnico->TECNICO_CORREO;
+
     return view('details.tecnicos', compact('tecnico'));
    }
 
