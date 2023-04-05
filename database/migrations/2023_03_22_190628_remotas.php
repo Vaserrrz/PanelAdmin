@@ -15,7 +15,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Remotas', function(Blueprint $table){
-            $table->id('id')->bigint()->autoIncrement();
+            $table->id('id');
             $table->string('REMOTA_NODO', 100);
 
 

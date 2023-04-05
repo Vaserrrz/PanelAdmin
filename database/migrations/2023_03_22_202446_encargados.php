@@ -15,15 +15,13 @@ return new class extends Migration
     {
         Schema::create('Encargados', function(Blueprint $table){
 
+            $table->id('id');
             $table->unsignedBigInteger('CLIENTE_ID');
             $table->foreign('CLIENTE_ID')
                 ->references('id')
                 ->on('clientes')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-
-
-            $table->id('id')->autoIncrement();
             $table->string('ENCARGADO_NOMBRE');
             $table->string('ENCARGADO_TELF', 20);
             $table->string('ENCARGADO_CORREO', 100)->unique();

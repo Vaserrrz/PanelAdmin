@@ -15,7 +15,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Mikrotiks', function(Blueprint $table){
-            $table->id('id')->bigint(10)->autoIncrement();
+            $table->id('id');
             $table->string('MK_NOMBRE', 50);
             $table->string('MK_IP', 100);
             $table->string('MK_SERIAL', 50);

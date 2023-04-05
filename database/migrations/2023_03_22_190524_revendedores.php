@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('revendedors', function(Blueprint $table){
-            $table->id('id')->autoIncrement();
+            $table->id('id');
             $table->string('NOMBRE_RESELLER');
             $table->string('NOC_RESELLER');
             $table->string('TELF_RESELLER', 20);

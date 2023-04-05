@@ -15,7 +15,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('satelites', function(Blueprint $table){
-            $table->id('id')->bigint(10)->autoIncrement();
+            $table->id('id');
             $table->string('SAT_NOMBRE', 50);
             $table->string('SAT_DESCRIPCION', 100);
             $table->string('SAT_AZNUT', 50);
