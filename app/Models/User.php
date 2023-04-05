@@ -66,8 +66,13 @@ class User extends Authenticatable
    /* public function posts(){
         return $this->hasMany('App\Models\Post');
     }*/
-
+    //Relacion Uno a Uno
     public function profile(){
         return $this->hasOne('App\Models\profile');
+    }
+
+    //Relacion Uno a Muchos
+    public function posts(){
+        return $this->hasMany('App\Models\Post');
     }
 }

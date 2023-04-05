@@ -11,12 +11,11 @@ class Post extends Model
     use HasFactory;
 
     //Relacion uno a muchos (inversa)
-
     public function user(){
         return $this->BelongsTo('App\Models\User');
     }
 
-    public function categoria(){
-        return $this->BelongsTo('App\Models\Categoria');
+    public function categorie(){
+        return $this->BelongsTo('App\Models\Categorie');
     }
 }
