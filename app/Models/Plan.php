@@ -10,7 +10,7 @@ class Plan extends Model
     use HasFactory;
 
 
-    public function remota(){
+    public function remotas(){
         return $this->hasMany('App\Models\Remota');
     }
 

@@ -13,13 +13,11 @@ class Cliente extends Model
 {
     use HasFactory;
 
-
-    public function encargado(){
-        return $this->hasOne('App\Models\Encargado');
+    public function encargados(){
+        return $this->hasMany('App\Models\Encargado');
     }
 
-    /*public function Encargados(){
-        return $this->hasMany('App\Models\Encargado');
-    }*/
-
+    public function remotas(){
+        return $this->hasMany('App\Models\Remota');
+    }
 }

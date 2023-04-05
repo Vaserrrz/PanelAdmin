@@ -11,4 +11,7 @@ class Proveedor extends Model
     public function satelites(){
         return $this->hasMany('App\Models\Satelite');
     }
+    public function remotas(){
+        return $this->hasMany('App\Models\Remota');
+    }
 }

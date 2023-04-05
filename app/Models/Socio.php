@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Socio extends Model
 {
     use HasFactory;
-    public function remota(){
-        return $this->hasOne(Remota::class);
+    public function remotas(){
+        return $this->hasMany('App\Models\Remota');
     }
 }

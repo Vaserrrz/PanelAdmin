@@ -14,8 +14,7 @@ class Post extends Model
     public function user(){
         return $this->BelongsTo('App\Models\User');
     }
-
     public function categorie(){
-        return $this->BelongsTo('App\Models\Categorie');
+        return $this->BelongsTo('App\Models\Categoria');
     }
 }

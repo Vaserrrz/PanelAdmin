@@ -12,8 +12,11 @@ class Satelite extends Model
     public function proveedores(){
         return $this->belongsTo('App\Models\Proveedores');
     }
-
     public function revendedores(){
         return $this->belongsTo('App\Models\Revendedores');
+    }
+
+    public function remotas(){
+        return $this->hasMany('App\Models\Cliente');
     }
 }
