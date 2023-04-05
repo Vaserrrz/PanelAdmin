@@ -62,14 +62,10 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    //Relacion uno a muchos
-    /**
-     * Summary of posts
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function posts(){
+
+   /* public function posts(){
         return $this->hasMany('App\Models\Post');
-    }
+    }*/
 
     public function profile(){
         return $this->hasOne('App\Models\profile');
