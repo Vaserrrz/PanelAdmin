@@ -11,4 +11,12 @@ class Encargado extends Model
     public function remota(){
         return $this->hasOne(Remota::class);
     }
+
+    public function cliente(){
+        return $this->BelongsTo('App\Models\Cliente');
+    }
+
+    public function clientes(){
+        return $this->hasOne('App\Models\Cliente');
+    }
 }

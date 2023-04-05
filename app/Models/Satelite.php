@@ -9,7 +9,11 @@ class Satelite extends Model
 {
     use HasFactory;
 
-    public function remota(){
-        return $this->hasOne(Remota::class);
+    public function proveedores(){
+        return $this->belongsTo('App\Models\Proveedores');
+    }
+
+    public function revendedores(){
+        return $this->belongsTo('App\Models\Revendedores');
     }
 }

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Revendedor extends Model
 {
     use HasFactory;
-    public function remota(){
-        return $this->hasOne(\Remota::class);
+    public function satelites(){
+        return $this->hasMany('App\Models\Satelite');
     }
 }

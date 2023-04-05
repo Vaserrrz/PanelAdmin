@@ -13,22 +13,23 @@ class Remota extends Model
 {
     use HasFactory;
 
-    public function plan(){
-      /*$plan = Plan::find($this->PLAN_ID);*/
-      return $this->BelongsTo(Plan::class);
-    }
 
-    public function proveedor(){
-        return $this->BelongsTo('App\Models\Proveedor');
-    }
 
     public function cliente(){
-        return $this->BelongsTo(Cliente::class);
+        return $this->BelongsTo('App\Models\Cliente');
     }
 
     public function satelite(){
         return $this->hasOne(Satelite::class);
     }
+    public function plan(){
+
+        return $this->BelongsTo(Plan::class);
+      }
+
+      public function proveedor(){
+          return $this->BelongsTo('App\Models\Proveedor');
+      }
 
     public function revendedor(){
         return $this->hasOne(Revendedor::class);

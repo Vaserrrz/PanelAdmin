@@ -20,4 +20,16 @@ class Cliente extends Model
     public function remota(){
         return $this->hasOne(Remota::class);
     }
+
+    public function remotas(){
+        return $this->hasMany('App\Models\Remota');
+    }
+
+    public function encargados(){
+        return $this->hasMany('App\Models\Encargado');
+    }
+
+    public function encargado(){
+        return $this->BelongsTo('App\Models\Encargado');
+    }
 }

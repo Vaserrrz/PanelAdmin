@@ -9,8 +9,29 @@ class Plan extends Model
 {
     use HasFactory;
 
-    //RELACION UNO A UNO
+
     public function remota(){
-        return $this->hasOne('App\Models\Remota');
+        return $this->hasMany('App\Models\Remota');
+    }
+
+
+    //Relacion UNO A UNO: un plana tiene un solo proveedor
+   /* public function proveedor(){
+        return $this->hasOne('App\Models\Proveedor');
+    }
+
+    public function revendedor(){
+        return $this->hasOne('App\Models\Revendedor');
+    }*/
+
+
+
+    //Relacion UNO a MUCHOS un proveedor puede tener varios planes
+    public function proveedores(){
+        return $this->belongsTo('App\Models\Proveedor');
+    }
+
+    public function revendedores(){
+        return $this->belongsTo('App\Models\Revendedor');
     }
 }
