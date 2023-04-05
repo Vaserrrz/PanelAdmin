@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('REMOTA_NODO', 100);
 
 
-            $table->unsignedBigInteger('CLIENTE_ID')->unique();
+            $table->unsignedBigInteger('CLIENTE_ID');
 
             $table->foreign('CLIENTE_ID')
                 ->references('id')
@@ -54,7 +54,7 @@ return new class extends Migration
 
 
 
-            $table->unsignedBigInteger('PLAN_ID')->unique();
+            $table->unsignedBigInteger('PLAN_ID');
 
             $table->foreign('PLAN_ID')
                 ->references('id')
@@ -63,7 +63,7 @@ return new class extends Migration
                 ->onUpdate('cascade');
 
 
-            $table->unsignedBigInteger('PROVEEDOR_ID')->unique();
+            $table->unsignedBigInteger('PROVEEDOR_ID');
 
             $table->foreign('PROVEEDOR_ID')
                 ->references('id')
@@ -71,7 +71,7 @@ return new class extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->unsignedBigInteger('SOCIO_ID')->unique();
+            $table->unsignedBigInteger('SOCIO_ID');
 
             $table->foreign('SOCIO_ID')
                 ->references('id')
@@ -81,7 +81,7 @@ return new class extends Migration
 
 
 
-            $table->unsignedBigInteger('RESELLER_ID')->unique();
+            $table->unsignedBigInteger('RESELLER_ID');
 
             $table->foreign('RESELLER_ID')
                 ->references('id')
@@ -90,7 +90,7 @@ return new class extends Migration
                 ->onUpdate('cascade');
 
 
-            $table->unsignedBigInteger('ENCARGADO_ID')->unique();
+            $table->unsignedBigInteger('ENCARGADO_ID');
 
             $table->foreign('ENCARGADO_ID')
                 ->references('id')
@@ -103,7 +103,7 @@ return new class extends Migration
             $table->string('REMOTA_BONDA', 100)->nullable();
 
 
-            $table->unsignedBigInteger('SATELITE_ID')->unique();
+            $table->unsignedBigInteger('SATELITE_ID');
             $table->foreign('SATELITE_ID')
                 ->references('id')
                 ->on('satelites')

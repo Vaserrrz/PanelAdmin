@@ -9,7 +9,8 @@ class Plan extends Model
 {
     use HasFactory;
 
+    //RELACION UNO A UNO
     public function remota(){
-        return $this->hasOne('App\Models\Profile');
+        return $this->hasOne('App\Models\Remota');
     }
 }

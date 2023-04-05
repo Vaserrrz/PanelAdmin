@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('Encargados', function(Blueprint $table){
 
-            $table->unsignedBigInteger('CLIENTE_ID')->unique();
+            $table->unsignedBigInteger('CLIENTE_ID');
             $table->foreign('CLIENTE_ID')
                 ->references('id')
                 ->on('clientes')

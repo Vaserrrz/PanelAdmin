@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Encargado extends Model
 {
     use HasFactory;
+    public function remota(){
+        return $this->hasOne(Remota::class);
+    }
 }

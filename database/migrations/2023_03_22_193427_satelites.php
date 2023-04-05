@@ -24,14 +24,14 @@ return new class extends Migration
             $table->string('SAT_FRECUENCIA', 50);
             $table->string('SAT_BANDAS', 50);
             $table->timestamps();
-            $table->unsignedBigInteger('PROVEEDOR_ID')->unique();
+            $table->unsignedBigInteger('PROVEEDOR_ID');
             $table->foreign('PROVEEDOR_ID')
                 ->references('id')
                 ->on('proveedors')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->unsignedBigInteger('RESELLER_ID')->unique();
+            $table->unsignedBigInteger('RESELLER_ID');
             $table->foreign('RESELLER_ID')
                 ->references('id')
                 ->on('revendedors')
