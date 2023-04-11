@@ -169,45 +169,45 @@
                                                                  {{-- RAZON --}}
                                                                 <div class="form-group">
                                                                         <label for="RAZON">Razon</label>
-                                                                        <input type="text" class="form-control" id="RAZON" placeholder="Ingrese la razon del proveedor" name="RAZON">
+                                                                        <input type="text" class="form-control" id="RAZON" placeholder="Ingrese la razon del proveedor" name="RAZON" value="{{$proveedor->RAZON}}">
                                                                 </div>
 
 
                                                                     {{-- DIRECCION --}}
                                                                 <div class="form-group">
                                                                         <label for="DIRECCION">Direccion</label>
-                                                                        <input type="text" class="form-control" id="DIRECCION" placeholder="Ingrese la direccion del proveedor" name="DIRECCION">
+                                                                        <input type="text" class="form-control" id="DIRECCION" placeholder="Ingrese la direccion del proveedor" name="DIRECCION" value="{{$proveedor->DIRECCION}}">
                                                                 </div>
 
 
                                                                     {{-- CONTACTO --}}
                                                                 <div class="form-group">
                                                                         <label for="CONTACTO">Contacto</label>
-                                                                        <input type="text" class="form-control" id="CONTACTO" placeholder="Ingrese el contacto del proveedor" name="CONTACTO">
+                                                                        <input type="text" class="form-control" id="CONTACTO" placeholder="Ingrese el contacto del proveedor" name="CONTACTO" value="{{$proveedor->CONTACTO}}">
                                                                 </div>
 
                                                                     {{-- METODO DE PAGO --}}
                                                                 <div class="form-group">
                                                                         <label for="METODO_PAGO">Metodo de pago</label>
-                                                                        <input type="text" class="form-control" id="METODO_PAGO" placeholder="Ingrese un metodo de pago" name="METODO_PAGO">
+                                                                        <input type="text" class="form-control" id="METODO_PAGO" placeholder="Ingrese un metodo de pago" name="METODO_PAGO" value="{{$proveedor->METODO_PAGO}}">
                                                                 </div>
 
                                                                     {{-- DETALLE DE PAGO --}}
                                                                 <div class="form-group">
                                                                         <label for="DETALLE_PAGO">Detalle de pago</label>
-                                                                        <input type="text" class="form-control" id="DETALLE_PAGO" placeholder="Ingrese el detalle de pago" name="DETALLE_PAGO">
+                                                                        <input type="text" class="form-control" id="DETALLE_PAGO" placeholder="Ingrese el detalle de pago" name="DETALLE_PAGO" value="{{$proveedor->DETALLE_PAGO}}">
                                                                 </div>
 
                                                                     {{-- CORREO --}}
                                                                 <div class="form-group">
                                                                     <label for="Correo">Correo</label>
-                                                                    <input type="email" class="form-control" id="PROVEEDOR_CORREO" placeholder="Ingrese el correo del proveedor" name="PROVEEDOR_CORREO">
+                                                                    <input type="email" class="form-control" id="PROVEEDOR_CORREO" placeholder="Ingrese el correo del proveedor" name="PROVEEDOR_CORREO" value="{{$proveedor->PROVEEDOR_CORREO}}">
                                                                 </div>
 
                                                                     {{-- CI/RIF --}}
                                                                 <div class="form-group">
                                                                         <label for="CI_RIF">CI_RIF</label>
-                                                                        <input type="text" class="form-control" id="CI_RIF" placeholder="Ingrese la Cedula o RIF del proveedor" name="CI_RIF">
+                                                                        <input type="text" class="form-control" id="CI_RIF" placeholder="Ingrese la Cedula o RIF del proveedor" name="CI_RIF" value="{{$proveedor->CI_RIF}}">
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

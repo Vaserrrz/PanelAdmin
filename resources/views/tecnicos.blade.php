@@ -136,43 +136,48 @@
                                                             {{-- NOMBRE --}}
                                                             <div class="form-group">
                                                                 <label for="TECNICO_NOMBRE">Nombre</label>
-                                                                <input type="text" class="form-control" id="TECNICO_NOMBRE" placeholder="Ingrese el Nombre del Tecnico" name="TECNICO_NOMBRE">
+                                                                <input type="text" class="form-control" id="TECNICO_NOMBRE" placeholder="Ingrese el Nombre del Tecnico" name="TECNICO_NOMBRE" value="{{$tecnico->TECNICO_NOMBRE}}">
                                                             </div>
 
                                                             {{-- CORREO --}}
                                                             <div class="form-group">
                                                                 <label for="TECNICO_CORREO">CI</label>
-                                                                <input type="email" class="form-control" id="TECNICO_CORREO" placeholder="Ingrese el Correo del Tecnico" name="TECNICO_CORREO">
+                                                                <input type="email" class="form-control" id="TECNICO_CORREO" placeholder="Ingrese el Correo del Tecnico" name="TECNICO_CORREO" value="{{$tecnico->TECNICO_CORREO}}">
                                                             </div>
 
                                                             {{-- TELEFONO --}}
                                                             <div class="form-group">
                                                             <label for="TECNICO_TELF">Telefono</label>
-                                                            <input type="text" class="form-control" id="TECNICO_TELF" placeholder="Ingrese el telefono del tecnico" name="TECNICO_TELF">
+                                                            <input type="text" class="form-control" id="TECNICO_TELF" placeholder="Ingrese el telefono del tecnico" name="TECNICO_TELF" value="{{$tecnico->TECNICO_TELF}}">
                                                             </div>
 
                                                             {{-- TELEFONO 2 --}}
                                                             <div class="form-group">
                                                                 <label for="TECNICO_TELF2">Telefono Secundario</label>
-                                                                <input type="text" class="form-control" id="TECNICO_TELF2" placeholder="Ingrese el telefono secundario del tecnico" name="TECNICO_TELF2">
+                                                                <input type="text" class="form-control" id="TECNICO_TELF2" placeholder="Ingrese el telefono secundario del tecnico" name="TECNICO_TELF2" value="{{$tecnico->TECNICO_TELF2}}">
                                                             </div>
 
                                                             {{-- ZONA DE TRABAJO --}}
                                                             <div class="form-group">
                                                                 <label for="ZONA_TRABAJO">Zona de Trabajo</label>
-                                                                <input type="text" class="form-control" id="ZONA_TRABAJO" placeholder="Ingrese el Correo del tecnico" name="ZONA_TRABAJO">
+                                                                <input type="text" class="form-control" id="ZONA_TRABAJO" placeholder="Ingrese el Correo del tecnico" name="ZONA_TRABAJO" value="{{$tecnico->ZONA_TRABAJO}}">
                                                             </div>
 
                                                             {{-- INCIDENCIA --}}
                                                             <div class="form-group">
                                                                 <label for="INCIDENCIA">Incidencia</label>
-                                                                <input type="text" class="form-control" id="INCIDENCIA" placeholder="Ingrese las incidencias" name="INCIDENCIA">
+                                                                <input type="text" class="form-control" id="INCIDENCIA" placeholder="Ingrese las incidencias" name="INCIDENCIA" value="{{$tecnico->INCIDENCIA}}">
                                                             </div>
 
                                                             {{-- REEMPLAZO --}}
                                                             <div class="form-group">
                                                                 <label for="INCIDENCIA">Reemplazos</label>
-                                                                <input type="text" class="form-control" id="REEMPLAZO" placeholder="Ingrese las incidencias" name="REEMPLAZO">
+                                                                <input type="text" class="form-control" id="REEMPLAZO" placeholder="Ingrese las incidencias" name="REEMPLAZO" value="{{$tecnico->REEMPLAZO}}">
+                                                            </div>
+
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                <button type="submit" class="btn btn-primary">Editar</button>
                                                             </div>
                                                         </form>
 

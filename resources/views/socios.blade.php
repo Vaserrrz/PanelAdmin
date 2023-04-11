@@ -115,25 +115,25 @@
                                                                 {{-- NOMBRE --}}
                                                             <div class="form-group">
                                                                 <label for="SOCIO_NOMBRE">Nombre</label>
-                                                                <input type="text" class="form-control" id="SOCIO_NOMBRE" placeholder="Ingrese el Nombre del Socio" name="SOCIO_NOMBRE">
+                                                                <input type="text" class="form-control" id="SOCIO_NOMBRE" placeholder="Ingrese el Nombre del Socio" name="SOCIO_NOMBRE" value="{{$socio->SOCIO_NOMBRE}}">
                                                             </div>
 
                                                                 {{-- CI SOCIO --}}
                                                             <div class="form-group">
                                                                     <label for="CI_SOCIO">CI</label>
-                                                                    <input type="text" class="form-control" id="CI_SOCIO" placeholder="Ingrese Cedula de Identidad del Socio" name="CI_SOCIO">
+                                                                    <input type="text" class="form-control" id="CI_SOCIO" placeholder="Ingrese Cedula de Identidad del Socio" name="CI_SOCIO" value="{{$socio->CI_SOCIO}}">
                                                             </div>
 
                                                                 {{-- TELEFONO --}}
                                                             <div class="form-group">
                                                                 <label for="TELF_SOCIO">Telefono</label>
-                                                                <input type="text" class="form-control" id="TELF_SOCIO" placeholder="Ingrese el telefono del socio" name="TELF_SOCIO">
+                                                                <input type="text" class="form-control" id="TELF_SOCIO" placeholder="Ingrese el telefono del socio" name="TELF_SOCIO" value="{{$socio->TELF_SOCIO}}">
                                                             </div>
 
                                                                 {{-- CORREO --}}
                                                             <div class="form-group">
                                                                     <label for="SOCIO_CORREO">Correo</label>
-                                                                    <input type="email" class="form-control" id="SOCIO_CORREO" placeholder="Ingrese el Correo del socio" name="SOCIO_CORREO">
+                                                                    <input type="email" class="form-control" id="SOCIO_CORREO" placeholder="Ingrese el Correo del socio" name="SOCIO_CORREO" value="{{$socio->SOCIO_CORREO}}">
                                                             </div>
 
 

@@ -47,7 +47,7 @@ class TecnicoController extends Controller
 
         $tecnico->save();
 
-        return redirect()->route('tecnicos');
+        return redirect()->route('tecnicos', compact('tecnico'));
     }
 
     public function details(tecnico $tecnico)

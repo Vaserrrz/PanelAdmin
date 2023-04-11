@@ -115,25 +115,25 @@
                                                              {{-- NOMBRE --}}
                                                             <div class="form-group">
                                                                 <label for="NOMBRE_RESELLER">Nombre</label>
-                                                                <input type="text" class="form-control" id="NOMBRE_RESELLER" placeholder="Ingrese el Nombre del revendedor" name="NOMBRE_RESELLER">
+                                                                <input type="text" class="form-control" id="NOMBRE_RESELLER" placeholder="Ingrese el Nombre del revendedor" name="NOMBRE_RESELLER" value="{{$revendedor->NOMBRE_RESELLER}}">
                                                             </div>
 
                                                             {{-- NOC_RESELLER --}}
                                                             <div class="form-group">
                                                                 <label for="NOC_RESELLER">NOC</label>
-                                                                <input type="text" class="form-control" id="NOC_RESELLER" placeholder="Ingrese el NOC" name="NOC_RESELLER">
+                                                                <input type="text" class="form-control" id="NOC_RESELLER" placeholder="Ingrese el NOC" name="NOC_RESELLER" value="{{$revendedor->NOC_RESELLER}}">
                                                             </div>
 
                                                             {{-- TELEFONO --}}
                                                             <div class="form-group">
                                                             <label for="TELF_RESELLER">Telefono</label>
-                                                            <input type="text" class="form-control" id="TELF_RESELLER" placeholder="Ingrese el telefono del revendedor" name="TELF_RESELLER">
+                                                            <input type="text" class="form-control" id="TELF_RESELLER" placeholder="Ingrese el telefono del revendedor" name="TELF_RESELLER" value="{{$revendedor->TELF_RESELLER}}">
                                                             </div>
 
                                                             {{-- TELEFONO 2 --}}
                                                             <div class="form-group">
                                                                 <label for="TELF_RESELLER">Telefono Secundario</label>
-                                                                <input type="text" class="form-control" id="TELF2_RESELLER" placeholder="Ingrese el telefono secundario del revendedor" name="TELF2_RESELLER">
+                                                                <input type="text" class="form-control" id="TELF2_RESELLER" placeholder="Ingrese el telefono secundario del revendedor" name="TELF2_RESELLER" value="{{$revendedor->TELF2_RESELLER}}">
                                                             </div>
 
                                                             <div class="modal-footer">

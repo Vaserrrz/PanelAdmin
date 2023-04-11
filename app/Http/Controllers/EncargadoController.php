@@ -2,21 +2,27 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\Encargado;
 use App\Models\Cliente;
+
+
 
 class EncargadoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     *
      */
-    public function index()
+    public function index(Cliente $cliente)
     {
+
         $encargados = Encargado::all();
-        return view('encargados', compact('encargados'));
+        $clientes = Cliente::all();
+
+        return view('encargados', compact('clientes','encargados'));
     }
 
     /**
@@ -35,16 +41,20 @@ class EncargadoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Cliente $cliente)
     {
         $encargado = new encargado();
+        $cliente = Cliente::all();
+
+
         $encargado->ENCARGADO_NOMBRE = $request->ENCARGADO_NOMBRE;
         $encargado->ENCARGADO_CORREO = $request->ENCARGADO_CORREO;
         $encargado->ENCARGADO_TELF = $request->ENCARGADO_TELF;
+
+
         $encargado->save();
 
-
-        return redirect()->route('encargados');
+        return redirect()->route('encargados',compact('cliente'));
     }
 
     /**
@@ -62,7 +72,7 @@ class EncargadoController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     *
      */
   /*  public function edit(encargado $encargado)
     {

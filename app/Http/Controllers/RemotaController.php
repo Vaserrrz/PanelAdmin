@@ -11,7 +11,6 @@ use App\Models\Socio;
 use App\Models\Revendedor;
 use App\Models\Encargado;
 use App\Models\Satelite;
-use GuzzleHttp\Client;
 
 /**
  * Summary of RemotaController
@@ -55,9 +54,9 @@ class RemotaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Plan $plan)
+    public function store(Request $request)
     {
-        $plan = $plan::all();
+
         $remota = new remota();
 
         $remota->REMOTA_NODO = $request->REMOTA_NODO;
@@ -96,7 +95,7 @@ class RemotaController extends Controller
         $remota->save();
 
 
-        return redirect()->route('remotas', compact('plan'));
+        return redirect()->route('remotas');
     }
 
 

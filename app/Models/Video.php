@@ -4,26 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Post extends Model
+class Video extends Model
 {
     use HasFactory;
-
-    //Relacion uno a muchos (inversa)
-    public function user(){
-        return $this->BelongsTo('App\Models\User');
-    }
-    public function categorie(){
-        return $this->BelongsTo('App\Models\Categoria');
-    }
-
-    //Relacion uno a muchos polimorficas
+    //Relacion Uno a Muchos polimorfica
     public function comments(){
         return $this->morphMany('App\Models\Commentable', 'commentable');
     }
 
     public function posts(){
         return $this->morphToMany('App\Models\Tag', 'taggable');
+    }
+
+    //Relacion Muchos a Muchos polimorfica
+    public function videos(){
+        return $this->morphedByMany('App\Models\Video', 'taggable');
     }
 }

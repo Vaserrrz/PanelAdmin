@@ -52,6 +52,18 @@
                                         </div>
 
 
+                                        {{--CLIENTE ID --}}
+                                        <div class="form-group">
+                                            <label for="inputState">Cliente ID</label>
+                                            <select id="inputState" class="form-control">
+                                                <option selected>Escoga el Cliente...</option>
+                                                @forelse($clientes as $cliente)
+                                                    <option value="{{$cliente->CLIENTE_RAZON}}">{{$cliente->CLIENTE_RAZON}}</option>
+                                                @empty
+                                                @endforelse
+                                            </select>
+                                        </div>
+
 
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

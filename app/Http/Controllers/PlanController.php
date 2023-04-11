@@ -14,10 +14,12 @@ class PlanController extends Controller
      *
      *
      */
-    public function index()
+    public function index(Revendedor $revendedor, Proveedor $proveedor)
     {
         $planes = plan::all();
-        return view('planes', compact('planes'));
+        $revendedores = Revendedor::all();
+        $proveedores = Proveedor::all();
+        return view('planes', compact('planes','revendedores','proveedores'));
     }
 
     /**
@@ -36,9 +38,10 @@ class PlanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Revendedor $revendedor)
     {
         $plan = new plan();
+        $revendedor = Revendedor::all();
 
         $plan->PLAN_NOMBRE = $request->PLAN_NOMBRE;
         $plan->PLAN_SUBIDA = $request->PLAN_SUBIDA;
@@ -50,7 +53,7 @@ class PlanController extends Controller
         $plan->save();
 
 
-        return redirect()->route('planes');
+        return redirect()->route('planes',compact('revendedor'));
     }
 
     public function details(plan $plan, proveedor $proveedor, Revendedor $revendedor)

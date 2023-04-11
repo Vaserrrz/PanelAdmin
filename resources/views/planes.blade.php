@@ -70,6 +70,30 @@
                                             <input type="text" class="form-control" id="PLAN_PRECIO" placeholder="Ingrese EL Precio del Plan" name="PLAN_PRECIO">
                                         </div>
 
+                                        {{-- PROVEEDORES ID --}}
+                                        <div class="form-group">
+                                            <label for="inputState">Proveedor ID</label>
+                                            <select id="inputState" class="form-control">
+                                                <option selected>Escoga el Proveedor...</option>
+                                                @forelse($proveedores as $proveedor)
+                                                    <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
+                                                @empty
+                                                @endforelse
+                                            </select>
+                                        </div>
+
+                                        {{-- RESELLER ID --}}
+                                        <div class="form-group">
+                                            <label for="inputState">Revendedor ID</label>
+                                            <select id="inputState" class="form-control">
+                                                <option selected>Escoga el Revendedor...</option>
+                                                @forelse($revendedores as $revendedor)
+                                                    <option value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                @empty
+                                                @endforelse
+                                            </select>
+                                        </div>
+
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                             <button type="submit" class="btn btn-primary">Guardar</button>
@@ -136,37 +160,61 @@
                                                               {{-- NOMBRE --}}
                                                             <div class="form-group">
                                                                 <label for="PLAN_NOMBRE">Nombre</label>
-                                                                <input type="text" class="form-control" id="PLAN_NOMBRE" placeholder="Ingrese el Nombre del Plan" name="PLAN_NOMBRE">
+                                                                <input type="text" class="form-control" id="PLAN_NOMBRE" placeholder="Ingrese el Nombre del Plan" name="PLAN_NOMBRE" value="{{$plan->PLAN_NOMBRE}}">
                                                             </div>
 
                                                             {{-- PLAN SUBIDA --}}
                                                             <div class="form-group">
                                                                 <label for="PLAN_SUBIDA">Subida</label>
-                                                                <input type="text" class="form-control" id="PLAN_SUBIDA" placeholder="Ingrese la Subida del plan" name="PLAN_SUBIDA">
+                                                                <input type="text" class="form-control" id="PLAN_SUBIDA" placeholder="Ingrese la Subida del plan" name="PLAN_SUBIDA" value="{{$plan->PLAN_SUBIDA}}">
                                                             </div>
 
                                                             {{-- PLAN BAJADA --}}
                                                             <div class="form-group">
                                                             <label for="plan_TELF">Bajada</label>
-                                                            <input type="text" class="form-control" id="PLAN_BAJADA" placeholder="Ingrese la Bajada del plan" name="PLAN_BAJADA">
+                                                            <input type="text" class="form-control" id="PLAN_BAJADA" placeholder="Ingrese la Bajada del plan" name="PLAN_BAJADA" value="{{$plan->PLAN_BAJADA}}">
                                                             </div>
 
                                                             {{-- PLAN_CONTENCION  --}}
                                                             <div class="form-group">
                                                                 <label for="plan_TELF2">Contencion</label>
-                                                                <input type="text" class="form-control" id="PLAN_CONTENCION" placeholder="Ingrese el telefono secundario del plan" name="PLAN_CONTENCION">
+                                                                <input type="text" class="form-control" id="PLAN_CONTENCION" placeholder="Ingrese el telefono secundario del plan" name="PLAN_CONTENCION" value="{{$plan->PLAN_CONTENCION}}">
                                                             </div>
 
                                                             {{-- COSTO --}}
                                                             <div class="form-group">
                                                                 <label for="PLAN_COSTO">Costo</label>
-                                                                <input type="text" class="form-control" id="PLAN_COSTO" placeholder="Ingrese el Costo del plan" name="PLAN_COSTO">
+                                                                <input type="text" class="form-control" id="PLAN_COSTO" placeholder="Ingrese el Costo del plan" name="PLAN_COSTO" value="{{$plan->PLAN_COSTO}}">
                                                             </div>
 
                                                             {{-- PRECIO --}}
                                                             <div class="form-group">
                                                                 <label for="PLAN_PRECIO">Precio</label>
-                                                                <input type="text" class="form-control" id="PLAN_PRECIO" placeholder="Ingrese EL Precio del Plan" name="PLAN_PRECIO">
+                                                                <input type="text" class="form-control" id="PLAN_PRECIO" placeholder="Ingrese EL Precio del Plan" name="PLAN_PRECIO" value="{{$plan->PLAN_PRECIO}}">
+                                                            </div>
+
+                                                            {{-- PROVEEDORES ID --}}
+                                                            <div class="form-group">
+                                                                <label for="inputState">Proveedor ID</label>
+                                                                <select id="inputState" class="form-control">
+                                                                    <option selected>Escoga el Proveedor...</option>
+                                                                    @forelse($proveedores as $proveedor)
+                                                                        <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
+                                                                    @empty
+                                                                    @endforelse
+                                                                </select>
+                                                            </div>
+
+                                                            {{-- RESELLER ID --}}
+                                                            <div class="form-group">
+                                                                <label for="inputState">Revendedor ID</label>
+                                                                <select id="inputState" class="form-control">
+                                                                    <option selected>Escoga el Revendedor...</option>
+                                                                    @forelse($revendedores as $revendedor)
+                                                                        <option value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                                    @empty
+                                                                    @endforelse
+                                                                </select>
                                                             </div>
 
                                                             <div class="modal-footer">
