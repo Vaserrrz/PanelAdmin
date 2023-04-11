@@ -33,7 +33,7 @@
 
 
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Agregar - Remota</h5>
+                                        <h5 class="modal-title" id="agregar">Agregar - Remota</h5>
 
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
@@ -55,10 +55,22 @@
 
                                             <div class="form-group">
                                                 <label for="CLIENTE">Cliente</label>
-                                                <select id="SELECT_CLIENTE" class="form-control">
+                                                <select id="SELECT_CLIENTE" name="SELECT_CLIENTE" class="form-control">
                                                     <option selected>Escoga el cliente...</option>
                                                     @forelse($clientes as $cliente)
                                                         <option value="{{$cliente->id}}">{{$cliente->id}}</option>
+                                                    @empty
+                                                    @endforelse
+                                                </select>
+                                            </div>
+
+                                            {{-- ENCARGADO --}}
+                                            <div class="form-group">
+                                                <label for="ENCARGADO">Encargado</label>
+                                                <select id="SELECT_ENCARGADO" name="SELECT_ENCARGADO" class="form-control">
+                                                    <option selected>Escoga el Encargado...</option>
+                                                    @forelse($encargados as $encargado)
+                                                        <option value="{{$encargado->id}}">{{$encargado->ENCARGADO_NOMBRE}}</option>
                                                     @empty
                                                     @endforelse
                                                 </select>
@@ -105,10 +117,33 @@
                                                 <input type="text" class="form-control" id="REMOTA_LNB_SERIAL" placeholder="Ingrese el Serial del LNB" name="REMOTA_LNB_SERIAL">
                                             </div>
 
+                                            {{-- PROVEEDOR --}}
+                                            <div class="form-group">
+                                                <label for="inputState">Proveedor</label>
+                                                <select id="SELECT_PROVEEDOR" name="SELECT_SOCIO" class="form-control">
+                                                    <option selected>Escoga el Proveedor...</option>
+                                                    @forelse($proveedores as $proveedor)
+                                                        <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
+                                                    @empty
+                                                    @endforelse
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="SATELITES">Satelites</label>
+                                                <select id="SELECT_SATELITES" class="form-control">
+                                                    <option selected>Escoga el Satelite...</option>
+                                                    @forelse($satelites as $satelite)
+                                                        <option value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
+                                                    @empty
+                                                    @endforelse
+                                                </select>
+                                            </div>
+
                                             {{--PLAN --}}
                                             <div class="form-group">
                                                 <label for="PLAN">Plan</label>
-                                                <select id="SELECT_PLAN" class="form-control">
+                                                <select id="SELECT_PLAN" name="SELECT_PLAN" class="form-control">
                                                     <option selected>Escoga el plan...</option>
                                                     @forelse($plan as $plan)
                                                         <option value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
@@ -117,6 +152,17 @@
                                                 </select>
                                             </div>
 
+                                             {{-- REVENDEDOR --}}
+                                             <div class="form-group">
+                                                <label for="REVENDEDOR">Revendedor</label>
+                                                <select id="SELECT_REVENDEDOR" name="SELECT_REVENDEDOR" class="form-control">
+                                                    <option selected>Escoga el Revendedor...</option>
+                                                    @forelse($revendedores as $revendedor)
+                                                        <option value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                    @empty
+                                                    @endforelse
+                                                </select>
+                                            </div>
 
                                              {{-- PLANUP --}}
                                              <div class="form-group">
@@ -131,17 +177,7 @@
                                                 <input type="text" class="form-control" id="REMOTA_PLANDOWN" placeholder="Ingrese el PLANDOWN de la Remota" name="REMOTA_PLANDOWN">
                                             </div>
 
-                                            {{-- PROVEEDOR --}}
-                                            <div class="form-group">
-                                                <label for="inputState">Proveedor</label>
-                                                <select id="SELECT_PROVEEDOR" class="form-control">
-                                                    <option selected>Escoga el Proveedor...</option>
-                                                    @forelse($proveedores as $proveedor)
-                                                        <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
-                                                    @empty
-                                                    @endforelse
-                                                </select>
-                                            </div>
+
 
 
                                             {{-- COSTO PLAN --}}
@@ -199,34 +235,10 @@
                                              {{-- SOCIO --}}
                                              <div class="form-group col-md-12">
                                                 <label for="SOCIO">Socio</label>
-                                                <select id="SELECT_SOCIO" class="form-control">
+                                                <select id="SELECT_SOCIO" name="SELECT_SOCIO" class="form-control">
                                                     <option selected>Escoga el Socio...</option>
                                                     @forelse($socios as $socio)
                                                         <option value="{{$socio->id}}">{{$socio->SOCIO_NOMBRE}}</option>
-                                                    @empty
-                                                    @endforelse
-                                                </select>
-                                            </div>
-
-                                            {{-- REVENDEDOR --}}
-                                            <div class="form-group">
-                                                <label for="REVENDEDOR">Revendedor</label>
-                                                <select id="SELECT_REVENDEDOR" class="form-control">
-                                                    <option selected>Escoga el Revendedor...</option>
-                                                    @forelse($revendedores as $revendedor)
-                                                        <option value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
-                                                    @empty
-                                                    @endforelse
-                                                </select>
-                                            </div>
-
-                                            {{-- ENCARGADO --}}
-                                            <div class="form-group">
-                                                <label for="ENCARGADO">Encargado</label>
-                                                <select id="SELECT_ENCARGADO" class="form-control">
-                                                    <option selected>Escoga el Encargado...</option>
-                                                    @forelse($encargados as $encargado)
-                                                        <option value="{{$encargado->id}}">{{$encargado->ENCARGADO_NOMBRE}}</option>
                                                     @empty
                                                     @endforelse
                                                 </select>
@@ -249,19 +261,6 @@
                                                 <label for="REMOTA_BONDA">Bonda</label>
                                                 <input type="text" class="form-control" id="REMOTA_BONDA" placeholder="Ingrese la Bonda de la Remota" name="REMOTA_BONDA">
                                             </div>
-
-                                            <div class="form-group">
-                                                <label for="SATELITES">Satelites</label>
-                                                <select id="SELECT_SATELITES" class="form-control">
-                                                    <option selected>Escoga el Satelite...</option>
-                                                    @forelse($satelites as $satelite)
-                                                        <option value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
-                                                    @empty
-                                                    @endforelse
-                                                </select>
-                                            </div>
-
-
 
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
