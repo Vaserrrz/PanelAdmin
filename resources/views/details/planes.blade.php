@@ -26,43 +26,76 @@
             <div class="col col-md-7">
                 <div class="form-group">
                     <label for="plan_CORREO">Nombre</label>
-                    <input class="form-control" type="text" value="" readonly>
+                    <input class="form-control" type="text" value="{{$plan->PLAN_NOMBRE}}" readonly>
                   </div>
             </div>
 
-
+            <div class="col col-md-5">
+                <div class="form-group">
+                    <label for="PLAN_CONTENCION">Contencion</label>
+                    <input class="form-control" type="text" value="{{$plan->PLAN_CONTENCION}}" readonly>
+                </div>
+            </div>
+        </div>
+         <div class="row">
             <div class="co col-md-5">
                 <div class="form-group">
-                    <label for="ZONA_TRABAJO">Subida</label>
-                    <input class="form-control" type="text" value="" readonly>
+                    <label for="PLAN_SUBIDA">Subida</label>
+                    <input class="form-control" type="text" value="{{$plan->PLAN_SUBIDA}}" readonly>
                 </div>
             </div>
 
             <div class="col col-md-7">
                 <div class="form-group">
-                    <label for="plan_CORREO">Bajada</label>
-                    <input class="form-control" type="text" value="" readonly>
+                    <label for="PLAN_BAJADA">Bajada</label>
+                    <input class="form-control" type="text" value="{{$plan->PLAN_BAJADA}}" readonly>
                 </div>
             </div>
+         </div>
 
-            <div class="col col-md-5">
+         <div class="row">
+            <div class="co col-md-5">
                 <div class="form-group">
-                    <label for="plan_CORREO">Contencion</label>
-                    <input class="form-control" type="text" value="" readonly>
+                    <label for="PLAN_COSTO">Costo</label>
+                    <input class="form-control" type="text" value="{{$plan->PLAN_COSTO}}" readonly>
                 </div>
             </div>
 
-            <div class="form-group col-md-5">
-                <label for="inputState">Proveedor</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Escoga el Proveedor...</option>
-                    @forelse($proveedor as $proveedor)
-                        <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
-                    @empty
-                    @endforelse
-                </select>
+            <div class="col col-md-7">
+                <div class="form-group">
+                    <label for="PLAN_PRECIO">Precio</label>
+                    <input class="form-control" type="text" value="{{$plan->PLAN_PRECIO}}" readonly>
+                </div>
             </div>
-        </div>
+         </div>
+
+
+         <div class="row">
+            <div class="col col-md-6">
+                <div class="form-group">
+                    <label for="inputState">Proveedor ID</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Escoga el Proveedor...</option>
+                        @forelse($proveedor as $proveedor)
+                            <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
+                        @empty
+                        @endforelse
+                    </select>
+                </div>
+            </div>
+            <div class="col col-md-6">
+                <div class="form-group">
+                    <label for="inputState">Revendedor ID</label>
+                    <select id="inputState" class="form-control">
+                        <option selected>Escoga el Revendedor...</option>
+                        @forelse($revendedor as $revendedor)
+                            <option value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                        @empty
+                        @endforelse
+                    </select>
+                </div>
+            </div>
+         </div>
     </form>
 </div>
 

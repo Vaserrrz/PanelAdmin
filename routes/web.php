@@ -35,6 +35,8 @@ Route::get('clientes/{cliente}/edit',[ ClienteController::class,'edit'])->name('
 Route::put('clientes/{cliente}',[ ClienteController::class,'update'])->name('clientes.update');
 // Ruta eliminar delete
 Route::delete('clientes/{cliente}',[ ClienteController::class,'destroy'])->name('clientes.destroy');
+//detail
+Route::get('clientes/{cliente}',[ ClienteController::class,'details'])->name('clientes.details');
 
 
 //PROVEEDORES

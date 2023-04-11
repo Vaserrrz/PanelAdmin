@@ -56,6 +56,12 @@ class ClienteController extends Controller
         return redirect()->route('clientes');
     }
 
+    public function details(Cliente $cliente)
+    {
+        return view('details.clientes', compact('cliente'));
+
+    }
+
     /**
      * Display the specified resource.
      *

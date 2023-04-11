@@ -58,6 +58,9 @@ class PlanController extends Controller
 
     public function details(plan $plan, proveedor $proveedor, Revendedor $revendedor)
     {
+        $proveedor = $proveedor::all();
+
+        $revendedor = $revendedor::all();
 
         return view('details.planes', compact('plan','proveedor','revendedor'));
 

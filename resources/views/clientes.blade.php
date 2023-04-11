@@ -119,7 +119,7 @@
                                     <tr>
                                         <th scope="row">{{ $cliente->id  }}</th>
                                         <td>
-                                            <a href="">
+                                            <a href="{{route('clientes.details', $cliente->id)}}">
                                                 {{ $cliente->CLIENTE_RAZON }}
                                             </a>
                                         </td>
