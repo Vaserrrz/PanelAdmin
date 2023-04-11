@@ -80,13 +80,13 @@ class RemotaController extends Controller
         $remota->REMOTA_STATUS = $request->REMOTA_STATUS;
         $remota->REMOTA_BONDA = $request->REMOTA_BONDA;
 
-        $remota->CLIENTE_ID = $request->CLIENTE_ID;
-        $remota->PLAN_ID = $request->PLAN_ID;
-        $remota->PROVEEDOR_ID = $request->PROVEEDOR_ID;
-        $remota->SOCIO_ID = $request->SOCIO_ID;
-        $remota->RESELLER_ID = $request->RESELLER_ID;
-        $remota->ENCARGADO_ID = $request->ENCARGADO_ID;
-        $remota->SATELITE_ID = $request->SATELITE_ID;
+        $remota->CLIENTE_ID = $request->SELECT_CLIENTE;
+        $remota->PLAN_ID = $request->SELECT_PLAN;
+        $remota->PROVEEDOR_ID = $request->SELECT_PROVEEDOR;
+        $remota->SOCIO_ID = $request->SELECT_SOCIO;
+        $remota->RESELLER_ID = $request->SELECT_REVENDEDOR;
+        $remota->ENCARGADO_ID = $request->SELECT_ENCARGADO;
+        $remota->SATELITE_ID = $request->SELECT_SATELITE;
 
 
 
@@ -101,11 +101,18 @@ class RemotaController extends Controller
 
 
 
-    public function details(remota $remota,Plan $plan,Cliente $cliente)
+    public function details(remota $remota,Plan $plan,Cliente $cliente, Socio $socio,
+     Proveedor $proveedor, Revendedor $revendedor, Encargado $encargado, Satelite $satelite)
     {
         $cliente = $cliente::all();
         $plan = $plan::all();
-        return view('details.remotas', compact('remota','cliente','plan'));
+        $socio = $socio::all();
+        $proveedor = $proveedor::all();
+        $revendedor = $revendedor::all();
+        $encargado = $encargado::all();
+        $satelite = $satelite::all();
+
+        return view('details.remotas', compact('remota','cliente','plan','socio','proveedor','revendedor','encargado','satelite'));
 
     }
     /**
