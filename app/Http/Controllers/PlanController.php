@@ -49,6 +49,8 @@ class PlanController extends Controller
         $plan->PLAN_CONTENCION = $request->PLAN_CONTENCION;
         $plan->PLAN_COSTO = $request->PLAN_COSTO;
         $plan->PLAN_PRECIO  = $request->PLAN_PRECIO;
+        $plan->PROVEEDOR_ID = $request->SELECT_PROVEEDOR;
+        $plan->RESELLER_ID = $request->SELECT_REVENDEDOR;
 
         $plan->save();
 

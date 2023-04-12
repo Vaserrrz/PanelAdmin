@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Proveedor;
+use App\Models\Revendedor;
 use App\Models\Satelite;
 use Illuminate\Http\Request;
 
@@ -10,12 +12,14 @@ class SateliteController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     *
      */
-    public function index()
+    public function index(Proveedor $proveedor,Revendedor $revendedor)
     {
         $satelites = satelite::paginate();
-        return view('satelites', compact('satelites'));
+        $proveedor = Proveedor::all();
+        $revendedor = Revendedor::all();
+        return view('satelites', compact('revendedor','proveedor','satelites'));
     }
 
     /**
@@ -34,9 +38,11 @@ class SateliteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Proveedor $proveedor, Revendedor $revendedor)
     {
         $satelite = new satelite();
+        $proveedor = $proveedor::all();
+        $revendedor = $revendedor::all();
 
         $satelite->SAT_NOMBRE = $request->SAT_NOMBRE;
         $satelite->SAT_DESCRIPCION = $request->SAT_DESCRIPCION;
@@ -45,6 +51,9 @@ class SateliteController extends Controller
         $satelite->SAT_LNB = $request->SAT_LNB;
         $satelite->SAT_FRECUENCIA = $request->SAT_FRECUENCIA;
         $satelite->SAT_BANDAS = $request->SAT_BANDAS;
+        $satelite->RESELLER_ID = $request->SELECT_REVENDEDOR;
+        $satelite->PROVEEDOR_ID = $request->SELECT_PROVEEDOR;
+
 
         $satelite->save();
 

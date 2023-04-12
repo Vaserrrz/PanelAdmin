@@ -75,10 +75,35 @@
                                             <input type="text" class="form-control" id="SAT_BANDAS" placeholder="Ingrese las Bnadas del satelite" name="SAT_BANDAS">
                                         </div>
 
+                                        {{-- PROVEEDOR --}}
+                                        <div class="form-group">
+                                            <label for="inputState">Proveedor</label>
+                                            <select id="SELECT_PROVEEDOR" name="SELECT_PROVEEDOR" class="form-control">
+                                                <option selected>Escoga el Proveedor...</option>
+                                                @forelse($proveedor as $proveedor)
+                                                    <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
+                                                @empty
+                                                @endforelse
+                                            </select>
+                                        </div>
+
+                                        {{-- REVENDEDOR --}}
+                                        <div class="form-group">
+                                            <label for="REVENDEDOR">Revendedor</label>
+                                            <select id="SELECT_REVENDEDOR" name="SELECT_REVENDEDOR" class="form-control">
+                                                <option selected>Escoga el Revendedor...</option>
+                                                @forelse($revendedor as $revendedor)
+                                                    <option value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                @empty
+                                                @endforelse
+                                            </select>
+                                        </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                             <button type="submit" class="btn btn-primary">Guardar</button>
                                         </div>
+
+
                                     </form>
 
 

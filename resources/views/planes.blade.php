@@ -72,8 +72,8 @@
 
                                         {{-- PROVEEDORES ID --}}
                                         <div class="form-group">
-                                            <label for="inputState">Proveedor ID</label>
-                                            <select id="inputState" class="form-control">
+                                            <label for="PROVEEDOR">Proveedor ID</label>
+                                            <select id="SELECT_PROVEEDOR" name="SELECT_PROVEEDOR" class="form-control">
                                                 <option selected>Escoga el Proveedor...</option>
                                                 @forelse($proveedores as $proveedor)
                                                     <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
@@ -84,8 +84,8 @@
 
                                         {{-- RESELLER ID --}}
                                         <div class="form-group">
-                                            <label for="inputState">Revendedor ID</label>
-                                            <select id="inputState" class="form-control">
+                                            <label for="REVENDEDOR">Revendedor ID</label>
+                                            <select id="SELECT_REVENDEDOR" name="SELECT_REVENDEDOR" class="form-control">
                                                 <option selected>Escoga el Revendedor...</option>
                                                 @forelse($revendedores as $revendedor)
                                                     <option value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>

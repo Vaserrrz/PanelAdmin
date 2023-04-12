@@ -120,7 +120,7 @@
                                             {{-- PROVEEDOR --}}
                                             <div class="form-group">
                                                 <label for="inputState">Proveedor</label>
-                                                <select id="SELECT_PROVEEDOR" name="SELECT_SOCIO" class="form-control">
+                                                <select id="SELECT_PROVEEDOR" name="SELECT_PROVEEDOR" class="form-control">
                                                     <option selected>Escoga el Proveedor...</option>
                                                     @forelse($proveedores as $proveedor)
                                                         <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
@@ -131,7 +131,7 @@
 
                                             <div class="form-group">
                                                 <label for="SATELITES">Satelites</label>
-                                                <select id="SELECT_SATELITES" class="form-control">
+                                                <select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control">
                                                     <option selected>Escoga el Satelite...</option>
                                                     @forelse($satelites as $satelite)
                                                         <option value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
@@ -167,14 +167,14 @@
                                              {{-- PLANUP --}}
                                              <div class="form-group">
                                                 <label for="REMOTA_PLANUP">PlanUp</label>
-                                                <input type="text" class="form-control" id="REMOTA_PLANUP" placeholder="Ingrese el PLANUP de la Remota" name="REMOTA_PLANUP">
+                                                <input type="checkbox" class="form-control" id="REMOTA_PLANUP" placeholder="Ingrese el PLANUP de la Remota" name="REMOTA_PLANUP">
                                             </div>
 
 
                                             {{-- PLANDOWN --}}
                                             <div class="form-group">
                                                 <label for="REMOTA_PLANDOWN">PlanDown</label>
-                                                <input type="text" class="form-control" id="REMOTA_PLANDOWN" placeholder="Ingrese el PLANDOWN de la Remota" name="REMOTA_PLANDOWN">
+                                                <input type="checkbox"  class="form-control" id="REMOTA_PLANDOWN" placeholder="Ingrese el PLANDOWN de la Remota" name="REMOTA_PLANDOWN">
                                             </div>
 
 
@@ -198,13 +198,13 @@
                                             {{-- DIA CORTE --}}
                                             <div class="form-group">
                                                 <label for="REMOTA_DIA_CORTE">Dia de Corte</label>
-                                                <input type="text" class="form-control" id="REMOTA_DIA_CORTE" placeholder="Ingrese el dia de corte de la Remota" name="REMOTA_DIA_CORTE">
+                                                <input type="date" class="form-control" id="REMOTA_DIA_CORTE" placeholder="Ingrese el dia de corte de la Remota" name="REMOTA_DIA_CORTE">
                                             </div>
 
                                             {{-- DIA ACTIVACION --}}
                                             <div class="form-group">
                                                 <label for="REMOTA_DIA_ACTIVACION">Dia Activacion</label>
-                                                <input type="text" class="form-control" id="REMOTA_DIA_ACTIVACION" placeholder="Ingrese el Dia de Activacion de la Remota" name="REMOTA_DIA_ACTIVACION">
+                                                <input type="date" class="form-control" id="REMOTA_DIA_ACTIVACION" placeholder="Ingrese el Dia de Activacion de la Remota" name="REMOTA_DIA_ACTIVACION">
                                             </div>
 
                                             {{-- DETALLE --}}

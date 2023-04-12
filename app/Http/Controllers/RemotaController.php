@@ -11,6 +11,7 @@ use App\Models\Socio;
 use App\Models\Revendedor;
 use App\Models\Encargado;
 use App\Models\Satelite;
+use Termwind\Components\Dd;
 
 /**
  * Summary of RemotaController

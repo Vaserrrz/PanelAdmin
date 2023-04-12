@@ -50,6 +50,7 @@ class EncargadoController extends Controller
         $encargado->ENCARGADO_NOMBRE = $request->ENCARGADO_NOMBRE;
         $encargado->ENCARGADO_CORREO = $request->ENCARGADO_CORREO;
         $encargado->ENCARGADO_TELF = $request->ENCARGADO_TELF;
+        $encargado->CLIENTE_ID = $request->SELECT_CLIENTE;
 
 
         $encargado->save();

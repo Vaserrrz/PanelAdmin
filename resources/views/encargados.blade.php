@@ -54,11 +54,11 @@
 
                                         {{--CLIENTE ID --}}
                                         <div class="form-group">
-                                            <label for="inputState">Cliente ID</label>
-                                            <select id="inputState" class="form-control">
+                                            <label for="CLIENTE">Cliente ID</label>
+                                            <select id="SELECT_CLIENTE" name="SELECT_CLIENTE" class="form-control">
                                                 <option selected>Escoga el Cliente...</option>
                                                 @forelse($clientes as $cliente)
-                                                    <option value="{{$cliente->CLIENTE_RAZON}}">{{$cliente->CLIENTE_RAZON}}</option>
+                                                    <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
                                                 @empty
                                                 @endforelse
                                             </select>
