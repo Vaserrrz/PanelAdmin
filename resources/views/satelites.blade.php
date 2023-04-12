@@ -32,18 +32,28 @@
                                 </div>
                                 <div class="modal-body">
                                     <form  action="{{ route('satelites.store') }}"  method="POST">
+                                        <div class="row">
+                                            <div class="col col-md-6">
+                                                <div class="form-group">
+                                                    <label for="SAT_NOMBRE">Nombre</label>
+                                                    <input type="text" class="form-control" id="SAT_NOMBRE" placeholder="Ingrese el Nombre del satelite" name="SAT_NOMBRE">
+                                                  </div>
+                                            </div>
+
+                                            <div class="col col-md-6">
+                                                <div class="form-group">
+                                                    <label for="SAT_DESCRIPCION">Descripcion</label>
+                                                    <input type="TEXT" class="form-control" id="SAT_DESCRIPCION" placeholder="Ingrese la Descripcion del Satelite" name="SAT_DESCRIPCION">
+                                                </div>
+                                            </div>
+                                        </div>
                                         @csrf
                                         {{-- Nombre --}}
-                                        <div class="form-group">
-                                          <label for="SAT_NOMBRE">Nombre</label>
-                                          <input type="text" class="form-control" id="SAT_NOMBRE" placeholder="Ingrese el Nombre del satelite" name="SAT_NOMBRE">
-                                        </div>
+
+
 
                                         {{-- DESCRIPCION --}}
-                                        <div class="form-group">
-                                            <label for="SAT_DESCRIPCION">Descripcion</label>
-                                            <input type="TEXT" class="form-control" id="SAT_DESCRIPCION" placeholder="Ingrese la Descripcion del Satelite" name="SAT_DESCRIPCION">
-                                        </div>
+
 
                                         {{-- AZNUT --}}
                                         <div class="form-group">
@@ -145,68 +155,68 @@
                                                 Editar
                                             </button>
                                             {{-- modal editar --}}
-                                            <div class="modal fade" id="modal-editar-{{ $satelite->id }}"        aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Editar - satelite</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
+                                            <div class="modal fade modal xl" id="modal-editar-{{ $satelite->id }}"        aria-hidden="true">
+                                                <div class="modal-dialog modal-xl">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Editar - satelite</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form  action="{{route('satelites.update',$satelite->id)}}"  method="POST">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                {{-- Nombre --}}
+                                                                <div class="form-group">
+                                                                <label for="SAT_NOMBRE">Nombre</label>
+                                                                <input type="text" class="form-control" id="SAT_NOMBRE" placeholder="Ingrese el Nombre del satelite" name="SAT_NOMBRE" value="{{$satelite->SAT_NOMBRE}}">
+                                                                </div>
+
+                                                                {{-- DESCRIPCION --}}
+                                                                <div class="form-group">
+                                                                    <label for="SAT_DESCRIPCION">Descripcion</label>
+                                                                    <input type="TEXT" class="form-control" id="SAT_DESCRIPCION" placeholder="Ingrese la Descripcion del Satelite" name="SAT_DESCRIPCION" value="{{$satelite->SAT_DESCRIPCION}}">
+                                                                </div>
+
+                                                                {{-- AZNUT --}}
+                                                                <div class="form-group">
+                                                                    <label for="SAT_AZNUT">AZNUT</label>
+                                                                    <input type="integer" class="form-control" id="SAT_AZNUT" placeholder="Ingrese el AZNUT del satelite" name="SAT_AZNUT" value="{{$satelite->SAT_AZNUT}}">
+                                                                </div>
+
+                                                                {{-- ELEVACION --}}
+                                                                <div class="form-group">
+                                                                    <label for="SAT_ELEVACION">Elevacion</label>
+                                                                    <input type="text" class="form-control" id="SAT_ELEVACION" placeholder="Ingrese LA Elevacion del satelite" name="SAT_ELEVACION" value="{{$satelite->SAT_ELEVACION}}">
+                                                                </div>
+
+                                                                {{-- LNB --}}
+                                                                <div class="form-group">
+                                                                    <label for="SAT_LNB">LNB</label>
+                                                                    <input type="text" class="form-control" id="SAT_LNB" placeholder="Ingrese el LNB del satelite" name="SAT_LNB" value="{{$satelite->SAT_LNB}}">
+                                                                </div>
+
+                                                                {{-- FRECUENCIA --}}
+                                                                <div class="form-group">
+                                                                    <label for="SAT_LNB">Frecuencia</label>
+                                                                    <input type="text" class="form-control" id="SAT_FRECUENCIA" placeholder="Ingrese el AZNUT del satelite" name="SAT_FRECUENCIA" value="{{$satelite->SAT_FRECUENCIA}}">
+                                                                </div>
+
+                                                                {{-- BANDAS --}}
+                                                                <div class="form-group">
+                                                                    <label for="SAT_BANDAS">Bandas</label>
+                                                                    <input type="text" class="form-control" id="SAT_BANDAS" placeholder="Ingrese las Bandas del satelite" name="SAT_BANDAS" value="{{$satelite->SAT_BANDAS}}">
+                                                                </div>
+
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
                                                     </div>
-                                                    <div class="modal-body">
-                                                        <form  action="{{route('satelites.update',$satelite->id)}}"  method="POST">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            {{-- Nombre --}}
-                                                            <div class="form-group">
-                                                              <label for="SAT_NOMBRE">Nombre</label>
-                                                              <input type="text" class="form-control" id="SAT_NOMBRE" placeholder="Ingrese el Nombre del satelite" name="SAT_NOMBRE" value="{{$satelite->SAT_NOMBRE}}">
-                                                            </div>
-
-                                                            {{-- DESCRIPCION --}}
-                                                            <div class="form-group">
-                                                                <label for="SAT_DESCRIPCION">Descripcion</label>
-                                                                <input type="TEXT" class="form-control" id="SAT_DESCRIPCION" placeholder="Ingrese la Descripcion del Satelite" name="SAT_DESCRIPCION" value="{{$satelite->SAT_DESCRIPCION}}">
-                                                            </div>
-
-                                                            {{-- AZNUT --}}
-                                                            <div class="form-group">
-                                                                <label for="SAT_AZNUT">AZNUT</label>
-                                                                <input type="integer" class="form-control" id="SAT_AZNUT" placeholder="Ingrese el AZNUT del satelite" name="SAT_AZNUT" value="{{$satelite->SAT_AZNUT}}">
-                                                            </div>
-
-                                                             {{-- ELEVACION --}}
-                                                             <div class="form-group">
-                                                                <label for="SAT_ELEVACION">Elevacion</label>
-                                                                <input type="text" class="form-control" id="SAT_ELEVACION" placeholder="Ingrese LA Elevacion del satelite" name="SAT_ELEVACION" value="{{$satelite->SAT_ELEVACION}}">
-                                                            </div>
-
-                                                            {{-- LNB --}}
-                                                            <div class="form-group">
-                                                                <label for="SAT_LNB">LNB</label>
-                                                                <input type="text" class="form-control" id="SAT_LNB" placeholder="Ingrese el LNB del satelite" name="SAT_LNB" value="{{$satelite->SAT_LNB}}">
-                                                            </div>
-
-                                                            {{-- FRECUENCIA --}}
-                                                            <div class="form-group">
-                                                                <label for="SAT_LNB">Frecuencia</label>
-                                                                <input type="text" class="form-control" id="SAT_FRECUENCIA" placeholder="Ingrese el AZNUT del satelite" name="SAT_FRECUENCIA" value="{{$satelite->SAT_FRECUENCIA}}">
-                                                            </div>
-
-                                                            {{-- BANDAS --}}
-                                                            <div class="form-group">
-                                                                <label for="SAT_BANDAS">Bandas</label>
-                                                                <input type="text" class="form-control" id="SAT_BANDAS" placeholder="Ingrese las Bandas del satelite" name="SAT_BANDAS" value="{{$satelite->SAT_BANDAS}}">
-                                                            </div>
-
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                                <button type="submit" class="btn btn-primary">Guardar</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
                                                 </div>
                                             </div>
 
