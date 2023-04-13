@@ -264,7 +264,7 @@
                 <input class="form-control" type="text" value="{{$remota->REMOTA_STATUS}}" readonly>
             </div>
         </div>
-
+    </form>
 </div>
 
 @stop
