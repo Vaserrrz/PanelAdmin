@@ -215,33 +215,55 @@
 
 
 
+
                                             <div class="row">
-                                                <div class="col col-md-4">
-                                                    <div class="form-group">
-                                                        <label for="SATELITES">Satelites</label>
-                                                        <select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control">
-                                                            <option selected>Escoga el Satelite...</option>
-                                                            @forelse($satelites as $satelite)
-                                                                <option value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
-                                                            @empty
-                                                            @endforelse
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-
                                                 <div class="col col-md-4">
                                                     <div class="form-group">
                                                         <label for="inputState">Proveedor</label>
                                                         <select id="SELECT_PROVEEDOR" name="SELECT_PROVEEDOR" class="form-control">
-                                                            <option selected>Escoga el Proveedor...</option>
+                                                            {{-- <option selected>Escoga el Proveedor...</option> --}}
+                                                            <option value="">Escoga el Proveedor...</option>
+
                                                             @forelse($proveedores as $proveedor)
-                                                                <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
+                                                                <option value="{{$proveedor->id}}"   >{{$proveedor->RAZON}}</option>
                                                             @empty
+                                                                No hay proveedores registrados
                                                             @endforelse
                                                         </select>
                                                     </div>
                                                 </div>
+
+                                                {{-- state --}}
+                                                <div class="col col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="SATELITES">Satelites</label>
+                                                        <select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control" disabled>
+                                                            <option value="">Escoga el Satelite...</option>
+                                                            {{-- <option selected>Escoga el Satelite...</option> --}}
+                                                            {{-- @forelse($satelites as $satelite)
+                                                                <option value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
+                                                            @empty
+                                                            @endforelse --}}
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+
+                                                {{-- city --}}
+                                                <div>
+                                                    <div class="form-group">
+                                                        <label for="PLAN">Plan</label>
+                                                        <select id="SELECT_PLAN" name="SELECT_PLAN" class="form-control" disabled>
+                                                            <option value=""> Escoga un plan . . . </option>
+                                                            {{-- <option selected>Escoga el plan...</option>
+                                                            @forelse($plan as $plan)
+                                                                <option value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
+                                                            @empty
+                                                            @endforelse --}}
+                                                        </select>
+                                                    </div>
+                                                </div>
+
 
                                                 <div class="col col-md-4">
                                                     <div class="form-group">
@@ -260,16 +282,7 @@
 
 
                                             {{--PLAN --}}
-                                            <div class="form-group">
-                                                <label for="PLAN">Plan</label>
-                                                <select id="SELECT_PLAN" name="SELECT_PLAN" class="form-control">
-                                                    <option selected>Escoga el plan...</option>
-                                                    @forelse($plan as $plan)
-                                                        <option value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
-                                                    @empty
-                                                    @endforelse
-                                                </select>
-                                            </div>
+
 
 
                                             <div class="row">
@@ -552,5 +565,62 @@
 @stop
 
 @section('js')
-    {{-- <script> alert('Hi!'); </script> --}}
+    <script>
+        const countrySelect = document.getElementById('SELECT_PROVEEDOR');
+        const stateSelect = document.getElementById('SELECT_SATELITE');
+        const citySelect = document.getElementById('SELECT_PLAN');
+
+        countrySelect.addEventListener('change', function() {
+            stateSelect.innerHTML = '<option value="">Selecciona un satelite</option>';
+            stateSelect.disabled = false;
+
+            citySelect.innerHTML = '<option value="">Selecciona una plan</option>';
+            citySelect.disabled = false;
+
+            if (!countrySelect.value) {
+                return;
+            }
+
+            fetch(`/satelites?proveedor_id=${countrySelect.value}`)
+                .then(response => response.json())
+                .then(states => {
+                    stateSelect.disabled = false;
+
+                    states.forEach(state => {
+                        const option = document.createElement('option');
+                        option.value = state.id;
+                        option.textContent = state.name;
+                        stateSelect.appendChild(option);
+                    });
+                });
+        });
+
+        stateSelect.addEventListener('change', function() {
+            citySelect.innerHTML = '<option value="">Selecciona una plan</option>';
+            citySelect.disabled = true;
+
+            if (!stateSelect.value) {
+                return;
+            }
+
+            fetch(`/plans?satelite_id=${stateSelect.value}`)
+                .then(response => response.json())
+                .then(cities => {
+                    citySelect.disabled = false;
+
+                    cities.forEach(city => {
+                        const option = document.createElement('option');
+                        option.value = city.id;
+                        option.textContent = city.name;
+                        citySelect.appendChild(option);
+                    });
+                });
+        });
+
+
+
+
+
+
+    </script>
 @stop

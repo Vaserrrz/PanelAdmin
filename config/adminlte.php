@@ -328,11 +328,6 @@ return [
                     'icon' => 'fas fa-fw fa-user-circle',
                 ],
                 [
-                    'text' => 'Editar',
-                    'url'  => 'editar',
-                    'icon' => 'fas fa-fw fa-user-circle',
-                ],
-                [
                     'text' => 'Encargados',
                     'url'  => 'encargados',
                     'icon' => 'fas fa-fw fa-suitcase'
@@ -340,25 +335,12 @@ return [
             ],
         ],
         [
-            'text' => 'Remota Satelital',
-            'url'  => 'remotas',
-            'icon' => 'fas fa-fw fa-rss',
-
-        ],
-        [
-            'text' => 'Mikrotik Satelital',
-            'url'  => 'mikrotiks',
-            'icon' => 'fas fa-fw fa-server',
-            'label' => 'NUEVO',
-            'Label_color' => 'primary',
-        ],
-        [
             'text' => 'Menu Proveedores',
             'url'  => 'proveedores',
             'icon' => 'fas fa-fw fa-address-card',
             'submenu' => [
                 [
-                    'text' => 'Proveedores de red',
+                    'text' => 'Proveedores',
                     'url'  => 'proveedores',
                     'icon' => 'fas fa-fx fa-users'
                 ],
@@ -373,6 +355,19 @@ return [
                     'icon' => 'fas fa-fx fa-wifi',
                 ],
             ],
+        ],
+        [
+            'text' => 'Remota Satelital',
+            'url'  => 'remotas',
+            'icon' => 'fas fa-fw fa-rss',
+
+        ],
+        [
+            'text' => 'Mikrotik Satelital',
+            'url'  => 'mikrotiks',
+            'icon' => 'fas fa-fw fa-server',
+            'label' => '',
+            'Label_color' => 'primary',
         ],
         [
             'text' => 'Revendedores',

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Proveedor;
 
@@ -10,7 +9,7 @@ class ProveedorController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     *
      */
     public function index()
     {
@@ -36,14 +35,19 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
+
         $proveedor = new proveedor();
+
+
         $proveedor->CI_RIF  = $request->CI_RIF ;
         $proveedor->RAZON = $request->RAZON;
         $proveedor->DIRECCION = $request->DIRECCION;
         $proveedor->CONTACTO  = $request->CONTACTO ;
         $proveedor->METODO_PAGO = $request->METODO_PAGO;
         $proveedor->DETALLE_PAGO = $request->DETALLE_PAGO;
-        $proveedor->PROVEEDOR_CORREO  = $request->PROVEEDOR_CORREO ;
+        $proveedor->PROVEEDOR_CORREO  = $request->PROVEEDOR_CORREO;
+
+
         $proveedor->save();
 
 

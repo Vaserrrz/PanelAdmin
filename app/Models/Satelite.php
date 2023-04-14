@@ -9,14 +9,21 @@ class Satelite extends Model
 {
     use HasFactory;
 
-    public function proveedores(){
-        return $this->belongsTo('App\Models\Proveedores');
+    public function proveedor(){
+        return $this->belongsTo('App\Models\Proveedor');
     }
+
     public function revendedores(){
-        return $this->belongsTo('App\Models\Revendedores');
+        return $this->belongsTo('App\Models\Revendedor');
+    }
+
+    public function planes(){
+        return $this->hasMany('App\Models\Plan');
     }
 
     public function remotas(){
-        return $this->hasMany('App\Models\Cliente');
+        return $this->hasMany('App\Models\Remota');
     }
+
+
 }

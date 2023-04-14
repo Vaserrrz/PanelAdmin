@@ -31,7 +31,12 @@ class Plan extends Model
         return $this->belongsTo('App\Models\Proveedor');
     }
 
+
     public function revendedores(){
         return $this->belongsTo('App\Models\Revendedor');
+    }
+
+    public function satelites(){
+        return $this->belongsTo('App\Models\Satelite');
     }
 }

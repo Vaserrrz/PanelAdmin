@@ -10,7 +10,6 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
-
 use Spatie\Permission\Traits\HasRoles;
 
 /**
@@ -66,11 +65,6 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-
-   /* public function posts(){
-        return $this->hasMany('App\Models\Post');
-    }*/
-    //Relacion Uno a Uno
     public function profile(){
         return $this->hasOne('App\Models\profile');
     }

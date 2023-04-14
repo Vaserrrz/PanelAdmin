@@ -24,20 +24,42 @@ class RemotaController extends Controller
      *
      */
     public function index(plan $plan,cliente $cliente, Proveedor $proveedor,
-    Socio $socio, Revendedor $revendedor, Encargado $encargado,Satelite $satelite)
+    Socio $socio, Revendedor $revendedor, Encargado $encargado,Satelite $satelites)
     {
-        $plan = Plan::all();
         $remotas = Remota::all();
         $clientes = Cliente::all();
-        $proveedores = Proveedor::all();
         $socios = Socio::all();
         $revendedores = Revendedor::all();
         $encargados = Encargado::all();
-        $satelites = Satelite::all();
+
+        $proveedores = Proveedor::all();
+        // $satelites = Satelite::all();
+        // $plan = Plan::all();
+
+        $satelites = [];
+        $plan = [];
+
+
+
 
         return view('remotas', compact('remotas','plan','remotas','clientes','proveedores',
         'socios','revendedores','encargados','satelites'));
     }
+
+
+    public function getSatelites(Request $request)
+    {
+        $satelites = Satelite::where('PROVEEDOR_ID', $request->PROVEEDOR_ID)->get();
+        return response()->json($satelites);
+    }
+
+    public function getPlan(Request $request)
+    {
+        $Plan = Plan::where('SATELITE_ID', $request->SATELITE_ID)->get();
+        return response()->json($Plan);
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -85,7 +107,7 @@ class RemotaController extends Controller
         $remota->PLAN_ID = $request->SELECT_PLAN;
         $remota->PROVEEDOR_ID = $request->SELECT_PROVEEDOR;
         $remota->SOCIO_ID = $request->SELECT_SOCIO;
-        $remota->RESELLER_ID = $request->SELECT_RESELLER;
+        $remota->RESELLER_ID = $request->SELECT_RESELLER5;
         $remota->ENCARGADO_ID = $request->SELECT_ENCARGADO;
         $remota->SATELITE_ID = $request->SELECT_SATELITE;
 

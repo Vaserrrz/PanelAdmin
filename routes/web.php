@@ -66,6 +66,10 @@ Route::delete('remotas/{remota}',[ RemotaController::class,'destroy'])->name('re
 //detail
 Route::get('remotas/{remota}',[ RemotaController::class,'details'])->name('remotas.details');
 
+Route::get('/remotas/satelites', [RemotaController::class, 'getSatelites']);
+Route::get('/remotas/plans',     [RemotaController::class, 'getPlan']);
+
+
 
 //ENCARGADOS
 Route::get('encargados', [EncargadoController::class, 'index'])->name('encargados');
