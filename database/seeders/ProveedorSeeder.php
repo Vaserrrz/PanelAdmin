@@ -15,7 +15,7 @@ class ProveedorSeeder extends Seeder
      */
     public function run()
     {
-        Proveedor::factory(10)->create();
+        Proveedor::factory(15)->create();
         Proveedor::factory()->create([
             'CI_RIF' => '123456789',
             'RAZON' => 'Alfonzomix',

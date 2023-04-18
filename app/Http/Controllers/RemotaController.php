@@ -32,7 +32,9 @@ class RemotaController extends Controller
         $revendedores = Revendedor::all();
         $encargados = Encargado::all();
 
-        $proveedores = Proveedor::all();
+        // $proveedores = Proveedor::all();
+        $proveedores = Proveedor::has('satelites')->get();
+        // return $proveedores;
         // $satelites = Satelite::all();
         // $plan = Plan::all();
 
@@ -46,19 +48,25 @@ class RemotaController extends Controller
         'socios','revendedores','encargados','satelites'));
     }
 
+    public function victorpato(){
+        return "pato";
+    }
+
 
     public function getSatelites(Request $request)
     {
-        return 1;
-        $satelites = Satelite::where('PROVEEDOR_ID', $request->PROVEEDOR_ID)->get();
-        $satelites = Satelite::all();
-        return $satelites;
+        // $satelites = Satelite::where('PROVEEDOR_ID', $request->PROVEEDOR_ID)->get();
+        $proveedor_id = $request->PROVEEDOR_ID;
+        $satelites = Satelite::whereHas('proveedor', function ($query) use($proveedor_id) {
+            $query->where('PROVEEDOR_ID', $proveedor_id);
+        })->whereHas('planes')->get();
         return response()->json($satelites);
     }
 
     public function getPlan(Request $request)
     {
         $Plan = Plan::where('SATELITE_ID', $request->SATELITE_ID)->get();
+
         return response()->json($Plan);
     }
 

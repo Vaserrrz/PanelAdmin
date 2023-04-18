@@ -15,6 +15,6 @@ class RevendedorSeeder extends Seeder
      */
     public function run()
     {
-        Revendedor::factory(10)->create();
+        Revendedor::factory(15)->create();
     }
 }

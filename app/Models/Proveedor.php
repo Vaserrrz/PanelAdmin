@@ -12,6 +12,11 @@ class Proveedor extends Model
     public function satelites(){
         return $this->hasMany('App\Models\Satelite');
     }
+    // Asi esta bien segun chatgpt sexo
+    // public function satelites()
+    // {
+    //     return $this->hasMany(Satelite::class);
+    // }
 
     public function planes(){
         return $this->hasMany('App\Models\Plan');

@@ -582,7 +582,7 @@
             }
 
             console.log(proveedorSelect.value);
-            fetch(`/remotas/satelites?PROVEEDOR_ID=${proveedorSelect.value}`)
+            fetch(`/remotas_satelites?PROVEEDOR_ID=${proveedorSelect.value}`)
                 .then(response => response.json())
                 .then(states => {
                     sateliteSelect.disabled = false;
@@ -605,7 +605,7 @@
                 return;
             }
 
-            fetch(`/plans?satelite_id=${sateliteSelect.value}`)
+            fetch(`/remotas_plans?SATELITE_ID=${sateliteSelect.value}`)
                 .then(response => response.json())
                 .then(plans => {
                     planSelect.disabled = false;
