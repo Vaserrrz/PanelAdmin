@@ -213,8 +213,6 @@
                                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                                                         <button type="submit" class="btn btn-primary">Guardar</button>
                                                                 </div>
-
-
                                                             </form>
 
 
@@ -231,7 +229,7 @@
                                             <form action="{{ route('proveedores.destroy', $proveedor) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
-                                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                                             </form>
 
                                         </td>
