@@ -49,7 +49,10 @@ class RemotaController extends Controller
 
     public function getSatelites(Request $request)
     {
+        return 1;
         $satelites = Satelite::where('PROVEEDOR_ID', $request->PROVEEDOR_ID)->get();
+        $satelites = Satelite::all();
+        return $satelites;
         return response()->json($satelites);
     }
 
