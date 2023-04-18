@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+                                                                @extends('adminlte::page')
 
 @section('title', 'Remotas')
 
@@ -74,7 +74,7 @@
 
                                                 <div class="col col-md-4">
                                                     <div class="form-group">
-                                                        <label for="ENCARGADO">Encargado</label>
+                                                        <label for="ENCARGADO">                                                                Encargado</label>
                                                         <select id="SELECT_ENCARGADO" name="SELECT_ENCARGADO" class="form-control">
                                                             <option selected>Escoga el Encargado...</option>
                                                             @forelse($encargados as $encargado)
@@ -233,7 +233,7 @@
                                                     </div>
                                                 </div>
 
-                                                {{-- state --}}
+                                                {{-- satelite --}}
                                                 <div class="col col-md-4">
                                                     <div class="form-group">
                                                         <label for="SATELITES">Satelites</label>
@@ -566,53 +566,57 @@
 
 @section('js')
     <script>
-        const countrySelect = document.getElementById('SELECT_PROVEEDOR');
-        const stateSelect = document.getElementById('SELECT_SATELITE');
-        const citySelect = document.getElementById('SELECT_PLAN');
+        const proveedorSelect = document.getElementById('SELECT_PROVEEDOR');
+        const sateliteSelect = document.getElementById('SELECT_SATELITE');
+        const planSelect = document.getElementById('SELECT_PLAN');
 
-        countrySelect.addEventListener('change', function() {
-            stateSelect.innerHTML = '<option value="">Selecciona un satelite</option>';
-            stateSelect.disabled = false;
+        proveedorSelect.addEventListener('change', function() {
+            sateliteSelect.innerHTML = '<option value="">Selecciona un satelite</option>';
+            sateliteSelect.disabled = false;
 
-            citySelect.innerHTML = '<option value="">Selecciona una plan</option>';
-            citySelect.disabled = false;
+            planSelect.innerHTML = '<option value="">Selecciona una plan</option>';
+            planSelect.disabled = false;
 
-            if (!countrySelect.value) {
+            if (!proveedorSelect.value) {
                 return;
             }
 
-            fetch(`/satelites?proveedor_id=${countrySelect.value}`)
+            console.log(proveedorSelect.value);
+            fetch("{{ route('remotas.getSatelites') }}?PROVEEDOR_ID="proveedorSelect.value)
+            // fetch(`/remotas/satelites?PROVEEDOR_ID=${proveedorSelect.value}`)
+            // '{{ route("get.plans.by.satellite") }}?satellite_id=' + satelliteId
                 .then(response => response.json())
                 .then(states => {
-                    stateSelect.disabled = false;
+                    sateliteSelect.disabled = false;
 
-                    states.forEach(state => {
+                    states.forEach(satelite => {
+                        console.log(satelite);
                         const option = document.createElement('option');
-                        option.value = state.id;
-                        option.textContent = state.name;
-                        stateSelect.appendChild(option);
+                        option.value = satelite.id;
+                        option.textContent = satelite.SAT_NOMBRE;
+                        sateliteSelect.appendChild(option);
                     });
                 });
         });
 
-        stateSelect.addEventListener('change', function() {
-            citySelect.innerHTML = '<option value="">Selecciona una plan</option>';
-            citySelect.disabled = true;
+        sateliteSelect.addEventListener('change', function() {
+            planSelect.innerHTML = '<option value="">Selecciona una plan</option>';
+            planSelect.disabled = true;
 
-            if (!stateSelect.value) {
+            if (!sateliteSelect.value) {
                 return;
             }
 
-            fetch(`/plans?satelite_id=${stateSelect.value}`)
+            fetch(`/plans?satelite_id=${sateliteSelect.value}`)
                 .then(response => response.json())
-                .then(cities => {
-                    citySelect.disabled = false;
+                .then(plans => {
+                    planSelect.disabled = false;
 
-                    cities.forEach(city => {
+                    plans.forEach(plan => {
                         const option = document.createElement('option');
-                        option.value = city.id;
-                        option.textContent = city.name;
-                        citySelect.appendChild(option);
+                        option.value = plan.id;
+                        option.textContent = plan.PLAN_NOMBRE;
+                        planSelect.appendChild(option);
                     });
                 });
         });
