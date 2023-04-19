@@ -395,18 +395,17 @@
                                                                             <select id="SELECT_CLIENTE" name="SELECT_CLIENTE" class="form-control">
                                                                                 <option selected>Escoga el cliente...</option>
 
-
                                                                                 @forelse($clientes as $cliente)
                                                                                     @if ($remota->CLIENTE_ID == $cliente->id)
                                                                                         <option value="{{$cliente->id}}" selected> {{$cliente->CLIENTE_RAZON}} </option>
 
                                                                                     @else
                                                                                         <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
-
                                                                                     @endif
                                                                                 @empty
                                                                                     No hay hay clientes registrados
                                                                                 @endforelse
+
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -426,10 +425,16 @@
                                                                             <label for="ENCARGADO">Encargado</label>
                                                                             <select id="SELECT_ENCARGADO" name="SELECT_ENCARGADO" class="form-control">
                                                                                 <option selected>Escoga el Encargado...</option>
-                                                                                {{-- @forelse($encargados as $encargado)
-                                                                                    <option value="{{$encargado->id}}">{{$encargado->ENCARGADO_NOMBRE}}</option>
+
+                                                                                @forelse($encargados as $encargado)
+                                                                                    @if ($remota->ENCARGADO_ID == $encargado->id)
+                                                                                        <option value="{{$encargado->id}}" selected> {{$encargado->ENCARGADO_NOMBRE}} </option>
+                                                                                    @else
+                                                                                        <option value="{{$encargado->id}}">{{$encargado->CLIENTE_RAZON}}</option>
+                                                                                    @endif
                                                                                 @empty
-                                                                                @endforelse --}}
+                                                                                    No hay hay clientes registrados
+                                                                                @endforelse
                                                                             </select>
                                                                         </div>
                                                                     </div>

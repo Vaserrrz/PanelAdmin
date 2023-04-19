@@ -23,20 +23,20 @@ class RemotaController extends Controller
      *
      *
      */
-    public function index(plan $plan,cliente $cliente, Proveedor $proveedor,
-    Socio $socio, Revendedor $revendedor, Encargado $encargado,Satelite $satelites)
+    public function index()
     {
         $remotas = Remota::all();
         $socios = Socio::all();
         $revendedores = Revendedor::all();
         $cliente = Cliente::all();
+        $encargados = Encargado::all();
 
         $proveedores = Proveedor::has('satelites')->get();
         $clientes = Cliente::has('encargados')->get();
 
         $satelites = [];
         $plan = [];
-        $encargados = [];
+        // $encargados = [];
 
         // dd($clientes);
 
