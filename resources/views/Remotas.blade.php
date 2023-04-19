@@ -54,9 +54,12 @@
                                                         <label for="CLIENTE">Cliente</label>
                                                         <select id="SELECT_CLIENTE" name="SELECT_CLIENTE" class="form-control">
                                                             <option selected>Escoga el cliente...</option>
+
+
                                                             @forelse($clientes as $cliente)
                                                                 <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
                                                             @empty
+                                                                No hay hay clientes registrados
                                                             @endforelse
                                                         </select>
                                                     </div>
@@ -77,10 +80,10 @@
                                                         <label for="ENCARGADO">                                                                Encargado</label>
                                                         <select id="SELECT_ENCARGADO" name="SELECT_ENCARGADO" class="form-control">
                                                             <option selected>Escoga el Encargado...</option>
-                                                            @forelse($encargados as $encargado)
+                                                            {{-- @forelse($encargados as $encargado)
                                                                 <option value="{{$encargado->id}}">{{$encargado->ENCARGADO_NOMBRE}}</option>
                                                             @empty
-                                                            @endforelse
+                                                            @endforelse --}}
                                                         </select>
                                                     </div>
                                                 </div>
@@ -219,7 +222,7 @@
                                             <div class="row">
                                                 <div class="col col-md-4">
                                                     <div class="form-group">
-                                                        <label for="inputState">Proveedor</label>
+                                                        <label for="PROVEEDOR">Proveedor</label>
                                                         <select id="SELECT_PROVEEDOR" name="SELECT_PROVEEDOR" class="form-control">
                                                             {{-- <option selected>Escoga el Proveedor...</option> --}}
                                                             <option value="">Escoga el Proveedor...</option>
@@ -569,7 +572,8 @@
         const proveedorSelect = document.getElementById('SELECT_PROVEEDOR');
         const sateliteSelect = document.getElementById('SELECT_SATELITE');
         const planSelect = document.getElementById('SELECT_PLAN');
-
+        const clienteSelect = document.getElementById('SELECT_CLIENTE');
+        const encargadoSelect = document.getElementById('SELECT_ENCARGADO');
         proveedorSelect.addEventListener('change', function() {
             sateliteSelect.innerHTML = '<option value="">Selecciona un satelite</option>';
             sateliteSelect.disabled = false;
@@ -581,7 +585,7 @@
                 return;
             }
 
-            console.log(proveedorSelect.value);
+
             fetch(`/remotas_satelites?PROVEEDOR_ID=${proveedorSelect.value}`)
                 .then(response => response.json())
                 .then(states => {
@@ -619,6 +623,31 @@
                 });
         });
 
+        clienteSelect.addEventListener('change', function() {
+            console.log('prueba');
+            encargadoSelect.innerHTML = '<option value="">Selecciona un encargado</option>';
+            encargadoSelect.disabled = false;
+
+            if (!clienteSelect.value) {
+                return;
+            }
+
+            fetch(`/remotas_encargados?CLIENTE_ID=${clienteSelect.value}`)
+                .then(response => response.json())
+                .then(states => {
+                    console.log(states);
+                    encargadoSelect.disabled = false;
+
+                    states.forEach(encargado => {
+                        console.log(encargado);
+                        const option = document.createElement('option');
+                        option.value = encargado.id;
+                        option.textContent = encargado.ENCARGADO_NOMBRE;
+                        encargadoSelect.appendChild(option);
+                    });
+
+                });
+        });
 
 
 

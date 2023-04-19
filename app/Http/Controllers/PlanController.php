@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Plan;
 use App\Models\Proveedor;
 use App\Models\Revendedor;
+use App\Models\Satelite;
 
 class PlanController extends Controller
 {
@@ -14,14 +15,22 @@ class PlanController extends Controller
      *
      *
      */
-    public function index(Revendedor $revendedor, Proveedor $proveedor)
+    public function index(Revendedor $revendedor, Proveedor $proveedor, Satelite $satelites)
     {
         $planes = plan::all();
         $revendedores = Revendedor::all();
         $proveedores = Proveedor::all();
-        return view('planes', compact('planes','revendedores','proveedores'));
+        $satelites = Satelite::all();
+        return view('planes', compact('planes','revendedores','proveedores','satelites'));
     }
 
+
+    public function getSatelites(Request $request)
+    {
+        // $satelites = Satelite::where('PROVEEDOR_ID', $request->PROVEEDOR_ID)->get();
+        $satelite = Satelite::where('PROVEEDOR_ID', $request->PROVEEDOR_ID)->get();
+        return response()->json($satelite);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -51,6 +60,7 @@ class PlanController extends Controller
         $plan->PLAN_PRECIO  = $request->PLAN_PRECIO;
         $plan->PROVEEDOR_ID = $request->SELECT_PROVEEDOR;
         $plan->RESELLER_ID = $request->SELECT_REVENDEDOR;
+        $plan->SATELITE_ID = $request->SELECT_SATELITE;
 
         $plan->save();
 

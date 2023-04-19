@@ -83,6 +83,19 @@
                                         </div>
 
                                         {{-- RESELLER ID --}}
+
+
+                                        <div class="form-group">
+                                            <label for="SATELITE">Satelite ID</label>
+                                            <select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control">
+                                                <option selected>Escoga el Satelite...</option>
+                                                {{-- @forelse($satelites as $satelite)
+                                                    <option value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
+                                                @empty
+                                                @endforelse --}}
+                                            </select>
+                                        </div>
+
                                         <div class="form-group">
                                             <label for="REVENDEDOR">Revendedor ID</label>
                                             <select id="SELECT_REVENDEDOR" name="SELECT_REVENDEDOR" class="form-control">
@@ -93,7 +106,6 @@
                                                 @endforelse
                                             </select>
                                         </div>
-
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                             <button type="submit" class="btn btn-primary">Guardar</button>
@@ -108,6 +120,8 @@
                             </div>
                             </div>
                         </div>
+
+
                         {{-- Tabla de datos --}}
                         <table class="table table-bordered">
                             <thead>
@@ -195,8 +209,8 @@
 
                                                             {{-- PROVEEDORES ID --}}
                                                             <div class="form-group">
-                                                                <label for="inputState">Proveedor ID</label>
-                                                                <select id="inputState" class="form-control">
+                                                                <label for="PROVEEDOR">Proveedor ID</label>
+                                                                <select id="SELECT_PROVEEDOR" class="form-control">
                                                                     <option selected>Escoga el Proveedor...</option>
                                                                     @forelse($proveedores as $proveedor)
                                                                         <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
@@ -207,8 +221,8 @@
 
                                                             {{-- RESELLER ID --}}
                                                             <div class="form-group">
-                                                                <label for="inputState">Revendedor ID</label>
-                                                                <select id="inputState" class="form-control">
+                                                                <label for="REVENDEDOR">Revendedor ID</label>
+                                                                <select id="SELECT_REVENDEDOR" class="form-control">
                                                                     <option selected>Escoga el Revendedor...</option>
                                                                     @forelse($revendedores as $revendedor)
                                                                         <option value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
@@ -272,5 +286,56 @@
 @stop
 
 @section('js')
-    {{-- <script> alert('Hi!'); </script> --}}
+    <script>
+        const proveedorSelect = document.getElementById('SELECT_PROVEEDOR');
+        const sateliteSelect = document.getElementById('SELECT_SATELITE');
+
+        // proveedorSelect.addEventListener('change', function(){
+        //     sateliteSelect.innerHTML = '<option value="">Seleccione un satelite</option>';
+        //     sateliteSelect.disabled = false;
+
+        //     if (!proveedorSelect.value) {
+        //         return;
+        //     }
+
+        //     fetch(`/planes_satelites?PROVEEDOR_ID=${proveedorSelect.value}`)
+        //         .then(response => response.json())
+        //         .then(states => {
+        //             sateliteSelect.disabled = false;
+
+        //             states.array.forEach(satelite => {
+        //                 console.log(satelite);
+        //                 const option = document.createElement('option');
+        //                 option.value = satelite.id;
+        //                 option.textContent = satelite.SAT_NOMBRE;
+        //                 sateliteSelect.appendChild(option);
+        //             });
+        //         });
+        // });
+
+        proveedorSelect.addEventListener('change', function() {
+            sateliteSelect.innerHTML = '<option value="">Selecciona un satelite</option>';
+            sateliteSelect.disabled = false;
+
+            if (!proveedorSelect.value) {
+                return;
+            }
+
+
+            fetch(`/planes_satelites?PROVEEDOR_ID=${proveedorSelect.value}`)
+                .then(response => response.json())
+                .then(states => {
+                    sateliteSelect.disabled = false;
+
+                    states.forEach(satelite => {
+                        console.log(satelite);
+                        const option = document.createElement('option');
+                        option.value = satelite.id;
+                        option.textContent = satelite.SAT_NOMBRE;
+                        sateliteSelect.appendChild(option);
+                    });
+                });
+        });
+
+    </script>
 @stop

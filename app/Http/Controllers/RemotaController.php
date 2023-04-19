@@ -27,29 +27,22 @@ class RemotaController extends Controller
     Socio $socio, Revendedor $revendedor, Encargado $encargado,Satelite $satelites)
     {
         $remotas = Remota::all();
-        $clientes = Cliente::all();
         $socios = Socio::all();
         $revendedores = Revendedor::all();
-        $encargados = Encargado::all();
+        $cliente = Cliente::all();
 
-        // $proveedores = Proveedor::all();
         $proveedores = Proveedor::has('satelites')->get();
-        // return $proveedores;
-        // $satelites = Satelite::all();
-        // $plan = Plan::all();
+        $clientes = Cliente::has('encargados')->get();
 
         $satelites = [];
         $plan = [];
+        $encargados = [];
 
 
 
 
         return view('remotas', compact('remotas','plan','remotas','clientes','proveedores',
         'socios','revendedores','encargados','satelites'));
-    }
-
-    public function victorpato(){
-        return "pato";
     }
 
 
@@ -66,8 +59,12 @@ class RemotaController extends Controller
     public function getPlan(Request $request)
     {
         $Plan = Plan::where('SATELITE_ID', $request->SATELITE_ID)->get();
-
         return response()->json($Plan);
+    }
+
+    public function getEncargado(Request $request){
+        $encargado = Encargado::where('CLIENTE_ID', $request->CLIENTE_ID)->get();
+        return response()->json($encargado);
     }
 
 

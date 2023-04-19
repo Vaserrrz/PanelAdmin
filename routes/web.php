@@ -26,6 +26,8 @@ Route::get('/', function () {
 
     return view('auth.login');
 });
+
+
 //CLIENTES
 Route::get('clientes',[ ClienteController::class,'index'])->name('clientes');
 Route::post('clientes',[ ClienteController::class,'store'])->name('clientes.store');
@@ -68,6 +70,7 @@ Route::get('remotas/{remota}',[ RemotaController::class,'details'])->name('remot
 
 Route::get('/remotas_satelites', [RemotaController::class, 'getSatelites']);
 Route::get('/remotas_plans',     [RemotaController::class, 'getPlan']);
+Route::get('/remotas_encargados', [RemotaController::class, 'getEncargado']);
 
 
 
@@ -139,6 +142,8 @@ Route::put('planes/{plan}',[ PlanController::class,'update'])->name('planes.upda
 Route::delete('planes/{plan}',[ PlanController::class,'destroy'])->name('planes.destroy');
 //Ruta Detalle
 Route::get('planes/{plan}',[ PlanController::class,'details'])->name('planes.details');
+
+Route::get('/planes_satelites', [PlanController::class, 'getSatelites']);
 
 
 //SATELITE
