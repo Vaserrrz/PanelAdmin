@@ -427,8 +427,7 @@
                                                                             <select id="SELECT_ENCARGADO" name="SELECT_ENCARGADO" class="form-control select_encargado">
                                                                                 {{-- <option selected>Escoga el Encargado...</option> --}}
 
-                                                                        @php $encargados = App\Models\Encargado::where('CLIENTE_ID', $remota->CLIENTE_ID)->get();
-                                                                        @endphp
+                                                                        @php $encargados = App\Models\Encargado::where('CLIENTE_ID', $remota->CLIENTE_ID)->get();@endphp
 
                                                                                 @forelse($encargados as $encargado)
                                                                                     @if ($remota->ENCARGADO_ID == $encargado->id)
@@ -733,9 +732,9 @@
         const planSelect = document.getElementById('SELECT_PLAN');
 
         // const clienteSelect = document.getElementsByClassName("select_cliente");
-
-        const clienteSelects  = document.querySelectorAll(".select_cliente");
         // const encargadoSelect = document.getElementsByClassName("select_encargado");
+
+        const clienteSelects   = document.querySelectorAll(".select_cliente");
         const encargadoSelects = document.querySelectorAll(".select_encargado");
 
         proveedorSelect.addEventListener('change', function() {
@@ -795,6 +794,7 @@
                 });
             });
         });
+
 
         function actualizarEncargados(clienteSelect, encargadoSelect) {
             encargadoSelect.innerHTML = '<option value="">Selecciona un encargado</option>';
