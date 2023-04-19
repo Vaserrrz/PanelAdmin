@@ -101,20 +101,20 @@
                     <input class="form-control" type="text" value="{{$remota->REMOTA_LNB}}" readonly>
                 </div>
             </div>
+       </div>
 
-       </div>
-       <div class="row">
-        <div class="form-group col-md-12">
-            <label for="inputState">Plan</label>
-            <select id="inputState" class="form-control">
-                <option selected>Escoga el plan...</option>
-                @forelse($plan as $plan)
-                    <option value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
-                @empty
-                @endforelse
-            </select>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label for="inputState">Plan</label>
+                <select id="inputState" class="form-control">
+                    <option selected>Escoga el plan...</option>
+                    @forelse($plan as $plan)
+                        <option value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
+                    @empty
+                    @endforelse
+                </select>
+            </div>
         </div>
-       </div>
        <div class="row">
             <div class="col col-md-6">
                 <div class="form-group">

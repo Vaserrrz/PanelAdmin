@@ -201,9 +201,17 @@ class RemotaController extends Controller
             $remota->REMOTA_STATUS = $request->REMOTA_STATUS;
             $remota->REMOTA_BONDA = $request->REMOTA_BONDA;
 
+            $remota->CLIENTE_ID = $request->SELECT_CLIENTE;
+            $remota->PLAN_ID = $request->SELECT_PLAN;
+            $remota->PROVEEDOR_ID = $request->SELECT_PROVEEDOR;
+            $remota->SOCIO_ID = $request->SELECT_SOCIO;
+            $remota->RESELLER_ID = $request->SELECT_RESELLER;
+            $remota->ENCARGADO_ID = $request->SELECT_ENCARGADO;
+            $remota->SATELITE_ID = $request->SELECT_SATELITE;
+
             $remota->save();
 
-            return redirect()->route('remotas');
+            return redirect()->route('remotas', compact('remota'));
     }
 
     /**
