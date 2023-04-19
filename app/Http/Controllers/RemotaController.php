@@ -32,13 +32,12 @@ class RemotaController extends Controller
         $encargados = Encargado::all();
 
         $proveedores = Proveedor::has('satelites')->get();
-        $clientes = Cliente::has('encargados')->get();
+        $clientes = Cliente::has('encargados')->with('encargados')->get();
 
         $satelites = [];
         $plan = [];
-        // $encargados = [];
+        $encargados = Encargado::all();
 
-        // dd($clientes);
 
 
         return view('remotas', compact('remotas','plan','remotas','clientes','proveedores',
