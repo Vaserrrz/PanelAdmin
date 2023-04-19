@@ -115,7 +115,7 @@ class RemotaController extends Controller
         $remota->PLAN_ID = $request->SELECT_PLAN;
         $remota->PROVEEDOR_ID = $request->SELECT_PROVEEDOR;
         $remota->SOCIO_ID = $request->SELECT_SOCIO;
-        $remota->RESELLER_ID = $request->SELECT_RESELLER5;
+        $remota->RESELLER_ID = $request->SELECT_RESELLER;
         $remota->ENCARGADO_ID = $request->SELECT_ENCARGADO;
         $remota->SATELITE_ID = $request->SELECT_SATELITE;
 
