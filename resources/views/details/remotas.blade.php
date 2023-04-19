@@ -51,13 +51,7 @@
 
                             <div class="form-group col-md-3">
                                 <label for="SOCIO">Socio</label>
-                                <select id="SELECT_SOCIO" name="SELECT_SOCIO" class="form-control">
-                                    <option selected>Escoga el socio...</option>
-                                    @forelse($socio as $socio)
-                                        <option value="{{$socio->id}}">{{$socio->SOCIO_NOMBRE}}</option>
-                                    @empty
-                                    @endforelse
-                                </select>
+                                <input class="form-control" type="text" value="{{$remota->SOCIO_ID}}" readonly>
                             </div>
 
 
