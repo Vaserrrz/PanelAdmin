@@ -52,7 +52,7 @@
                                                 <div class="col col-md-4">
                                                     <div class="form-group">
                                                         <label for="CLIENTE">Cliente</label>
-                                                        <select id="SELECT_CLIENTE" name="SELECT_CLIENTE" class="form-control">
+                                                        <select id="SELECT_CLIENTE" name="SELECT_CLIENTE" class="form-control select_cliente">
                                                             <option selected>Escoga el cliente...</option>
 
 
@@ -78,7 +78,7 @@
                                                 <div class="col col-md-4">
                                                     <div class="form-group">
                                                         <label for="ENCARGADO">                                                                Encargado</label>
-                                                        <select id="SELECT_ENCARGADO" name="SELECT_ENCARGADO" class="form-control">
+                                                        <select id="SELECT_ENCARGADO" name="SELECT_ENCARGADO" class="form-control select_encargado">
                                                             <option selected>Escoga el Encargado...</option>
                                                             {{-- @forelse($encargados as $encargado)
                                                                 <option value="{{$encargado->id}}">{{$encargado->ENCARGADO_NOMBRE}}</option>
@@ -392,7 +392,7 @@
                                                                     <div class="col col-md-4">
                                                                         <div class="form-group">
                                                                             <label for="CLIENTE">Cliente</label>
-                                                                            <select id="SELECT_CLIENTE" name="SELECT_CLIENTE" class="form-control">
+                                                                            <select id="SELECT_CLIENTE" name="SELECT_CLIENTE" class="form-control select_cliente">
                                                                                 <option selected>Escoga el cliente...</option>
 
 
@@ -424,12 +424,23 @@
                                                                     <div class="col col-md-4">
                                                                         <div class="form-group">
                                                                             <label for="ENCARGADO">Encargado</label>
-                                                                            <select id="SELECT_ENCARGADO" name="SELECT_ENCARGADO" class="form-control">
-                                                                                <option selected>Escoga el Encargado...</option>
-                                                                                {{-- @forelse($encargados as $encargado)
-                                                                                    <option value="{{$encargado->id}}">{{$encargado->ENCARGADO_NOMBRE}}</option>
+                                                                            <select id="SELECT_ENCARGADO" name="SELECT_ENCARGADO" class="form-control select_encargado">
+                                                                                {{-- <option selected>Escoga el Encargado...</option> --}}
+
+                                                                        @php $encargados = App\Models\Encargado::where('CLIENTE_ID', $remota->CLIENTE_ID)->get();
+                                                                        @endphp
+
+                                                                                @forelse($encargados as $encargado)
+                                                                                    @if ($remota->ENCARGADO_ID == $encargado->id)
+                                                                                        <option selected value="{{$encargado->id}}">{{$encargado->ENCARGADO_NOMBRE}}</option>
+                                                                                    @else
+                                                                                        <option value="{{$encargado->id}}">{{$encargado->ENCARGADO_NOMBRE}}</option>
+
+                                                                                    @endif
+
                                                                                 @empty
-                                                                                @endforelse --}}
+                                                                                    No hay hay encargados registrados
+                                                                                @endforelse
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -675,6 +686,7 @@
                                             </div>
 
                                             {{-- Eliminar --}}
+
                                             {{-- form destroy --}}
                                             <form action="{{ route('remotas.destroy', $remota) }}" method="POST">
                                                 @csrf
@@ -719,8 +731,13 @@
         const proveedorSelect = document.getElementById('SELECT_PROVEEDOR');
         const sateliteSelect = document.getElementById('SELECT_SATELITE');
         const planSelect = document.getElementById('SELECT_PLAN');
-        const clienteSelect = document.getElementById('SELECT_CLIENTE');
-        const encargadoSelect = document.getElementById('SELECT_ENCARGADO');
+
+        // const clienteSelect = document.getElementsByClassName("select_cliente");
+
+        const clienteSelects  = document.querySelectorAll(".select_cliente");
+        // const encargadoSelect = document.getElementsByClassName("select_encargado");
+        const encargadoSelects = document.querySelectorAll(".select_encargado");
+
         proveedorSelect.addEventListener('change', function() {
             sateliteSelect.innerHTML = '<option value="">Selecciona un satelite</option>';
             sateliteSelect.disabled = false;
@@ -739,7 +756,7 @@
                     sateliteSelect.disabled = false;
 
                     states.forEach(satelite => {
-                        console.log(satelite);
+                        // console.log(satelite);
                         const option = document.createElement('option');
                         option.value = satelite.id;
                         option.textContent = satelite.SAT_NOMBRE;
@@ -770,32 +787,39 @@
                 });
         });
 
-        clienteSelect.addEventListener('change', function() {
-            console.log('prueba');
+
+        clienteSelects.forEach(clienteSelect => {
+            clienteSelect.addEventListener('change', function() {
+                encargadoSelects.forEach(encargadoSelect => {
+                    actualizarEncargados(clienteSelect, encargadoSelect);
+                });
+            });
+        });
+
+        function actualizarEncargados(clienteSelect, encargadoSelect) {
             encargadoSelect.innerHTML = '<option value="">Selecciona un encargado</option>';
             encargadoSelect.disabled = false;
 
             if (!clienteSelect.value) {
-                return;
+            return;
             }
 
             fetch(`/remotas_encargados?CLIENTE_ID=${clienteSelect.value}`)
-                .then(response => response.json())
-                .then(states => {
-                    console.log(states);
-                    encargadoSelect.disabled = false;
+            .then(response => response.json())
+            .then(states => {
+                // console.log(states);
+                encargadoSelect.disabled = false;
 
-                    states.forEach(encargado => {
-                        console.log(encargado);
-                        const option = document.createElement('option');
-                        option.value = encargado.id;
-                        option.textContent = encargado.ENCARGADO_NOMBRE;
-                        encargadoSelect.appendChild(option);
-                    });
-
+                states.forEach(encargado => {
+                // console.log(encargado);
+                const option = document.createElement('option');
+                option.value = encargado.id;
+                option.textContent = encargado.ENCARGADO_NOMBRE;
+                encargadoSelect.appendChild(option);
                 });
-        });
 
+            });
+        }
 
 
 
