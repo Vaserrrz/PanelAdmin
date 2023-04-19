@@ -38,7 +38,7 @@ class RemotaController extends Controller
         $plan = [];
         $encargados = [];
 
-
+        // dd($clientes);
 
 
         return view('remotas', compact('remotas','plan','remotas','clientes','proveedores',

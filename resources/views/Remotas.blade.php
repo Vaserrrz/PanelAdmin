@@ -397,8 +397,13 @@
 
 
                                                                                 @forelse($clientes as $cliente)
-                                                                                    <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
-                                                                                    <option value="{{$remota->SELECT_CLIENTE}}" selected></option>
+                                                                                    @if ($remota->CLIENTE_ID == $cliente->id)
+                                                                                        <option value="{{$cliente->id}}" selected> {{$cliente->CLIENTE_RAZON}} </option>
+
+                                                                                    @else
+                                                                                        <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
+
+                                                                                    @endif
                                                                                 @empty
                                                                                     No hay hay clientes registrados
                                                                                 @endforelse
