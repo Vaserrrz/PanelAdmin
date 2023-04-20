@@ -657,13 +657,13 @@
                                                                     <div class="col col-md-3">
                                                                         <div class="form-group">
                                                                             <label for="REMOTA_PLANUP">PlanUp</label>
-                                                                            <input type="checkbox" class="form-control" id="REMOTA_PLANUP" placeholder="Ingrese el PLANUP de la Remota" name="REMOTA_PLANUP"  value="{{$remota->REMOTA_PLANUP}}">
+                                                                            <input type="text" class="form-control" id="REMOTA_PLANUP" placeholder="Ingrese el PLANUP de la Remota" name="REMOTA_PLANUP"  value="{{$remota->REMOTA_PLANUP}}">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col col-md-3">
                                                                         <div class="form-group">
                                                                             <label for="REMOTA_PLANDOWN">PlanDown</label>
-                                                                            <input type="checkbox"  class="form-control" id="REMOTA_PLANDOWN" placeholder="Ingrese el PLANDOWN de la Remota" name="REMOTA_PLANDOWN"  value="{{$remota->REMOTA_PLANDOWN}}">
+                                                                            <input type="text"  class="form-control" id="REMOTA_PLANDOWN" placeholder="Ingrese el PLANDOWN de la Remota" name="REMOTA_PLANDOWN"  value="{{$remota->REMOTA_PLANDOWN}}">
                                                                         </div>
                                                                     </div>
 

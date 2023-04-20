@@ -38,8 +38,8 @@ return new class extends Migration
 
 
 
-            $table->boolean('REMOTA_PLANDOWN')->nullable();
-            $table->boolean('REMOTA_PLANUP')->nullable();
+            $table->integer('REMOTA_PLANDOWN')->nullable();
+            $table->integer('REMOTA_PLANUP')->nullable();
 
 
 
