@@ -36,7 +36,7 @@ class RemotaController extends Controller
 
         $clientes = Cliente::has('encargados')->with('encargados')->get();
 
-        $satelites = Satelite::has('planes')->get();
+        $satelites = Satelite::all();
 
         $planes = Plan::all();
         $encargados = Encargado::all();

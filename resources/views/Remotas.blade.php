@@ -625,10 +625,9 @@
 
                                                                                 @forelse($planes as $plan)
                                                                                     @if ($remota->PLAN_ID == $plan->id)
-                                                                                        <option selected value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
+                                                                                        <option  value="{{$plan->id}}" selected>{{$plan->PLAN_NOMBRE}}</option>
                                                                                     @else
-                                                                                        <option value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
-                                                                                    @endif
+                                                                                        <option value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>                                                                                    @endif
                                                                                 @empty
                                                                                 No hay hay satelites registrados
                                                                                 @endforelse
@@ -866,37 +865,69 @@
 
 
         //SATELITES Y PLANES
+
         sateliteSelects.forEach(sateliteSelect => {
             sateliteSelect.addEventListener('change', function() {
                 planSelects.forEach(planSelect => {
-                    actualizarPLanes(sateliteSelect,planSelect);
+                    actualizarPlanes(sateliteSelect, planSelect);
                 });
             });
         });
-
-        function actualizarPLanes(sateliteSelect,planSelect) {
-            planSelect.innerHTML = `<option value="">Seleccione un plan</option>`;
+        function actualizarPlanes(sateliteSelect, planSelect) {
+            planSelect.innerHTML = '<option value="">Seleccione un plan</option>';
             planSelect.disabled = false;
 
             if (!sateliteSelect.value) {
                 return;
             }
 
-            fetch(`/remotas_plans?SATELITE_ID=${sateliteSelect.value}`)
+            fetch(`/remotas_plans?PROVEEDOR_ID=${sateliteSelect.value}`)
             .then(response => response.json())
             .then(states => {
                 // console.log(states);
-
                 planSelect.disabled = false;
 
                 states.forEach(plan => {
-                    console.log(plan);
+                    // console.log(satelite);
                     const option = document.createElement('option');
                     option.value = plan.id;
                     option.textContent = plan.PLAN_NOMBRE;
-                })
+                    planSelect.appendChild(option);
+                });
 
             });
         }
+        // sateliteSelects.forEach(sateliteSelect => {
+        //     sateliteSelect.addEventListener('change', function() {
+        //         planSelects.forEach(planSelect => {
+        //             actualizarPLanes(sateliteSelect,planSelect);
+        //         });
+        //     });
+        // });
+
+        // function actualizarPLanes(sateliteSelect,planSelect) {
+        //     planSelect.innerHTML = `<option value="">Seleccione un plan</option>`;
+        //     planSelect.disabled = false;
+
+        //     if (!sateliteSelect.value) {
+        //         return;
+        //     }
+
+        //     fetch(`/remotas_plans?SATELITE_ID=${sateliteSelect.value}`)
+        //     .then(response => response.json())
+        //     .then(states => {
+        //         // console.log(states);
+
+        //         planSelect.disabled = false;
+
+        //         states.forEach(plan => {
+        //             console.log(plan);
+        //             const option = document.createElement('option');
+        //             option.value = plan.id;
+        //             option.textContent = plan.PLAN_NOMBRE;
+        //         })
+
+        //     });
+        // }
     </script>
 @stop
