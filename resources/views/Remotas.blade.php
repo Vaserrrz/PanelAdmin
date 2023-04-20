@@ -168,6 +168,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="row">
                                                 <div class="col col-md-9">
                                                     <div class="form-group">
@@ -217,13 +218,11 @@
                                             </div>
 
 
-
-
                                             <div class="row">
                                                 <div class="col col-md-4">
                                                     <div class="form-group">
                                                         <label for="PROVEEDOR">Proveedor</label>
-                                                        <select id="SELECT_PROVEEDOR" name="SELECT_PROVEEDOR" class="form-control">
+                                                        <select id="SELECT_PROVEEDOR" name="SELECT_PROVEEDOR" class="form-control select_prvoeedor">
                                                             {{-- <option selected>Escoga el Proveedor...</option> --}}
                                                             <option value="">Escoga el Proveedor...</option>
 
@@ -240,7 +239,7 @@
                                                 <div class="col col-md-4">
                                                     <div class="form-group">
                                                         <label for="SATELITES">Satelites</label>
-                                                        <select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control" disabled>
+                                                        <select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control select_satelite" disabled>
                                                             <option value="">Escoga el Satelite...</option>
                                                             {{-- <option selected>Escoga el Satelite...</option> --}}
                                                             {{-- @forelse($satelites as $satelite)
@@ -256,7 +255,7 @@
                                                 <div class="col col-md-4s">
                                                     <div class="form-group">
                                                         <label for="PLAN">Plan</label>
-                                                        <select id="SELECT_PLAN" name="SELECT_PLAN" class="form-control" disabled>
+                                                        <select id="SELECT_PLAN" name="SELECT_PLAN" class="form-control select_plan" disabled>
                                                             <option value=""> Escoga un plan . . . </option>
                                                             {{-- <option selected>Escoga el plan...</option>
                                                             @forelse($plan as $plan)
@@ -281,12 +280,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-
-
-                                            {{--PLAN --}}
-
-
 
                                             <div class="row">
                                                 <div class="col col-md-3">
@@ -322,6 +315,7 @@
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                                 <button type="submit" class="btn btn-primary">Guardar</button>
                                             </div>
+
                                         </form>
                                     </div>
                                 </div>
@@ -397,13 +391,13 @@
 
 
                                                                                 @forelse($clientes as $cliente)
-                                                                                    @if ($remota->CLIENTE_ID == $cliente->id)
-                                                                                        <option value="{{$cliente->id}}" selected> {{$cliente->CLIENTE_RAZON}} </option>
 
+                                                                                    @if ($remota->CLIENTE_ID == $cliente->id)
+                                                                                        <option value="{{$cliente->id}}" selected>{{$cliente->CLIENTE_RAZON}}</option>
                                                                                     @else
                                                                                         <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
-
                                                                                     @endif
+
                                                                                 @empty
                                                                                     No hay hay clientes registrados
                                                                                 @endforelse
@@ -578,13 +572,18 @@
                                                                 <div class="row">
                                                                     <div class="col col-md-4">
                                                                         <div class="form-group">
-                                                                            <label for="PROVEEDOR">Proveedor</label>
-                                                                            <select id="SELECT_PROVEEDOR" name="SELECT_PROVEEDOR" class="form-control">
-                                                                                {{-- <option selected>Escoga el Proveedor...</option> --}}
+                                                                            <label for="PROVEEDOR">Proveedores</label>
+                                                                            <select id="SELECT_PROVEEDOR" name="SELECT_PROVEEDOR" class="form-control select_proveedor">
+
                                                                                 <option value="">Escoga el Proveedor...</option>
 
                                                                                 @forelse($proveedores as $proveedor)
-                                                                                    <option value="{{$proveedor->id}}"   >{{$proveedor->RAZON}}</option>
+                                                                                    @if ($remota->PROVEEDOR_ID == $proveedor->id)
+                                                                                        <option value="{{$proveedor->id}}" selected>{{$proveedor->RAZON}}</option>
+                                                                                    @else
+                                                                                        <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
+                                                                                    @endif
+
                                                                                 @empty
                                                                                     No hay proveedores registrados
                                                                                 @endforelse
@@ -596,13 +595,22 @@
                                                                     <div class="col col-md-4">
                                                                         <div class="form-group">
                                                                             <label for="SATELITES">Satelites</label>
-                                                                            <select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control" disabled>
-                                                                                <option value="">Escoga el Satelite...</option>
-                                                                                {{-- <option selected>Escoga el Satelite...</option> --}}
-                                                                                {{-- @forelse($satelites as $satelite)
-                                                                                    <option value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
+                                                                            <select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control select_satelite">
+                                                                                <option selected>Escoga el Satelite...</option>
+
+                                                                                @php $satelites = App\Models\Satelite::where('PROVEEDOR_ID', $remota->PROVEEDOR_ID)->get();@endphp
+
+                                                                                @forelse($satelites as $satelite)
+                                                                                    @if ($remota->SATELITE_ID == $satelite->id)
+                                                                                        <option selected value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
+                                                                                    @else
+                                                                                        <option value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
+
+                                                                                    @endif
+
                                                                                 @empty
-                                                                                @endforelse --}}
+                                                                                    No hay hay satelites registrados
+                                                                                @endforelse
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -611,8 +619,8 @@
                                                                     {{-- city --}}
                                                                     <div class="col col-md-4">
                                                                         <div class="form-group">
-                                                                            <label for="PLAN">Plan</label>
-                                                                            <select id="SELECT_PLAN" name="SELECT_PLAN" class="form-control" disabled>
+                                                                            <label for="PLAN">Planes</label>
+                                                                            <select id="SELECT_PLAN" name="SELECT_PLAN" class="form-control select_plan" disabled>
                                                                                 <option value=""> Escoga un plan . . . </option>
                                                                                 {{-- <option selected>Escoga el plan...</option>
                                                                                 @forelse($plan as $plan)
@@ -736,6 +744,10 @@
 
         const clienteSelects   = document.querySelectorAll(".select_cliente");
         const encargadoSelects = document.querySelectorAll(".select_encargado");
+        const proveedorSelects = document.querySelectorAll(".select_proveedor");
+        const sateliteSelects = document.querySelectorAll(".select_satelite");
+        const planSelects = document.querySelectorAll(".select_plan");
+
 
         proveedorSelect.addEventListener('change', function() {
             sateliteSelect.innerHTML = '<option value="">Selecciona un satelite</option>';
@@ -786,7 +798,7 @@
                 });
         });
 
-
+        //CLIENTE Y ENCARGADO
         clienteSelects.forEach(clienteSelect => {
             clienteSelect.addEventListener('change', function() {
                 encargadoSelects.forEach(encargadoSelect => {
@@ -801,7 +813,7 @@
             encargadoSelect.disabled = false;
 
             if (!clienteSelect.value) {
-            return;
+                return;
             }
 
             fetch(`/remotas_encargados?CLIENTE_ID=${clienteSelect.value}`)
@@ -820,6 +832,85 @@
 
             });
         }
+
+
+        //PROVEEDORES Y SATELITES
+        proveedorSelects.forEach(proveedorSelect => {
+            proveedorSelect.addEventListener('change', function() {
+                sateliteSelects.forEach(sateliteSelect => {
+                    actualizarEncargados(proveedorSelect, sateliteSelect);
+                });
+            });
+        });
+
+        function actualizarSatelites(proveedorSelect, sateliteSelect) {
+            sateliteSelect.innerHTML = '<option value="">Selecciona un satelite</option>';
+            sateliteSelect.disabled = false;
+
+            if (!proveedorSelect.value) {
+                return;
+            }
+
+            fetch(`/remotas_satelites?PROVEEDOR_ID=${proveedorSelect.value}`)
+            .then(response => response.json())
+            .then(states => {
+                // console.log(states);
+                sateliteSelect.disabled = false;
+
+                states.forEach(satelite => {
+                // console.log(satelite);
+                const option = document.createElement('option');
+                option.value = satelite.id;
+                option.textContent = satelite.SAT_NOMBRE;
+                sateliteSelect.appendChild(option);
+                });
+
+            });
+        }
+
+
+        // clienteSelects.forEach(clienteSelect => {
+        //     clienteSelect.addEventListener('change', function() {
+        //         encargadoSelects.forEach(encargadoSelect => {
+        //             actualizarEncargados(clienteSelect, encargadoSelect);
+        //         });
+        //     });
+        // });
+
+        // proveedorSelects.forEach(proveedorSelect => {
+        //     proveedorSelect.addEventListener('change', function() {
+        //         sateliteSelects.forEach(sateliteSelect => {
+        //             actualizarSatelites(proveedorSelect, sateliteSelect);
+        //         });
+        //     });
+        // });
+
+        // f
+
+
+        // function actualizarSatelites(proveedorSelect, sateliteSelect) {
+        //     sateliteSelect.innerHTML = '<option value="">Selecciona un satelite</option>';
+        //     sateliteSelect.disabled = false;
+
+        //     if (!proveedorSelect.value) {
+        //         return;
+        //     }
+
+        //     fetch(`/remotas_satelites?PROVEEDOR_ID=${proveedorSelect.value}`)
+        //     .then(response => response.json())
+        //     .then(states => {
+
+        //         sateliteSelect.disabled - false;
+
+        //         states.forEach(satelite => {
+
+        //             const option = document.createElement('option');
+        //             option.value = satelite.id;
+        //             option.textContent = satelite.SAT_NOMBRE;
+        //             sateliteSelect.appendChild(option);+
+        //         });
+        //     });
+        // }
 
 
 
