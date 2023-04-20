@@ -25,7 +25,7 @@
                             Agregar
                         </button>
 
-                        <!-- Modal -->
+                        <!-- MODAL AGREGAR -->
                         <div class="modal fade" id="ModalAgregar" tabindex="-1" aria-labelledby="ModalAgregar" aria-hidden="true">
                             <div class="modal-dialog modal-xl">
                                 <div class="modal-content">
@@ -109,7 +109,7 @@
                                                 <div class="col col-md-4">
                                                     <div class="form-group">
                                                         <label for="SOCIO">Socio</label>
-                                                        <select id="SELECT_SOCIO" name="SELECT_SOCIO" class="form-control">
+                                                        <select id="SELECT_SOCIO" name="SELECT_SOCIO" class="form-control select_socio">
                                                             <option selected>Escoga el Socio...</option>
                                                             @forelse($socios as $socio)
                                                                 <option value="{{$socio->id}}">{{$socio->SOCIO_NOMBRE}}</option>
@@ -351,15 +351,12 @@
 
 
                                         <td>
-                                            {{-- Editar  --}}
-
-
-                                            {{-- Buton editar  --}}
+                                            {{-- BOTON EDITAR  --}}
                                             <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-editar-{{ $remota->id  }}">
                                                 Editar
                                             </button>
 
-                                            {{-- modal editar --}}
+                                            {{-- MODAL EDITAR --}}
                                             <div class="modal fade" id="modal-editar-{{$remota->id }}"        aria-hidden="true">
                                                 <div class="modal-dialog modal-xl">
                                                     <div class="modal-content">
@@ -414,7 +411,6 @@
                                                                         </div>
                                                                     </div>
 
-
                                                                     <div class="col col-md-4">
                                                                         <div class="form-group">
                                                                             <label for="ENCARGADO">Encargado</label>
@@ -437,7 +433,6 @@
                                                                             </select>
                                                                         </div>
                                                                     </div>
-
                                                                 </div>
 
                                                                 <div class="row">
@@ -459,10 +454,18 @@
                                                                     <div class="col col-md-4">
                                                                         <div class="form-group">
                                                                             <label for="SOCIO">Socio</label>
-                                                                            <select id="SELECT_SOCIO" name="SELECT_SOCIO" class="form-control">
+                                                                            <select id="SELECT_SOCIO" name="SELECT_SOCIO" class="form-control select_socio">
+
                                                                                 <option selected>Escoga el Socio...</option>
+
                                                                                 @forelse($socios as $socio)
+
+                                                                                    @if ($remota->SOCIO_ID == $socio->id)
+                                                                                        <option value="{{$socio->id}}" selected>{{$socio->SOCIO_NOMBRE}}</option>
+                                                                                    @else
                                                                                     <option value="{{$socio->id}}">{{$socio->SOCIO_NOMBRE}}</option>
+                                                                                    @endif
+
                                                                                 @empty
                                                                                 @endforelse
                                                                             </select>
@@ -518,6 +521,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
+
                                                                 <div class="row">
                                                                     <div class="col col-md-9">
                                                                         <div class="form-group">
@@ -566,9 +570,6 @@
                                                                     </div>
                                                                 </div>
 
-
-
-
                                                                 <div class="row">
                                                                     <div class="col col-md-4">
                                                                         <div class="form-group">
@@ -605,9 +606,7 @@
                                                                                         <option selected value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
                                                                                     @else
                                                                                         <option value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
-
                                                                                     @endif
-
                                                                                 @empty
                                                                                     No hay hay satelites registrados
                                                                                 @endforelse
@@ -622,11 +621,18 @@
                                                                             <label for="PLAN">Planes</label>
                                                                             <select id="SELECT_PLAN" name="SELECT_PLAN" class="form-control select_plan" disabled>
                                                                                 <option value=""> Escoga un plan . . . </option>
-                                                                                {{-- <option selected>Escoga el plan...</option>
-                                                                                @forelse($plan as $plan)
-                                                                                    <option value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
+
+                                                                                @php $planes = App\Models\Plan::where('SATELITE_ID', $remota->SATELITE_ID)->get();@endphp
+
+                                                                                @forelse($planes as $plan)
+                                                                                    @if ($remota->PLAN_ID == $plan->id)
+                                                                                        <option selected value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
+                                                                                    @else
+                                                                                        <option value="{{$satelite->id}}">{{$satelite->PLAN_NOMBRE}}</option>
+                                                                                    @endif
                                                                                 @empty
-                                                                                @endforelse --}}
+                                                                                No hay hay satelites registrados
+                                                                                @endforelse
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -645,11 +651,6 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-
-
-
-
-
 
 
                                                                 <div class="row">
@@ -681,7 +682,7 @@
                                                                     </div>
                                                                 </div>
 
-
+                                                                {{-- FOOTER --}}
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                                                     <button type="submit" class="btn btn-primary">Guardar</button>
@@ -749,6 +750,7 @@
         const planSelects = document.querySelectorAll(".select_plan");
 
 
+
         proveedorSelect.addEventListener('change', function() {
             sateliteSelect.innerHTML = '<option value="">Selecciona un satelite</option>';
             sateliteSelect.disabled = false;
@@ -806,8 +808,6 @@
                 });
             });
         });
-
-
         function actualizarEncargados(clienteSelect, encargadoSelect) {
             encargadoSelect.innerHTML = '<option value="">Selecciona un encargado</option>';
             encargadoSelect.disabled = false;
@@ -833,18 +833,16 @@
             });
         }
 
-
         //PROVEEDORES Y SATELITES
         proveedorSelects.forEach(proveedorSelect => {
             proveedorSelect.addEventListener('change', function() {
                 sateliteSelects.forEach(sateliteSelect => {
-                    actualizarEncargados(proveedorSelect, sateliteSelect);
+                    actualizarSatelites(proveedorSelect, sateliteSelect);
                 });
             });
         });
-
         function actualizarSatelites(proveedorSelect, sateliteSelect) {
-            sateliteSelect.innerHTML = '<option value="">Selecciona un satelite</option>';
+            sateliteSelect.innerHTML = '<option value="">Seleccione un satelite</option>';
             sateliteSelect.disabled = false;
 
             if (!proveedorSelect.value) {
@@ -858,62 +856,47 @@
                 sateliteSelect.disabled = false;
 
                 states.forEach(satelite => {
-                // console.log(satelite);
-                const option = document.createElement('option');
-                option.value = satelite.id;
-                option.textContent = satelite.SAT_NOMBRE;
-                sateliteSelect.appendChild(option);
+                    // console.log(satelite);
+                    const option = document.createElement('option');
+                    option.value = satelite.id;
+                    option.textContent = satelite.SAT_NOMBRE;
+                    sateliteSelect.appendChild(option);
                 });
 
             });
         }
 
 
-        // clienteSelects.forEach(clienteSelect => {
-        //     clienteSelect.addEventListener('change', function() {
-        //         encargadoSelects.forEach(encargadoSelect => {
-        //             actualizarEncargados(clienteSelect, encargadoSelect);
-        //         });
-        //     });
-        // });
+        //SATELITES Y PLANES
+        sateliteSelects.forEach(sateliteSelect => {
+            sateliteSelect.addEventListener('change', function() {
+                planSelects.forEach(planSelect => {
+                    actualizarPLanes(sateliteSelect,planSelect);
+                });
+            });
+        });
 
-        // proveedorSelects.forEach(proveedorSelect => {
-        //     proveedorSelect.addEventListener('change', function() {
-        //         sateliteSelects.forEach(sateliteSelect => {
-        //             actualizarSatelites(proveedorSelect, sateliteSelect);
-        //         });
-        //     });
-        // });
+        function actualizarPLanes(sateliteSelect,planSelect) {
+            planSelect.innerHTML = `<option value="">Seleccione un plan</option>`;
+            planSelect.disabled = false;
 
-        // f
+            if (!sateliteSelect.value) {
+                return;
+            }
 
+            fetch(`/remotas_plans?SATELITE_ID=${sateliteSelect.value}`)
+            .then(response => response.json())
+            .then(states => {
+                planSelect.disabled = false;
 
-        // function actualizarSatelites(proveedorSelect, sateliteSelect) {
-        //     sateliteSelect.innerHTML = '<option value="">Selecciona un satelite</option>';
-        //     sateliteSelect.disabled = false;
+                states.forEach(plan => {
+                    console.log(plan);
+                    const option = document.createElement('option');
+                    option.value = plan.id;
+                    option.textContent = plan.PLAN_NOMBRE;
+                })
 
-        //     if (!proveedorSelect.value) {
-        //         return;
-        //     }
-
-        //     fetch(`/remotas_satelites?PROVEEDOR_ID=${proveedorSelect.value}`)
-        //     .then(response => response.json())
-        //     .then(states => {
-
-        //         sateliteSelect.disabled - false;
-
-        //         states.forEach(satelite => {
-
-        //             const option = document.createElement('option');
-        //             option.value = satelite.id;
-        //             option.textContent = satelite.SAT_NOMBRE;
-        //             sateliteSelect.appendChild(option);+
-        //         });
-        //     });
-        // }
-
-
-
-
+            });
+        }
     </script>
 @stop
