@@ -23,30 +23,29 @@ class RemotaController extends Controller
      *
      *
      */
-    public function index(plan $plan,cliente $cliente, Proveedor $proveedor,
-    Socio $socio, Revendedor $revendedor, Encargado $encargado,Satelite $satelites)
+    public function index()
     {
         $remotas = Remota::all();
         $socios = Socio::all();
         $revendedores = Revendedor::all();
         $cliente = Cliente::all();
-        $proveedor = Proveedor::all();
-        $satelite = Satelite::all();
+        // $proveedor = Proveedor::all();
+        // $satelite = Satelite::all();
 
         $proveedores = Proveedor::has('satelites')->get();
+
         $clientes = Cliente::has('encargados')->with('encargados')->get();
+
         $satelites = Satelite::has('planes')->get();
 
-        $plan = Plan::all();
+        $planes = Plan::all();
         $encargados = Encargado::all();
 
 
 
-        return view('remotas', compact('remotas','plan','remotas','clientes','proveedores',
+        return view('remotas', compact('remotas','planes','remotas','clientes','proveedores',
         'socios','revendedores','encargados','satelites'));
     }
-
-
     public function getSatelites(Request $request)
     {
         // $satelites = Satelite::where('PROVEEDOR_ID', $request->PROVEEDOR_ID)->get();

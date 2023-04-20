@@ -285,13 +285,13 @@
                                                 <div class="col col-md-3">
                                                     <div class="form-group">
                                                         <label for="REMOTA_PLANUP">PlanUp</label>
-                                                        <input type="checkbox" class="form-control" id="REMOTA_PLANUP" placeholder="Ingrese el PLANUP de la Remota" name="REMOTA_PLANUP">
+                                                        <input type="text" class="form-control" id="REMOTA_PLANUP" placeholder="Ingrese el PLANUP de la Remota" name="REMOTA_PLANUP">
                                                     </div>
                                                 </div>
                                                 <div class="col col-md-3">
                                                     <div class="form-group">
                                                         <label for="REMOTA_PLANDOWN">PlanDown</label>
-                                                        <input type="checkbox"  class="form-control" id="REMOTA_PLANDOWN" placeholder="Ingrese el PLANDOWN de la Remota" name="REMOTA_PLANDOWN">
+                                                        <input type="text"  class="form-control" id="REMOTA_PLANDOWN" placeholder="Ingrese el PLANDOWN de la Remota" name="REMOTA_PLANDOWN">
                                                     </div>
                                                 </div>
 
@@ -436,13 +436,13 @@
                                                                 </div>
 
                                                                 <div class="row">
+
                                                                     <div class="col col-md-4">
                                                                         <div class="form-group">
                                                                             <label for="descripcion">Serial</label>
                                                                             <input type="text" class="form-control" id="REMOTA_SERIAL" placeholder="Ingrese el Serial de la Remota" name="REMOTA_SERIAL" value="{{$remota->REMOTA_SERIAL}}">
                                                                         </div>
                                                                     </div>
-
 
                                                                     <div class="col col-md-4">
                                                                         <div class="form-group">
@@ -480,7 +480,6 @@
                                                                             <input type="text" class="form-control" id="REMOTA_BUC" placeholder="Ingrese el BUC de la Remota" name="REMOTA_BUC"  value="{{$remota->REMOTA_BUC}}">
                                                                         </div>
                                                                     </div>
-
 
                                                                     <div class="col col-md-4">
                                                                         <div class="form-group">
@@ -618,9 +617,9 @@
                                                                     {{-- city --}}
                                                                     <div class="col col-md-4">
                                                                         <div class="form-group">
-                                                                            <label for="PLAN">Planes</label>
-                                                                            <select id="SELECT_PLAN" name="SELECT_PLAN" class="form-control select_plan" disabled>
-                                                                                <option value=""> Escoga un plan . . . </option>
+                                                                            <label for="PLANES">Planes</label>
+                                                                            <select id="SELECT_PLAN" name="SELECT_PLAN" class="form-control select_plan">
+                                                                                <option value=""> Seleccione un plan ... </option>
 
                                                                                 @php $planes = App\Models\Plan::where('SATELITE_ID', $remota->SATELITE_ID)->get();@endphp
 
@@ -628,7 +627,7 @@
                                                                                     @if ($remota->PLAN_ID == $plan->id)
                                                                                         <option selected value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
                                                                                     @else
-                                                                                        <option value="{{$satelite->id}}">{{$satelite->PLAN_NOMBRE}}</option>
+                                                                                        <option value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
                                                                                     @endif
                                                                                 @empty
                                                                                 No hay hay satelites registrados
@@ -638,11 +637,17 @@
                                                                     </div>
 
 
-                                                                    <div class="col col-md-4">
+                                                                    <div class="col col-md-12">
                                                                         <div class="form-group">
                                                                             <label for="inputState">Revendedor</label>
                                                                             <select id="SELECT_RESELLER" name="SELECT_RESELLER" class="form-control">
                                                                                 <option selected>Escoga el Revendedor...</option>
+
+                                                                                @if ($remota->RESELLER_ID == $revendedor->id)
+                                                                                <option value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                                                @else
+                                                                                    <option selected value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                                                @endif
                                                                                 @forelse($revendedores as $revendedor)
                                                                                     <option value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
                                                                                 @empty
@@ -739,17 +744,11 @@
         const proveedorSelect = document.getElementById('SELECT_PROVEEDOR');
         const sateliteSelect = document.getElementById('SELECT_SATELITE');
         const planSelect = document.getElementById('SELECT_PLAN');
-
-        // const clienteSelect = document.getElementsByClassName("select_cliente");
-        // const encargadoSelect = document.getElementsByClassName("select_encargado");
-
         const clienteSelects   = document.querySelectorAll(".select_cliente");
         const encargadoSelects = document.querySelectorAll(".select_encargado");
         const proveedorSelects = document.querySelectorAll(".select_proveedor");
         const sateliteSelects = document.querySelectorAll(".select_satelite");
         const planSelects = document.querySelectorAll(".select_plan");
-
-
 
         proveedorSelect.addEventListener('change', function() {
             sateliteSelect.innerHTML = '<option value="">Selecciona un satelite</option>';
@@ -777,7 +776,6 @@
                     });
                 });
         });
-
         sateliteSelect.addEventListener('change', function() {
             planSelect.innerHTML = '<option value="">Selecciona una plan</option>';
             planSelect.disabled = true;
@@ -887,6 +885,8 @@
             fetch(`/remotas_plans?SATELITE_ID=${sateliteSelect.value}`)
             .then(response => response.json())
             .then(states => {
+                // console.log(states);
+
                 planSelect.disabled = false;
 
                 states.forEach(plan => {
