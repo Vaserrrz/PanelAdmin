@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Remota;
+use App\Models\Socio;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class RemotaSeeder extends Seeder
+class SocioSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,6 @@ class RemotaSeeder extends Seeder
      */
     public function run()
     {
-        Remota::factory(10)->create();
-
+        Socio::factory(15)->create();
     }
 }

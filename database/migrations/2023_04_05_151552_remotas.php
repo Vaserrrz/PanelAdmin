@@ -47,7 +47,7 @@ return new class extends Migration
             $table->string('REMOTA_RENTA', 100);
             $table->date('REMOTA_DIA_CORTE')->nullable();
             $table->date('REMOTA_DIA_ACTIVACION')->nullable();
-            $table->string('REMOTA_DETALLE', 100)->nullable();
+            $table->string('REMOTA_DETALLE', 300)->nullable();
             $table->string('REMOTA_PLATO', 100);
             $table->string('REMOTA_IP_MODEM', 100);
             $table->string('REMOTA_IP_GESTION', 100);

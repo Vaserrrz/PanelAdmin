@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Remota;
+use App\Models\Encargado;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class RemotaSeeder extends Seeder
+class EncargadoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,6 @@ class RemotaSeeder extends Seeder
      */
     public function run()
     {
-        Remota::factory(10)->create();
-
+        Encargado::factory(15)->create();
     }
 }
