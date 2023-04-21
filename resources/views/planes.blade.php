@@ -20,7 +20,7 @@
                            Agregar
                         </button>
 
-                        <!-- Modal -->
+                        <!-- MODAL AGREGAR -->
                         <div class="modal fade" id="modal-agregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                             <div class="modal-content">
@@ -151,14 +151,13 @@
                                         <td>{{ $plan->PLAN_PRECIO   }}</td>
 
                                         <td>
-                                            {{-- Editar  --}}
-                                            {{-- Buton editar  --}}
+                                            {{-- EDITAR  --}}
                                             <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-editar-{{ $plan->id  }}">
                                                 Editar
                                             </button>
-                                            {{-- modal editar --}}
+                                            {{-- MODAL EDITAR --}}
                                             <div class="modal fade" id="modal-editar-{{ $plan->id  }}"        aria-hidden="true">
-                                                <div class="modal-dialog">
+                                                <div class="modal-dialog modal-xl">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">Editar - plan</h5>
@@ -210,11 +209,35 @@
                                                             {{-- PROVEEDORES ID --}}
                                                             <div class="form-group">
                                                                 <label for="PROVEEDOR">Proveedor ID</label>
-                                                                <select id="SELECT_PROVEEDOR" class="form-control">
+                                                                <select id="SELECT_PROVEEDOR" class="form-control select_proveedor">
                                                                     <option selected>Escoga el Proveedor...</option>
                                                                     @forelse($proveedores as $proveedor)
-                                                                        <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
+                                                                        @if ($plan->PROVEEDOR_ID == $proveedor->id)
+                                                                            <option value="{{$proveedor->id}}" selected>{{$proveedor->RAZON}}</option>
+                                                                        @else
+                                                                            <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
+                                                                        @endif
                                                                     @empty
+                                                                    No hay proveedores registrados
+                                                                    @endforelse
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="SATELITES">Satelites</label>
+                                                                <select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control select_satelite">
+                                                                    <option selected>Escoga el Satelite...</option>
+
+                                                                    @php $satelites = App\Models\Satelite::where('PROVEEDOR_ID',$plan->PROVEEDOR_ID)->get();@endphp
+
+                                                                    @forelse($satelites as $satelite)
+                                                                        @if ($plan->SATELITE_ID == $satelite->id)
+                                                                            <option selected value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
+                                                                        @else
+                                                                            <option value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
+                                                                        @endif
+                                                                    @empty
+                                                                        No hay hay satelites registrados
                                                                     @endforelse
                                                                 </select>
                                                             </div>
@@ -225,7 +248,7 @@
                                                                 <select id="SELECT_REVENDEDOR" class="form-control">
                                                                     <option selected>Escoga el Revendedor...</option>
                                                                     @forelse($revendedores as $revendedor)
-                                                                        <option value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                                        <option selected value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
                                                                     @empty
                                                                     @endforelse
                                                                 </select>
@@ -289,29 +312,9 @@
     <script>
         const proveedorSelect = document.getElementById('SELECT_PROVEEDOR');
         const sateliteSelect = document.getElementById('SELECT_SATELITE');
+        const proveedorSelects = document.querySelectorAll(".select_proveedor");
+        const sateliteSelects = document.querySelectorAll(".select_satelite");
 
-        // proveedorSelect.addEventListener('change', function(){
-        //     sateliteSelect.innerHTML = '<option value="">Seleccione un satelite</option>';
-        //     sateliteSelect.disabled = false;
-
-        //     if (!proveedorSelect.value) {
-        //         return;
-        //     }
-
-        //     fetch(`/planes_satelites?PROVEEDOR_ID=${proveedorSelect.value}`)
-        //         .then(response => response.json())
-        //         .then(states => {
-        //             sateliteSelect.disabled = false;
-
-        //             states.array.forEach(satelite => {
-        //                 console.log(satelite);
-        //                 const option = document.createElement('option');
-        //                 option.value = satelite.id;
-        //                 option.textContent = satelite.SAT_NOMBRE;
-        //                 sateliteSelect.appendChild(option);
-        //             });
-        //         });
-        // });
 
         proveedorSelect.addEventListener('change', function() {
             sateliteSelect.innerHTML = '<option value="">Selecciona un satelite</option>';
@@ -320,7 +323,6 @@
             if (!proveedorSelect.value) {
                 return;
             }
-
 
             fetch(`/planes_satelites?PROVEEDOR_ID=${proveedorSelect.value}`)
                 .then(response => response.json())
@@ -336,6 +338,62 @@
                     });
                 });
         });
+
+        proveedorSelects.forEach(proveedorSelect => {
+            proveedorSelect.addEventListener('change', function() {
+                sateliteSelects.forEach(sateliteSelect => {
+                    actualizarSatelites(proveedorSelect,sateliteSelect);
+                });
+            });
+        });
+
+        function actualizarSatelites(proveedorSelect,sateliteSelect) {
+            sateliteSelect.innerHTML = '<option value="">Seleccione un satelite</option>';
+            sateliteSelect.disabled = false;
+
+            if (!proveedorSelect.value) {
+                return;
+            }
+
+            fetch(`/planes_satelites?PROVEEDOR_ID=${proveedorSelect.value}`)
+            .then(response => response.json())
+            .then(states => {
+                sateliteSelect.disabled = false;
+
+                states.forEach(satelite => {})
+            })
+        }
+        // proveedorSelects.forEach(proveedorSelect => {
+        //     proveedorSelect.addEventListener('change', function() {
+        //         sateliteSelects.forEach(sateliteSelect => {
+        //             actualizarSatelites(proveedorSelect, sateliteSelect);
+        //         });
+        //     });
+        // });
+        // function actualizarSatelites(proveedorSelect, sateliteSelect) {
+        //     sateliteSelect.innerHTML = '<option value="">Seleccione un satelite</option>';
+        //     sateliteSelect.disabled = false;
+
+        //     if (!proveedorSelect.value) {
+        //         return;
+        //     }
+
+        //     fetch(`/planes_satelites?PROVEEDOR_ID=${proveedorSelect.value}`)
+        //     .then(response => response.json())
+        //     .then(states => {
+        //         // console.log(states);
+        //         sateliteSelect.disabled = false;
+
+        //         states.forEach(satelite => {
+        //             // console.log(satelite);
+        //             const option = document.createElement('option');
+        //             option.value = satelite.id;
+        //             option.textContent = satelite.SAT_NOMBRE;
+        //             sateliteSelect.appendChild(option);
+        //         });
+
+        //     });
+        // }
 
     </script>
 @stop
