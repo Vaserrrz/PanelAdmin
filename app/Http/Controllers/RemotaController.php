@@ -29,22 +29,23 @@ class RemotaController extends Controller
         $socios = Socio::all();
         $revendedores = Revendedor::all();
         $cliente = Cliente::all();
-        $encargados = Encargado::all();
+        // $proveedor = Proveedor::all();
+        // $satelite = Satelite::all();
 
         $proveedores = Proveedor::has('satelites')->get();
+
         $clientes = Cliente::has('encargados')->with('encargados')->get();
 
-        $satelites = [];
-        $plan = [];
+        $satelites = Satelite::all();
+
+        $planes = Plan::all();
         $encargados = Encargado::all();
 
 
 
-        return view('remotas', compact('remotas','plan','remotas','clientes','proveedores',
+        return view('remotas', compact('remotas','planes','remotas','clientes','proveedores',
         'socios','revendedores','encargados','satelites'));
     }
-
-
     public function getSatelites(Request $request)
     {
         // $satelites = Satelite::where('PROVEEDOR_ID', $request->PROVEEDOR_ID)->get();
@@ -54,7 +55,6 @@ class RemotaController extends Controller
         })->whereHas('planes')->get();
         return response()->json($satelites);
     }
-
     public function getPlan(Request $request)
     {
         $Plan = Plan::where('SATELITE_ID', $request->SATELITE_ID)->get();
@@ -65,9 +65,6 @@ class RemotaController extends Controller
         $encargado = Encargado::where('CLIENTE_ID', $request->CLIENTE_ID)->get();
         return response()->json($encargado);
     }
-
-
-
     /**
      * Show the form for creating a new resource.
      *
@@ -127,10 +124,6 @@ class RemotaController extends Controller
 
         return redirect()->route('remotas');
     }
-
-
-
-
     public function details(remota $remota,Plan $plan,Cliente $cliente, Socio $socio,
      Proveedor $proveedor, Revendedor $revendedor, Encargado $encargado, Satelite $satelite)
     {
@@ -212,7 +205,6 @@ class RemotaController extends Controller
 
             return redirect()->route('remotas', compact('remota'));
     }
-
     /**
      * Remove the specified resource from storage.
      *
