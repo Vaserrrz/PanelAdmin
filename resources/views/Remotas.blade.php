@@ -591,7 +591,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    {{-- satelite --}}
+                                                                    {{-- SATELITE --}}
                                                                     <div class="col col-md-4">
                                                                         <div class="form-group">
                                                                             <label for="SATELITES">Satelites</label>
