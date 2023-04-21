@@ -15,12 +15,15 @@ class PlanController extends Controller
      *
      *
      */
-    public function index(Revendedor $revendedor, Proveedor $proveedor, Satelite $satelites)
+    public function index()
     {
         $planes = plan::all();
         $revendedores = Revendedor::all();
-        $proveedores = Proveedor::all();
+        $proveedor = Proveedor::all();
+
+        $proveedores = Proveedor::has('satelites')->get();
         $satelites = Satelite::all();
+
         return view('planes', compact('planes','revendedores','proveedores','satelites'));
     }
 

@@ -74,10 +74,10 @@
             <div class="col col-md-6">
                 <div class="form-group">
                     <label for="inputState">Proveedor ID</label>
-                    <select id="inputState" class="form-control">
+                    <select id="inputState" class="form-control" disabled>
                         <option selected>Escoga el Proveedor...</option>
                         @forelse($proveedor as $proveedor)
-                            <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
+                            <option selected value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
                         @empty
                         @endforelse
                     </select>
@@ -86,10 +86,10 @@
             <div class="col col-md-6">
                 <div class="form-group">
                     <label for="inputState">Revendedor ID</label>
-                    <select id="inputState" class="form-control">
+                    <select id="inputState" class="form-control" disabled>
                         <option selected>Escoga el Revendedor...</option>
                         @forelse($revendedor as $revendedor)
-                            <option value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                            <option selected value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
                         @empty
                         @endforelse
                     </select>

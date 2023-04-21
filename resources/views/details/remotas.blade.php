@@ -57,10 +57,10 @@
 
                         <div class="form-group col-md-4">
                             <label for="CLIENTE">Cliente</label>
-                            <select id="SELECT_CLIENTE" name="SELECT_CLIENTE" class="form-control">
+                            <select id="SELECT_CLIENTE" name="SELECT_CLIENTE" class="form-control" disabled>
                                 <option selected>Escoga el cliente...</option>
                                 @forelse($cliente as $cliente)
-                                    <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
+                                    <option selected value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
                                 @empty
                                 @endforelse
                             </select>
@@ -129,10 +129,10 @@
 
                         <div class="form-group col-md-4">
                             <label for="inputState">Proveedor</label>
-                            <select id="SELECT_PROVEEDOR" name="SELECT_PROVEEDOR" class="form-control">
+                            <select id="SELECT_PROVEEDOR" name="SELECT_PROVEEDOR" class="form-control" disabled>
                                 <option selected>Escoga el Proveedor...</option>
                                 @forelse($proveedor as $proveedor)
-                                    <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
+                                    <option selected value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
                                 @empty
                                 @endforelse
                             </select>
@@ -140,21 +140,22 @@
 
                         <div class="form-group col-md-4">
                             <label for="REVENDEDOR">Revendedor</label>
-                            <select id="SELECT_REVENDEDOR" name="SELECT_REVENDEDOR" class="form-control">
+                            <select id="SELECT_REVENDEDOR" name="SELECT_REVENDEDOR" class="form-control" disabled>
                                 <option selected>Escoga el Revendedor...</option>
                                 @forelse($revendedor as $revendedor)
-                                    <option value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                    <option selected value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
                                 @empty
+                                    <h1>no hay datos en este campo</h1>
                                 @endforelse
                             </select>
                         </div>
 
                         <div class="form-group col-md-4">
                             <label for="ENCARGADO">Encargado</label>
-                            <select id="SELECT_ENCARGADO" name="SELECT_ENCARGADO" class="form-control">
+                            <select id="SELECT_ENCARGADO" name="SELECT_ENCARGADO" class="form-control" disabled>
                                 <option selected>Escoga el encargado...</option>
                                 @forelse($encargado as $encargado)
-                                    <option value="{{$encargado->id}}">{{$encargado->ENCARGADO_NOMBRE}}</option>
+                                    <option selected value="{{$encargado->id}}">{{$encargado->ENCARGADO_NOMBRE}}</option>
                                 @empty
                                 @endforelse
                             </select>
@@ -164,10 +165,10 @@
                     <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="PLAN">Plan</label>
-                                <select id="SELECT_PLAN" name="SELECT_NAME" class="form-control">
+                                <select id="SELECT_PLAN" name="SELECT_NAME" class="form-control" disabled>
                                     <option selected>Escoga el plan...</option>
                                     @forelse($plan as $plan)
-                                        <option value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
+                                        <option selected value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
                                     @empty
                                     @endforelse
                                 </select>
@@ -175,10 +176,10 @@
 
                             <div class="form-group col-md-6">
                                 <label for="SATELITE">Satelite</label>
-                                <select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control">
+                                <select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control" disabled>
                                     <option selected>Escoga el satelite...</option>
                                     @forelse($satelite as $satelite)
-                                        <option value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
+                                        <option selected value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
                                     @empty
                                     @endforelse
                                 </select>
