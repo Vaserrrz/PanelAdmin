@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('CLIENTE_TELF2', 20)->nullable();
             $table->string('CLIENTE_WHATSAPP', 20)->nullable();
             $table->string('CLIENTE_TELEGRAM', 20)->nullable();
-            $table->string('CLIENTE_CORREO', 20)->nullable();
+            $table->string('CLIENTE_CORREO', 40)->nullable();
             $table->boolean('STATUS')->nullable();
             $table->boolean('ENVIO_TELEGRAM')->nullable();
             $table->boolean('ENVIO_WHATSAPP')->nullable();

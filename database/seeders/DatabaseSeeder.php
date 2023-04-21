@@ -28,5 +28,14 @@ class DatabaseSeeder extends Seeder
         $this->call(SateliteSeeder::class);
         // Planes / plans
         $this->call(PlanSeeder::class);
+        // Clientes / clients
+        $this->call(ClienteSeeder::class);
+        // Socios / socios
+        $this->call(SocioSeeder::class);
+        // Encargados / encargados
+        $this->call(EncargadoSeeder::class);
+        // Remotas / remotas
+        $this->call(RemotaSeeder::class);
     }
+
 }
