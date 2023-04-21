@@ -748,12 +748,6 @@
 
 @section('js')
     <script>
-<<<<<<< HEAD
-        const proveedorSelect = document.getElementById('SELECT_PROVEEDOR');
-        const sateliteSelect = document.getElementById('SELECT_SATELITE');
-        const planSelect = document.getElementById('SELECT_PLAN');
-=======
->>>>>>> 2ba3073f548b07487f2d708779b3da8d1f37997b
 
         const clienteSelects   = document.querySelectorAll(".select_cliente");
         const encargadoSelects = document.querySelectorAll(".select_encargado");
