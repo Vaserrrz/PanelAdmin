@@ -18,43 +18,51 @@
           </div>
        </div>
     </div>
-    <form>
-        <div class="row">
-            <div class="col col-md-7">
-                <div class="form-group">
-                    <label for="encargado_CORREO">Nombre</label>
-                    <input class="form-control" type="text" value="{{$encargado->ENCARGADO_NOMBRE}}" readonly>
-                  </div>
-            </div>
+
+    <div class="row">
+        <div class="col col-lg-12 w-100">
+            <div class="card p-5">
+                <form>
+                    <div class="row">
+                        <div class="col col-md-7">
+                            <div class="form-group">
+                                <label for="encargado_CORREO">Nombre</label>
+                                <input class="form-control" type="text" value="{{$encargado->ENCARGADO_NOMBRE}}" readonly>
+                              </div>
+                        </div>
 
 
-            <div class="co col-md-5">
-                <div class="form-group">
-                    <label for="ZONA_TRABAJO">Telefono</label>
-                    <input class="form-control" type="text" value="{{$encargado->ENCARGADO_TELF}}" readonly>
-                </div>
-            </div>
+                        <div class="co col-md-5">
+                            <div class="form-group">
+                                <label for="ZONA_TRABAJO">Telefono</label>
+                                <input class="form-control" type="text" value="{{$encargado->ENCARGADO_TELF}}" readonly>
+                            </div>
+                        </div>
 
-            <div class="col col-md-7">
-                <div class="form-group">
-                    <label for="encargado_CORREO">Correo</label>
-                    <input class="form-control" type="text" value="{{$encargado->ENCARGADO_CORREO}}" readonly>
-                </div>
-            </div>
+                        <div class="col col-md-7">
+                            <div class="form-group">
+                                <label for="encargado_CORREO">Correo</label>
+                                <input class="form-control" type="text" value="{{$encargado->ENCARGADO_CORREO}}" readonly>
+                            </div>
+                        </div>
 
 
-            <div class="form-group col-md-5">
-                <label for="inputState">Cliente</label>
-                <select id="inputState" class="form-control">
-                    <option selected>Escoga el cliente...</option>
-                    @forelse($cliente as $cliente)
-                        <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
-                    @empty
-                    @endforelse
-                </select>
+                        <div class="form-group col-md-5">
+                            <label for="inputState">Cliente</label>
+                            <select id="inputState" class="form-control">
+                                <option selected>Escoga el cliente...</option>
+                                @forelse($cliente as $cliente)
+                                    <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
+                                @empty
+                                @endforelse
+                            </select>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </form>
+    </div>
+
 </div>
 
 @stop
