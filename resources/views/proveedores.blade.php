@@ -117,9 +117,9 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">ID</th>
-                                        <th scope="col">RAZON</th>
-                                        <th scope="col">CI/RIF</th>
-                                        <th scope="col">Metodo de pago</th>
+                                        <th scope="col">Razón Social</th>
+                                        <th scope="col">Contacto</th>
+
                                         <th scope="col">Acciones</th>
                                     </tr>
                                 </thead>
@@ -133,8 +133,8 @@
                                             <td>
                                                 <a href="{{route('proveedores.details', $proveedor->id)}}">{{$proveedor->RAZON}}</a>
                                             </td>
-                                            <td>{{ $proveedor->CI_RIF}}</td>
-                                            <td>{{ $proveedor->METODO_PAGO }}</td>
+                                            <td>{{ $proveedor->CONTACTO}}</td>
+
                                             <td>
 
 

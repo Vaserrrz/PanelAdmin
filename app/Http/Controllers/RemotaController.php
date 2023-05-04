@@ -43,7 +43,7 @@ class RemotaController extends Controller
 
 
 
-        return view('remotas', compact('remotas','planes','remotas','clientes','proveedores',
+        return view('Remotas', compact('remotas','planes','remotas','clientes','proveedores',
         'socios','revendedores','encargados','satelites'));
     }
     public function getSatelites(Request $request)

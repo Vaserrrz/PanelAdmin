@@ -106,10 +106,10 @@
                             <thead>
                               <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Razon</th>
-                                <th scope="col">CI/RIF</th>
-                                <th scope="col">Direccion</th>
-                                <th scope="col">Correo</th>
+                                <th scope="col">Razón Social</th>
+                                <th scope="col">Dirección</th>
+                                <th scope="col">Teléfono</th>
+
 
                                 <th scope="col">Acciones</th>
                               </tr>
@@ -118,14 +118,15 @@
                                 @forelse ($clientes as $cliente)
                                     <tr>
                                         <th scope="row">{{ $cliente->id  }}</th>
+
                                         <td>
                                             <a href="{{route('clientes.details', $cliente->id)}}">
                                                 {{ $cliente->CLIENTE_RAZON }}
                                             </a>
                                         </td>
-                                        <td>{{ $cliente->CI_RIF }}</td>
                                         <td>{{ $cliente->CLIENTE_DIRECCION }}</td>
-                                        <td>{{ $cliente->CLIENTE_CORREO }}</td>
+                                        <td>{{ $cliente->CLIENTE_TELF}}</td>
+
                                         <td>
                                             {{-- Editar  --}}
                                             {{-- Buton editar  --}}
