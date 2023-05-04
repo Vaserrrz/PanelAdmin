@@ -180,7 +180,7 @@
                                                 <div class="col col-md-3">
                                                     <div class="form-group">
                                                         <label for="REMOTA_STATUS">Status</label>
-                                                        <input type="text" class="form-control" id="REMOTA_STATUS" placeholder="Ingrese el Status de la Remota" name="REMOTA_STATUS">
+                                                        <input type="checkbox" class="form-control" id="REMOTA_STATUS" placeholder="Ingrese el Status de la Remota" name="REMOTA_STATUS">
                                                     </div>
                                                 </div>
                                             </div>
@@ -532,7 +532,12 @@
                                                                     <div class="col col-md-3">
                                                                         <div class="form-group">
                                                                             <label for="REMOTA_STATUS">Status</label>
-                                                                            <input type="text" class="form-control" id="REMOTA_STATUS" placeholder="Ingrese el Status de la Remota" name="REMOTA_STATUS"  value="{{$remota->REMOTA_STATUS}}">
+                                                                            @if ($remota->REMOTA_STATUS>0)
+                                                                                <input type="checkbox" class="form-control input_status_editar" id="REMOTA_STATUS" placeholder="Ingrese el Status de la Remota" name="REMOTA_STATUS"  value="{{$remota->REMOTA_STATUS}}" checked>
+                                                                            @else
+                                                                                <input type="checkbox" class="form-control input_status_editar" id="REMOTA_STATUS" placeholder="Ingrese el Status de la Remota" name="REMOTA_STATUS"  value="{{$remota->REMOTA_STATUS}}">
+                                                                            @endif
+
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -751,6 +756,10 @@
         const proveedorSelect = document.getElementById('SELECT_PROVEEDOR');
         const sateliteSelect = document.getElementById('SELECT_SATELITE');
         const planSelect = document.getElementById('SELECT_PLAN');
+        const CheckStatus = document.querySelectorAll('input_status_editar');
+
+        console.log(CheckStatus)
+
 
 
         proveedorSelect.addEventListener('change', function() {

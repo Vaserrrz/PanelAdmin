@@ -104,7 +104,7 @@ class RemotaController extends Controller
         $remota->REMOTA_PLATO = $request->REMOTA_PLATO;
         $remota->REMOTA_IP_MODEM = $request->REMOTA_IP_MODEM;
         $remota->REMOTA_IP_GESTION = $request->REMOTA_IP_GESTION;
-        $remota->REMOTA_STATUS = $request->REMOTA_STATUS;
+        $remota->REMOTA_STATUS = $request->REMOTA_STATUS== 'on'? 1:0;
         $remota->REMOTA_BONDA = $request->REMOTA_BONDA;
 
         $remota->CLIENTE_ID = $request->SELECT_CLIENTE;
