@@ -21,7 +21,7 @@
 
 
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalAgregar">
+                        <button onclick="fire()" type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalAgregar">
                             Agregar
                         </button>
 
@@ -708,7 +708,7 @@
                                             <form action="{{ route('remotas.destroy', $remota) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
-                                               <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                               <button onclick="alerta_borrar()" type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                                             </form>
 
                                         </td>
@@ -910,12 +910,32 @@
                 });
         }
 
-        // function cargar_datos(){
-        //     alert('mucho sexo')
-        // }
+        function cargar_datos(){
+            alert('mucho sexo')
+        }
 
-        // function confirmar eliminar(){
-        //     alert('Esta seguro de eliminar esta Remota?')
-        // }
+        function alerta_borrar() {
+            alert('esta seguro de borrar')
+        }
+
+    Swal.fire('Any fool can use a computer')
+
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+            if (result.isConfirmed) {
+            Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+            )
+        }
+    })
     </script>
 @stop
