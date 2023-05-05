@@ -354,7 +354,7 @@
 
                                         <td>
                                             {{-- BOTON EDITAR  --}}
-                                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" onclick="cargar_datos()" data-target="#modal-editar-{{ $remota->id  }}">
+                                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" onclick="alfonzoarrecho()" data-target="#modal-editar-{{ $remota->id  }}">
                                                 Editar
                                             </button>
 
@@ -744,7 +744,11 @@
 @stop
 
 @section('js')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
+
+
 
         const clienteSelects   = document.querySelectorAll(".select_cliente");
         const encargadoSelects = document.querySelectorAll(".select_encargado");
@@ -918,24 +922,15 @@
             alert('esta seguro de borrar')
         }
 
-    Swal.fire('Any fool can use a computer')
+        function alfonzoarrecho(){
+            Swal.fire({
+            title: 'Error!',
+            text: 'Do you want to continue',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+            })
 
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-            if (result.isConfirmed) {
-            Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-            )
         }
-    })
+
     </script>
 @stop
