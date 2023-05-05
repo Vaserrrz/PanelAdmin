@@ -21,7 +21,7 @@
 
 
                         <!-- Button trigger modal -->
-                        <button onclick="fire()" type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalAgregar">
+                        <button onclick="alerta_borrar()" type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalAgregar">
                             Agregar
                         </button>
 
@@ -762,7 +762,7 @@
         const planSelect = document.getElementById('SELECT_PLAN');
         const CheckStatus = document.querySelectorAll('input_status_editar');
 
-        console.log(CheckStatus)
+
 
 
 
@@ -914,23 +914,32 @@
                 });
         }
 
-        function cargar_datos(){
-            alert('mucho sexo')
-        }
+        // function cargar_datos(){
+        //     alert('mucho sexo')
+        // }
 
-        function alerta_borrar() {
-            alert('esta seguro de borrar')
-        }
+        // function alerta_borrar() {
+        //     alert('esta seguro de borrar')
+        // }
 
-        function alfonzoarrecho(){
+        function alerta_borrar(){
             Swal.fire({
-            title: 'Error!',
-            text: 'Do you want to continue',
-            icon: 'error',
-            confirmButtonText: 'Cool'
-            })
-
+                title: 'Esta seguro de eliminar esta Remota',
+                text: "No podra revertir este cambio",
+                icon: 'Advertencia',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Confirmar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                Swal.fire(
+                'Eliminada!',
+                'success'
+            )
         }
+    })
+}
 
     </script>
 @stop
