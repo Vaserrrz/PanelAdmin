@@ -345,14 +345,14 @@ return [
                     'icon' => 'fas fa-fx fa-users'
                 ],
                 [
-                    'text' => 'Planes',
-                    'url'  => 'planes',
-                    'icon' => 'fas fa-fx fa-bars'
-                ],
-                [
                     'text' => 'Satelites',
                     'url'  => 'satelites',
                     'icon' => 'fas fa-fx fa-wifi',
+                ],
+                [
+                    'text' => 'Planes',
+                    'url'  => 'planes',
+                    'icon' => 'fas fa-fx fa-bars'
                 ],
             ],
         ],

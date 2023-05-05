@@ -15,6 +15,6 @@ class SateliteSeeder extends Seeder
      */
     public function run()
     {
-        Satelite::factory(15)->create();
+        Satelite::factory(10)->create();
     }
 }

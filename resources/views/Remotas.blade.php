@@ -77,9 +77,9 @@
 
                                                 <div class="col col-md-4">
                                                     <div class="form-group">
-                                                        <label for="ENCARGADO">                                                                Encargado</label>
+                                                        <label for="ENCARGADO">Encargado</label>
                                                         <select id="SELECT_ENCARGADO" name="SELECT_ENCARGADO" class="form-control select_encargado">
-                                                            <option selected>Escoga el Encargado...</option>
+                                                            <option selected>Seleccione un Encargado...</option>
                                                             {{-- @forelse($encargados as $encargado)
                                                                 <option value="{{$encargado->id}}">{{$encargado->ENCARGADO_NOMBRE}}</option>
                                                             @empty
@@ -110,7 +110,7 @@
                                                     <div class="form-group">
                                                         <label for="SOCIO">Socio</label>
                                                         <select id="SELECT_SOCIO" name="SELECT_SOCIO" class="form-control select_socio">
-                                                            <option selected>Escoga el Socio...</option>
+                                                            <option selected>Seleccione el Socio...</option>
                                                             @forelse($socios as $socio)
                                                                 <option value="{{$socio->id}}">{{$socio->SOCIO_NOMBRE}}</option>
                                                             @empty
@@ -223,8 +223,8 @@
                                                     <div class="form-group">
                                                         <label for="PROVEEDOR">Proveedor</label>
                                                         <select id="SELECT_PROVEEDOR" name="SELECT_PROVEEDOR" class="form-control select_proveedor">
-                                                            {{-- <option selected>Escoga el Proveedor...</option> --}}
-                                                            <option value="">Escoga el Proveedor...</option>
+
+                                                            <option value="">Seleccione el Proveedor...</option>
 
                                                             @forelse($proveedores as $proveedor)
                                                                 <option value="{{$proveedor->id}}"   >{{$proveedor->RAZON}}</option>
@@ -235,33 +235,35 @@
                                                     </div>
                                                 </div>
 
-                                                {{-- satelite --}}
+                                                {{-- PLAN --}}
                                                 <div class="col col-md-4">
                                                     <div class="form-group">
                                                         <label for="SATELITES">Satelites</label>
-                                                        <select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control select_satelite" disabled>
-                                                            <option value="">Escoga el Satelite...</option>
-                                                            {{-- <option selected>Escoga el Satelite...</option> --}}
+                                                        <select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control select_satelite" >
+                                                            <option value="">Seleccione el Satelite...</option>
+
                                                             {{-- @forelse($satelites as $satelite)
                                                                 <option value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
                                                             @empty
+                                                                No hay Satelites registrados
                                                             @endforelse --}}
                                                         </select>
                                                     </div>
                                                 </div>
 
 
-                                                {{-- city --}}
+                                                {{-- PLAN --}}
                                                 <div class="col col-md-4s">
                                                     <div class="form-group">
                                                         <label for="PLAN">Plan</label>
-                                                        <select id="SELECT_PLAN" name="SELECT_PLAN" class="form-control select_plan" disabled>
-                                                            <option value=""> Escoga un plan . . . </option>
-                                                            {{-- <option selected>Escoga el plan...</option>
-                                                            @forelse($plan as $plan)
+                                                        <select id="SELECT_PLAN" name="SELECT_PLAN" class="form-control select_plan">
+                                                            <option value=""> Seleccione un plan . . . </option>
+
+                                                            @forelse($planes as $plan)
                                                                 <option value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
                                                             @empty
-                                                            @endforelse --}}
+                                                                No hay Planes registrados
+                                                            @endforelse
                                                         </select>
                                                     </div>
                                                 </div>
@@ -352,7 +354,7 @@
 
                                         <td>
                                             {{-- BOTON EDITAR  --}}
-                                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-editar-{{ $remota->id  }}">
+                                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" onclick="cargar_datos()" data-target="#modal-editar-{{ $remota->id  }}">
                                                 Editar
                                             </button>
 
@@ -384,7 +386,7 @@
                                                                         <div class="form-group">
                                                                             <label for="CLIENTE">Cliente</label>
                                                                             <select id="SELECT_CLIENTE" name="SELECT_CLIENTE" class="form-control select_cliente">
-                                                                                <option selected>Escoga el cliente...</option>
+                                                                                <option selected>Seleccione el cliente...</option>
 
                                                                                 @forelse($clientes as $cliente)
 
@@ -415,7 +417,6 @@
                                                                         <div class="form-group">
                                                                             <label for="ENCARGADO">Encargado</label>
                                                                             <select id="SELECT_ENCARGADO" name="SELECT_ENCARGADO" class="form-control select_encargado">
-                                                                                {{-- <option selected>Escoga el Encargado...</option> --}}
 
                                                                         @php $encargados = App\Models\Encargado::where('CLIENTE_ID', $remota->CLIENTE_ID)->get();@endphp
 
@@ -456,14 +457,14 @@
                                                                             <label for="SOCIO">Socio</label>
                                                                             <select id="SELECT_SOCIO" name="SELECT_SOCIO" class="form-control select_socio">
 
-                                                                                <option selected>Escoga el Socio...</option>
+                                                                                <option selected>Seleccione el Socio...</option>
 
                                                                                 @forelse($socios as $socio)
 
                                                                                     @if ($remota->SOCIO_ID == $socio->id)
                                                                                         <option value="{{$socio->id}}" selected>{{$socio->SOCIO_NOMBRE}}</option>
                                                                                     @else
-                                                                                    <option value="{{$socio->id}}">{{$socio->SOCIO_NOMBRE}}</option>
+                                                                                        <option value="{{$socio->id}}">{{$socio->SOCIO_NOMBRE}}</option>
                                                                                     @endif
 
                                                                                 @empty
@@ -580,7 +581,7 @@
                                                                             <label for="PROVEEDOR">Proveedores</label>
                                                                             <select id="SELECT_PROVEEDOR" name="SELECT_PROVEEDOR" class="form-control select_proveedor">
 
-                                                                                <option value="">Escoga el Proveedor...</option>
+                                                                                <option value="">Seleccione un Proveedor...</option>
 
                                                                                 @forelse($proveedores as $proveedor)
                                                                                     @if ($remota->PROVEEDOR_ID == $proveedor->id)
@@ -600,8 +601,8 @@
                                                                     <div class="col col-md-4">
                                                                         <div class="form-group">
                                                                             <label for="SATELITES">Satelites</label>
-                                                                            <select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control select_satelite" disabled>
-                                                                                <option selected>Escoga el Satelite...</option>
+                                                                            <select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control select_satelite">
+                                                                                <option selected>Seleccione el Satelite...</option>
 
                                                                                 @php $satelites = App\Models\Satelite::where('PROVEEDOR_ID', $remota->PROVEEDOR_ID)->get();@endphp
 
@@ -632,7 +633,8 @@
                                                                                     @if ($remota->PLAN_ID == $plan->id)
                                                                                         <option selected value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
                                                                                     @else
-                                                                                        <option value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>                                                                                    @endif
+                                                                                        <option value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
+                                                                                    @endif
                                                                                 @empty
                                                                                 No hay hay satelites registrados
                                                                                 @endforelse
@@ -646,14 +648,12 @@
                                                                             <label for="inputState">Revendedor</label>
                                                                             <select id="SELECT_RESELLER" name="SELECT_RESELLER" class="form-control select_plan">
                                                                                 <option selected>Escoga el Revendedor...</option>
-
-                                                                                @if ($remota->RESELLER_ID == $revendedor->id)
-                                                                                <option selected value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
-                                                                                @else
-                                                                                    <option  value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
-                                                                                @endif
                                                                                 @forelse($revendedores as $revendedor)
-                                                                                    <option value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                                                    @if ($remota->RESELLER_ID == $revendedor->id)
+                                                                                        <option selected value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                                                    @else
+                                                                                        <option  value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                                                    @endif
                                                                                 @empty
                                                                                 @endforelse
                                                                             </select>
@@ -763,10 +763,10 @@
 
 
         proveedorSelect.addEventListener('change', function() {
-            sateliteSelect.innerHTML = '<option value="">Selecciona un satelite</option>';
+            sateliteSelect.innerHTML = '<option value="">Seleccione un satelite</option>';
             sateliteSelect.disabled = false;
 
-            planSelect.innerHTML = '<option value="">Selecciona una plan</option>';
+            planSelect.innerHTML = '<option value="">Seleccione una plan</option>';
             planSelect.disabled = false;
 
             if (!proveedorSelect.value) {
@@ -789,7 +789,7 @@
                 });
         });
         sateliteSelect.addEventListener('change', function() {
-            planSelect.innerHTML = '<option value="">Selecciona una plan</option>';
+            planSelect.innerHTML = '<option value="">Seleccione una plan</option>';
             planSelect.disabled = true;
 
             if (!sateliteSelect.value) {
@@ -820,7 +820,7 @@
         });
 
         function actualizarEncargados(clienteSelect, encargadoSelect) {
-            encargadoSelect.innerHTML = '<option value="">Selecciona un encargado</option>';
+            encargadoSelect.innerHTML = '<option value="">Seleccione un encargado</option>';
             encargadoSelect.disabled = false;
 
             if (!clienteSelect.value) {
@@ -889,7 +889,7 @@
         }
 
         function actualizarPlanes(sateliteSelect, planSelect) {
-            planSelect.innerHTML = '<option value="">Selecciona una plan</option>';
+            planSelect.innerHTML = '<option value="">Seleccione un plan</option>';
             planSelect.disabled = true;
 
             if (!sateliteSelect.value) {
@@ -909,5 +909,13 @@
                     });
                 });
         }
+
+        // function cargar_datos(){
+        //     alert('mucho sexo')
+        // }
+
+        // function confirmar eliminar(){
+        //     alert('Esta seguro de eliminar esta Remota?')
+        // }
     </script>
 @stop
