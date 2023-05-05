@@ -21,7 +21,7 @@
 
 
                         <!-- Button trigger modal -->
-                        <button onclick="alerta_borrar()" type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalAgregar">
+                        <button  type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalAgregar">
                             Agregar
                         </button>
 
