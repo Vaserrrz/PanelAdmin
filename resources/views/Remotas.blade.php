@@ -233,17 +233,16 @@
                                                     </div>
                                                 </div>
 
-                                                {{-- PLAN --}}
+                                                {{-- SATELITES --}}
                                                 <div class="col col-md-4">
                                                     <div class="form-group">
                                                         <label for="SATELITES">Satelites</label>
                                                         <select id="SELECT_SAT_MA" name="SELECT_SATELITE" class="form-control select_satelite" >
                                                             <option value="">Seleccione el Satelite...</option>
-                                                            @php $satelites = App\Models\Satelite::where('PROVEEDOR_ID', $remota->PROVEEDOR_ID)->get();@endphp
-                                                            @forelse($satelites as $satelite)
-                                                                <option value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
+                                                            @forelse ($satelites as $satelite)
+
                                                             @empty
-                                                                No hay Satelites registrados
+
                                                             @endforelse
                                                         </select>
                                                     </div>
@@ -256,11 +255,6 @@
                                                         <label for="PLAN">Plan</label>
                                                         <select id="SELECT_PLAN_MA" name="SELECT_PLAN" class="form-control select_plan">
                                                             <option value=""> Seleccione un plan . . . </option>
-                                                            @php $planes = App\Models\Plan::where('SATELITE_ID', $remota->SATELITE_ID)->get();@endphp
-                                                            @forelse($planes as $plan)
-                                                                <option value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
-                                                            @empty
-                                                            @endforelse
                                                         </select>
                                                     </div>
                                                 </div>

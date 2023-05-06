@@ -33,17 +33,14 @@ class RemotaController extends Controller
         // $satelite = Satelite::all();
 
         $proveedores = Proveedor::has('satelites')->get();
-
         $clientes = Cliente::has('encargados')->with('encargados')->get();
-
         $satelites = Satelite::all();
-
         $planes = Plan::all();
         $encargados = Encargado::all();
 
 
 
-        return view('Remotas', compact('remotas','planes','remotas','clientes','proveedores',
+        return view('Remotas', compact('remotas','remota','planes','remotas','clientes','proveedores',
         'socios','revendedores','encargados','satelites'));
     }
     /**
@@ -69,9 +66,6 @@ class RemotaController extends Controller
         $encargado = Encargado::where('CLIENTE_ID', $request->CLIENTE_ID)->get();
         return response()->json($encargado);
     }
-
-
-
     /**
      * Show the form for creating a new resource.
      *
@@ -90,9 +84,7 @@ class RemotaController extends Controller
      */
     public function store(Request $request)
     {
-
         $remota = new remota();
-
         $remota->REMOTA_NODO = $request->REMOTA_NODO;
         $remota->REMOTA_EQUIPO = $request->REMOTA_EQUIPO;
         $remota->REMOTA_SERIAL = $request->REMOTA_SERIAL;
@@ -113,7 +105,6 @@ class RemotaController extends Controller
         $remota->REMOTA_IP_GESTION = $request->REMOTA_IP_GESTION;
         $remota->REMOTA_STATUS = $request->REMOTA_STATUS== 'on'? 1:0;
         $remota->REMOTA_BONDA = $request->REMOTA_BONDA;
-
         $remota->CLIENTE_ID = $request->SELECT_CLIENTE;
         $remota->PLAN_ID = $request->SELECT_PLAN;
         $remota->PROVEEDOR_ID = $request->SELECT_PROVEEDOR;
@@ -121,14 +112,7 @@ class RemotaController extends Controller
         $remota->RESELLER_ID = $request->SELECT_RESELLER;
         $remota->ENCARGADO_ID = $request->SELECT_ENCARGADO;
         $remota->SATELITE_ID = $request->SELECT_SATELITE;
-
-
-
-
-
         $remota->save();
-
-
         return redirect()->route('remotas', compact('remota'));
     }
     public function details(remota $remota,Plan $plan,Cliente $cliente, Socio $socio,
