@@ -46,6 +46,11 @@ class RemotaController extends Controller
         return view('Remotas', compact('remotas','planes','remotas','clientes','proveedores',
         'socios','revendedores','encargados','satelites'));
     }
+    /**
+     * Summary of getSatelites
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function getSatelites(Request $request)
     {
         // $satelites = Satelite::where('PROVEEDOR_ID', $request->PROVEEDOR_ID)->get();
@@ -60,11 +65,13 @@ class RemotaController extends Controller
         $Plan = Plan::where('SATELITE_ID', $request->SATELITE_ID)->get();
         return response()->json($Plan);
     }
-
     public function getEncargado(Request $request){
         $encargado = Encargado::where('CLIENTE_ID', $request->CLIENTE_ID)->get();
         return response()->json($encargado);
     }
+
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -122,7 +129,7 @@ class RemotaController extends Controller
         $remota->save();
 
 
-        return redirect()->route('remotas');
+        return redirect()->route('remotas', compact('remota'));
     }
     public function details(remota $remota,Plan $plan,Cliente $cliente, Socio $socio,
      Proveedor $proveedor, Revendedor $revendedor, Encargado $encargado, Satelite $satelite)

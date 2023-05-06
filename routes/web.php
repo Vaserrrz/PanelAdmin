@@ -74,6 +74,8 @@ Route::get('/remotas_encargados', [RemotaController::class, 'getEncargado']);
 
 
 
+
+
 //ENCARGADOS
 Route::get('encargados', [EncargadoController::class, 'index'])->name('encargados');
 //ruta de guardar
