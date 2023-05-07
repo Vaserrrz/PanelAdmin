@@ -52,7 +52,7 @@
 												<div class="col col-md-4">
 													<div class="form-group">
 														<label for="CLIENTE">Cliente</label>
-														<select id="SELECT_CLIENTE" name="SELECT_CLIENTE" class="form-control select_cliente">
+														<select id="SELECT_CLIENTE_MA" name="SELECT_CLIENTE" class="form-control select_cliente">
 															<option selected>Escoga el cliente...</option>
 
 
@@ -78,7 +78,7 @@
 												<div class="col col-md-4">
 													<div class="form-group">
 														<label for="ENCARGADO">Encargado</label>
-														<select id="SELECT_ENCARGADO" name="SELECT_ENCARGADO" class="form-control select_encargado">
+														<select id="SELECT_ENCARGADO_MA" name="SELECT_ENCARGADO" class="form-control select_encargado">
 															<option selected>Seleccione un Encargado...</option>
 															@forelse($encargados as $encargado)
 																<option value="{{$encargado->id}}">{{$encargado->ENCARGADO_NOMBRE}}</option>
@@ -738,6 +738,7 @@
     const selectSatMA = document.getElementById('SELECT_SAT_MA');
     const selectPlanMA = document.getElementById('SELECT_PLAN_MA');
 
+
     // 1----PRoveedorSelect Cambia de valor
     proveedorSelectMA.addEventListener('change', () => {
         const proveedorId = proveedorSelectMA.value;
@@ -798,6 +799,43 @@
                 console.error(error);
             });
     });
+
+    // SELECTS ANIDADOS PARA CLIENTE_ENCARGADO
+    const clienteSelectMA = document.getElementById('SELECT_CLIENTE_MA');
+    const encargadoSelectMA = document.getElementById('SELECT_ENCARGADO_MA');
+
+
+    // Listener para el cambio de cliente
+    clienteSelectMA.addEventListener('change', () => {
+        const clienteId = clienteSelectMA.value;
+
+        // Limpiar opciones anteriores
+        encargadoSelectMA.innerHTML = '<option value="">Seleccione un Encargado</option>';
+
+        // Si no se ha seleccionado un cliente, salir del listener
+        if (!clienteId) {
+            return;
+        }
+
+        // Enviar petición al servidor para obtener los encargados del cliente seleccionado
+        fetch(`/remotas_encargados?CLIENTE_ID=${clienteId}`)
+            .then(response => response.json())
+            .then(data => {
+            // Agregar nuevas opciones
+            data.forEach(encargado => {
+                const option = document.createElement('option');
+                option.value = encargado.id;
+                option.text = encargado.ENCARGADO_NOMBRE;
+                encargadoSelectMA.add(option);
+            });
+
+            console.log(data);
+            })
+            .catch(error => {
+            console.error(error);
+            });
+        });
+
 
 
 </script>
