@@ -15,7 +15,7 @@ class RemotaSeeder extends Seeder
      */
     public function run()
     {
-        Remota::factory(10)->create();
+        Remota::factory(25)->create();
 
     }
 }

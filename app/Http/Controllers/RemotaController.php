@@ -29,14 +29,17 @@ class RemotaController extends Controller
         $socios = Socio::all();
         $revendedores = Revendedor::all();
         $cliente = Cliente::all();
-        // $proveedor = Proveedor::all();
-        // $satelite = Satelite::all();
 
-        $proveedores = Proveedor::has('satelites')->get();
+
         $clientes = Cliente::has('encargados')->with('encargados')->get();
-        $satelites = Satelite::all();
-        $planes = Plan::all();
         $encargados = Encargado::all();
+
+        $proveedores = Proveedor::whereHas('satelites.planes')->get();
+        // $proveedores = Proveedor::has('satelites')->has('planes')->get();
+        // $satelites = Satelite::whereHas('planes')->get();
+        // $planes = Plan::all();
+        $satelites = [];
+        $planes = [];
 
 
 
@@ -50,15 +53,24 @@ class RemotaController extends Controller
      */
     public function getSatelites(Request $request)
     {
-        // $satelites = Satelite::where('PROVEEDOR_ID', $request->PROVEEDOR_ID)->get();
         $proveedor_id = $request->PROVEEDOR_ID;
-        $satelites = Satelite::whereHas('proveedor', function ($query) use($proveedor_id) {
-            $query->where('PROVEEDOR_ID', $proveedor_id);
-        })->whereHas('planes')->get();
+        $satelites = Satelite::has('planes')
+                            ->get();
+
+        $satelites = Satelite::whereHas('planes', function ($query) use($proveedor_id) {
+            $query->where('PROVEEDOR_ID', '=',$proveedor_id);
+        })->get();
+        // $satelitesConPlan = Satelite::has('planes')->get();
+
+        // $satelites = Satelite::whereHas('proveedor', function ($query) use($proveedor_id) {
+        //     $query->where('PROVEEDOR_ID', $proveedor_id);
+        // })->whereHas('planes')->get();
+
         return response()->json($satelites);
     }
     public function getPlan(Request $request)
     {
+
         $Plan = Plan::where('SATELITE_ID', $request->SATELITE_ID)->get();
         return response()->json($Plan);
     }
