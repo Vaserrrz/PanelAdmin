@@ -222,7 +222,7 @@
                                                 <div class="col col-md-4">
                                                     <div class="form-group">
                                                         <label for="PROVEEDOR">Proveedor</label>
-                                                        <select id="SELECT_PROVEEDOR_MA" name="SELECT_PROVEEDOR" class="form-control select_proveedor">
+                                                        <select id="SELECT_PROVEEDOR_MA" name="SELECT_PROVEEDOR" class="form-control">
                                                             <option value="">Seleccione un Proveedor...</option>
                                                             @forelse($proveedores as $proveedor)
                                                                 <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
@@ -237,23 +237,18 @@
                                                 <div class="col col-md-4">
                                                     <div class="form-group">
                                                         <label for="SATELITES">Satelites</label>
-                                                        <select id="SELECT_SAT_MA" name="SELECT_SATELITE" class="form-control select_satelite" >
+                                                        <select id="SELECT_SAT_MA" name="SELECT_SATELITE" class="form-control" >
                                                             <option value="">Seleccione el Satelite...</option>
-                                                            @forelse ($satelites as $satelite)
-
-                                                            @empty
-
-                                                            @endforelse
                                                         </select>
                                                     </div>
                                                 </div>
 
 
                                                 {{-- PLAN --}}
-                                                <div class="col col-md-4s">
+                                                <div class="col col-md-4">
                                                     <div class="form-group">
                                                         <label for="PLAN">Plan</label>
-                                                        <select id="SELECT_PLAN_MA" name="SELECT_PLAN" class="form-control select_plan">
+                                                        <select id="SELECT_PLAN_MA" name="SELECT_PLAN" class="form-control">
                                                             <option value=""> Seleccione un plan . . . </option>
                                                         </select>
                                                     </div>
@@ -345,7 +340,7 @@
 
                                         <td>
                                             {{-- BOTON EDITAR  --}}
-                                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" onclick="alfonzoarrecho()" data-target="#modal-editar-{{ $remota->id  }}">
+                                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-editar-{{ $remota->id  }}">
                                                 Editar
                                             </button>
 
@@ -416,7 +411,6 @@
                                                                                         <option selected value="{{$encargado->id}}">{{$encargado->ENCARGADO_NOMBRE}}</option>
                                                                                     @else
                                                                                         <option value="{{$encargado->id}}">{{$encargado->ENCARGADO_NOMBRE}}</option>
-
                                                                                     @endif
 
                                                                                 @empty
@@ -615,7 +609,7 @@
                                                                     <div class="col col-md-4">
                                                                         <div class="form-group">
                                                                             <label for="PLANES">Planes</label>
-                                                                            <select id="SELECT_PLAN2" name="SELECT_PLAN" class="form-control select_plan">
+                                                                            <select id="SELECT_PLAN" name="SELECT_PLAN" class="form-control select_plan">
                                                                                 <option value=""> Seleccione un plan ... </option>
 
                                                                                 @php $planes = App\Models\Plan::where('SATELITE_ID', $remota->SATELITE_ID)->get();@endphp
@@ -747,20 +741,20 @@
         const encargadoSelects = document.querySelectorAll(".select_encargado");
 
 
-        const proveedorSelectA = document.getElementById('SELECT_PROVEEDOR_MA');
-        const sateliteSelectA = document.getElementById('SELECT_SATELITE_MA');
-        const planSelectA = document.getElementById('SELECT_PLAN_MA');
+        // const proveedorSelectA = document.getElementById('SELECT_PROVEEDOR_MA');
+        // const sateliteSelectA = document.getElementById('SELECT_SATELITE_MA');
+        // const planSelectA = document.getElementById('SELECT_PLAN_MA');
 
         // MODAL EDITAR
         const proveedorSelect = document.getElementById('SELECT_PROVEEDOR');
         const sateliteSelect = document.getElementById('SELECT_SATELITE');
         const planSelect = document.getElementById('SELECT_PLAN');
+
+        const proveedorSelects = document.querySelectorAll(".select_proveedor");
+        const sateliteSelects = document.querySelectorAll(".select_satelite");
+        const planSelects = document.querySelectorAll(".select_plan");
         // const CheckStatus = document.querySelectorAll('input_status_editar');
 
-
-        //  const proveedorSelects = document.querySelectorAll(".select_proveedor");
-        // const sateliteSelects = document.querySelectorAll(".select_satelite");
-        // const planSelects = document.querySelectorAll(".select_plan");
 
         // FUNCIONES MODAL EDITAR
         proveedorSelect.addEventListener('change', function() {
@@ -812,159 +806,149 @@
                 });
         });
 
-
-
-
-
         // FUNCTIONES MODAL AGREGAR
-        proveedorSelectA.addEventListener('change', function() {
-            sateliteSelectA.innerHTML = '<option value="">Seleccione un satelite</option>';
-            sateliteSelectA.disabled = false;
+        // proveedorSelectA.addEventListener('change', function() {
+        //     sateliteSelectA.innerHTML = '<option value="">Seleccione un satelite</option>';
+        //     sateliteSelectA.disabled = false;
 
-            planSelectA.innerHTML = '<option value="">Seleccione una plan</option>';
-            planSelectA.disabled = false;
+        //     planSelectA.innerHTML = '<option value="">Seleccione una plan</option>';
+        //     planSelectA.disabled = false;
 
-            if (!proveedorSelectA.value) {
-                return;
-            }
-
-
-            fetch(`/remotas_satelites?PROVEEDOR_ID=${proveedorSelectA.value}`)
-                .then(response => response.json())
-                .then(states => {
-                    sateliteSelectA.disabled = false;
-
-                    states.forEach(satelite => {
-                        // console.log(satelite);
-                        const option = document.createElement('option');
-                        option.value = satelite.id;
-                        option.textContent = satelite.SAT_NOMBRE;
-                        sateliteSelectA.appendChild(option);
-                    });
-                });
-        });
-        sateliteSelectA.addEventListener('change', function() {
-            planSelectA.innerHTML = '<option value="">Seleccione una plan</option>';
-            planSelectA.disabled = true;
-
-            if (!sateliteSelectA.value) {
-                return;
-            }
-
-            fetch(`/remotas_plans?SATELITE_ID=${sateliteSelectA.value}`)
-                .then(response => response.json())
-                .then(plans => {
-                    planSelectA.disabled = false;
-
-                    plans.forEach(plan => {
-                        const option = document.createElement('option');
-                        option.value = plan.id;
-                        option.textContent = plan.PLAN_NOMBRE;
-                        planSelectA.appendChild(option);
-                    });
-                });
-        });
-
-
-
-        // clienteSelects.forEach(clienteSelect => {
-        //     clienteSelect.addEventListener('change', function() {
-        //         encargadoSelects.forEach(encargadoSelect => {
-        //             actualizarEncargados(clienteSelect, encargadoSelect);
-        //         });
-        //     });
-        // });
-        // function actualizarEncargados(clienteSelect, encargadoSelect) {
-        //     encargadoSelect.innerHTML = '<option value="">Seleccione un encargado</option>';
-        //     encargadoSelect.disabled = false;
-
-        //     if (!clienteSelect.value) {
+        //     if (!proveedorSelectA.value) {
         //         return;
         //     }
 
-        //     fetch(`/remotas_encargados?CLIENTE_ID=${clienteSelect.value}`)
-        //     .then(response => response.json())
-        //     .then(states => {
-        //         // console.log(states);
-        //         encargadoSelect.disabled = false;
 
-        //         states.forEach(encargado => {
-        //         // console.log(encargado);
-        //         const option = document.createElement('option');
-        //         option.value = encargado.id;
-        //         option.textContent = encargado.ENCARGADO_NOMBRE;
-        //         encargadoSelect.appendChild(option);
-        //         });
+        //     fetch(`/remotas_satelites?PROVEEDOR_ID=${proveedorSelectA.value}`)
+        //         .then(response => response.json())
+        //         .then(states => {
+        //             sateliteSelectA.disabled = false;
 
-        //     });
-        // }
-
-
-
-
-        // //PROVEEDORES Y SATELITES Y PLANES
-        // proveedorSelects.forEach(proveedorSelect => {
-        //     proveedorSelect.addEventListener('change', function() {
-        //         sateliteSelects.forEach(sateliteSelect => {
-        //             actualizarSatelites(proveedorSelect, sateliteSelect);
-
-        //             // Obtener el input de plan correspondiente al input de satélite actual
-        //             const planSelect = document.getElementById('SELECT_PLAN2');
-
-        //             // Asignar el evento change al input de satélite
-        //             sateliteSelect.addEventListener('change', function() {
-        //                 actualizarPlanes(sateliteSelect, planSelect);
+        //             states.forEach(satelite => {
+        //                 // console.log(satelite);
+        //                 const option = document.createElement('option');
+        //                 option.value = satelite.id;
+        //                 option.textContent = satelite.SAT_NOMBRE;
+        //                 sateliteSelectA.appendChild(option);
         //             });
-
         //         });
-        //     });
         // });
-        // function actualizarSatelites(proveedorSelect, sateliteSelect) {
-        //     sateliteSelect.innerHTML = '<option value="">Seleccione un satelite</option>';
-        //     sateliteSelect.disabled = false;
+        // sateliteSelectA.addEventListener('change', function() {
+        //     planSelectA.innerHTML = '<option value="">Seleccione una plan</option>';
+        //     planSelectA.disabled = true;
 
-        //     if (!proveedorSelect.value) {
+        //     if (!sateliteSelectA.value) {
         //         return;
         //     }
 
-        //     fetch(`/remotas_satelites?PROVEEDOR_ID=${proveedorSelect.value}`)
-        //     .then(response => response.json())
-        //     .then(states => {
-        //         console.log(states.length);
-        //         sateliteSelect.disabled = false;
-
-        //         states.forEach(satelite => {
-        //             // console.log(satelite);
-        //             const option = document.createElement('option');
-        //             option.value = satelite.id;
-        //             option.textContent = satelite.SAT_NOMBRE;
-        //             sateliteSelect.appendChild(option);
-        //         });
-
-        //     });
-        // }
-        // function actualizarPlanes(sateliteSelect, planSelect) {
-        //     planSelect.innerHTML = '<option value="">Seleccione un plan</option>';
-        //     planSelect.disabled = true;
-
-        //     if (!sateliteSelect.value) {
-        //         return;
-        //     }
-
-        //     fetch(`/remotas_plans?SATELITE_ID=${sateliteSelect.value}`)
+        //     fetch(`/remotas_plans?SATELITE_ID=${sateliteSelectA.value}`)
         //         .then(response => response.json())
         //         .then(plans => {
-        //             planSelect.disabled = false;
+        //             planSelectA.disabled = false;
 
         //             plans.forEach(plan => {
         //                 const option = document.createElement('option');
         //                 option.value = plan.id;
         //                 option.textContent = plan.PLAN_NOMBRE;
-        //                 planSelect.appendChild(option);
+        //                 planSelectA.appendChild(option);
         //             });
         //         });
-        // }
+        // });
 
+        clienteSelects.forEach(clienteSelect => {
+            clienteSelect.addEventListener('change', function() {
+                encargadoSelects.forEach(encargadoSelect => {
+                    actualizarEncargados(clienteSelect, encargadoSelect);
+                });
+            });
+        });
+        function actualizarEncargados(clienteSelect, encargadoSelect) {
+            encargadoSelect.innerHTML = '<option value="">Seleccione un encargado</option>';
+            encargadoSelect.disabled = false;
+
+            if (!clienteSelect.value) {
+                return;
+            }
+
+            fetch(`/remotas_encargados?CLIENTE_ID=${clienteSelect.value}`)
+            .then(response => response.json())
+            .then(states => {
+                // console.log(states);
+                encargadoSelect.disabled = false;
+
+                states.forEach(encargado => {
+                // console.log(encargado);
+                const option = document.createElement('option');
+                option.value = encargado.id;
+                option.textContent = encargado.ENCARGADO_NOMBRE;
+                encargadoSelect.appendChild(option);
+                });
+
+            });
+        }
+
+        // // //PROVEEDORES Y SATELITES Y PLANES
+        proveedorSelects.forEach(proveedorSelect => {
+            proveedorSelect.addEventListener('change', function() {
+                sateliteSelects.forEach(sateliteSelect => {
+                    actualizarSatelites(proveedorSelect, sateliteSelect);
+
+                    // Obtener el input de plan correspondiente al input de satélite actual
+                    const planSelect = document.getElementById('SELECT_PLAN2');
+
+                    // Asignar el evento change al input de satélite
+                    sateliteSelect.addEventListener('change', function() {
+                        actualizarPlanes(sateliteSelect, planSelect);
+                    });
+
+                });
+            });
+        });
+        function actualizarSatelites(proveedorSelect, sateliteSelect) {
+            sateliteSelect.innerHTML = '<option value="">Seleccione un satelite</option>';
+            sateliteSelect.disabled = false;
+
+            if (!proveedorSelect.value) {
+                return;
+            }
+
+            fetch(`/remotas_satelites?PROVEEDOR_ID=${proveedorSelect.value}`)
+            .then(response => response.json())
+            .then(states => {
+                console.log(states.length);
+                sateliteSelect.disabled = false;
+
+                states.forEach(satelite => {
+                    // console.log(satelite);
+                    const option = document.createElement('option');
+                    option.value = satelite.id;
+                    option.textContent = satelite.SAT_NOMBRE;
+                    sateliteSelect.appendChild(option);
+                });
+
+            });
+        }
+        function actualizarPlanes(sateliteSelect, planSelect) {
+            planSelect.innerHTML = '<option value="">Seleccione un plan</option>';
+            planSelect.disabled = true;
+
+            if (!sateliteSelect.value) {
+                return;
+            }
+
+            fetch(`/remotas_plans?SATELITE_ID=${sateliteSelect.value}`)
+                .then(response => response.json())
+                .then(plans => {
+                    planSelect.disabled = false;
+
+                    plans.forEach(plan => {
+                        const option = document.createElement('option');
+                        option.value = plan.id;
+                        option.textContent = plan.PLAN_NOMBRE;
+                        planSelect.appendChild(option);
+                    });
+                });
+        }
 
 
 
