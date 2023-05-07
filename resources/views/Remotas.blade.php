@@ -21,7 +21,7 @@
 
 
 						<!-- Button trigger modal -->
-						<button  type="button" class="btn btn-success" data-toggle="modal" data-target="#ModalAgregar">
+						<button  type="button" class="btn btn-success" data-toggle="modal" onclick="alerta_borrar()" data-target="#ModalAgregar">
 							Agregar
 						</button>
 
@@ -693,7 +693,7 @@
 											<form action="{{ route('remotas.destroy', $remota) }}" method="POST">
 												@csrf
 												@method('delete')
-											   <button onclick="alerta_borrar()" type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+											   <button onclick="alerta_borrar()" type="" class="btn btn-danger btn-sm">Eliminar</button>
 											</form>
 
 										</td>
@@ -730,7 +730,6 @@
 
 @section('js')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 <script>
 
     //===== Proceso de selects anidados Proveedor, satelite, plans =====//
@@ -836,7 +835,24 @@
             });
     });
 
-
-
+    // ALERTA BOTON ELIMINAR
+    function alerta_borrar(){
+            Swal.fire({
+                title: 'Esta seguro de eliminar esta Remota',
+                text: "No podra revertir este cambio",
+                icon: 'Advertencia',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Confirmar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                Swal.fire(
+                'Eliminada!',
+                'success'
+                )
+            }
+        })
+    }
 </script>
 @stop
