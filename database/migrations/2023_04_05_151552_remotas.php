@@ -20,7 +20,6 @@ return new class extends Migration
 
 
             $table->unsignedBigInteger('CLIENTE_ID');
-
             $table->foreign('CLIENTE_ID')
                 ->references('id')
                 ->on('clientes')
@@ -34,15 +33,8 @@ return new class extends Migration
             $table->string('REMOTA_BUC_SERIAL', 100);
             $table->string('REMOTA_LNB', 100);
             $table->string('REMOTA_LNB_SERIAL');
-
-
-
-
             $table->integer('REMOTA_PLANDOWN')->nullable();
             $table->integer('REMOTA_PLANUP')->nullable();
-
-
-
             $table->string('REMOTA_COSTO_PLAN', 100);
             $table->string('REMOTA_RENTA', 100);
             $table->date('REMOTA_DIA_CORTE')->nullable();
@@ -53,9 +45,7 @@ return new class extends Migration
             $table->string('REMOTA_IP_GESTION', 100);
 
 
-
             $table->unsignedBigInteger('PLAN_ID');
-
             $table->foreign('PLAN_ID')
                 ->references('id')
                 ->on('plans')
@@ -64,7 +54,6 @@ return new class extends Migration
 
 
             $table->unsignedBigInteger('PROVEEDOR_ID');
-
             $table->foreign('PROVEEDOR_ID')
                 ->references('id')
                 ->on('proveedors')
@@ -72,17 +61,13 @@ return new class extends Migration
                 ->onUpdate('cascade');
 
             $table->unsignedBigInteger('SOCIO_ID');
-
             $table->foreign('SOCIO_ID')
                 ->references('id')
                 ->on('socios')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-
-
             $table->unsignedBigInteger('RESELLER_ID');
-
             $table->foreign('RESELLER_ID')
                 ->references('id')
                 ->on('revendedors')
@@ -91,7 +76,6 @@ return new class extends Migration
 
 
             $table->unsignedBigInteger('ENCARGADO_ID');
-
             $table->foreign('ENCARGADO_ID')
                 ->references('id')
                 ->on('encargados')

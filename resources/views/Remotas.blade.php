@@ -21,7 +21,7 @@
 
 
 						<!-- Button trigger modal -->
-						<button  type="button" class="btn btn-success" data-toggle="modal" onclick="alerta_borrar()" data-target="#ModalAgregar">
+						<button  type="button" class="btn btn-success" data-toggle="modal"  data-target="#ModalAgregar">
 							Agregar
 						</button>
 
@@ -172,8 +172,8 @@
 											<div class="row">
 												<div class="col col-md-9">
 													<div class="form-group">
-														<label for="REMOTA_RENTA">Detalle</label>
-														<input type="text" class="form-control" id="REMOTA_RENTA" placeholder="Detalles a agregar" name="REMOTA_RENTA">
+														<label for="REMOTA_DETALLE">Detalle</label>
+														<input type="text" class="form-control" id="REMOTA_DETALLE" placeholder="Detalles a agregar" name="REMOTA_RENTA">
 													</div>
 												</div>
 
@@ -651,27 +651,27 @@
 																	<div class="col col-md-3">
 																		<div class="form-group">
 																			<label for="REMOTA_PLANUP">PlanUp</label>
-																			<input type="text" class="form-control" id="REMOTA_PLANUP" placeholder="Ingrese el PLANUP de la Remota" name="REMOTA_PLANUP"  value="{{$remota->REMOTA_PLANUP}}">
+																			<input type="text" class="form-control" id="REMOTA_PLANUP_ME" placeholder="Ingrese el PLANUP de la Remota" name="REMOTA_PLANUP"  value="{{$remota->REMOTA_PLANUP}}">
 																		</div>
 																	</div>
 																	<div class="col col-md-3">
 																		<div class="form-group">
 																			<label for="REMOTA_PLANDOWN">PlanDown</label>
-																			<input type="text"  class="form-control" id="REMOTA_PLANDOWN" placeholder="Ingrese el PLANDOWN de la Remota" name="REMOTA_PLANDOWN"  value="{{$remota->REMOTA_PLANDOWN}}">
+																			<input type="text"  class="form-control" id="REMOTA_PLANDOWN_ME" placeholder="Ingrese el PLANDOWN de la Remota" name="REMOTA_PLANDOWN"  value="{{$remota->REMOTA_PLANDOWN}}">
 																		</div>
 																	</div>
 
 																	<div class="col col-md-3">
 																		<div class="form-group">
 																			<label for="REMOTA_COSTO_PLAN">Costo del Plan</label>
-																			<input type="text" class="form-control" id="REMOTA_COSTO_PLAN" placeholder="Ingrese el Costo del Plan" name="REMOTA_COSTO_PLAN"  value="{{$remota->REMOTA_COSTO_PLAN}}">
+																			<input type="text" class="form-control" id="REMOTA_COSTO_PLAN_ME" placeholder="Ingrese el Costo del Plan" name="REMOTA_COSTO_PLAN"  value="{{$remota->REMOTA_COSTO_PLAN}}">
 																		</div>
 																	</div>
 
 																	<div class="col col-md-3">
 																		<div class="form-group">
 																			<label for="REMOTA_RENTA">Renta</label>
-																			<input type="text" class="form-control" id="REMOTA_RENTA" placeholder="Ingrese el monto de la Renta" name="REMOTA_RENTA"  value="{{$remota->REMOTA_RENTA}}">
+																			<input type="text" class="form-control" id="REMOTA_RENTA_ME" placeholder="Ingrese el monto de la Renta" name="REMOTA_RENTA"  value="{{$remota->REMOTA_RENTA}}">
 																		</div>
 																	</div>
 																</div>
@@ -693,7 +693,7 @@
 											<form action="{{ route('remotas.destroy', $remota) }}" method="POST">
 												@csrf
 												@method('delete')
-											   <button onclick="alerta_borrar()" type="" class="btn btn-danger btn-sm">Eliminar</button>
+											   <button onclick="" type="" class="btn btn-danger btn-sm">Eliminar</button>
 											</form>
 
 										</td>
@@ -736,8 +736,6 @@
     const proveedorSelectMA = document.getElementById('SELECT_PROVEEDOR_MA');
     const selectSatMA = document.getElementById('SELECT_SAT_MA');
     const selectPlanMA = document.getElementById('SELECT_PLAN_MA');
-
-
     // 1----PRoveedorSelect Cambia de valor
     proveedorSelectMA.addEventListener('change', () => {
         const proveedorId = proveedorSelectMA.value;
@@ -748,7 +746,11 @@
 
             // Limpiar opciones anteriores
             selectSatMA.innerHTML = '<option value="">Seleccione un Satelite</option>';
-
+            selectPlanMA.innerHTML = '<option value="">Seleccione un Plan</option>';
+            renta_plan.value = ''
+		    costo_plan.value = ''
+		    planUp.value = ''
+		    planDown.value = ''
             // Si no se ha seleccionado un satélite, salir del listener
             if (!proveedorId) {
                 return;
@@ -775,6 +777,10 @@
         // Limpiar opciones anteriores
         selectPlanMA.innerHTML = '<option value="">Seleccione un Plan</option>';
 
+        renta_plan.value = ''
+		costo_plan.value = ''
+		planUp.value = ''
+		planDown.value = ''
         // Si no se ha seleccionado un satélite, salir del listener
         if (!satId) {
             return;
@@ -785,12 +791,12 @@
             .then(response => response.json())
             .then(data => {
             // Agregar nuevas opciones
-            data.forEach(plan => {
-                const option = document.createElement('option');
-                option.value = plan.id;
-                option.text = plan.PLAN_NOMBRE;
-                selectPlanMA.add(option);
-            });
+                data.forEach(plan => {
+                    const option = document.createElement('option');
+                    option.value = plan.id;
+                    option.text = plan.PLAN_NOMBRE;
+                    selectPlanMA.add(option);
+                });
 
             console.log(data);
             })
@@ -802,57 +808,83 @@
     // SELECTS ANIDADOS PARA CLIENTE_ENCARGADO
     const clienteSelectMA = document.getElementById('SELECT_CLIENTE_MA');
     const encargadoSelectMA = document.getElementById('SELECT_ENCARGADO_MA');
-
-
     // Listener para el cambio de cliente
     clienteSelectMA.addEventListener('change', () => {
         const clienteId = clienteSelectMA.value;
-
         // Limpiar opciones anteriores
         encargadoSelectMA.innerHTML = '<option value="">Seleccione un Encargado</option>';
-
         // Si no se ha seleccionado un cliente, salir del listener
         if (!clienteId) {
             return;
         }
-
         // Enviar petición al servidor para obtener los encargados del cliente seleccionado
         fetch(`/remotas_encargados?CLIENTE_ID=${clienteId}`)
             .then(response => response.json())
-            .then(data => {
-            // Agregar nuevas opciones
-            data.forEach(encargado => {
-                const option = document.createElement('option');
-                option.value = encargado.id;
-                option.text = encargado.ENCARGADO_NOMBRE;
-                encargadoSelectMA.add(option);
-            });
 
-            console.log(data);
+            .then(encargados => {
+            // Agregar nuevas opciones
+                encargados.forEach(encargado => {
+                    const option = document.createElement('option');
+                    option.value = encargado.id;
+                    option.text = encargado.ENCARGADO_NOMBRE;
+                    encargadoSelectMA.add(option);
+                });
             })
+
             .catch(error => {
             console.error(error);
             });
     });
 
+	const renta_plan = document.getElementById('REMOTA_RENTA');
+	const costo_plan = document.getElementById('REMOTA_COSTO_PLAN');
+	const planUp = document.getElementById('REMOTA_PLANUP');
+	const planDown = document.getElementById('REMOTA_PLANDOWN');
+
+	selectPlanMA.addEventListener('change', () => {
+		const planId = selectPlanMA.value
+
+		//Limpiando opciones anteriores
+		// renta_plan.innerHTML = 'Renta del Plan seleccionado'
+		// costo_plan.innerHTML = 'Costo del Plan seleccionado'
+		// planUp.innerHTML = 'Subida del Plan seleccionado'
+		// planDown.innerHTML = 'Bajada del Plan seleccionado'
+
+		if (!planId) {
+            return;
+        }
+
+        fetch(`/remotas_plan_properties?PLAN_ID=${planId}`)
+            .then(response => response.json())
+            .then(properties => {
+                console.log(properties)
+                renta_plan.value = properties[0].PLAN_BAJADA
+                console.log(properties[0].PLAN_NOMBRE)
+                costo_plan.value = properties[0].PLAN_COSTO
+                planUp.value = properties[0].PLAN_SUBIDA
+                planDown.value = properties[0].PLAN_BAJADA
+
+            })
+	})
+
     // ALERTA BOTON ELIMINAR
-    function alerta_borrar(){
-            Swal.fire({
-                title: 'Esta seguro de eliminar esta Remota',
-                text: "No podra revertir este cambio",
-                icon: 'Advertencia',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirmar'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                Swal.fire(
-                'Eliminada!',
-                'success'
-                )
-            }
-        })
-    }
+    // function alerta_borrar(){
+    //         Swal.fire({
+    //             title: 'Esta seguro de eliminar esta Remota',
+    //             text: "No podra revertir este cambio",
+    //             icon: 'Advertencia',
+    //             showCancelButton: true,
+    //             confirmButtonColor: '#3085d6',
+    //             cancelButtonColor: '#d33',
+    //             confirmButtonText: 'Confirmar'
+    //         }).then((result) => {
+    //             if (result.isConfirmed) {
+    //             Swal.fire(
+    //             'Eliminada!',
+    //             'success'
+    //             )
+    //         }
+    //     })
+    // }
 </script>
 @stop

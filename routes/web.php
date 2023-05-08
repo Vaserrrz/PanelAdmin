@@ -71,6 +71,7 @@ Route::get('remotas/{remota}',[ RemotaController::class,'details'])->name('remot
 Route::get('/remotas_satelites', [RemotaController::class, 'getSatelites']);
 Route::get('/remotas_plans',     [RemotaController::class, 'getPlan']);
 Route::get('/remotas_encargados', [RemotaController::class, 'getEncargado']);
+Route::get('/remotas_plan_properties', [RemotaController::class, 'getProperties']);
 
 
 

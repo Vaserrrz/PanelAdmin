@@ -208,6 +208,11 @@ class RemotaController extends Controller
 
             return redirect()->route('remotas', compact('remota'));
     }
+    public function getProperties(Request $request){
+        $plan = PLan::where('id', $request->PLAN_ID)->get();
+        return response()->json($plan);
+
+    }
     /**
      * Remove the specified resource from storage.
      *
