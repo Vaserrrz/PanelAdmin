@@ -767,19 +767,20 @@
             return;
         }
         fetch(`/remotas_encargados?CLIENTE_ID=${clienteIdME}`)
-            .then(response => response.json())
-            .then(encargados => {
+        .then(response => response.json())
+        .then(encargados => {
                 // console.log(states);
-                select_encargado.disabled = false;
-                encargados.forEach(encargado => {
-                    // console.log(encargado);
-                    const option = document.createElement('option');
-                    option.value = encargado.id;
-                    option.textContent = encargado.ENCARGADO_NOMBRE;
-                    select_encargado.appendChild(option);
-                });
+            select_encargado.disabled = false;
+            encargados.forEach(encargado => {
+                // console.log(encargado);
+                const option = document.createElement('option');
+                option.value = encargado.id;
+                option.textContent = encargado.ENCARGADO_NOMBRE;
+                select_encargado.appendChild(option);
             });
+        });
     }
+    //Proveedores y Satelites
     selectProveedoresME.forEach(select_proveedor => {
         select_proveedor.addEventListener('change', function() {
             selectSatelitesME.forEach(select_satelite => {
@@ -787,8 +788,22 @@
             });
 			//Limpiar Plan al cambio de Proveedor
 			selectPlanesME.forEach(select_plan => {
-				select_plan.innerHTML = '<option value="">Seleccione un Satelite</option>';
-			})
+				select_plan.innerHTML = '<option value="">Seleccione un Plan</option>';
+                renta_planesME.forEach
+			});
+            //Limpiando Propiedades de Plan al cambio de Proveedor
+            renta_planesME.forEach(renta => {
+                renta.value = ''
+            });
+            costo_planesME.forEach(costo => {
+                costo.value = ''
+            });
+            planesUpME.forEach(up => {
+                up.value = ''
+            });
+            planesDownME.forEach(down => {
+                down.value = ''
+            });
         });
     });
     function actualizarSatelites(select_proveedor,select_satelite) {
@@ -812,12 +827,30 @@
         });
 
     }
+    //Satelites y Planes
     selectSatelitesME.forEach(select_satelite => {
         select_satelite.addEventListener('change', function() {
             selectPlanesME.forEach(select_plan => {
                 actualizarPlanes(select_satelite,select_plan)
             });
-
+            //Limpiar Plan al cambio de Proveedor
+			selectPlanesME.forEach(select_plan => {
+				select_plan.innerHTML = '<option value="">Seleccione un Plan</option>';
+                renta_planesME.forEach
+			});
+            //Limpiando Propiedades de Plan al cambio de Proveedor
+            renta_planesME.forEach(renta => {
+                renta.value = ''
+            });
+            costo_planesME.forEach(costo => {
+                costo.value = ''
+            });
+            planesUpME.forEach(up => {
+                up.value = ''
+            });
+            planesDownME.forEach(down => {
+                down.value = ''
+            });
         });
     });
     function actualizarPlanes(select_satelite,select_plan) {
@@ -839,57 +872,36 @@
             });
         });
     }
+    //Propiedades Planes (EDITAR)
+	selectPlanesME.forEach(select_plan => {
+		select_plan.addEventListener('change', function() {
+			const planIdME = select_plan.value
+            if (!planIdME) {
+                return;
+            }
+            fetch(`/remotas_plan_properties?PLAN_ID=${planIdME}`)
+            .then(response => response.json())
+            .then(properties => {
+                // console.log(properties);
+                renta_planesME.forEach(renta => {
+                    renta.value = properties[0].PLAN_PRECIO
+                });
+                costo_planesME.forEach(costo => {
+                    costo.value = properties[0].PLAN_COSTO
+                });
+                planesUpME.forEach(up => {
+                    up.value = properties[0].PLAN_SUBIDA
+                });
+                planesDownME.forEach(down => {
+                    down.value = properties[0].PLAN_BAJADA
+                });
+            });
+		});
+	});
 
-    //PROPIEDADES PLANES (EDITAR)
-    // selectPlanesME.forEach(select_plan => {
-    //     select_plan.addEventListener('change', function() {
-    //         renta_planesME.forEach(renta_plan => {
-    //             actualizarRentas(select_plan,renta_plan)
-    //         });
-    //         costo_planesME.forEach(costo_plan => {
-    //             actualizarCostos(select_plan,costo_plan)
-    //         });
-    //         planesUpME.forEach(plan_up => {
-    //             actualizarUps(select_plan,plan_up)
-    //         });
-    //         planesDownME.forEach(plan_down => {
-    //             actualizarDowns(select_plan,plan_down)
-    //         });
-    //     });
-    // });
-    // function actualizarRentas(select_plan,renta_plan) {
-    //     renta_plan.innerHTML = ''
-    //     renta_plan.disabled = false;
-    //     const planIdME = select_plan.value;
-    //     if (!planIdME) {
-    //         return;
-    //     }
-    //     fetch(`/remotas_plan_properties?PLAN_ID=${planIdME}`)
-    //     .then(response => response.json)
-    //     .then(rentas => {
-    //         renta_plan.disabled = false;
-    //         rentas.forEach(renta => {
-    //             renta_plan.value = rentas.[0].PLAN_PRECIO
-    //         })
-    //     })
-    // }
-    // function actualizarCostos(select_plan,costo_plan) {
-    //     costo_plan.innerHTML = ''
-    //     costo_plan.disabled = false;
-    //     const planIdME = select_plan.value;
-    //     if (!planIdME) {
-    //         return;
-    //     }
-    //     fetch(`/remotas_plan_properties?PLAN_ID=${planIdME}`)
-    // }
-    // function actualizarUps(select_plan,plan_up) {
-
-    // }
-    // function actualizarDowns(select_plan,plan_down) {
-
-    // }
 
     //MODAL AGREGAR
+    //Clientes y Encargados
     clienteSelectMA.addEventListener('change', () => {
         const clienteId = clienteSelectMA.value;
         // Limpiar opciones anteriores
@@ -916,6 +928,7 @@
             console.error(error);
             });
     });
+    //Proveedores y Satelites
     proveedorSelectMA.addEventListener('change', () => {
         const proveedorId = proveedorSelectMA.value;
 
@@ -948,6 +961,7 @@
             console.error(error);
         });
     });
+    //Satelites y Planes
     selectSatMA.addEventListener('change', () => {
         const satId = selectSatMA.value;
         // Limpiar opciones anteriores
@@ -976,7 +990,7 @@
                 console.error(error);
             });
     });
-    //PROPIEDADES PLANES (AGREGAR)
+    //Propiedades Planes (AGREGAR)
     selectPlanMA.addEventListener('change', () => {
 		const planId = selectPlanMA.value
 		if (!planId) {
@@ -991,6 +1005,7 @@
                 planDown.value = properties[0].PLAN_BAJADA
             });
 	});
+
     // ALERTA BOTON ELIMINAR
     // function alerta_borrar(){
     //         Swal.fire({
