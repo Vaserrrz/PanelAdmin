@@ -841,6 +841,7 @@
             });
         });
     }
+
     //PROPIEDADES PLANES (EDITAR)
     // selectPlanesME.forEach(select_plan => {
     //     select_plan.addEventListener('change', function() {
