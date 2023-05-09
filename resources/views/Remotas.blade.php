@@ -565,16 +565,13 @@
 																		<div class="form-group">
 																			<label for="PROVEEDOR">Proveedores</label>
 																			<select id="SELECT_PROVEEDOR_ME" name="SELECT_PROVEEDOR" class="form-control select_proveedor">
-
 																				<option value="">Seleccione un Proveedor...</option>
-
 																				@forelse($proveedores as $proveedor)
 																					@if ($remota->PROVEEDOR_ID == $proveedor->id)
 																						<option value="{{$proveedor->id}}" selected>{{$proveedor->RAZON}}</option>
 																					@else
 																						<option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
 																					@endif
-
 																				@empty
 																					No hay proveedores registrados
 																				@endforelse
@@ -588,9 +585,7 @@
 																			<label for="SATELITES">Satelites</label>
 																			<select id="SELECT_SATELITE_ME" name="SELECT_SATELITE" class="form-control select_satelite">
 																				<option selected>Seleccione el Satelite...</option>
-
 																				@php $satelites = App\Models\Satelite::where('PROVEEDOR_ID', $remota->PROVEEDOR_ID)->get();@endphp
-
 																				@forelse($satelites as $satelite)
 																					@if ($remota->SATELITE_ID == $satelite->id)
 																						<option selected value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
@@ -611,9 +606,7 @@
 																			<label for="PLANES">Planes</label>
 																			<select id="SELECT_PLAN_ME" name="SELECT_PLAN" class="form-control select_plan">
 																				<option value=""> Seleccione un plan ... </option>
-
 																				@php $planes = App\Models\Plan::where('SATELITE_ID', $remota->SATELITE_ID)->get();@endphp
-
 																				@forelse($planes as $plan)
 																					@if ($remota->PLAN_ID == $plan->id)
 																						<option selected value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
@@ -792,10 +785,15 @@
             selectSatelitesME.forEach(select_satelite => {
                 actualizarSatelites(select_proveedor,select_satelite)
             });
+			//Limpiar Plan al cambio de Proveedor
+			selectPlanesME.forEach(select_plan => {
+				select_plan.innerHTML = '<option value="">Seleccione un Satelite</option>';
+			})
         });
     });
     function actualizarSatelites(select_proveedor,select_satelite) {
         select_satelite.innerHTML = '<option value="">Seleccione un Satelite</option>';
+
         select_satelite.disabled = false;
         const proveedorIdME = select_proveedor.value
         if (!proveedorIdME) {
