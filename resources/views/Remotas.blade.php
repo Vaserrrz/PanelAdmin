@@ -752,6 +752,7 @@
 
 
     //MODAL EDITAR
+    //Clientes y Encargados
     SelectClientesME.forEach(select_cliente => {
         select_cliente.addEventListener('change', function() {
             SelectEncargadosME.forEach(select_encargado => {
@@ -898,7 +899,6 @@
             });
 		});
 	});
-
 
     //MODAL AGREGAR
     //Clientes y Encargados
