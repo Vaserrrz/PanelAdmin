@@ -758,9 +758,6 @@
 	const planesDownME = document.querySelectorAll('.select_planDown');
 
 
-
-
-
     //MODAL EDITAR
     SelectClientesME.forEach(select_cliente => {
         select_cliente.addEventListener('change', function() {
