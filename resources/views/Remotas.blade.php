@@ -371,7 +371,7 @@
 																	<div class="col col-md-4">
 																		<div class="form-group">
 																			<label for="CLIENTE">Cliente</label>
-																			<select id="SELECT_CLIENTE" name="SELECT_CLIENTE" class="form-control select_cliente">
+																			<select id="SELECT_CLIENTE_ME" name="SELECT_CLIENTE" class="form-control select_cliente">
 																				<option selected>Seleccione el cliente...</option>
 
 																				@forelse($clientes as $cliente)
@@ -402,7 +402,7 @@
 																	<div class="col col-md-4">
 																		<div class="form-group">
 																			<label for="ENCARGADO">Encargado</label>
-																			<select id="SELECT_ENCARGADO" name="SELECT_ENCARGADO" class="form-control select_encargado">
+																			<select id="SELECT_ENCARGADO_ME" name="SELECT_ENCARGADO" class="form-control select_encargado">
 
 																		@php $encargados = App\Models\Encargado::where('CLIENTE_ID', $remota->CLIENTE_ID)->get();@endphp
 
@@ -564,7 +564,7 @@
 																	<div class="col col-md-4">
 																		<div class="form-group">
 																			<label for="PROVEEDOR">Proveedores</label>
-																			<select id="SELECT_PROVEEDOR" name="SELECT_PROVEEDOR" class="form-control select_proveedor">
+																			<select id="SELECT_PROVEEDOR_ME" name="SELECT_PROVEEDOR" class="form-control select_proveedor">
 
 																				<option value="">Seleccione un Proveedor...</option>
 
@@ -586,7 +586,7 @@
 																	<div class="col col-md-4">
 																		<div class="form-group">
 																			<label for="SATELITES">Satelites</label>
-																			<select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control select_satelite">
+																			<select id="SELECT_SATELITE_ME" name="SELECT_SATELITE" class="form-control select_satelite">
 																				<option selected>Seleccione el Satelite...</option>
 
 																				@php $satelites = App\Models\Satelite::where('PROVEEDOR_ID', $remota->PROVEEDOR_ID)->get();@endphp
@@ -609,7 +609,7 @@
 																	<div class="col col-md-4">
 																		<div class="form-group">
 																			<label for="PLANES">Planes</label>
-																			<select id="SELECT_PLAN" name="SELECT_PLAN" class="form-control select_plan">
+																			<select id="SELECT_PLAN_ME" name="SELECT_PLAN" class="form-control select_plan">
 																				<option value=""> Seleccione un plan ... </option>
 
 																				@php $planes = App\Models\Plan::where('SATELITE_ID', $remota->SATELITE_ID)->get();@endphp
@@ -631,7 +631,7 @@
 																	<div class="col col-md-12">
 																		<div class="form-group">
 																			<label for="inputState">Revendedor</label>
-																			<select id="SELECT_RESELLER" name="SELECT_RESELLER" class="form-control select_plan">
+																			<select id="SELECT_RESELLER" name="SELECT_RESELLER" class="form-control">
 																				<option selected>Escoga el Revendedor...</option>
 																				@forelse($revendedores as $revendedor)
 																					@if ($remota->RESELLER_ID == $revendedor->id)
@@ -651,27 +651,27 @@
 																	<div class="col col-md-3">
 																		<div class="form-group">
 																			<label for="REMOTA_PLANUP">PlanUp</label>
-																			<input type="text" class="form-control" id="REMOTA_PLANUP_ME" placeholder="Ingrese el PLANUP de la Remota" name="REMOTA_PLANUP"  value="{{$remota->REMOTA_PLANUP}}">
+																			<input type="text" class="form-control select_planUp" id="REMOTA_PLANUP_ME" placeholder="Ingrese el PLANUP de la Remota" name="REMOTA_PLANUP"  value="{{$remota->REMOTA_PLANUP}}">
 																		</div>
 																	</div>
 																	<div class="col col-md-3">
 																		<div class="form-group">
 																			<label for="REMOTA_PLANDOWN">PlanDown</label>
-																			<input type="text"  class="form-control" id="REMOTA_PLANDOWN_ME" placeholder="Ingrese el PLANDOWN de la Remota" name="REMOTA_PLANDOWN"  value="{{$remota->REMOTA_PLANDOWN}}">
+																			<input type="text"  class="form-control select_planDown" id="REMOTA_PLANDOWN_ME" placeholder="Ingrese el PLANDOWN de la Remota" name="REMOTA_PLANDOWN"  value="{{$remota->REMOTA_PLANDOWN}}">
 																		</div>
 																	</div>
 
 																	<div class="col col-md-3">
 																		<div class="form-group">
 																			<label for="REMOTA_COSTO_PLAN">Costo del Plan</label>
-																			<input type="text" class="form-control" id="REMOTA_COSTO_PLAN_ME" placeholder="Ingrese el Costo del Plan" name="REMOTA_COSTO_PLAN"  value="{{$remota->REMOTA_COSTO_PLAN}}">
+																			<input type="text" class="form-control select_costo_plan" id="REMOTA_COSTO_PLAN_ME" placeholder="Ingrese el Costo del Plan" name="REMOTA_COSTO_PLAN"  value="{{$remota->REMOTA_COSTO_PLAN}}">
 																		</div>
 																	</div>
 
 																	<div class="col col-md-3">
 																		<div class="form-group">
 																			<label for="REMOTA_RENTA">Renta</label>
-																			<input type="text" class="form-control" id="REMOTA_RENTA_ME" placeholder="Ingrese el monto de la Renta" name="REMOTA_RENTA"  value="{{$remota->REMOTA_RENTA}}">
+																			<input type="text" class="form-control select_renta_plan" id="REMOTA_RENTA_ME" placeholder="Ingrese el monto de la Renta" name="REMOTA_RENTA"  value="{{$remota->REMOTA_RENTA}}">
 																		</div>
 																	</div>
 																</div>
@@ -732,83 +732,168 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 
-    //===== Proceso de selects anidados Proveedor, satelite, plans =====//
+    //CONSTANTES MODAL AGREGAR
     const proveedorSelectMA = document.getElementById('SELECT_PROVEEDOR_MA');
     const selectSatMA = document.getElementById('SELECT_SAT_MA');
     const selectPlanMA = document.getElementById('SELECT_PLAN_MA');
-    // 1----PRoveedorSelect Cambia de valor
-    proveedorSelectMA.addEventListener('change', () => {
-        const proveedorId = proveedorSelectMA.value;
-
-        fetch(`/remotas_satelites?PROVEEDOR_ID=${proveedorId}`)
-        .then(response => response.json())
-        .then(data => {
-
-            // Limpiar opciones anteriores
-            selectSatMA.innerHTML = '<option value="">Seleccione un Satelite</option>';
-            selectPlanMA.innerHTML = '<option value="">Seleccione un Plan</option>';
-            renta_plan.value = ''
-		    costo_plan.value = ''
-		    planUp.value = ''
-		    planDown.value = ''
-            // Si no se ha seleccionado un satélite, salir del listener
-            if (!proveedorId) {
-                return;
-            }
-            // Agregar nuevas opciones
-            data.forEach(sat => {
-                const option = document.createElement('option');
-                option.value = sat.id;
-                option.text = sat.SAT_NOMBRE;
-                selectSatMA.add(option);
-            });
-
-            console.log(data);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    });
-    // 2----SATELITE SELECT CAMBIA DE VALOR
-    // Listener para el cambio de satélite
-    selectSatMA.addEventListener('change', () => {
-        const satId = selectSatMA.value;
-
-        // Limpiar opciones anteriores
-        selectPlanMA.innerHTML = '<option value="">Seleccione un Plan</option>';
-
-        renta_plan.value = ''
-		costo_plan.value = ''
-		planUp.value = ''
-		planDown.value = ''
-        // Si no se ha seleccionado un satélite, salir del listener
-        if (!satId) {
-            return;
-        }
-
-        // Enviar petición al servidor para obtener los planes del satélite seleccionado
-        fetch(`/remotas_plans?SATELITE_ID=${selectSatMA.value}`)
-            .then(response => response.json())
-            .then(data => {
-            // Agregar nuevas opciones
-                data.forEach(plan => {
-                    const option = document.createElement('option');
-                    option.value = plan.id;
-                    option.text = plan.PLAN_NOMBRE;
-                    selectPlanMA.add(option);
-                });
-
-            console.log(data);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    });
-
-    // SELECTS ANIDADOS PARA CLIENTE_ENCARGADO
     const clienteSelectMA = document.getElementById('SELECT_CLIENTE_MA');
     const encargadoSelectMA = document.getElementById('SELECT_ENCARGADO_MA');
-    // Listener para el cambio de cliente
+    //PROPIEDADES PLAN (AGREGAR)
+    const renta_plan = document.getElementById('REMOTA_RENTA');
+	const costo_plan = document.getElementById('REMOTA_COSTO_PLAN');
+	const planUp = document.getElementById('REMOTA_PLANUP');
+	const planDown = document.getElementById('REMOTA_PLANDOWN');
+
+
+    // CONSTANTES MODAL EDITAR
+    const SelectClientesME = document.querySelectorAll('.select_cliente');
+    const SelectEncargadosME = document.querySelectorAll('.select_encargado')
+    const selectProveedoresME = document.querySelectorAll('.select_proveedor');
+    const selectSatelitesME = document.querySelectorAll('.select_satelite');
+    const selectPlanesME = document.querySelectorAll('.select_plan');
+     //PROPIEDADES PLAN (EDITAR)
+    const renta_planesME = document.querySelectorAll('.select_renta_plan');
+	const costo_planesME = document.querySelectorAll('.select_costo_plan');
+	const planesUpME = document.querySelectorAll('.select_planUp');
+	const planesDownME = document.querySelectorAll('.select_planDown');
+
+
+
+
+
+    //MODAL EDITAR
+    SelectClientesME.forEach(select_cliente => {
+        select_cliente.addEventListener('change', function() {
+            SelectEncargadosME.forEach(select_encargado => {
+                actualizarEncargados(select_cliente, select_encargado);
+            });
+        });
+    });
+    function actualizarEncargados(select_cliente, select_encargado) {
+        select_encargado.innerHTML = '<option value="">Seleccione un encargado</option>';
+        select_encargado.disabled = false;
+        const clienteIdME = select_cliente.value
+        if (!clienteIdME) {
+            return;
+        }
+        fetch(`/remotas_encargados?CLIENTE_ID=${clienteIdME}`)
+            .then(response => response.json())
+            .then(encargados => {
+                // console.log(states);
+                select_encargado.disabled = false;
+                encargados.forEach(encargado => {
+                    // console.log(encargado);
+                    const option = document.createElement('option');
+                    option.value = encargado.id;
+                    option.textContent = encargado.ENCARGADO_NOMBRE;
+                    select_encargado.appendChild(option);
+                });
+            });
+    }
+    selectProveedoresME.forEach(select_proveedor => {
+        select_proveedor.addEventListener('change', function() {
+            selectSatelitesME.forEach(select_satelite => {
+                actualizarSatelites(select_proveedor,select_satelite)
+            });
+        });
+    });
+    function actualizarSatelites(select_proveedor,select_satelite) {
+        select_satelite.innerHTML = '<option value="">Seleccione un Satelite</option>';
+        select_satelite.disabled = false;
+        const proveedorIdME = select_proveedor.value
+        if (!proveedorIdME) {
+            return;
+        }
+        fetch(`/remotas_satelites?PROVEEDOR_ID=${proveedorIdME}`)
+        .then(response => response.json())
+        .then(satelites => {
+            select_satelite.disabled = false;
+            satelites.forEach(satelite => {
+                const option = document.createElement('option')
+                option.value = satelite.id;
+                option.textContent = satelite.SAT_NOMBRE;
+                select_satelite.appendChild(option);
+            });
+        });
+
+    }
+    selectSatelitesME.forEach(select_satelite => {
+        select_satelite.addEventListener('change', function() {
+            selectPlanesME.forEach(select_plan => {
+                actualizarPlanes(select_satelite,select_plan)
+            });
+
+        });
+    });
+    function actualizarPlanes(select_satelite,select_plan) {
+        select_plan.innerHTML = '<option value="">Seleccione un Plan</option>';
+        select_plan.disabled = false;
+        const sateliteIdME = select_satelite.value
+        if (!sateliteIdME) {
+            return;
+        }
+        fetch(`/remotas_plans?SATELITE_ID=${sateliteIdME}`)
+        .then(response => response.json())
+        .then(planes => {
+            select_plan.disabled = false;
+            planes.forEach(plan => {
+                const option = document.createElement('option')
+                option.value = plan.id;
+                option.textContent = plan.PLAN_NOMBRE;
+                select_plan.appendChild(option);
+            });
+        });
+    }
+    //PROPIEDADES PLANES (EDITAR)
+    // selectPlanesME.forEach(select_plan => {
+    //     select_plan.addEventListener('change', function() {
+    //         renta_planesME.forEach(renta_plan => {
+    //             actualizarRentas(select_plan,renta_plan)
+    //         });
+    //         costo_planesME.forEach(costo_plan => {
+    //             actualizarCostos(select_plan,costo_plan)
+    //         });
+    //         planesUpME.forEach(plan_up => {
+    //             actualizarUps(select_plan,plan_up)
+    //         });
+    //         planesDownME.forEach(plan_down => {
+    //             actualizarDowns(select_plan,plan_down)
+    //         });
+    //     });
+    // });
+    // function actualizarRentas(select_plan,renta_plan) {
+    //     renta_plan.innerHTML = ''
+    //     renta_plan.disabled = false;
+    //     const planIdME = select_plan.value;
+    //     if (!planIdME) {
+    //         return;
+    //     }
+    //     fetch(`/remotas_plan_properties?PLAN_ID=${planIdME}`)
+    //     .then(response => response.json)
+    //     .then(rentas => {
+    //         renta_plan.disabled = false;
+    //         rentas.forEach(renta => {
+    //             renta_plan.value = rentas.[0].PLAN_PRECIO
+    //         })
+    //     })
+    // }
+    // function actualizarCostos(select_plan,costo_plan) {
+    //     costo_plan.innerHTML = ''
+    //     costo_plan.disabled = false;
+    //     const planIdME = select_plan.value;
+    //     if (!planIdME) {
+    //         return;
+    //     }
+    //     fetch(`/remotas_plan_properties?PLAN_ID=${planIdME}`)
+    // }
+    // function actualizarUps(select_plan,plan_up) {
+
+    // }
+    // function actualizarDowns(select_plan,plan_down) {
+
+    // }
+
+    //MODAL AGREGAR
     clienteSelectMA.addEventListener('change', () => {
         const clienteId = clienteSelectMA.value;
         // Limpiar opciones anteriores
@@ -835,38 +920,81 @@
             console.error(error);
             });
     });
+    proveedorSelectMA.addEventListener('change', () => {
+        const proveedorId = proveedorSelectMA.value;
 
-	const renta_plan = document.getElementById('REMOTA_RENTA');
-	const costo_plan = document.getElementById('REMOTA_COSTO_PLAN');
-	const planUp = document.getElementById('REMOTA_PLANUP');
-	const planDown = document.getElementById('REMOTA_PLANDOWN');
+        fetch(`/remotas_satelites?PROVEEDOR_ID=${proveedorId}`)
+        .then(response => response.json())
+        .then(satelites => {
 
-	selectPlanMA.addEventListener('change', () => {
+            // Limpiar opciones anteriores
+            selectSatMA.innerHTML = '<option value="">Seleccione un Satelite</option>';
+            selectPlanMA.innerHTML = '<option value="">Seleccione un Plan</option>';
+            renta_plan.value = ''
+		    costo_plan.value = ''
+		    planUp.value = ''
+		    planDown.value = ''
+            // Si no se ha seleccionado un satélite, salir del listener
+            if (!proveedorId) {
+                return;
+            }
+            // Agregar nuevas opciones
+            satelites.forEach(sat => {
+                const option = document.createElement('option');
+                option.value = sat.id;
+                option.text = sat.SAT_NOMBRE;
+                selectSatMA.add(option);
+            });
+
+            console.log(data);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    });
+    selectSatMA.addEventListener('change', () => {
+        const satId = selectSatMA.value;
+        // Limpiar opciones anteriores
+        selectPlanMA.innerHTML = '<option value="">Seleccione un Plan</option>';
+        renta_plan.value = ''
+		costo_plan.value = ''
+		planUp.value = ''
+		planDown.value = ''
+        // Si no se ha seleccionado un satélite, salir del listener
+        if (!satId) {
+            return;
+        }
+        // Enviar petición al servidor para obtener los planes del satélite seleccionado
+        fetch(`/remotas_plans?SATELITE_ID=${selectSatMA.value}`)
+            .then(response => response.json())
+            .then(planes => {
+            // Agregar nuevas opciones
+                planes.forEach(plan => {
+                    const option = document.createElement('option');
+                    option.value = plan.id;
+                    option.text = plan.PLAN_NOMBRE;
+                    selectPlanMA.add(option);
+                });
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    });
+    //PROPIEDADES PLANES (AGREGAR)
+    selectPlanMA.addEventListener('change', () => {
 		const planId = selectPlanMA.value
-
-		//Limpiando opciones anteriores
-		// renta_plan.innerHTML = 'Renta del Plan seleccionado'
-		// costo_plan.innerHTML = 'Costo del Plan seleccionado'
-		// planUp.innerHTML = 'Subida del Plan seleccionado'
-		// planDown.innerHTML = 'Bajada del Plan seleccionado'
-
 		if (!planId) {
             return;
         }
-
         fetch(`/remotas_plan_properties?PLAN_ID=${planId}`)
             .then(response => response.json())
             .then(properties => {
-                console.log(properties)
-                renta_plan.value = properties[0].PLAN_BAJADA
-                console.log(properties[0].PLAN_NOMBRE)
+                renta_plan.value = properties[0].PLAN_PRECIO
                 costo_plan.value = properties[0].PLAN_COSTO
                 planUp.value = properties[0].PLAN_SUBIDA
                 planDown.value = properties[0].PLAN_BAJADA
-
-            })
-	})
-
+            });
+	});
     // ALERTA BOTON ELIMINAR
     // function alerta_borrar(){
     //         Swal.fire({
