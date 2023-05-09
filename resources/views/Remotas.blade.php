@@ -923,10 +923,6 @@
                     encargadoSelectMA.add(option);
                 });
             })
-
-            .catch(error => {
-            console.error(error);
-            });
     });
     //Proveedores y Satelites
     proveedorSelectMA.addEventListener('change', () => {
@@ -956,9 +952,6 @@
             });
 
             console.log(data);
-        })
-        .catch(error => {
-            console.error(error);
         });
     });
     //Satelites y Planes
@@ -976,19 +969,16 @@
         }
         // Enviar petición al servidor para obtener los planes del satélite seleccionado
         fetch(`/remotas_plans?SATELITE_ID=${selectSatMA.value}`)
-            .then(response => response.json())
-            .then(planes => {
+        .then(response => response.json())
+        .then(planes => {
             // Agregar nuevas opciones
-                planes.forEach(plan => {
-                    const option = document.createElement('option');
-                    option.value = plan.id;
-                    option.text = plan.PLAN_NOMBRE;
-                    selectPlanMA.add(option);
-                });
-            })
-            .catch(error => {
-                console.error(error);
+            planes.forEach(plan => {
+                const option = document.createElement('option');
+                option.value = plan.id;
+                option.text = plan.PLAN_NOMBRE;
+                selectPlanMA.add(option);
             });
+        });
     });
     //Propiedades Planes (AGREGAR)
     selectPlanMA.addEventListener('change', () => {
