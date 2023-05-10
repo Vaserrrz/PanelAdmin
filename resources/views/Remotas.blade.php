@@ -308,14 +308,14 @@
                             <table class="table table-bordered">
 
                                 <thead>
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Equipo</th>
-                                    <th scope="col">Nodo</th>
-                                    <th scope="col">Serial</th>
-                                    <th scope="col">IP</th>
-                                    <th scope="col">Acciones</th>
-                                </tr>
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Equipo</th>
+                                        <th scope="col">Nodo</th>
+                                        <th scope="col">Serial</th>
+                                        <th scope="col">IP</th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
                                 </thead>
 
 
