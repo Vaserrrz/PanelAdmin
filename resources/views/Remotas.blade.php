@@ -876,6 +876,19 @@
     //Propiedades Planes (EDITAR)
 	selectPlanesME.forEach(select_plan => {
 		select_plan.addEventListener('change', function() {
+            //Limpiando Propiedades de Plan al cambio de Proveedor
+            renta_planesME.forEach(renta => {
+                renta.value = ''
+            });
+            costo_planesME.forEach(costo => {
+                costo.value = ''
+            });
+            planesUpME.forEach(up => {
+                up.value = ''
+            });
+            planesDownME.forEach(down => {
+                down.value = ''
+            });
 			const planIdME = select_plan.value
             if (!planIdME) {
                 return;
@@ -993,6 +1006,10 @@
     //Propiedades Planes (AGREGAR)
     selectPlanMA.addEventListener('change', () => {
 		const planId = selectPlanMA.value
+        renta_plan.value = ''
+		costo_plan.value = ''
+		planUp.value = ''
+		planDown.value = ''
 		if (!planId) {
             return;
         }
