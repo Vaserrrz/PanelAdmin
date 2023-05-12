@@ -497,7 +497,7 @@
                                         <th scope="col">ID</th>
                                         <th scope="col">Equipo</th>
                                         <th scope="col">Cliente</th>
-                                        <th scope="col">Serial</th>
+                                        <th scope="col">SeHrial</th>
                                         <th scope="col">IP</th>
                                         <th scope="col">Acciones</th>
                                     </tr>
@@ -1148,8 +1148,6 @@
                     option.text = sat.SAT_NOMBRE;
                     selectSatMA.add(option);
                 });
-
-                console.log(data);
             });
         });
         //Satelites y Planes
