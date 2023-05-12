@@ -54,14 +54,14 @@ class PlanController extends Controller
         $revendedor = Revendedor::all();
 
         $request->validate([
-            'PLAN_NOMBRE' => 'requested',
-            'PLAN_SUBIDA' => 'requested',
-            'PLAN_BAJADA' => 'requested',
-            'PLAN_CONTENCION' => 'requested',
-            'PLAN_COSTO' => 'requested',
-            'PLAN_PRECIO' => 'requested',
-            'RESELLER_ID' => 'requested',
-            'SATELITE_ID' => 'requested',
+            'PLAN_NOMBRE' => 'required',
+            'PLAN_SUBIDA' => 'required',
+            'PLAN_BAJADA' => 'required',
+            'PLAN_CONTENCION' => 'required',
+            'PLAN_COSTO' => 'required',
+            'PLAN_PRECIO' => 'required',
+            'RESELLER_ID' => 'required',
+            'SATELITE_ID' => 'required',
         ]);
 
         $plan->PLAN_NOMBRE = $request->PLAN_NOMBRE;
@@ -121,14 +121,14 @@ class PlanController extends Controller
     public function update(Request $request, $id )
     {
         $request->validate([
-            'PLAN_NOMBRE' => 'requested',
-            'PLAN_SUBIDA' => 'requested',
-            'PLAN_BAJADA' => 'requested',
-            'PLAN_CONTENCION' => 'requested',
-            'PLAN_COSTO' => 'requested',
-            'PLAN_PRECIO' => 'requested',
-            'RESELLER_ID' => 'requested',
-            'SATELITE_ID' => 'requested',
+            'PLAN_NOMBRE' => 'required',
+            'PLAN_SUBIDA' => 'required',
+            'PLAN_BAJADA' => 'required',
+            'PLAN_CONTENCION' => 'required',
+            'PLAN_COSTO' => 'required',
+            'PLAN_PRECIO' => 'required',
+            'RESELLER_ID' => 'required',
+            'SATELITE_ID' => 'required',
         ]);
 
         $plan = plan::find($id);

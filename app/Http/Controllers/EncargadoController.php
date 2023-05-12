@@ -43,8 +43,8 @@ class EncargadoController extends Controller
     public function store(Request $request,Cliente $cliente)
     {
         $request->validate([
-            'ENCARGADO_NOMBRE' => 'requested',
-            'ENCARGADO_TELF' => 'requested',
+            'ENCARGADO_NOMBRE' => 'required',
+            'ENCARGADO_TELF' => 'required',
         ]);
 
         $encargado = new encargado();
@@ -98,8 +98,8 @@ class EncargadoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'ENCARGADO_NOMBRE' => 'requested',
-            'ENCARGADO_TELF' => 'requested',
+            'ENCARGADO_NOMBRE' => 'required',
+            'ENCARGADO_TELF' => 'required',
         ]);
 
         $encargado = encargado::find($id);

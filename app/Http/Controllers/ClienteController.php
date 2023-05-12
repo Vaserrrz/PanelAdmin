@@ -38,8 +38,8 @@ class ClienteController extends Controller
         $cliente = new Cliente();
 
         $request->validate([
-            'CLIENTE_RAZON' => 'requested',
-            'CLIENTE_TELF' => 'requested',
+            'CLIENTE_RAZON' => 'required',
+            'CLIENTE_TELF' => 'required',
         ]);
 
         $cliente->CI_RIF = $request->CI_RIF;
@@ -98,8 +98,8 @@ class ClienteController extends Controller
             $cliente = Cliente::find($id);
 
             $request->validate([
-                'CLIENTE_RAZON' => 'requested',
-                'CLIENTE_TELF' => 'requested',
+                'CLIENTE_RAZON' => 'required',
+                'CLIENTE_TELF' => 'required',
             ]);
 
             $cliente->CI_RIF = $request->CI_RIF;

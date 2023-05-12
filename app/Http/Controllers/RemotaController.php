@@ -107,7 +107,6 @@ class RemotaController extends Controller
             'SELECT_PROVEEDOR' => 'required',
             'SELECT_SATELITE' => 'required',
             'SELECT_PLAN' => 'required',
-
         ]);
 
         $remota = new remota();

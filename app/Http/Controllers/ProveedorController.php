@@ -38,8 +38,8 @@ class ProveedorController extends Controller
         $proveedor = new proveedor();
 
         $request->validate([
-            'RAZON' => 'requested',
-            'CONTACTO' => 'requested',
+            'RAZON' => 'required',
+            'CONTACTO' => 'required',
         ]);
 
         $proveedor->CI_RIF  = $request->CI_RIF ;
@@ -96,8 +96,8 @@ class ProveedorController extends Controller
     public function update(Request $request, $id )
     {
         $request->validate([
-            'RAZON' => 'requested',
-            'CONTACTO' => 'requested',
+            'RAZON' => 'required',
+            'CONTACTO' => 'required',
         ]);
 
         $proveedor = proveedor::find($id );

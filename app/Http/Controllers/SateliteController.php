@@ -41,8 +41,8 @@ class SateliteController extends Controller
     {
 
         $request->validate([
-            'SAT_NOMBRE' => 'requested',
-            'SAT_BANDAS' => 'requested',
+            'SAT_NOMBRE' => 'required',
+            'SAT_BANDAS' => 'required',
 
         ]);
         $satelite = new satelite();
@@ -94,8 +94,8 @@ class SateliteController extends Controller
     {
             $satelite = satelite::find($id);
             $request->validate([
-                'SAT_NOMBRE' => 'requested',
-                'SAT_BANDAS' => 'requested',
+                'SAT_NOMBRE' => 'required',
+                'SAT_BANDAS' => 'required',
 
             ]);
             $satelite->SAT_NOMBRE = $request->SAT_NOMBRE;

@@ -35,6 +35,7 @@ return new class extends Migration
                 ->on('proveedors')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+
             $table->unsignedBigInteger('SATELITE_ID');
             $table->foreign('SATELITE_ID')
                 ->references('id')
