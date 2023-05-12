@@ -91,10 +91,19 @@
                                                 </div>
                                             </div>
 
-
+                                            <div class="form-group">
+                                                <label for="SATELITE">Proveedor</label>
+                                                <select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control">
+                                                    <option selected>Escoga el Satelite...</option>
+                                                    @forelse($proveedores as $proveedor)
+                                                        <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
+                                                    @empty
+                                                    @endforelse
+                                                </select>
+                                            </div>
 
                                             <div class="form-group">
-                                                <label for="SATELITE">Satelite ID</label>
+                                                <label for="SATELITE">Satelite</label>
                                                 <select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control">
                                                     <option selected>Escoga el Satelite...</option>
                                                     @forelse($satelites as $satelite)
@@ -105,7 +114,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="REVENDEDOR">Revendedor ID</label>
+                                                <label for="REVENDEDOR">Revendedor</label>
                                                 <select id="SELECT_REVENDEDOR" name="SELECT_REVENDEDOR" class="form-control">
                                                     <option selected>Escoga el Revendedor...</option>
                                                     @forelse($revendedores as $revendedor)
@@ -139,7 +148,6 @@
                                 <th scope="col">Subida</th>
                                 <th scope="col">Bajada</th>
                                 <th scope="col">Contencion</th>
-                                <th scope="col">Costo Secundario</th>
                                 <th scope="col">Precio</th>
                                 <th scope="col">Acciones</th>
                               </tr>
@@ -155,9 +163,7 @@
                                         <td>{{ $plan->PLAN_SUBIDA }}</td>
                                         <td>{{ $plan->PLAN_BAJADA }}</td>
                                         <td>{{ $plan->PLAN_CONTENCION }}</td>
-                                        <td>{{ $plan->PLAN_COSTO  }}</td>
                                         <td>{{ $plan->PLAN_PRECIO   }}</td>
-
                                         <td>
                                             {{-- EDITAR  --}}
                                             <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-editar-{{ $plan->id  }}">

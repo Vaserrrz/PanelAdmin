@@ -496,7 +496,7 @@
                                     <tr>
                                         <th scope="col">ID</th>
                                         <th scope="col">Equipo</th>
-                                        <th scope="col">Nodo</th>
+                                        <th scope="col">Cliente</th>
                                         <th scope="col">Serial</th>
                                         <th scope="col">IP</th>
                                         <th scope="col">Acciones</th>
@@ -511,12 +511,9 @@
                                             <td>
                                                 <a href="{{route('remotas.details', $remota->id)}}">   {{ $remota->REMOTA_EQUIPO }}</a>
                                             </td>
-                                            <td>{{ $remota->REMOTA_NODO }}</td>
+                                            <td>{{$remota->CLIENTE_ID}}</td>
                                             <td>{{ $remota->REMOTA_SERIAL }}</td>
                                             <td>{{ $remota->REMOTA_IP_MODEM }}</td>
-
-
-
                                             <td>
                                                 {{-- BOTON EDITAR  --}}
                                                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-editar-{{ $remota->id  }}">
@@ -598,14 +595,12 @@
                                                                                 <select id="SELECT_ENCARGADO_ME" name="SELECT_ENCARGADO" class="form-control select_encargado">
 
                                                                             @php $encargados = App\Models\Encargado::where('CLIENTE_ID', $remota->CLIENTE_ID)->get();@endphp
-
                                                                                     @forelse($encargados as $encargado)
                                                                                         @if ($remota->ENCARGADO_ID == $encargado->id)
                                                                                             <option selected value="{{$encargado->id}}">{{$encargado->ENCARGADO_NOMBRE}}</option>
                                                                                         @else
                                                                                             <option value="{{$encargado->id}}">{{$encargado->ENCARGADO_NOMBRE}}</option>
                                                                                         @endif
-
                                                                                     @empty
                                                                                         No hay hay encargados registrados
                                                                                     @endforelse

@@ -52,12 +52,6 @@
                                                 </div>
                                             </div>
                                             @csrf
-                                            {{-- Nombre --}}
-
-
-
-                                            {{-- DESCRIPCION --}}
-
 
                                             {{-- AZNUT --}}
                                             <div class="form-group">
@@ -135,12 +129,9 @@
                             <thead>
                               <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">NOMBRE</th>
-                                <th scope="col">Descripcion</th>
-                                <th scope="col">AZNUT</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Azimut</th>
                                 <th scope="col">Elevacion</th>
-                                <th scope="col">LNB</th>
-                                <th scope="col">Frecuencia</th>
                                 <th scope="col">Bandas</th>
 
                               </tr>
@@ -150,11 +141,8 @@
                                     <tr>
                                         <th scope="row">{{ $satelite->id }}</th>
                                         <td>{{ $satelite->SAT_NOMBRE }}</td>
-                                        <td>{{ $satelite->SAT_DESCRIPCION }}</td>
                                         <td>{{ $satelite->SAT_AZNUT }}</td>
                                         <td>{{ $satelite->SAT_ELEVACION }}</td>
-                                        <td>{{ $satelite->SAT_LNB }}</td>
-                                        <td>{{ $satelite->SAT_FRECUENCIA }}</td>
                                         <td>{{ $satelite->SAT_BANDAS }}</td>
                                         <td>
                                             {{-- Editar  --}}
@@ -217,6 +205,21 @@
                                                                     <label for="SAT_BANDAS">Bandas</label>
                                                                     <input type="text" class="form-control" id="SAT_BANDAS" placeholder="Ingrese las Bandas del satelite" name="SAT_BANDAS" value="{{$satelite->SAT_BANDAS}}">
                                                                 </div>
+
+                                                                {{-- <div class="form-group">
+                                                                    <label for="inputState">Proveedor</label>
+                                                                    <select id="SELECT_PROVEEDOR" name="SELECT_PROVEEDOR" class="form-control">
+                                                                        <option selected>Escoga el Proveedor...</option>
+                                                                        @forelse($proveedor as $proveedor)
+                                                                            @if ($satelite->PROVEEDOR_ID == $proveedor->id)
+                                                                                <option selected value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
+                                                                            @else
+                                                                                <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
+                                                                            @endif
+                                                                        @empty
+                                                                        @endforelse
+                                                                    </select>
+                                                                </div> --}}
 
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

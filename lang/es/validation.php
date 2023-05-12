@@ -173,6 +173,21 @@ return [
         'REMOTA_PLANDOWN' => 'Plan Down',
         'REMOTA_COSTO_PLAN' => 'Costo',
         'REMOTA_RENTA' => 'Renta',
+        'CLIENTE_RAZON' => 'Razon',
+        'CLIENTE_TELF' => 'Telefono',
+        'RAZON' => 'Razon',
+        'CONTACTO' => 'Contacto',
+        'ENCARGADO_TELF' => 'Telefono',
+        'ENCARGADO_NOMBRE' => 'Nombre',
+        'PLAN_NOMBRE' => 'Nombre',
+        'PLAN_SUBIDA' => 'Subida',
+        'PLAN_BAJADA' => 'Bajada',
+        'PLAN_CONTENCION' => 'Contencion',
+        'PLAN_COSTO' => 'Costo',
+        'PLAN_PRECIO' => 'Precio',
+        'RESELLER_ID' => 'Revendedor',
+        'SATELITE_ID' => 'Satelite',
+
     ],
 
 ];

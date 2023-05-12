@@ -101,30 +101,13 @@ class RemotaController extends Controller
             'REMOTA_NODO' => 'required',
             'SELECT_CLIENTE_MA' => 'required',
             'REMOTA_EQUIPO' => 'required',
-            // 'SELECT_ENCARGADO_MA' => 'required',
             'REMOTA_SERIAL' => 'required',
-            'REMOTA_COORDENADA' => 'required',
-            'SELECT_SOCIO_MA' => 'required',
-            'REMOTA_BUC' => 'required',
-            'REMOTA_BUC_SERIAL' => 'required',
-            'REMOTA_LNB' => 'required',
-            'REMOTA_LNB_SERIAL' => 'required',
             'REMOTA_DIA_ACTIVACION' => 'required',
             'REMOTA_DIA_CORTE' => 'required',
-            'REMOTA_DETALLE' => 'required',
-            'REMOTA_STATUS' => 'required',
-            'REMOTA_IP_MODEM' => 'required',
-            'REMOTA_IP_GESTION' => 'required',
-            'REMOTA_PLATO' => 'required',
-            'REMOTA_BONDA' => 'required',
             'SELECT_PROVEEDOR' => 'required',
             'SELECT_SATELITE' => 'required',
             'SELECT_PLAN' => 'required',
-            'SELECT_RESELLER' => 'required',
-            'REMOTA_PLANUP' => 'required',
-            'REMOTA_PLANDOWN' => 'required',
-            'REMOTA_COSTO_PLAN' => 'required',
-            'REMOTA_RENTA' => 'required'
+
         ]);
 
         $remota = new remota();

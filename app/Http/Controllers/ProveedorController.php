@@ -16,7 +16,6 @@ class ProveedorController extends Controller
         $proveedores = Proveedor::all();
         return view('proveedores', compact('proveedores'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -38,6 +37,10 @@ class ProveedorController extends Controller
 
         $proveedor = new proveedor();
 
+        $request->validate([
+            'RAZON' => 'requested',
+            'CONTACTO' => 'requested',
+        ]);
 
         $proveedor->CI_RIF  = $request->CI_RIF ;
         $proveedor->RAZON = $request->RAZON;
@@ -53,7 +56,6 @@ class ProveedorController extends Controller
 
         return redirect()->route('proveedores');
     }
-
     public function details(PROVEEDOR $PROVEEDOR, $id)
     {
          $proveedor = proveedor::find($id);
@@ -61,7 +63,6 @@ class ProveedorController extends Controller
         return view('details.proveedores', compact('proveedor'));
 
     }
-
     /**
      * Display the specified resource.
      *
@@ -94,18 +95,22 @@ class ProveedorController extends Controller
      */
     public function update(Request $request, $id )
     {
-            $proveedor = proveedor::find($id );
-            $proveedor->CI_RIF  = $request->CI_RIF ;
-            $proveedor->RAZON = $request->RAZON;
-            $proveedor->DIRECCION = $request->DIRECCION;
-            $proveedor->CONTACTO  = $request->CONTACTO ;
-            $proveedor->METODO_PAGO = $request->METODO_PAGO;
-            $proveedor->DETALLE_PAGO = $request->DETALLE_PAGO;
-            $proveedor->PROVEEDOR_CORREO  = $request->PROVEEDOR_CORREO ;
-            $proveedor->save();
-            return redirect()->route('proveedores');
-    }
+        $request->validate([
+            'RAZON' => 'requested',
+            'CONTACTO' => 'requested',
+        ]);
 
+        $proveedor = proveedor::find($id );
+        $proveedor->CI_RIF  = $request->CI_RIF ;
+        $proveedor->RAZON = $request->RAZON;
+        $proveedor->DIRECCION = $request->DIRECCION;
+        $proveedor->CONTACTO  = $request->CONTACTO ;
+        $proveedor->METODO_PAGO = $request->METODO_PAGO;
+        $proveedor->DETALLE_PAGO = $request->DETALLE_PAGO;
+        $proveedor->PROVEEDOR_CORREO  = $request->PROVEEDOR_CORREO ;
+        $proveedor->save();
+        return redirect()->route('proveedores');
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -116,6 +121,5 @@ class ProveedorController extends Controller
         $proveedor->delete();
         return redirect()->route('proveedores');
     }
-
 }
 
