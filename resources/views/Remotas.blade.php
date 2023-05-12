@@ -756,7 +756,7 @@
                                                                                     <option value="">Seleccione un Proveedor...</option>
                                                                                     @forelse($proveedores as $proveedor)
                                                                                         @if ($remota->PROVEEDOR_ID == $proveedor->id)
-                                                                                            <option value="{{$proveedor->id}}" selected>{{$proveedor->RAZON}}</option>
+                                                                                            <option selected value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
                                                                                         @else
                                                                                             <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
                                                                                         @endif
