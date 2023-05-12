@@ -39,23 +39,37 @@
                                                     <div class="col col-md-8">
                                                         <div class="form-group">
                                                             <label for="REMOTA_NODO">NODO</label>
-                                                            <input type="text" class="form-control" id="REMOTA_NODO" placeholder="Ingrese el Nodo de la Remota" name="REMOTA_NODO">
+                                                            <input type="text" value="{{old('REMOTA_NODO')}}" class="form-control" id="REMOTA_NODO" placeholder="Ingrese el Nodo de la Remota" name="REMOTA_NODO">
+                                                            @error('REMOTA_NODO')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
                                                     <div class="col col-md-4">
                                                         <div class="form-group">
                                                             <label for="CLIENTE">Cliente</label>
-                                                            <select id="SELECT_CLIENTE_MA" name="SELECT_CLIENTE" class="form-control select_cliente">
+
+                                                            <select id="SELECT_CLIENTE_MA" name="SELECT_CLIENTE_MA" class="form-control select_cliente">
                                                                 <option selected>Escoga el cliente...</option>
-
-
                                                                 @forelse($clientes as $cliente)
                                                                     <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
                                                                 @empty
                                                                     No hay hay clientes registrados
                                                                 @endforelse
                                                             </select>
+
+                                                            @error('SELECT_CLIENTE_MA')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
@@ -64,7 +78,14 @@
                                                     <div class="col col-md-8">
                                                         <div class="form-group">
                                                             <label for="REMOTA_EQUIPO">Equipo</label>
-                                                            <input type="text" class="form-control" id="REMOTA_LNB_SERIAL" placeholder="Ingrese el Equipo de la Remota" name="REMOTA_EQUIPO">
+                                                            <input type="text" value="{{old('REMOTA_EQUIPO')}}" class="form-control" id="REMOTA_EQUIPO" placeholder="Ingrese el Equipo de la Remota" name="REMOTA_EQUIPO">
+                                                            @error('REMOTA_EQUIPO')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
@@ -79,16 +100,29 @@
                                                                 @empty
                                                                 @endforelse
                                                             </select>
+                                                            @error('SELECT_ENCARGADO')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
-
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="col col-md-4">
                                                         <div class="form-group">
                                                             <label for="descripcion">Serial</label>
-                                                            <input type="text" class="form-control" id="REMOTA_SERIAL" placeholder="Ingrese el Serial de la Remota" name="REMOTA_SERIAL">
+                                                            <input type="text" value="{{old('REMOTA_SERIAL')}}" class="form-control" id="REMOTA_SERIAL" placeholder="Ingrese el Serial de la Remota" name="REMOTA_SERIAL">
+                                                            @error('REMOTA_SERIAL')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
@@ -96,20 +130,34 @@
                                                     <div class="col col-md-4">
                                                         <div class="form-group">
                                                             <label for="REMOTA_COORDENADA">Coordenadas</label>
-                                                            <input type="text" class="form-control" id="REMOTA_COORDENADA" placeholder="Ingrese las Coordenadas de la Remota" name="REMOTA_COORDENADA">
+                                                            <input type="text" value="{{old('REMOTA_COORDENADA')}}" class="form-control" id="REMOTA_COORDENADA" placeholder="Ingrese las Coordenadas de la Remota" name="REMOTA_COORDENADA">
+                                                            @error('REMOTA_COORDENADA')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
                                                     <div class="col col-md-4">
                                                         <div class="form-group">
                                                             <label for="SOCIO">Socio</label>
-                                                            <select id="SELECT_SOCIO" name="SELECT_SOCIO" class="form-control select_socio">
+                                                            <select id="SELECT_SOCIO" name="SELECT_SOCIO_MA" class="form-control select_socio">
                                                                 <option selected>Seleccione el Socio...</option>
                                                                 @forelse($socios as $socio)
                                                                     <option value="{{$socio->id}}">{{$socio->SOCIO_NOMBRE}}</option>
                                                                 @empty
                                                                 @endforelse
                                                             </select>
+                                                            @error('SELECT_SOCIO_MA')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
@@ -118,7 +166,14 @@
                                                     <div class="col col-md-8">
                                                         <div class="form-group">
                                                             <label for="REMOTA_BUC">BUC</label>
-                                                            <input type="text" class="form-control" id="REMOTA_BUC" placeholder="Ingrese el BUC de la Remota" name="REMOTA_BUC">
+                                                            <input type="text" value="{{old('REMOTA_BUC')}}" class="form-control" id="REMOTA_BUC" placeholder="Ingrese el BUC de la Remota" name="REMOTA_BUC">
+                                                            @error('REMOTA_BUC')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
@@ -126,7 +181,14 @@
                                                     <div class="col col-md-4">
                                                         <div class="form-group">
                                                             <label for="REMOTA_BUC_SERIAL">BUC Serial</label>
-                                                            <input type="text" class="form-control" id="REMOTA_BUC_SERIAL" placeholder="Ingrese el Serial del BUC" name="REMOTA_BUC_SERIAL">
+                                                            <input type="text" value="{{old('REMOTA_BUC_SERIAL')}}" class="form-control" id="REMOTA_BUC_SERIAL" placeholder="Ingrese el Serial del BUC" name="REMOTA_BUC_SERIAL">
+                                                            @error('REMOTA_BUC_SERIAL')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
@@ -135,7 +197,14 @@
                                                     <div class="col col-md-8">
                                                         <div class="form-group">
                                                             <label for="REMOTA_LNB">LNB</label>
-                                                            <input type="text" class="form-control" id="REMOTA_LNB" placeholder="Ingrese el LNB de la Remota" name="REMOTA_LNB">
+                                                            <input type="text" value="{{old('REMOTA_LNB')}}" class="form-control" id="REMOTA_LNB" placeholder="Ingrese el LNB de la Remota" name="REMOTA_LNB">
+                                                            @error('REMOTA_LNB')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
@@ -143,7 +212,14 @@
                                                     <div class="col col-md-4">
                                                         <div class="form-group">
                                                             <label for="REMOTA_LNB_SERIAL">Serial LNB</label>
-                                                            <input type="text" class="form-control" id="REMOTA_LNB_SERIAL" placeholder="Ingrese el Serial del LNB" name="REMOTA_LNB_SERIAL">
+                                                            <input type="text" value="{{old('REMOTA_LNB_SERIAL')}}" class="form-control" id="REMOTA_LNB_SERIAL" placeholder="Ingrese el Serial del LNB" name="REMOTA_LNB_SERIAL">
+                                                            @error('REMOTA_LNB_SERIAL')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
@@ -152,13 +228,27 @@
                                                     <div class="col col-md-6">
                                                         <div class="form-group">
                                                             <label for="REMOTA_DIA_ACTIVACION">Dia Activacion</label>
-                                                            <input type="date" class="form-control" id="REMOTA_DIA_ACTIVACION" placeholder="Ingrese el Dia de Activacion de la Remota" name="REMOTA_DIA_ACTIVACION">
+                                                            <input type="date" value="{{old('REMOTA_DIA_ACTIVACION')}}" class="form-control" id="REMOTA_DIA_ACTIVACION" placeholder="Ingrese el Dia de Activacion de la Remota" name="REMOTA_DIA_ACTIVACION">
+                                                            @error('REMOTA_DIA_ACTIVACION')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col col-md-6">
                                                         <div class="form-group">
                                                             <label for="REMOTA_DIA_CORTE">Dia de Corte</label>
-                                                            <input type="date" class="form-control" id="REMOTA_DIA_CORTE" placeholder="Ingrese el dia de corte de la Remota" name="REMOTA_DIA_CORTE">
+                                                            <input type="date" value="{{old('REMOTA_DIA_CORTE')}}" class="form-control" id="REMOTA_DIA_CORTE" placeholder="Ingrese el dia de corte de la Remota" name="REMOTA_DIA_CORTE">
+                                                            @error('REMOTA_DIA_CORTE')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
@@ -167,14 +257,28 @@
                                                     <div class="col col-md-9">
                                                         <div class="form-group">
                                                             <label for="REMOTA_DETALLE">Detalle</label>
-                                                            <input type="text" class="form-control" id="REMOTA_DETALLE" placeholder="Detalles a agregar" name="REMOTA_RENTA">
+                                                            <input type="text" value="{{old('REMOTA_DETALLE')}}" class="form-control" id="REMOTA_DETALLE" placeholder="Detalles a agregar" name="REMOTA_DETALLE">
+                                                            @error('REMOTA_DETALLE')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
                                                     <div class="col col-md-3">
                                                         <div class="form-group">
                                                             <label for="REMOTA_STATUS">Status</label>
-                                                            <input type="checkbox" class="form-control" id="REMOTA_STATUS" placeholder="Ingrese el Status de la Remota" name="REMOTA_STATUS">
+                                                            <input type="checkbox" value="{{old('REMOTA_STATUS')}}" class="form-control" id="REMOTA_STATUS" placeholder="Ingrese el Status de la Remota" name="REMOTA_STATUS">
+                                                            @error('REMOTA_STATUS')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
@@ -183,34 +287,60 @@
                                                     <div class="col col-md-6">
                                                         <div class="form-group">
                                                             <label for="REMOTA_IP_MODEM">IP Modem</label>
-                                                            <input type="text" class="form-control" id="REMOTA_IP_MODEM" placeholder="Ingrese el IP del Modem" name="REMOTA_IP_MODEM">
+                                                            <input type="text" value="{{old('REMOTA_IP_MODEM')}}" class="form-control" id="REMOTA_IP_MODEM" placeholder="Ingrese el IP del Modem" name="REMOTA_IP_MODEM">
+                                                            @error('REMOTA_IP_MODEM')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
                                                     <div class="col col-md-6">
                                                         <div class="form-group">
                                                             <label for="REMOTA_IP_GESTION">IP Gestion</label>
-                                                            <input type="text" class="form-control" id="REMOTA_IP_GESTION" placeholder="Ingrese el IP de Gestion" name="REMOTA_IP_GESTION">
+                                                            <input type="text" value="{{old('REMOTA_IP_GESTION')}}" class="form-control" id="REMOTA_IP_GESTION" placeholder="Ingrese el IP de Gestion" name="REMOTA_IP_GESTION">
+                                                            @error('REMOTA_IP_GESTION')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
-
 
                                                 <div class="row">
                                                     <div class="col col-md-6">
                                                         <div class="form-group">
                                                             <label for="REMOTA_PLATO">Plato</label>
-                                                            <input type="text" class="form-control" id="REMOTA_PLATO" placeholder="Ingrese el Plato de la Remota" name="REMOTA_PLATO">
+                                                            <input type="text" value="{{old('REMOTA_PLATO')}}" class="form-control" id="REMOTA_PLATO" placeholder="Ingrese el Plato de la Remota" name="REMOTA_PLATO">
+                                                            @error('REMOTA_PLATO')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col col-md-6">
                                                         <div class="form-group">
                                                             <label for="REMOTA_BONDA">Bonda</label>
-                                                            <input type="text" class="form-control" id="REMOTA_BONDA" placeholder="Ingrese la Bonda de la Remota" name="REMOTA_BONDA">
+                                                            <input type="text" value="{{old('REMOTA_BONDA')}}" class="form-control" id="REMOTA_BONDA" placeholder="Ingrese la Bonda de la Remota" name="REMOTA_BONDA">
+                                                            @error('REMOTA_BONDA')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
-
 
                                                 <div class="row">
                                                     <div class="col col-md-4">
@@ -224,6 +354,13 @@
                                                                     No hay Satelites registrados
                                                                 @endforelse
                                                             </select>
+                                                            @error('SELECT_PROVEEDOR')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
@@ -234,6 +371,13 @@
                                                             <select id="SELECT_SAT_MA" name="SELECT_SATELITE" class="form-control" >
                                                                 <option value="">Seleccione el Satelite...</option>
                                                             </select>
+                                                            @error('SELECT_SATELITE')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
@@ -243,8 +387,15 @@
                                                         <div class="form-group">
                                                             <label for="PLAN">Plan</label>
                                                             <select id="SELECT_PLAN_MA" name="SELECT_PLAN" class="form-control">
-                                                                <option value=""> Seleccione un plan . . . </option>
+                                                                <option value="">Seleccione un plan . . . </option>
                                                             </select>
+                                                            @error('SELECT_PLAN')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
@@ -259,6 +410,13 @@
                                                                 @empty
                                                                 @endforelse
                                                             </select>
+                                                            @error('SELECT_RESELLER')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
@@ -267,31 +425,58 @@
                                                     <div class="col col-md-3">
                                                         <div class="form-group">
                                                             <label for="REMOTA_PLANUP">PlanUp</label>
-                                                            <input type="text" class="form-control" id="REMOTA_PLANUP" placeholder="Ingrese el PLANUP de la Remota" name="REMOTA_PLANUP">
+                                                            <input type="text" value="{{old('REMOTA_PLANUP')}}" class="form-control" id="REMOTA_PLANUP" placeholder="Ingrese el PLANUP de la Remota" name="REMOTA_PLANUP">
+                                                            @error('REMOTA_PLANUP')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                     <div class="col col-md-3">
                                                         <div class="form-group">
                                                             <label for="REMOTA_PLANDOWN">PlanDown</label>
-                                                            <input type="text"  class="form-control" id="REMOTA_PLANDOWN" placeholder="Ingrese el PLANDOWN de la Remota" name="REMOTA_PLANDOWN">
+                                                            <input type="text" value="{{old('REMOTA_PLANDOWN')}}" class="form-control" id="REMOTA_PLANDOWN" placeholder="Ingrese el PLANDOWN de la Remota" name="REMOTA_PLANDOWN">
+                                                            @error('REMOTA_PLANDOWN')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
                                                     <div class="col col-md-3">
                                                         <div class="form-group">
                                                             <label for="REMOTA_COSTO_PLAN">Costo del Plan</label>
-                                                            <input type="text" class="form-control" id="REMOTA_COSTO_PLAN" placeholder="Ingrese el Costo del Plan" name="REMOTA_COSTO_PLAN">
+                                                            <input type="text" value="{{old('REMOTA_COSTO_PLAN')}}" class="form-control" id="REMOTA_COSTO_PLAN" placeholder="Ingrese el Costo del Plan" name="REMOTA_COSTO_PLAN">
+                                                            @error('REMOTA_COSTO_PLAN')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
 
                                                     <div class="col col-md-3">
                                                         <div class="form-group">
                                                             <label for="REMOTA_RENTA">Renta</label>
-                                                            <input type="text" class="form-control" id="REMOTA_RENTA" placeholder="Ingrese el monto de la Renta" name="REMOTA_RENTA">
+                                                            <input type="text" value="{{old('REMOTA_RENTA')}}" class="form-control" id="REMOTA_RENTA" placeholder="Ingrese el monto de la Renta" name="REMOTA_RENTA">
+                                                            @error('REMOTA_RENTA')
+                                                                <br>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
+                                                                <br>
+                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
-
 
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -359,6 +544,13 @@
                                                                             <div class="form-group">
                                                                                 <label for="REMOTA_NODO">NODO</label>
                                                                                 <input type="text" class="form-control" id="REMOTA_NODO" placeholder="Ingrese el Nodo de la Remota" name="REMOTA_NODO" value="{{$remota->REMOTA_NODO}}">
+                                                                                @error('REMOTA_NODO')
+                                                                                    <br>
+                                                                                        <small>
+                                                                                            *{{$message}}
+                                                                                        </small>
+                                                                                    <br>
+                                                                                @enderror
                                                                             </div>
                                                                         </div>
 
@@ -389,7 +581,14 @@
                                                                         <div class="col col-md-8">
                                                                             <div class="form-group">
                                                                                 <label for="REMOTA_EQUIPO">Equipo</label>
-                                                                                <input type="text" class="form-control" id="REMOTA_LNB_SERIAL" placeholder="Ingrese el Equipo de la Remota" name="REMOTA_EQUIPO" value="{{$remota->REMOTA_EQUIPO}}">
+                                                                                <input type="text"  class="form-control" id="REMOTA_LNB_SERIAL" placeholder="Ingrese el Equipo de la Remota" name="REMOTA_EQUIPO" value="{{$remota->REMOTA_EQUIPO}}">
+                                                                                @error('REMOTA_EQUIPO')
+                                                                                    <br>
+                                                                                        <small>
+                                                                                            *{{$message}}
+                                                                                        </small>
+                                                                                    <br>
+                                                                                @enderror
                                                                             </div>
                                                                         </div>
 

@@ -96,6 +96,37 @@ class RemotaController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'REMOTA_NODO' => 'required',
+            'SELECT_CLIENTE_MA' => 'required',
+            'REMOTA_EQUIPO' => 'required',
+            // 'SELECT_ENCARGADO_MA' => 'required',
+            'REMOTA_SERIAL' => 'required',
+            'REMOTA_COORDENADA' => 'required',
+            'SELECT_SOCIO_MA' => 'required',
+            'REMOTA_BUC' => 'required',
+            'REMOTA_BUC_SERIAL' => 'required',
+            'REMOTA_LNB' => 'required',
+            'REMOTA_LNB_SERIAL' => 'required',
+            'REMOTA_DIA_ACTIVACION' => 'required',
+            'REMOTA_DIA_CORTE' => 'required',
+            'REMOTA_DETALLE' => 'required',
+            'REMOTA_STATUS' => 'required',
+            'REMOTA_IP_MODEM' => 'required',
+            'REMOTA_IP_GESTION' => 'required',
+            'REMOTA_PLATO' => 'required',
+            'REMOTA_BONDA' => 'required',
+            'SELECT_PROVEEDOR' => 'required',
+            'SELECT_SATELITE' => 'required',
+            'SELECT_PLAN' => 'required',
+            'SELECT_RESELLER' => 'required',
+            'REMOTA_PLANUP' => 'required',
+            'REMOTA_PLANDOWN' => 'required',
+            'REMOTA_COSTO_PLAN' => 'required',
+            'REMOTA_RENTA' => 'required'
+        ]);
+
         $remota = new remota();
         $remota->REMOTA_NODO = $request->REMOTA_NODO;
         $remota->REMOTA_EQUIPO = $request->REMOTA_EQUIPO;
@@ -173,40 +204,67 @@ class RemotaController extends Controller
      */
     public function update(Request $request, Remota $remota)
     {
+        $request->validate([
+            'REMOTA_NODO' => 'required',
+            'SELECT_CLIENTE_MA' => 'required',
+            'REMOTA_EQUIPO' => 'required',
+            // 'SELECT_ENCARGADO_MA' => 'required',
+            'REMOTA_SERIAL' => 'required',
+            'REMOTA_COORDENADA' => 'required',
+            'SELECT_SOCIO_MA' => 'required',
+            'REMOTA_BUC' => 'required',
+            'REMOTA_BUC_SERIAL' => 'required',
+            'REMOTA_LNB' => 'required',
+            'REMOTA_LNB_SERIAL' => 'required',
+            'REMOTA_DIA_ACTIVACION' => 'required',
+            'REMOTA_DIA_CORTE' => 'required',
+            'REMOTA_DETALLE' => 'required',
+            'REMOTA_STATUS' => 'required',
+            'REMOTA_IP_MODEM' => 'required',
+            'REMOTA_IP_GESTION' => 'required',
+            'REMOTA_PLATO' => 'required',
+            'REMOTA_BONDA' => 'required',
+            'SELECT_PROVEEDOR' => 'required',
+            'SELECT_SATELITE' => 'required',
+            'SELECT_PLAN' => 'required',
+            'SELECT_RESELLER' => 'required',
+            'REMOTA_PLANUP' => 'required',
+            'REMOTA_PLANDOWN' => 'required',
+            'REMOTA_COSTO_PLAN' => 'required',
+            'REMOTA_RENTA' => 'required'
+        ]);
 
+        $remota->REMOTA_NODO = $request->REMOTA_NODO;
+        $remota->REMOTA_EQUIPO = $request->REMOTA_EQUIPO;
+        $remota->REMOTA_SERIAL = $request->REMOTA_SERIAL;
+        $remota->REMOTA_COORDENADA = $request->REMOTA_COORDENADA;
+        $remota->REMOTA_BUC = $request->REMOTA_BUC;
+        $remota->REMOTA_BUC_SERIAL = $request->REMOTA_BUC_SERIAL;
+        $remota->REMOTA_LNB = $request->REMOTA_LNB;
+        $remota->REMOTA_LNB_SERIAL = $request->REMOTA_LNB_SERIAL;
+        $remota->REMOTA_PLANDOWN = $request->REMOTA_PLANDOWN;
+        $remota->REMOTA_PLANUP = $request->REMOTA_PLANUP;
+        $remota->REMOTA_COSTO_PLAN = $request->REMOTA_COSTO_PLAN;
+        $remota->REMOTA_RENTA = $request->REMOTA_RENTA;
+        $remota->REMOTA_DIA_CORTE = $request->REMOTA_DIA_CORTE;
+        $remota->REMOTA_DIA_ACTIVACION = $request->REMOTA_DIA_ACTIVACION;
+        $remota->REMOTA_DETALLE = $request->REMOTA_DETALLE;
+        $remota->REMOTA_PLATO = $request->REMOTA_PLATO;
+        $remota->REMOTA_IP_MODEM = $request->REMOTA_IP_MODEM;
+        $remota->REMOTA_IP_GESTION = $request->REMOTA_IP_GESTION;
+        $remota->REMOTA_STATUS = $request->REMOTA_STATUS;
+        $remota->REMOTA_BONDA = $request->REMOTA_BONDA;
+        $remota->CLIENTE_ID = $request->SELECT_CLIENTE;
+        $remota->PLAN_ID = $request->SELECT_PLAN;
+        $remota->PROVEEDOR_ID = $request->SELECT_PROVEEDOR;
+        $remota->SOCIO_ID = $request->SELECT_SOCIO;
+        $remota->RESELLER_ID = $request->SELECT_RESELLER;
+        $remota->ENCARGADO_ID = $request->SELECT_ENCARGADO;
+        $remota->SATELITE_ID = $request->SELECT_SATELITE;
 
-            $remota->REMOTA_NODO = $request->REMOTA_NODO;
-            $remota->REMOTA_EQUIPO = $request->REMOTA_EQUIPO;
-            $remota->REMOTA_SERIAL = $request->REMOTA_SERIAL;
-            $remota->REMOTA_COORDENADA = $request->REMOTA_COORDENADA;
-            $remota->REMOTA_BUC = $request->REMOTA_BUC;
-            $remota->REMOTA_BUC_SERIAL = $request->REMOTA_BUC_SERIAL;
-            $remota->REMOTA_LNB = $request->REMOTA_LNB;
-            $remota->REMOTA_LNB_SERIAL = $request->REMOTA_LNB_SERIAL;
-            $remota->REMOTA_PLANDOWN = $request->REMOTA_PLANDOWN;
-            $remota->REMOTA_PLANUP = $request->REMOTA_PLANUP;
-            $remota->REMOTA_COSTO_PLAN = $request->REMOTA_COSTO_PLAN;
-            $remota->REMOTA_RENTA = $request->REMOTA_RENTA;
-            $remota->REMOTA_DIA_CORTE = $request->REMOTA_DIA_CORTE;
-            $remota->REMOTA_DIA_ACTIVACION = $request->REMOTA_DIA_ACTIVACION;
-            $remota->REMOTA_DETALLE = $request->REMOTA_DETALLE;
-            $remota->REMOTA_PLATO = $request->REMOTA_PLATO;
-            $remota->REMOTA_IP_MODEM = $request->REMOTA_IP_MODEM;
-            $remota->REMOTA_IP_GESTION = $request->REMOTA_IP_GESTION;
-            $remota->REMOTA_STATUS = $request->REMOTA_STATUS;
-            $remota->REMOTA_BONDA = $request->REMOTA_BONDA;
+        $remota->save();
 
-            $remota->CLIENTE_ID = $request->SELECT_CLIENTE;
-            $remota->PLAN_ID = $request->SELECT_PLAN;
-            $remota->PROVEEDOR_ID = $request->SELECT_PROVEEDOR;
-            $remota->SOCIO_ID = $request->SELECT_SOCIO;
-            $remota->RESELLER_ID = $request->SELECT_RESELLER;
-            $remota->ENCARGADO_ID = $request->SELECT_ENCARGADO;
-            $remota->SATELITE_ID = $request->SELECT_SATELITE;
-
-            $remota->save();
-
-            return redirect()->route('remotas', compact('remota'));
+        return redirect()->route('remotas', compact('remota'));
     }
     public function getProperties(Request $request){
         $plan = PLan::where('id', $request->PLAN_ID)->get();
