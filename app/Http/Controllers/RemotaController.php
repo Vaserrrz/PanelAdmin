@@ -54,17 +54,10 @@ class RemotaController extends Controller
     public function getSatelites(Request $request)
     {
         $proveedor_id = $request->PROVEEDOR_ID;
-        $satelites = Satelite::has('planes')
-                            ->get();
-
+        $satelites = Satelite::has('planes')->get();
         $satelites = Satelite::whereHas('planes', function ($query) use($proveedor_id) {
             $query->where('PROVEEDOR_ID', '=',$proveedor_id);
         })->get();
-        // $satelitesConPlan = Satelite::has('planes')->get();
-
-        // $satelites = Satelite::whereHas('proveedor', function ($query) use($proveedor_id) {
-        //     $query->where('PROVEEDOR_ID', $proveedor_id);
-        // })->whereHas('planes')->get();
 
         return response()->json($satelites);
     }
