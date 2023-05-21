@@ -22,6 +22,19 @@ return new class extends Migration
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });
+
+        DB::table('users')->insert(
+            [
+                [
+                    'name' => 'Root', 'email' => 'root@gmail.com',
+                    'password' => Hash::make('12345678')
+                ],
+                [
+                    'name' => 'Administrador', 'email' => 'admin@gmail.com',
+                    'password' => Hash::make('12345678')
+                ]
+            ]
+        );
     }
 
     /**
