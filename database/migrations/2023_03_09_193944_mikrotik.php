@@ -16,22 +16,23 @@ return new class extends Migration
     {
         Schema::create('Mikrotiks', function(Blueprint $table){
             $table->id('id');
-            $table->string('MK_NOMBRE', 50);
-            $table->string('MK_IP', 100);
-            $table->string('MK_SERIAL', 50);
-            $table->string('MK_IDENTITY', 50);
-            $table->string('MK_MODEL', 50);
-            $table->string('MK_VPNUSER', 50);
-            $table->string('MK_VPNPASSWORD', 50);
-            $table->string('MK_VPNSERVER', 50);
-            $table->string('MK_ETHRCORTE1', 50);
-            $table->string('MK_ETHRCORTE2', 50);
-            $table->string('MK_USUARIO');
-            $table->string('MK_CLAVE', 50);
-            $table->string('MK_PUERTO', 50);
-            $table->string('MK_PROTOCOLO', 50);
+            $table->string('mk_nombre', 50);
+            $table->string('mk_ip', 100);
+            $table->string('mk_serial', 50);
+            $table->string('mk_identify', 50);
+            $table->string('mk_model', 50);
+            $table->string('mk_vpn_user', 20);
+            $table->string('mk_vpn_password', 30);
+            $table->string('mk_vpn_server', 50);
+            $table->string('mk_ethr_corte1', 50);
+            $table->string('mk_ethr_corte2', 50);
+            $table->string('mk_usuario');
+            $table->string('mk_clave', 50);
+            $table->string('mk_puerto', 50);
+            $table->string('mk_protocolo', 50);
             /*$table->string('MK_IDREMOTASAT	', 50);*/
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

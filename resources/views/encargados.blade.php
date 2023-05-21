@@ -139,8 +139,8 @@
 
 
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                                <button type="submit" class="btn btn-primary">Editar</button>
+                                                                <button type="button" class="btn btn-secondary btn-border btn-round borde" data-dismiss="modal">Cancelar</button>
+                                                                <button type="submit" class="btn btn-primary btn-border btn-round borde">Editar</button>
                                                             </div>
                                                         </form>
 

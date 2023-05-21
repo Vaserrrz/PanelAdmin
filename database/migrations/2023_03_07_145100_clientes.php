@@ -14,22 +14,21 @@ return new class extends Migration
     public function up()
     {
         Schema::create('CLientes', function(Blueprint $table){
-
             $table->id('id')->autoIncrement();
-            $table->integer('CI_RIF')->default(20);
-            $table->string('CLIENTE_RAZON', 100);
-            $table->string('CLIENTE_DIRECCION', 100);
-            $table->string('CLIENTE_DETALLE');
-            $table->string('CLIENTE_TELF', 20);
-            $table->string('CLIENTE_TELF2', 20)->nullable();
-            $table->string('CLIENTE_WHATSAPP', 20)->nullable();
-            $table->string('CLIENTE_TELEGRAM', 20)->nullable();
-            $table->string('CLIENTE_CORREO', 40)->nullable();
-            $table->boolean('STATUS')->nullable();
-            $table->boolean('ENVIO_TELEGRAM')->nullable();
-            $table->boolean('ENVIO_WHATSAPP')->nullable();
-
+            $table->integer('ci_rif')->default(20);
+            $table->string('razon', 100);
+            $table->string('direccion', 100);
+            $table->string('observacion')->nullable();
+            $table->string('telef1', 20);
+            $table->string('telef2', 20)->nullable();
+            $table->string('whatsapp', 20)->nullable();
+            $table->string('telegram', 20)->nullable();
+            $table->string('correo', 40)->nullable();
+            $table->enum('status',[0,1,2])->default(1)->comment('0:Eliminado,  1:Activo  , 2:Inactivo');
+            $table->boolean('envio_telegram')->nullable();
+            $table->boolean('envio_whatsapp')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

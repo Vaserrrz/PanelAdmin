@@ -15,14 +15,15 @@ return new class extends Migration
     {
         Schema::create('proveedors', function(Blueprint $table){
             $table->id('id')->autoIncrement();
-            $table->integer('CI_RIF');
-            $table->string('RAZON', 150);
-            $table->string('DIRECCION', 100);
-            $table->string('CONTACTO', 50);
-            $table->string('METODO_PAGO', 50);
-            $table->string('DETALLE_PAGO', 50);
-            $table->string('PROVEEDOR_CORREO', 50)->unique();
+            $table->integer('ci_rif');
+            $table->string('razon', 150);
+            $table->string('direccion', 100);
+            $table->string('contacto', 50);
+            $table->string('metodo_pago', 50);
+            $table->string('detalle_pago', 50);
+            $table->string('correo', 50)->unique();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

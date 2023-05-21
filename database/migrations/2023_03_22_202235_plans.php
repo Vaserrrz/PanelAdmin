@@ -15,16 +15,16 @@ return new class extends Migration
     {
         Schema::create('plans', function(Blueprint $table){
             $table->id('id');
-            $table->string('PLAN_NOMBRE');
-            $table->string('PLAN_SUBIDA');
-            $table->string('PLAN_BAJADA');
-            $table->string('PLAN_CONTENCION');
-            $table->integer('PLAN_COSTO');
-            $table->integer('PLAN_PRECIO');
+            $table->string('plan_NOMBRE');
+            $table->string('plan_SUBIDA');
+            $table->string('plan_BAJADA');
+            $table->string('plan_CONTENCION');
+            $table->integer('plan_COSTO');
+            $table->integer('plan_PRECIO');
             $table->timestamps();
 
-            $table->unsignedBigInteger('SATELITE_ID');
-            $table->foreign('SATELITE_ID')
+            $table->unsignedBigInteger('satelite_ide');
+            $table->foreign('satelite_ide')
                 ->references('id')
                 ->on('satelites')
                 ->onDelete('cascade')

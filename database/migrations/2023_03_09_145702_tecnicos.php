@@ -15,14 +15,15 @@ return new class extends Migration
     {
         Schema::create('Tecnicos', function(Blueprint $table){
             $table->id('id');
-            $table->string('TECNICO_NOMBRE', 60);
-            $table->string('TECNICO_CORREO', 100);
-            $table->string('TECNICO_TELF', 20);
-            $table->string('TECNICO_TELF2', 20);
-            $table->string('ZONA_TRABAJO', 50);
+            $table->string('nombre', 60);
+            $table->string('correo', 100);
+            $table->string('telef1', 20);
+            $table->string('telef2', 20);
+            $table->string('zona_trabajo', 50);
             $table->string('INCIDENCIA', 200);
             $table->string('REEMPLAZO', 100);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
