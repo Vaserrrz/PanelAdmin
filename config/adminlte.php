@@ -15,7 +15,7 @@ return [
     */
 
     'title' => '',
-    'title_prefix' => 'Rout Cloud |',
+    'title_prefix' => 'Rout Cloud | ',
     'title_postfix' => '',
 
     /*
@@ -64,7 +64,7 @@ return [
     */
 
     'logo' => '<b>Rout</b>CLOUD',
-    'logo_img' => 'vendor/adminlte/dist/img/logo.png',
+    'logo_img' => 'light-bootstrap/img/logo.png',
     'logo_img_class' => 'brand-image elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -86,7 +86,7 @@ return [
     'auth_logo' => [
         'enabled' => false,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/logo.png',
+            'path' => 'light-bootstrap/img/logo.png',
             'alt' => 'Auth Logo',
             'class' => '',
             'width' => 50,
@@ -109,8 +109,8 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/logo.png',
-            'alt' => 'AdminLTE Preloader Image',
+            'path' => 'light-bootstrap/img/logo.png',
+            'alt' => 'CloudSat',
             'effect' => 'animation__shake',
             'width' => 60,
             'height' => 60,
