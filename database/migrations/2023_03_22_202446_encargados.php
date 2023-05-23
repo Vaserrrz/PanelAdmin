@@ -16,17 +16,18 @@ return new class extends Migration
         Schema::create('Encargados', function(Blueprint $table){
 
             $table->id('id');
-            $table->unsignedBigInteger('CLIENTE_ID');
-            $table->foreign('CLIENTE_ID')
+            $table->string('encargado_nombre');
+            $table->string('encargado_telf', 20);
+            $table->string('encargado_correo', 100)->unique();
+            $table->boolean('envio_telegram')->nullable();
+            $table->unsignedBigInteger('cliente_id');
+            $table->foreign('cliente_id')
                 ->references('id')
                 ->on('clientes')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->string('ENCARGADO_NOMBRE');
-            $table->string('ENCARGADO_TELF', 20);
-            $table->string('ENCARGADO_CORREO', 100)->unique();
-            $table->boolean('ENVIO_TELEGRAM')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

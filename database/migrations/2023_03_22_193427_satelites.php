@@ -16,13 +16,13 @@ return new class extends Migration
     {
         Schema::create('satelites', function(Blueprint $table){
             $table->id('id');
-            $table->string('sat_NOMBRE', 50);
-            $table->string('sat_DESCRIPCION', 100);
-            $table->string('sat_AZNUT', 50);
-            $table->string('sat_ELEVACION', 50);
-            $table->string('sat_LNB', 50);
-            $table->string('sat_FRECUENCIA', 50);
-            $table->string('sat_BANDAS', 50);
+            $table->string('sat_nombre', 50);
+            $table->string('sat_descripcion', 100);
+            $table->string('sat_aznut', 50);
+            $table->string('sat_elevacion', 50);
+            $table->string('sat_lnb', 50);
+            $table->string('sat_frecuencia', 50);
+            $table->string('sat_bandas', 50);
             $table->timestamps();
             $table->softDeletes();
             $table->unsignedBigInteger('proveedor_id');
@@ -32,8 +32,8 @@ return new class extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->unsignedBigInteger('RESELLER_ID');
-            $table->foreign('RESELLER_ID')
+            $table->unsignedBigInteger('reseller_id');
+            $table->foreign('reseller_id')
                 ->references('id')
                 ->on('revendedors')
                 ->onDelete('cascade')
