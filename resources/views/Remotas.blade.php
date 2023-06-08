@@ -32,14 +32,14 @@
                                         </div>
 
                                         <div class="modal-body">
-                                            <form  action="{{ route('remotas.store') }}"  method="POST">
+                                            <form  action="{{ route('remotas.store') }}"  method="POST" lang="es">
                                                 @csrf
 
                                                 <div class="row">
                                                     <div class="col col-md-8">
                                                         <div class="form-group">
                                                             <label for="REMOTA_NODO">NODO</label>
-                                                            <input type="text" value="{{old('REMOTA_NODO')}}" class="form-control" id="REMOTA_NODO" placeholder="Ingrese el Nodo de la Remota" name="REMOTA_NODO">
+                                                            <input type="text" value="{{old('REMOTA_NODO')}}" class="form-control" id="REMOTA_NODO" placeholder="Ingrese el Nodo de la Remota" name="REMOTA_NODO" required>
                                                             @error('REMOTA_NODO')
                                                                 <br>
                                                                     <small>
@@ -54,7 +54,7 @@
                                                         <div class="form-group">
                                                             <label for="CLIENTE">Cliente</label>
 
-                                                            <select id="SELECT_CLIENTE_MA" name="SELECT_CLIENTE_MA" class="form-control select_cliente">
+                                                            <select id="SELECT_CLIENTE_MA" name="SELECT_CLIENTE_MA" class="form-control select_cliente" required>
                                                                 <option selected>Escoga el cliente...</option>
                                                                 @forelse($clientes as $cliente)
                                                                     <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
@@ -1111,17 +1111,17 @@
             }
             // Enviar petición al servidor para obtener los encargados del cliente seleccionado
             fetch(`/remotas_encargados?CLIENTE_ID=${clienteId}`)
-                .then(response => response.json())
-
-                .then(encargados => {
+            .then(response => response.json())
+            .then(encargados => {
                 // Agregar nuevas opciones
-                    encargados.forEach(encargado => {
-                        const option = document.createElement('option');
-                        option.value = encargado.id;
-                        option.text = encargado.ENCARGADO_NOMBRE;
-                        encargadoSelectMA.add(option);
-                    });
-                })
+                encargados.forEach(encargado => {
+                    const option = document.createElement('option');
+                    option.value = encargado.id;
+                    option.text = encargado.ENCARGADO_NOMBRE;
+                    // encargadoSelectMA.add(option);
+                    console.log(encargado)
+                });
+            });
         });
         //Proveedores y Satelites
         proveedorSelectMA.addEventListener('change', () => {
@@ -1196,6 +1196,8 @@
                     planDown.value = properties[0].PLAN_BAJADA
                 });
         });
+
+
 
         // ALERTA BOTON ELIMINAR
         // function alerta_borrar(){
