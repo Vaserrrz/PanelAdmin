@@ -24,7 +24,6 @@ class EncargadoController extends Controller
 
         return view('encargados', compact('clientes','encargados'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -43,10 +42,13 @@ class EncargadoController extends Controller
      */
     public function store(Request $request,Cliente $cliente)
     {
+        $request->validate([
+            'ENCARGADO_NOMBRE' => 'required',
+            'ENCARGADO_TELF' => 'required',
+        ]);
+
         $encargado = new encargado();
         $cliente = Cliente::all();
-
-
         $encargado->ENCARGADO_NOMBRE = $request->ENCARGADO_NOMBRE;
         $encargado->ENCARGADO_CORREO = $request->ENCARGADO_CORREO;
         $encargado->ENCARGADO_TELF = $request->ENCARGADO_TELF;
@@ -57,7 +59,6 @@ class EncargadoController extends Controller
 
         return redirect()->route('encargados',compact('cliente'));
     }
-
     /**
      * Display the specified resource.
      *
@@ -96,14 +97,18 @@ class EncargadoController extends Controller
      */
     public function update(Request $request, $id)
     {
-            $encargado = encargado::find($id);
-            $encargado->ENCARGADO_NOMBRE = $request->ENCARGADO_NOMBRE;
-            $encargado->ENCARGADO_CORREO = $request->ENCARGADO_CORREO;
-            $encargado->                                                                              ENCARGADO_TELF = $request->ENCARGADO_TELF;
-            $encargado->save();
-            return redirect()->route('encargados');
-    }
+        $request->validate([
+            'ENCARGADO_NOMBRE' => 'required',
+            'ENCARGADO_TELF' => 'required',
+        ]);
 
+        $encargado = encargado::find($id);
+        $encargado->ENCARGADO_NOMBRE = $request->ENCARGADO_NOMBRE;
+        $encargado->ENCARGADO_CORREO = $request->ENCARGADO_CORREO;
+        $encargado->ENCARGADO_TELF = $request->ENCARGADO_TELF;
+        $encargado->save();
+        return redirect()->route('encargados');
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -114,7 +119,6 @@ class EncargadoController extends Controller
         $encargado->delete();
         return redirect()->route('encargados');
     }
-
 }
 
 

@@ -24,8 +24,9 @@ return new class extends Migration
                 ->onUpdate('cascade');
             $table->string('ENCARGADO_NOMBRE');
             $table->string('ENCARGADO_TELF', 20);
+
             $table->string('ENCARGADO_CORREO', 100)->unique();
-            $table->boolean('ENVIO_TELEGRAM')->nullable();
+            $table->string('ENVIO_TELEGRAM')->nullable();
             $table->timestamps();
         });
     }

@@ -21,7 +21,6 @@ class SateliteController extends Controller
         $revendedor = Revendedor::all();
         return view('satelites', compact('revendedor','proveedor','satelites'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -40,10 +39,15 @@ class SateliteController extends Controller
      */
     public function store(Request $request, Proveedor $proveedor, Revendedor $revendedor)
     {
+
+        $request->validate([
+            'SAT_NOMBRE' => 'required',
+            'SAT_BANDAS' => 'required',
+
+        ]);
         $satelite = new satelite();
         $proveedor = $proveedor::all();
         $revendedor = $revendedor::all();
-
         $satelite->SAT_NOMBRE = $request->SAT_NOMBRE;
         $satelite->SAT_DESCRIPCION = $request->SAT_DESCRIPCION;
         $satelite->SAT_AZNUT = $request->SAT_AZNUT;
@@ -53,14 +57,9 @@ class SateliteController extends Controller
         $satelite->SAT_BANDAS = $request->SAT_BANDAS;
         $satelite->RESELLER_ID = $request->SELECT_REVENDEDOR;
         $satelite->PROVEEDOR_ID = $request->SELECT_PROVEEDOR;
-
-
         $satelite->save();
-
-
         return redirect()->route('satelites');
     }
-
     /**
      * Display the specified resource.
      *
@@ -94,7 +93,11 @@ class SateliteController extends Controller
     public function update(Request $request, $id)
     {
             $satelite = satelite::find($id);
+            $request->validate([
+                'SAT_NOMBRE' => 'required',
+                'SAT_BANDAS' => 'required',
 
+            ]);
             $satelite->SAT_NOMBRE = $request->SAT_NOMBRE;
             $satelite->SAT_DESCRIPCION = $request->SAT_DESCRIPCION;
             $satelite->SAT_AZNUT = $request->SAT_AZNUT;
@@ -107,7 +110,6 @@ class SateliteController extends Controller
 
             return redirect()->route('satelites');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -118,5 +120,4 @@ class SateliteController extends Controller
         $satelite->delete();
         return redirect()->route('satelites');
     }
-
 }

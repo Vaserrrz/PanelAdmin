@@ -17,7 +17,6 @@ class ClienteController extends Controller
         $clientes = Cliente::paginate();
         return view('clientes', compact('clientes'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -38,6 +37,10 @@ class ClienteController extends Controller
     {
         $cliente = new Cliente();
 
+        $request->validate([
+            'CLIENTE_RAZON' => 'required',
+            'CLIENTE_TELF' => 'required',
+        ]);
 
         $cliente->CI_RIF = $request->CI_RIF;
         $cliente->CLIENTE_RAZON = $request->CLIENTE_RAZON;
@@ -55,13 +58,11 @@ class ClienteController extends Controller
 
         return redirect()->route('clientes');
     }
-
     public function details(Cliente $cliente)
     {
         return view('details.clientes', compact('cliente'));
 
     }
-
     /**
      * Display the specified resource.
      *
@@ -96,6 +97,11 @@ class ClienteController extends Controller
     {
             $cliente = Cliente::find($id);
 
+            $request->validate([
+                'CLIENTE_RAZON' => 'required',
+                'CLIENTE_TELF' => 'required',
+            ]);
+
             $cliente->CI_RIF = $request->CI_RIF;
             $cliente->CLIENTE_RAZON = $request->CLIENTE_RAZON;
             $cliente->CLIENTE_DIRECCION = $request->CLIENTE_DIRECCION;
@@ -113,7 +119,6 @@ class ClienteController extends Controller
 
             return redirect()->route('clientes');
     }
-
     /**
      * Remove the specified resource from storage.
      *

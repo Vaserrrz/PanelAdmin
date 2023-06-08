@@ -20,19 +20,21 @@ class PlanController extends Controller
         $planes = plan::all();
         $revendedores = Revendedor::all();
         $proveedor = Proveedor::all();
+        $satelites = Satelite::all();
 
         $proveedores = Proveedor::has('satelites')->get();
-        $satelites = Satelite::all();
 
         return view('planes', compact('planes','revendedores','proveedores','satelites'));
     }
-
-
     public function getSatelites(Request $request)
     {
-        // $satelites = Satelite::where('PROVEEDOR_ID', $request->PROVEEDOR_ID)->get();
-        $satelite = Satelite::where('PROVEEDOR_ID', $request->PROVEEDOR_ID)->get();
-        return response()->json($satelite);
+        $proveedor_id = $request->PROVEEDOR_ID;
+        $satelites = Satelite::has('planes')->get();
+        $satelites = Satelite::whereHas('planes', function ($query) use($proveedor_id) {
+            $query->where('PROVEEDOR_ID', '=',$proveedor_id);
+        })->get();
+
+        return response()->json($satelites);
     }
     /**
      * Show the form for creating a new resource.
@@ -55,13 +57,24 @@ class PlanController extends Controller
         $plan = new plan();
         $revendedor = Revendedor::all();
 
+        $request->validate([
+            'PLAN_NOMBRE' => 'required',
+            'PLAN_SUBIDA' => 'required',
+            'PLAN_BAJADA' => 'required',
+            'PLAN_CONTENCION' => 'required',
+            'PLAN_COSTO' => 'required',
+            'PLAN_PRECIO' => 'required',
+            'RESELLER_ID' => 'required',
+            'SATELITE_ID' => 'required',
+        ]);
+
         $plan->PLAN_NOMBRE = $request->PLAN_NOMBRE;
         $plan->PLAN_SUBIDA = $request->PLAN_SUBIDA;
         $plan->PLAN_BAJADA  = $request->PLAN_BAJADA ;
         $plan->PLAN_CONTENCION = $request->PLAN_CONTENCION;
         $plan->PLAN_COSTO = $request->PLAN_COSTO;
         $plan->PLAN_PRECIO  = $request->PLAN_PRECIO;
-        // $plan->PROVEEDOR_ID = $request->SELECT_PROVEEDOR;
+        $plan->PROVEEDOR_ID = $request->SELECT_PROVEEDOR;
         $plan->RESELLER_ID = $request->SELECT_REVENDEDOR;
         $plan->SATELITE_ID = $request->SELECT_SATELITE;
 
@@ -70,7 +83,6 @@ class PlanController extends Controller
 
         return redirect()->route('planes',compact('revendedor'));
     }
-
     public function details(plan $plan, proveedor $proveedor, Revendedor $revendedor)
     {
         $proveedor = $proveedor::all();
@@ -80,7 +92,6 @@ class PlanController extends Controller
         return view('details.planes', compact('plan','proveedor','revendedor'));
 
     }
-
     /**
      * Display the specified resource.
      *
@@ -113,19 +124,27 @@ class PlanController extends Controller
      */
     public function update(Request $request, $id )
     {
-            $plan = plan::find($id );
+        $request->validate([
+            'PLAN_NOMBRE' => 'required',
+            'PLAN_SUBIDA' => 'required',
+            'PLAN_BAJADA' => 'required',
+            'PLAN_CONTENCION' => 'required',
+            'PLAN_COSTO' => 'required',
+            'PLAN_PRECIO' => 'required',
+            'RESELLER_ID' => 'required',
+            'SATELITE_ID' => 'required',
+        ]);
 
-            $plan->PLAN_NOMBRE = $request->PLAN_NOMBRE;
-            $plan->PLAN_SUBIDA = $request->PLAN_SUBIDA;
-            $plan->PLAN_BAJADA  = $request->PLAN_BAJADA ;
-            $plan->PLAN_CONTENCION = $request->PLAN_CONTENCION;
-            $plan->PLAN_COSTO = $request->PLAN_COSTO;
-            $plan->PLAN_PRECIO  = $request->PLAN_PRECIO;
-
-            $plan->save();
-            return redirect()->route('planes');
+        $plan = plan::find($id);
+        $plan->PLAN_NOMBRE = $request->PLAN_NOMBRE;
+        $plan->PLAN_SUBIDA = $request->PLAN_SUBIDA;
+        $plan->PLAN_BAJADA  = $request->PLAN_BAJADA ;
+        $plan->PLAN_CONTENCION = $request->PLAN_CONTENCION;
+        $plan->PLAN_COSTO = $request->PLAN_COSTO;
+        $plan->PLAN_PRECIO  = $request->PLAN_PRECIO;
+        $plan->save();
+        return redirect()->route('planes');
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -136,5 +155,4 @@ class PlanController extends Controller
         $plan->delete();
         return redirect()->route('planes');
     }
-
 }

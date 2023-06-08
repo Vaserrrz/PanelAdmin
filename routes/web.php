@@ -146,7 +146,9 @@ Route::delete('planes/{plan}',[ PlanController::class,'destroy'])->name('planes.
 //Ruta Detalle
 Route::get('planes/{plan}',[ PlanController::class,'details'])->name('planes.details');
 
+// Route::get('/planes_satelites', [PlanController::class, 'getSatelites']);
 Route::get('/planes_satelites', [PlanController::class, 'getSatelites']);
+
 
 
 //SATELITE
