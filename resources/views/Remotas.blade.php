@@ -39,7 +39,7 @@
                                                     <div class="col col-md-8">
                                                         <div class="form-group">
                                                             <label for="REMOTA_NODO">NODO</label>
-                                                            <input type="text" value="{{old('REMOTA_NODO')}}" class="form-control" id="REMOTA_NODO" placeholder="Ingrese el Nodo de la Remota" name="REMOTA_NODO" required>
+                                                            <input type="text" value="{{old('REMOTA_NODO')}}" class="form-control" id="REMOTA_NODO" placeholder="Ingrese el Nodo de la Remota" name="REMOTA_NODO">
                                                             @error('REMOTA_NODO')
                                                                 <br>
                                                                     <small>
@@ -1100,6 +1100,7 @@
         });
 
         //MODAL AGREGAR
+
         //Clientes y Encargados
         clienteSelectMA.addEventListener('change', () => {
             const clienteId = clienteSelectMA.value;
@@ -1196,6 +1197,18 @@
                     planDown.value = properties[0].PLAN_BAJADA
                 });
         });
+
+        //VALIDACIONES
+        form.addEventListener('submit', function(event) {
+        if (emailInput.value === '') {
+            alert('Debes ingresar tu correo electrónico');
+            event.preventDefault();
+        } else if (!isValidEmail(emailInput.value)) {
+            alert('Debes ingresar un correo electrónico válido');
+            event.preventDefault();
+        }
+});
+
 
 
 
