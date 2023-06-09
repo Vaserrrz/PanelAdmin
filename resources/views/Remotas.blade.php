@@ -53,23 +53,14 @@
                                                     <div class="col col-md-4">
                                                         <div class="form-group">
                                                             <label for="CLIENTE">Cliente</label>
-
                                                             <select id="SELECT_CLIENTE_MA" name="SELECT_CLIENTE_MA" class="form-control select_cliente" required>
-                                                                <option selected>Escoga el cliente...</option>
+                                                                <option >Escoga el cliente...</option>
                                                                 @forelse($clientes as $cliente)
                                                                     <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
                                                                 @empty
                                                                     No hay hay clientes registrados
                                                                 @endforelse
                                                             </select>
-
-                                                            @error('SELECT_CLIENTE_MA')
-                                                                <br>
-                                                                    <small>
-                                                                        *{{$message}}
-                                                                    </small>
-                                                                <br>
-                                                            @enderror
                                                         </div>
                                                     </div>
                                                 </div>
@@ -354,13 +345,6 @@
                                                                     No hay Satelites registrados
                                                                 @endforelse
                                                             </select>
-                                                            @error('SELECT_PROVEEDOR')
-                                                                <br>
-                                                                    <small>
-                                                                        *{{$message}}
-                                                                    </small>
-                                                                <br>
-                                                            @enderror
                                                         </div>
                                                     </div>
 
@@ -912,6 +896,8 @@
     <script>
 
         //CONSTANTES MODAL AGREGAR
+        const ModalAgregar = document.getElementById('ModalAgregar');
+        // console.log(ModalAgregar);
         const proveedorSelectMA = document.getElementById('SELECT_PROVEEDOR_MA');
         const selectSatMA = document.getElementById('SELECT_SAT_MA');
         const selectPlanMA = document.getElementById('SELECT_PLAN_MA');
@@ -1199,16 +1185,73 @@
         });
 
         //VALIDACIONES
-        form.addEventListener('submit', function(event) {
-        if (emailInput.value === '') {
-            alert('Debes ingresar tu correo electrónico');
-            event.preventDefault();
-        } else if (!isValidEmail(emailInput.value)) {
-            alert('Debes ingresar un correo electrónico válido');
-            event.preventDefault();
+        // ModalAgregar.addEventListener('submit', function(event) {
+        //     // if (clienteSelectMA.value === '') {
+        //     //     alert('Debe seleccionar un cliente');
+        //     //     event.preventDefault();
+        //     // } else if (!isValidEmail(clienteSelectMA.value)) {
+        //     //     alert('Debes ingresar un correo electrónico válido');
+        //     //     event.preventDefault();
+        //     // }
+        //     if (proveedorSelectMA.value === '') {
+        //         alert('Debe seleccionar un Proveedor');
+        //         event.preventDefault();
+        //     }
+        //     if (clienteSelectMA.value === '') {
+        //         alert('Debe seleccionar un Proveedor');
+        //         event.preventDefault();
+        //     }
+        // });
+        // ModalAgregar.addEventListener('submit', function(event) {
+        //     if (clienteSelectMA.value === '') {
+        //         alert('Debe seleccionar un Proveedor');
+        //         event.preventDefault();
+        //     }
+        // });
+
+        function validarFormulario(proveedorSelect,selectSat,selectPlan,clienteSelect,encargadoSelect) {
+            // Selecciona el formulario dentro del modal y todos los inputs que quieres validar
+            // Crea un array para almacenar los nombres de los campos faltantes
+            const proveedorSelectMA = document.getElementById('SELECT_PROVEEDOR_MA');
+            const selectSatMA = document.getElementById('SELECT_SAT_MA');
+            const selectPlanMA = document.getElementById('SELECT_PLAN_MA');
+            const clienteSelectMA = document.getElementById('SELECT_CLIENTE_MA');
+            const encargadoSelectMA = document.getElementById('SELECT_ENCARGADO_MA');
+            const camposFaltantes = [];
+            // Verifica si los campos requeridos están vacíos y agrega sus nombres al array si es necesario
+            if (proveedorSelect.value === '') {
+                camposFaltantes.push('Proveedor');
+            }
+            if (selectSat.value === '') {
+                camposFaltantes.push('Select SAT');
+            }
+            if (selectPlan.value === '') {
+                camposFaltantes.push('Select Plan');
+            }
+            if (clienteSelect.value === '') {
+                camposFaltantes.push('Cliente');
+            }
+            if (encargadoSelect.value === '') {
+                camposFaltantes.push('Encargado');
+            }
+
+            // Si hay campos faltantes, muestra un mensaje de error especificando cuáles son
+            if (camposFaltantes.length > 0) {
+                alert(`Por favor complete los siguientes campos: ${camposFaltantes.join(', ')}.`);
+                return false;
+        }
+
+        ModalAgregar.addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita que el formulario se envíe si la validación falla
+        if (validarFormulario()) {
+            formulario.submit(); // Envía el formulario si la validación es exitosa
         }
 });
 
+        // Si todos los campos están completos, devuelve true
+        return true;
+    }
+    console.log(validarFormulario);
 
 
 
