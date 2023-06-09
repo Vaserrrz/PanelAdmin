@@ -91,15 +91,17 @@ class RemotaController extends Controller
     {
 
         $request->validate([
-            'REMOTA_NODO' => 'required',
+            'REMOTA_NODO_MA' => 'required',
             'SELECT_CLIENTE_MA' => 'required',
-            'REMOTA_EQUIPO' => 'required',
-            'REMOTA_SERIAL' => 'required',
-            'REMOTA_DIA_ACTIVACION' => 'required',
-            'REMOTA_DIA_CORTE' => 'required',
-            'SELECT_PROVEEDOR' => 'required',
-            'SELECT_SATELITE' => 'required',
-            'SELECT_PLAN' => 'required',
+            'REMOTA_EQUIPO_MA' => 'required',
+            'REMOTA_SERIAL_MA' => 'required',
+            'REMOTA_DIA_ACTIVACION_MA' => 'required',
+            'REMOTA_DIA_CORTE_MA' => 'required',
+            'SELECT_PROVEEDOR_MA' => 'required',
+            'SELECT_SAT_MA' => 'required',
+            'SELECT_PLAN_MA' => 'required',
+        ], [
+            'SELECT_CLIENTE_MA.required' => 'El campo Cliente es obligatorio',
         ]);
 
         $remota = new remota();

@@ -147,12 +147,29 @@ return [
     */
 
     'attributes' => [
-        'REMOTA_NODO' => 'Nodo',
+        //REMOTA
+        'REMOTA_NODO_MA' => 'Nodo',
+        'REMOTA_NODO_ME' => 'Nodo',
         'SELECT_CLIENTE_MA' => 'Cliente',
-        'REMOTA_EQUIPO' => 'Equipo',
-        'REMOTA_SERIAL' => 'Remota Serial',
-        'REMOTA_COORDENADA' => 'Coordenada',
+        'SELECT_CLIENTE_ME' => 'Cliente',
+        'REMOTA_EQUIPO_MA' => 'Equipo',
+        'REMOTA_EQUIPO_ME' => 'Equipo',
+        'REMOTA_SERIAL_MA' => 'Serial',
+        'REMOTA_SERIAL_ME' => 'Serial',
+        'REMOTA_COORDENADA_MA' => 'Coordenada',
+        'REMOTA_COORDENADA_ME' => 'Coordenada',
+        'REMOTA_DIA_CORTE_MA' => 'Dia de Corte',
+        'REMOTA_DIA_ACTIVACION_ME' => 'Dia de Activacion',
+        'REMOTA_DIA_ACTIVACION_MA' => 'Dia de Activacion',
+        'REMOTA_DIA_CORTE_ME' => 'Dia de Corte',
+        'SELECT_SAT_MA' => 'Satelite',
+        'SELECT_SAT_ME' => 'Satelite',
         'SELECT_SOCIO_MA' => 'Socio',
+        'SELECT_SOCIO_ME' => 'Socio',
+        'SELECT_PLAN_MA' => 'Planes',
+        'SELECT_PLAN_ME' => 'Planes',
+        'SELECT_PROVEEDOR_MA' => 'Proveedor',
+        'SELECT_PROVEEDOR_ME' => 'Proveedor',
         'REMOTA_BUC' => 'BUC',
         'REMOTA_BUC_SERIAL' => 'BUC Serial',
         'REMOTA_LNB' => 'LNB',
@@ -179,6 +196,8 @@ return [
         'CONTACTO' => 'Contacto',
         'ENCARGADO_TELF' => 'Telefono',
         'ENCARGADO_NOMBRE' => 'Nombre',
+
+        //PLAN
         'PLAN_NOMBRE' => 'Nombre',
         'PLAN_SUBIDA' => 'Subida',
         'PLAN_BAJADA' => 'Bajada',
