@@ -53,7 +53,7 @@
                                                     <div class="col col-md-4">
                                                         <div class="form-group">
                                                             <label for="SELECT_CLIENTE_MA">Cliente</label>
-                                                            <select id="SELECT_CLIENTE_MA" name="SELECT_CLIENTE_MA" class="form-control select_cliente">
+                                                            <select id="SELECT_CLIENTE_MA" name="SELECT_CLIENTE_MA" class="form-control">
                                                                 <option>Escoga el cliente...</option>
                                                                 @forelse($clientes as $cliente)
                                                                 <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
@@ -141,8 +141,8 @@
 
                                                     <div class="col col-md-4">
                                                         <div class="form-group">
-                                                            <label for="SOCIO">Socio</label>
-                                                            <select id="SELECT_SOCIO" name="SELECT_SOCIO_MA" class="form-control select_socio">
+                                                            <label for="SELECT_SOCIO_MA">Socio</label>
+                                                            <select id="SELECT_SOCIO_MA" name="SELECT_SOCIO_MA" class="form-control select_socio">
                                                                 <option selected>Seleccione el Socio...</option>
                                                                 @forelse($socios as $socio)
                                                                     <option value="{{$socio->id}}">{{$socio->SOCIO_NOMBRE}}</option>
@@ -911,7 +911,6 @@
 
         //CONSTANTES MODAL AGREGAR
         const ModalAgregar = document.getElementById('ModalAgregar');
-        // console.log(ModalAgregar);
         const proveedorSelectMA = document.getElementById('SELECT_PROVEEDOR_MA');
         const selectSatMA = document.getElementById('SELECT_SAT_MA');
         const selectPlanMA = document.getElementById('SELECT_PLAN_MA');
@@ -1119,7 +1118,7 @@
                     const option = document.createElement('option');
                     option.value = encargado.id;
                     option.text = encargado.ENCARGADO_NOMBRE;
-                    // encargadoSelectMA.add(option);
+                    encargadoSelectMA.add(option);
                     console.log(encargado)
                 });
             });
