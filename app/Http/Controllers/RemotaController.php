@@ -100,8 +100,6 @@ class RemotaController extends Controller
             'SELECT_PROVEEDOR_MA' => 'required',
             'SELECT_SAT_MA' => 'required',
             'SELECT_PLAN_MA' => 'required',
-        ], [
-            'SELECT_CLIENTE_MA.required' => 'El campo Cliente es obligatorio',
         ]);
 
         $remota = new remota();
