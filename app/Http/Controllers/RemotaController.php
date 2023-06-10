@@ -102,6 +102,10 @@ class RemotaController extends Controller
             'SELECT_PLAN_MA' => 'required',
         ]);
 
+        $validatedData = $request->validate([
+            'SELECT_PROVEEDOR_MA' => 'required'
+        ]);
+
         $remota = new remota();
         $remota->REMOTA_NODO = $request->REMOTA_NODO;
         $remota->REMOTA_EQUIPO = $request->REMOTA_EQUIPO;

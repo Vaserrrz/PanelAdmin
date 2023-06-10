@@ -54,7 +54,7 @@
                                                         <div class="form-group">
                                                             <label for="SELECT_CLIENTE_MA">Cliente</label>
                                                             <select id="SELECT_CLIENTE_MA" name="SELECT_CLIENTE_MA" class="form-control">
-                                                                <option>Escoga el cliente...</option>
+                                                                <option value="">Escoga el cliente...</option>
                                                                 @forelse($clientes as $cliente)
                                                                     <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
                                                                 @empty
@@ -345,7 +345,7 @@
                                                         <div class="form-group">
                                                             <label for="SELECT_PROVEEDOR_MA">Proveedores</label>
                                                             <select id="SELECT_PROVEEDOR_MA" name="SELECT_PROVEEDOR_MA" class="form-control">
-                                                                <option>Seleccione un Proveedor...</option>
+                                                                <option value="">Seleccione un Proveedor...</option>
                                                                 @forelse($proveedores as $proveedor)
                                                                     <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
                                                                 @empty
