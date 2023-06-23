@@ -26,14 +26,6 @@ return new class extends Migration
                 ->on('clientes')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-<<<<<<< HEAD
-            $table->string('ENCARGADO_NOMBRE');
-            $table->string('ENCARGADO_TELF', 20);
-
-            $table->string('ENCARGADO_CORREO', 100)->unique();
-            $table->string('ENVIO_TELEGRAM')->nullable();
-=======
->>>>>>> 37eee98b9ada02a5e005d001ade9b4c7b2ec8e95
             $table->timestamps();
             $table->softDeletes();
         });
