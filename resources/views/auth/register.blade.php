@@ -1,6 +1,6 @@
 {{--  @extends('adminlte::auth.register')  --}}
 
-@extends('layouts.app', ['activePage' => 'register', 'title' => 'Light Bootstrap Dashboard Laravel by Creative Tim & UPDIVISION'])
+@extends('layouts.app', ['activePage' => 'register', 'title' => 'Laravel by Cloud Sat])
 
 @section('content')
     <div class="full-page register-page section-image" data-color="orange" data-image="{{ asset('light-bootstrap/img/bg5.jpg') }}">

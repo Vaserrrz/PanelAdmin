@@ -15,23 +15,23 @@ return new class extends Migration
     {
         Schema::create('plans', function(Blueprint $table){
             $table->id('id');
-            $table->string('plan_NOMBRE');
-            $table->string('plan_SUBIDA');
-            $table->string('plan_BAJADA');
-            $table->string('plan_CONTENCION');
-            $table->integer('plan_COSTO');
-            $table->integer('plan_PRECIO');
+            $table->string('plan_nombre');
+            $table->string('plan_tasa_subida');
+            $table->string('plan_tasa_bajada');
+            $table->string('plan_contencion');
+            $table->integer('plan_costo');
+            $table->integer('plan_precio');
             $table->timestamps();
 
             $table->unsignedBigInteger('satelite_ide');
-            $table->foreign('satelite_ide')
+            $table->foreign('satelite_id')
                 ->references('id')
                 ->on('satelites')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->unsignedBigInteger('RESELLER_ID');
-            $table->foreign('RESELLER_ID')
+            $table->unsignedBigInteger('reseller_id');
+            $table->foreign('reseller_id')
                 ->references('id')
                 ->on('revendedors')
                 ->onDelete('cascade')

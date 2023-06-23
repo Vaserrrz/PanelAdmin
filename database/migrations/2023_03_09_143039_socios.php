@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('Socios', function(Blueprint $table){
             $table->id('id');
-            $table->string('nombre', 60);
-            $table->string('cedula', 10);
-            $table->string('telef', 20);
-            $table->string('correo', 150)->unique();
+            $table->string('socio_nombre', 60);
+            $table->string('socio_cedula', 10);
+            $table->string('socio_telef', 20);
+            $table->string('socio_correo', 150)->unique();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -1,5 +1,3 @@
-{{--  @extends('adminlte::auth.login')  --}}
-
 @extends('layouts/app', ['activePage' => 'login', 'title' => 'CouldSat::Login'])
 
 @section('content')
@@ -18,9 +16,12 @@
                             <div class="card-body ">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="email" class="col-md-6 col-form-label">{{ __('Usuario') }}</label>
+                                        <label class="col-md-6 col-form-label">{{ __('Usuario') }}</label>
 
                                         <div class="col-md-14">
+                                            <div class="input-group-text">
+                                                <i class="tim-icons icon-email-85"></i>
+                                            </div>
                                             <input id="email" type="email" name="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', '') }}" required autocomplete="email" autofocus>
 
                                             @error('email')
