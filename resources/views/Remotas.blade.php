@@ -53,22 +53,22 @@
                                                     <div class="col col-md-4">
                                                         <div class="form-group">
                                                             <label for="SELECT_CLIENTE_MA">Cliente</label>
-                                                            <select id="SELECT_CLIENTE_MA" name="SELECT_CLIENTE_MA" class="form-control select_cliente">
+                                                            <select id="SELECT_CLIENTE_MA" name="SELECT_CLIENTE_MA" class="form-control">
                                                                 <option value="">Escoga el cliente...</option>
                                                                 @forelse($clientes as $cliente)
-                                                                <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
+                                                                    <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
                                                                 @empty
-                                                                <option>No hay clientes registrados</option>
+                                                                    <option>No hay clientes registrados</option>
                                                                 @endforelse
                                                             </select>
                                                             @error('SELECT_CLIENTE_MA')
                                                                 <br>
-                                                                <small>
-                                                                    *{{$message}}
-                                                                </small>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
                                                                 <br>
                                                             @enderror
-                                                          </div>
+                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -141,8 +141,8 @@
 
                                                     <div class="col col-md-4">
                                                         <div class="form-group">
-                                                            <label for="SOCIO">Socio</label>
-                                                            <select id="SELECT_SOCIO" name="SELECT_SOCIO_MA" class="form-control select_socio">
+                                                            <label for="SELECT_SOCIO_MA">Socio</label>
+                                                            <select id="SELECT_SOCIO_MA" name="SELECT_SOCIO_MA" class="form-control select_socio">
                                                                 <option selected>Seleccione el Socio...</option>
                                                                 @forelse($socios as $socio)
                                                                     <option value="{{$socio->id}}">{{$socio->SOCIO_NOMBRE}}</option>
@@ -344,8 +344,8 @@
                                                     <div class="col col-md-4">
                                                         <div class="form-group">
                                                             <label for="SELECT_PROVEEDOR_MA">Proveedores</label>
-                                                            <select id="SELECT_PROVEEDOR_MA" name="SELECT_PROVEEDOR_MA"     class="form-control">
-                                                                <option value="">Seleccione un Proveedor...</option>
+                                                            <select id="SELECT_PROVEEDOR_MA" name="SELECT_PROVEEDOR_MA" class="form-control">
+                                                                <option value="" value="">Seleccione un Proveedor...</option>
                                                                 @forelse($proveedores as $proveedor)
                                                                     <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
                                                                 @empty
@@ -357,6 +357,9 @@
                                                                 <small>
                                                                     *{{$message}}
                                                                 </small>
+                                                                    <small>
+                                                                        *{{$message}}
+                                                                    </small>
                                                                 <br>
                                                             @enderror
                                                         </div>
@@ -1121,7 +1124,7 @@
                     const option = document.createElement('option');
                     option.value = encargado.id;
                     option.text = encargado.ENCARGADO_NOMBRE;
-                    // encargadoSelectMA.add(option);
+                    encargadoSelectMA.add(option);
                     console.log(encargado)
                 });
             });
