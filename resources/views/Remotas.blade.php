@@ -794,7 +794,7 @@
                                                                             <div class="form-group">
                                                                                 <label for="PLANES">Planes</label>
                                                                                 <select id="SELECT_PLAN_ME" name="SELECT_PLAN" class="form-control select_plan">
-                                                                                    <option value=""> Seleccione un plan ... </option>
+                                                                                    <option> Seleccione un plan ... </option>
                                                                                     @php $planes = App\Models\Plan::where('SATELITE_ID', $remota->SATELITE_ID)->get();@endphp
                                                                                     @forelse($planes as $plan)
                                                                                         @if ($remota->PLAN_ID == $plan->id)
@@ -984,18 +984,18 @@
                     renta_planesME.forEach
                 });
                 //Limpiando Propiedades de Plan al cambio de Proveedor
-                renta_planesME.forEach(renta => {
-                    renta.value = ''
-                });
-                costo_planesME.forEach(costo => {
-                    costo.value = ''
-                });
-                planesUpME.forEach(up => {
-                    up.value = ''
-                });
-                planesDownME.forEach(down => {
-                    down.value = ''
-                });
+                // renta_planesME.forEach(renta => {
+                //     renta.value = ''
+                // });
+                // costo_planesME.forEach(costo => {
+                //     costo.value = ''
+                // });
+                // planesUpME.forEach(up => {
+                //     up.value = ''
+                // });
+                // planesDownME.forEach(down => {
+                //     down.value = ''
+                // });
             });
         });
         function actualizarSatelites(select_proveedor,select_satelite) {
@@ -1031,18 +1031,18 @@
                     renta_planesME.forEach
                 });
                 //Limpiando Propiedades de Plan al cambio de Proveedor
-                renta_planesME.forEach(renta => {
-                    renta.value = ''
-                });
-                costo_planesME.forEach(costo => {
-                    costo.value = ''
-                });
-                planesUpME.forEach(up => {
-                    up.value = ''
-                });
-                planesDownME.forEach(down => {
-                    down.value = ''
-                });
+                // renta_planesME.forEach(renta => {
+                //     renta.value = ''
+                // });
+                // costo_planesME.forEach(costo => {
+                //     costo.value = ''
+                // });
+                // planesUpME.forEach(up => {
+                //     up.value = ''
+                // });
+                // planesDownME.forEach(down => {
+                //     down.value = ''
+                // });
             });
         });
         function actualizarPlanes(select_satelite,select_plan) {
@@ -1138,12 +1138,12 @@
             .then(satelites => {
 
                 // Limpiar opciones anteriores
-                selectSatMA.innerHTML = '<option value="">Seleccione un Satelite</option>';
-                selectPlanMA.innerHTML = '<option value="">Seleccione un Plan</option>';
-                renta_plan.value = ''
-                costo_plan.value = ''
-                planUp.value = ''
-                planDown.value = ''
+                // selectSatMA.innerHTML = '<option value="">Seleccione un Satelite</option>';
+                // selectPlanMA.innerHTML = '<option value="">Seleccione un Plan</option>';
+                // renta_plan.value = ''
+                // costo_plan.value = ''
+                // planUp.value = ''
+                // planDown.value = ''
                 // Si no se ha seleccionado un satélite, salir del listener
                 if (!proveedorId) {
                     return;
@@ -1203,11 +1203,11 @@
                 });
         });
 
-    //Validacion Modal
+    //Validacion ModalH
     BtnGuardarMA.addEventListener('onclick', () => {
 
     });
-        ALERTA BOTON ELIMINAR
+        // ALERTA BOTON ELIMINAR
         // function alerta_borrar(){
         //         Swal.fire({
         //             title: 'Esta seguro de eliminar esta Remota',
