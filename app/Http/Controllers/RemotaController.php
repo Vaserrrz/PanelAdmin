@@ -100,8 +100,6 @@ class RemotaController extends Controller
             'SELECT_PROVEEDOR_MA' => 'required',
             'SELECT_SAT_MA' => 'required',
             'SELECT_PLAN_MA' => 'required',
-        ], [
-            'SELECT_CLIENTE_MA.required' => 'El campo Cliente es obligatorio',
         ]);
 
         $remota = new remota();
@@ -133,6 +131,7 @@ class RemotaController extends Controller
         $remota->ENCARGADO_ID = $request->SELECT_ENCARGADO;
         $remota->SATELITE_ID = $request->SELECT_SATELITE;
         $remota->save();
+
         return redirect()->route('remotas', compact('remota'));
     }
     public function details(remota $remota,Plan $plan,Cliente $cliente, Socio $socio,

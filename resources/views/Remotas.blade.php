@@ -32,7 +32,7 @@
                                         </div>
 
                                         <div class="modal-body">
-                                            <form  action="{{ route('remotas.store') }}"  method="POST" lang="es">
+                                            <form  action="{{ route('remotas.store') }}"  method="POST" lang="es" id="Form_MA">
                                                 @csrf
 
                                                 <div class="row">
@@ -54,7 +54,7 @@
                                                         <div class="form-group">
                                                             <label for="SELECT_CLIENTE_MA">Cliente</label>
                                                             <select id="SELECT_CLIENTE_MA" name="SELECT_CLIENTE_MA" class="form-control select_cliente">
-                                                                <option>Escoga el cliente...</option>
+                                                                <option value="">Escoga el cliente...</option>
                                                                 @forelse($clientes as $cliente)
                                                                 <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
                                                                 @empty
@@ -345,7 +345,7 @@
                                                         <div class="form-group">
                                                             <label for="SELECT_PROVEEDOR_MA">Proveedores</label>
                                                             <select id="SELECT_PROVEEDOR_MA" name="SELECT_PROVEEDOR_MA"     class="form-control">
-                                                                <option>Seleccione un Proveedor...</option>
+                                                                <option value="">Seleccione un Proveedor...</option>
                                                                 @forelse($proveedores as $proveedor)
                                                                     <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
                                                                 @empty
@@ -355,7 +355,7 @@
                                                             @error('SELECT_PROVEEDOR_MA')
                                                                 <br>
                                                                 <small>
-                                                                            *{{$message}}
+                                                                    *{{$message}}
                                                                 </small>
                                                                 <br>
                                                             @enderror
@@ -478,7 +478,7 @@
 
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                                    <button type="submit" id="BOTON_GUARDAR_MA" class="btn btn-primary">Guardar</button>
                                                 </div>
 
                                             </form>
@@ -911,7 +911,9 @@
 
         //CONSTANTES MODAL AGREGAR
         const ModalAgregar = document.getElementById('ModalAgregar');
-        // console.log(ModalAgregar);
+        const BtnGuardarMA = document.getElementById('BOTON_GUARDAR_MA');
+        const Form_MA = document.getElementById('Form_MA');
+
         const proveedorSelectMA = document.getElementById('SELECT_PROVEEDOR_MA');
         const selectSatMA = document.getElementById('SELECT_SAT_MA');
         const selectPlanMA = document.getElementById('SELECT_PLAN_MA');
@@ -1198,8 +1200,11 @@
                 });
         });
 
+    //Validacion Modal
+    BtnGuardarMA.addEventListener('onclick', () => {
 
-        // ALERTA BOTON ELIMINAR
+    });
+        ALERTA BOTON ELIMINAR
         // function alerta_borrar(){
         //         Swal.fire({
         //             title: 'Esta seguro de eliminar esta Remota',
