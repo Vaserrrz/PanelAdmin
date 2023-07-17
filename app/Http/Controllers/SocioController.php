@@ -38,10 +38,10 @@ class SocioController extends Controller
     {
         $socio = new Socio();
 
-        $socio->SOCIO_NOMBRE = $request->SOCIO_NOMBRE;
-        $socio->CI_SOCIO = $request->CI_SOCIO;
-        $socio->TELF_SOCIO = $request->TELF_SOCIO;
-        $socio->SOCIO_CORREO = $request->SOCIO_CORREO;
+        $socio->nombre = $request->SOCIO_NOMBRE;
+        $socio->cedula = $request->CI_SOCIO;
+        $socio->telef = $request->TELF_SOCIO;
+        $socio->correo = $request->SOCIO_CORREO;
 
         $socio->save();
 
@@ -83,10 +83,10 @@ class SocioController extends Controller
     {
             $socio = socio::find($id);
 
-            $socio->SOCIO_NOMBRE = $request->SOCIO_NOMBRE;
-            $socio->CI_SOCIO = $request->CI_SOCIO;
-            $socio->TELF_SOCIO = $request->TELF_SOCIO;
-            $socio->SOCIO_CORREO = $request->SOCIO_CORREO;
+            $socio->nombre = $request->SOCIO_NOMBRE;
+            $socio->cedula = $request->CI_SOCIO;
+            $socio->telef = $request->TELF_SOCIO;
+            $socio->correo = $request->SOCIO_CORREO;
 
             $socio->save();
 

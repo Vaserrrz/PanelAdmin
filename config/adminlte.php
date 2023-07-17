@@ -404,6 +404,11 @@ return [
                     'url'  => 'tecnicos',
                     'icon' => 'fas fa-fx fa-male'
                 ],
+                [
+                    'text' => 'Personas',
+                    'url'  => 'personas',
+                    'icon' => 'fas fa-fx fa-male'
+                ],
             ],
         ],
         ['header' => 'CONFIGURACION'],

@@ -4,11 +4,9 @@
 
 @section('content_header')
     <h1>Socios</h1>
-@stop
+@endsection
 
 @section('content')
-
-
 
 <div class="container">
     <div class="row">
@@ -87,10 +85,10 @@
                                     <tr>
                                         <th scope="row">{{ $socio->id  }}</th>
 
-                                        <td>{{ $socio->SOCIO_NOMBRE }}</td>
-                                        <td>{{ $socio->CI_SOCIO }}</td>
-                                        <td>{{ $socio->TELF_SOCIO }}</td>
-                                        <td>{{ $socio->SOCIO_CORREO }}</td>
+                                        <td>{{ $socio->nombre }}</td>
+                                        <td>{{ $socio->cedula }}</td>
+                                        <td>{{ $socio->telef }}</td>
+                                        <td>{{ $socio->correo }}</td>
                                         <td>
                                             {{-- Editar  --}}
                                             {{-- Buton editar  --}}
@@ -115,25 +113,25 @@
                                                                 {{-- NOMBRE --}}
                                                             <div class="form-group">
                                                                 <label for="SOCIO_NOMBRE">Nombre</label>
-                                                                <input type="text" class="form-control" id="SOCIO_NOMBRE" placeholder="Ingrese el Nombre del Socio" name="SOCIO_NOMBRE" value="{{$socio->SOCIO_NOMBRE}}">
+                                                                <input type="text" class="form-control" id="SOCIO_NOMBRE" placeholder="Ingrese el Nombre del Socio" name="SOCIO_NOMBRE" value="{{$socio->nombre}}">
                                                             </div>
 
                                                                 {{-- CI SOCIO --}}
                                                             <div class="form-group">
                                                                     <label for="CI_SOCIO">CI</label>
-                                                                    <input type="text" class="form-control" id="CI_SOCIO" placeholder="Ingrese Cedula de Identidad del Socio" name="CI_SOCIO" value="{{$socio->CI_SOCIO}}">
+                                                                    <input type="text" class="form-control" id="CI_SOCIO" placeholder="Ingrese Cedula de Identidad del Socio" name="CI_SOCIO" value="{{$socio->cedula}}">
                                                             </div>
 
                                                                 {{-- TELEFONO --}}
                                                             <div class="form-group">
                                                                 <label for="TELF_SOCIO">Telefono</label>
-                                                                <input type="text" class="form-control" id="TELF_SOCIO" placeholder="Ingrese el telefono del socio" name="TELF_SOCIO" value="{{$socio->TELF_SOCIO}}">
+                                                                <input type="text" class="form-control" id="TELF_SOCIO" placeholder="Ingrese el telefono del socio" name="TELF_SOCIO" value="{{$socio->telef}}">
                                                             </div>
 
                                                                 {{-- CORREO --}}
                                                             <div class="form-group">
                                                                     <label for="SOCIO_CORREO">Correo</label>
-                                                                    <input type="email" class="form-control" id="SOCIO_CORREO" placeholder="Ingrese el Correo del socio" name="SOCIO_CORREO" value="{{$socio->SOCIO_CORREO}}">
+                                                                    <input type="email" class="form-control" id="SOCIO_CORREO" placeholder="Ingrese el Correo del socio" name="SOCIO_CORREO" value="{{$socio->correo}}">
                                                             </div>
 
 
@@ -184,14 +182,11 @@
 
 </div>
 
-
-
-
-@stop
+@endsection
 
 @section('css')
 @stop
 
 @section('js')
     {{-- <script> alert('Hi!'); </script> --}}
-@stop
+@endsection

@@ -11,6 +11,9 @@ use App\Http\Controllers\Revendedores;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\SateliteController;
 use App\Http\Controllers\MikrotikController;
+use Illuminate\Routing\Route as RoutingRoute;
+use Symfony\Component\Routing\Annotation\Route as AnnotationRoute;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -73,9 +76,8 @@ Route::get('/remotas_plans',     [RemotaController::class, 'getPlan']);
 Route::get('/remotas_encargados', [RemotaController::class, 'getEncargado']);
 Route::get('/remotas_plan_properties', [RemotaController::class, 'getProperties']);
 
-
-
-
+//PERSONAS
+route::resource('personas',App\Http\Controllers\PersonaController::class);
 
 //ENCARGADOS
 Route::get('encargados', [EncargadoController::class, 'index'])->name('encargados');
