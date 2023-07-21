@@ -27,20 +27,29 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
+                            <ul class="navbar-nav">
+                                <li style="justify-content: start; gap: 4rem;" class="main-navbar navbar nav-item">
+                                    <a class="nav-link" href="{{ route('personas.tipo','') }}">Todos</a>
+                                    <a class="nav-link" href="{{ route('personas.tipo','Socio') }}">Socio</a>
+                                    <a class="nav-link" href="{{ route('personas.tipo','Técnico') }}">Técnico</a>
+                                    <a class="nav-link" href="{{ route('personas.tipo','Revendedor') }}">Revendedor</a>
+                                </li>
+                            </ul>
+
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
 										<th width="32%" >Nombre</th>
 										<th>Cedula</th>
 										<th>Telefono Principal</th>
-										<th width="30%" >Correo</th>
+										<th width="25%" >Correo</th>
 										<th>Tipo</th>
 
-                                        <th></th>
+                                        <th width="10%"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($personas as $persona)
+                                    @forelse ($personas as $persona)
                                         <tr>
 											<td>{{ $persona->nombre }}</td>
 											<td>{{ $persona->cedula }}</td>
@@ -51,16 +60,20 @@
                                             <td>
                                                 <form action="{{ route('personas.destroy',$persona->id) }}" method="POST">
                                                     {{-- <a class="btn btn-sm btn-primary " href="{{ route('personas.show',$persona->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a> --}}
-                                                    <a class="btn btn-sm btn-success" href="{{ route('personas.edit',$persona->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    {{-- @csrf --}}
+                                                    <a class="btn btn-sm" href="{{ route('personas.edit',$persona->id) }}"><i class="fa fa-fw fa-edit" title="Editar"></i></a>
+                                                    @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-sm">
-                                                        <i class="fa fa-fw fa-trash"></i>
-                                                    {{ __('Delete') }}</button>
+                                                        <i class="fa fa-fw fa-trash" title ="Eliminar"></i>
+                                                    </button>
                                                 </form>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    @empty
+                                        <tr>
+                                            <td colspan="6">No hay datos</td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
@@ -71,3 +84,5 @@
         </div>
     </div>
 @endsection
+
+

@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('whatsapp', 20)->nullable();
             $table->string('telegram', 20)->nullable();
             $table->string('correo', 50)->nullable();
-            $table->enum('tipo',[1,2,3])->default(1)->comment('1:Socio, 2:Técnico, 3:Revendedor');     //Tipo de Persona
+            $table->enum('tipo',['Socio','Técnico','Revendedor'])->default('Socio')->comment('Socio, Técnico, Revendedor');     //Tipo de Persona
             $table->timestamps();
 
         });

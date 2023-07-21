@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
-@section('template_title')
-    {{ __('Update') }} Persona
+@section('content_header')
+    <h4>Editar Persona</h4>
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Persona</span>
+                        <span class="card-title">{{ __('Editar') }} Persona</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('personas.update', $persona->id) }}"  role="form" enctype="multipart/form-data">

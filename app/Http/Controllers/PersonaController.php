@@ -16,6 +16,12 @@ class PersonaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function tipo($tipo)
+    {
+        $personas = Persona::where('tipo',$tipo)->orderBY('tipo')->paginate();
+
+        return view('persona.index', compact('personas'));
+    }
     public function index()
     {
         $personas = Persona::orderBY('tipo')->paginate();
@@ -43,12 +49,24 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Persona::$rules);
-
+        //$persona = $request;
+        $request->validate(Persona::$rules);
         $persona = Persona::create($request->all());
 
+        /* $persona = Persona::create([
+            'nombre' => $request->nombre,
+            'cedula' => $request->cedula,
+            'direccion' => $request->direccion,
+            'telef1' => $request->telef1,
+            'telef2' => $request->telef2,
+            'whatsapp' => $request->whatsapp,
+            'telegram' => $request->telegram,
+            'correo' => $request->correo,
+            'tipo' => $request->tipo
+        ]); */
+
         return redirect()->route('personas.index')
-            ->with('success', 'El registro fue creado exitosamente.');
+            ->with('success', 'Creado exitosamente.');
     }
 
     /**
@@ -57,11 +75,12 @@ class PersonaController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $persona = Persona::find($id);
 
-        return view('persona.show', compact('persona'));
+    public function show($tipo)
+    {
+        $personas = Persona::where('tipo',$tipo)->orderBY('tipo')->paginate();
+
+        return view('persona.index', compact('personas'));
     }
 
     /**
@@ -72,7 +91,7 @@ class PersonaController extends Controller
      */
     public function edit($id)
     {
-        $persona = Persona::find($id);
+        $persona = Persona::where('id',$id)->firstOrFail();
 
         return view('persona.edit', compact('persona'));
     }
@@ -91,7 +110,7 @@ class PersonaController extends Controller
         $persona->update($request->all());
 
         return redirect()->route('personas.index')
-            ->with('success', 'Persona updated successfully');
+            ->with('success', 'Actualizado exitosamente.');
     }
 
     /**
@@ -104,6 +123,6 @@ class PersonaController extends Controller
         $persona = Persona::find($id)->delete();
 
         return redirect()->route('personas.index')
-            ->with('success', 'Persona deleted successfully');
+            ->with('success', 'Eliminado exitosamente');
     }
 }
