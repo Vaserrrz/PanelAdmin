@@ -369,13 +369,13 @@ return [
             'label' => '',
             'Label_color' => 'primary',
         ],
-        [
+        /* [
             'text' => 'Revendedores',
             'url'  => 'revendedores',
             'icon' => 'fas fa-fw fa-sitemap',
-        ],
+        ], */
         [
-            'text' => 'Administracion',
+            'text' => 'Administración',
             'url'  => 'administracion',
             'icon' => 'fas fa-fw  fa-book',
             'submenu' => [
@@ -394,7 +394,7 @@ return [
                     'url'  => '#',
                     'icon' => 'fas fa-fw fa-credit-card',
                 ],
-                [
+              /*   [
                     'text' => 'Socios',
                     'url'  => 'socios',
                     'icon' => 'fas fa-fx fa-address-card',
@@ -402,6 +402,11 @@ return [
                 [
                     'text' => 'Tecnicos',
                     'url'  => 'tecnicos',
+                    'icon' => 'fas fa-fx fa-male'
+                ], */
+                [
+                    'text' => 'Personas',
+                    'url'  => 'personas',
                     'icon' => 'fas fa-fx fa-male'
                 ],
             ],

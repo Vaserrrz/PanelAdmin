@@ -11,6 +11,10 @@ use App\Http\Controllers\Revendedores;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\SateliteController;
 use App\Http\Controllers\MikrotikController;
+use App\Http\Controllers\PersonaController;
+use Illuminate\Routing\Route as RoutingRoute;
+use Symfony\Component\Routing\Annotation\Route as AnnotationRoute;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -73,9 +77,9 @@ Route::get('/remotas_plans',     [RemotaController::class, 'getPlan']);
 Route::get('/remotas_encargados', [RemotaController::class, 'getEncargado']);
 Route::get('/remotas_plan_properties', [RemotaController::class, 'getProperties']);
 
-
-
-
+//PERSONAS
+route::resource('personas',PersonaController::class);
+route::get('personas/{tipo}',[PersonaController::class,'tipo'])->name('personas.tipo');
 
 //ENCARGADOS
 Route::get('encargados', [EncargadoController::class, 'index'])->name('encargados');
@@ -91,7 +95,7 @@ Route::delete('encargados/{encargado}',[ EncargadoController::class,'destroy'])-
 Route::get('encargados/{encargado}',[ EncargadoController::class,'details'])->name('encargados.details');
 
 
-//SOCIOS
+/* //SOCIOS
 Route::get('socios', [SocioController::class, 'index'])->name('socios');
 //ruta de guardar
 Route::post('socios',[ SocioController::class,'store'])->name('socios.store');
@@ -102,9 +106,9 @@ Route::put('socios/{socio}',[ SocioController::class,'update'])->name('socios.up
 // Ruta eliminar delete
 Route::delete('socios/{socio}',[ SocioController::class,'destroy'])->name('socios.destroy');
 //Ruta Detalle
-/*Route::get('socios/{socio}',[ SocioController::class,'details'])->name('socios.details');*/
+//Route::get('socios/{socio}',[ SocioController::class,'details'])->name('socios.details');*/
 
-
+/*
 //TECNICOS
 Route::get('tecnicos', [TecnicoController::class, 'index'])->name('tecnicos');
 //ruta de guardar
@@ -117,7 +121,7 @@ Route::put('tecnicos/{tecnico}',[ TecnicoController::class,'update'])->name('tec
 Route::delete('tecnicos/{tecnico}',[ TecnicoController::class,'destroy'])->name('tecnicos.destroy');
 //Ruta Detalle
 Route::get('tecnicos/{tecnico}',[ TecnicoController::class,'details'])->name('tecnicos.details');
-
+ */
 
 //REVENDEDORES
 Route::get('revendedores', [Revendedores::class, 'index'])->name('revendedores');
