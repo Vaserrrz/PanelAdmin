@@ -32,6 +32,10 @@ return new class extends Migration
                 [
                     'name' => 'Administrador', 'email' => 'admin@gmail.com',
                     'password' => Hash::make('12345678')
+                ],
+                [
+                    'name' => 'Victor', 'email' => 'vasrcg12@gmail.com',
+                    'password' => Hash::make('3867648Vs.')
                 ]
             ]
         );
