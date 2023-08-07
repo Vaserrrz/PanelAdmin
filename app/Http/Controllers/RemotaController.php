@@ -29,12 +29,12 @@ class RemotaController extends Controller
         $socios = Socio::all();
         $revendedores = Revendedor::all();
         $cliente = Cliente::all();
-
+        $proveedores = Proveedor::all();
 
         $clientes = Cliente::has('encargados')->with('encargados')->get();
         $encargados = Encargado::all();
 
-        $proveedores = Proveedor::whereHas('satelites.planes')->get();
+        // $proveedores = Proveedor::whereHas('satelites.planes')->get();
         // $proveedores = Proveedor::has('satelites')->has('planes')->get();
         // $satelites = Satelite::whereHas('planes')->get();
         // $planes = Plan::all();
