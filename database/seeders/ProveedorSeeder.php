@@ -16,14 +16,14 @@ class ProveedorSeeder extends Seeder
     public function run()
     {
         Proveedor::factory(25)->create();
-        Proveedor::factory()->create([
-            'CI_RIF' => '123456789',
-            'RAZON' => 'Alfonzomix',
-            'DIRECCION' => 'Casa de alfonzo ',
-            'CONTACTO' => '123456789',
-            'METODO_PAGO' => 'Efectivo',
-            'DETALLE_PAGO' => 'Efectivo',
-            'PROVEEDOR_CORREO'=> 'alfonzo@gmail.com'
-        ]);
+        // Proveedor::factory()->create([
+        //     'CI_RIF' => '123456789',
+        //     'RAZON' => 'Alfonzomix',
+        //     'DIRECCION' => 'Casa de alfonzo ',
+        //     'CONTACTO' => '123456789',
+        //     'METODO_PAGO' => 'Efectivo',
+        //     'DETALLE_PAGO' => 'Efectivo',
+        //     'correo'=> 'alfonzo@gmail.com'
+        // ]);
     }
 }

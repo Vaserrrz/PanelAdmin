@@ -17,16 +17,16 @@ class UserSeeder extends Seeder
     {
         User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Alfonzo',
-            'email' => 'alfonzo@gmail.com',
-            'password' => bcrypt('12345678')
-        ]);
-        User::factory()->create([
-            'name' => 'victor',
-            'email' => 'vasrcg12@gmail.com',
-            'password' => bcrypt('password')
-        ]);
+        // User::factory()->create([
+        //     'name' => 'Alfonzo',
+        //     'email' => 'alfonzo@gmail.com',
+        //     'password' => bcrypt('12345678')
+        // ]);
+        // User::factory()->create([
+        //     'name' => 'victor',
+        //     'email' => 'vasrcg12@gmail.com',
+        //     'password' => bcrypt('password')
+        // ]);
 
     }
 }
