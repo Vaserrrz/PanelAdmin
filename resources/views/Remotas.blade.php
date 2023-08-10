@@ -347,7 +347,7 @@
                                                             <select id="SELECT_PROVEEDOR_MA" name="SELECT_PROVEEDOR_MA" class="form-control">
                                                                 <option value="" value="">Seleccione un Proveedor...</option>
                                                                 @forelse($proveedores as $proveedor)
-                                                                    <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
+                                                                    <option value="{{$proveedor->id}}">{{$proveedor->razon}}</option>
                                                                 @empty
                                                                     No hay Satelites registrados
                                                                 @endforelse
@@ -757,9 +757,9 @@
                                                                                     <option value="">Seleccione un Proveedor...</option>
                                                                                     @forelse($proveedores as $proveedor)
                                                                                         @if ($remota->PROVEEDOR_ID == $proveedor->id)
-                                                                                            <option selected value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
+                                                                                            <option selected value="{{$proveedor->id}}">{{$proveedor->razon}}</option>
                                                                                         @else
-                                                                                            <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
+                                                                                            <option value="{{$proveedor->id}}">{{$proveedor->razon}}</option>
                                                                                         @endif
                                                                                     @empty
                                                                                         No hay proveedores registrados
@@ -1059,7 +1059,7 @@
                 planes.forEach(plan => {
                     const option = document.createElement('option')
                     option.value = plan.id;
-                    option.textContent = plan.PLAN_NOMBRE;
+                    option.textContent = plan.plan_NOMBRE;
                     select_plan.appendChild(option);
                 });
             });
@@ -1133,7 +1133,7 @@
         proveedorSelectMA.addEventListener('change', () => {
             const proveedorId = proveedorSelectMA.value;
 
-            fetch(`/remotas_satelites?proveedor_id=${proveedorId}`)
+            fetch(`/remotas_satelites?PROVEEDOR_ID=${proveedorId}`)
             .then(response => response.json())
             .then(satelites => {
 
@@ -1144,6 +1144,7 @@
                 // costo_plan.value = ''
                 // planUp.value = ''
                 // planDown.value = ''
+
                 // Si no se ha seleccionado un satélite, salir del listener
                 if (!proveedorId) {
                     return;
@@ -1178,7 +1179,7 @@
                 planes.forEach(plan => {
                     const option = document.createElement('option');
                     option.value = plan.id;
-                    option.text = plan.PLAN_NOMBRE;
+                    option.text = plan.plan_NOMBRE;
                     selectPlanMA.add(option);
                 });
             });

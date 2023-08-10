@@ -35,14 +35,14 @@ class RemotaController extends Controller
 
         $satelites = [];
         $planes = [];
-        $proveedores = Proveedor::whereHas('satelites.planes')->get();
+        $proveedores = Proveedor::Has('satelites')->with('satelites')->get();
         // $proveedores = Proveedor::has('satelites')->has('planes')->get();
         // $satelites = Satelite::whereHas('planes')->get();
         // $planes = Plan::all();
 
 
 
-        return view('Remotas.remotas', compact('remotas','planes','remotas','clientes','proveedores',
+        return view('Remotas', compact('remotas','planes','remotas','clientes','proveedores',
         'socios','revendedores','encargados','satelites'));
     }
     /**
