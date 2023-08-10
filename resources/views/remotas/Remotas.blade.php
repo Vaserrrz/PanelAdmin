@@ -795,7 +795,7 @@
                                                                                 <label for="PLANES">Planes</label>
                                                                                 <select id="SELECT_PLAN_ME" name="SELECT_PLAN" class="form-control select_plan">
                                                                                     <option> Seleccione un plan ... </option>
-                                                                                    @php $planes = App\Models\Plan::where('SATELITE_ID', $remota->SATELITE_ID)->get();@endphp
+                                                                                    @php $planes = App\Models\Plan::where('satelite_ide', $remota->SATELITE_ID)->get();@endphp
                                                                                     @forelse($planes as $plan)
                                                                                         @if ($remota->PLAN_ID == $plan->id)
                                                                                             <option selected value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>

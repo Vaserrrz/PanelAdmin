@@ -18,10 +18,10 @@ class SocioFactory extends Factory
     {
         // campos SOCIO_NOMBRE	CI_SOCIO	TELF_SOCIO	SOCIO_CORREO	created_at
         return [
-            'SOCIO_NOMBRE' => $this->faker->name,
-            'CI_SOCIO' => $this->faker->randomNumber(9),
-            'TELF_SOCIO' => $this->faker->phoneNumber(),
-            'SOCIO_CORREO' => $this->faker->email(),
+            'nombre' => $this->faker->name,
+            'cedula' => $this->faker->randomNumber(9),
+            'telef' => $this->faker->phoneNumber(),
+            'correo' => $this->faker->email(),
 
         ];
     }

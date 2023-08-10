@@ -27,7 +27,7 @@ class ProveedorFactory extends Factory
             'CONTACTO'          => $this->faker->phoneNumber,
             'METODO_PAGO'       => $this->faker->randomElement(['Efectivo', 'Transferencia', 'Cheque']),
             'DETALLE_PAGO'      => $this->faker->randomElement(['Efectivo', 'Transferencia', 'Cheque']),
-            'PROVEEDOR_CORREO'  => $this->faker->email,
+            'correo'  => $this->faker->email,
             'created_at'        => $this->faker->dateTimeBetween('-1 years', 'now'),
             'updated_at'        => $this->faker->dateTimeBetween('-1 years', 'now')
         ];

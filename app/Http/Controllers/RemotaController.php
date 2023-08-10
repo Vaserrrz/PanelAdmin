@@ -29,21 +29,20 @@ class RemotaController extends Controller
         $socios = Socio::all();
         $revendedores = Revendedor::all();
         $cliente = Cliente::all();
-
-
+        $proveedores = Proveedor::all();
         $clientes = Cliente::has('encargados')->with('encargados')->get();
         $encargados = Encargado::all();
 
-        $proveedores = Proveedor::whereHas('satelites.planes')->get();
+        $satelites = [];
+        $planes = [];
+        // $proveedores = Proveedor::whereHas('satelites.planes')->get();
         // $proveedores = Proveedor::has('satelites')->has('planes')->get();
         // $satelites = Satelite::whereHas('planes')->get();
         // $planes = Plan::all();
-        $satelites = [];
-        $planes = [];
 
 
 
-        return view('Remotas', compact('remotas','planes','remotas','clientes','proveedores',
+        return view('Remotas.remotas', compact('remotas','planes','remotas','clientes','proveedores',
         'socios','revendedores','encargados','satelites'));
     }
     /**
@@ -180,35 +179,7 @@ class RemotaController extends Controller
      */
     public function update(Request $request, Remota $remota)
     {
-        // $request->validate([
-        //     'REMOTA_NODO' => 'required',
-        //     'SELECT_CLIENTE_MA' => 'required',
-        //     'REMOTA_EQUIPO' => 'required',
-        //     // 'SELECT_ENCARGADO_MA' => 'required',
-        //     'REMOTA_SERIAL' => 'required',
-        //     'REMOTA_COORDENADA' => 'required',
-        //     'SELECT_SOCIO_MA' => 'required',
-        //     'REMOTA_BUC' => 'required',
-        //     'REMOTA_BUC_SERIAL' => 'required',
-        //     'REMOTA_LNB' => 'required',
-        //     'REMOTA_LNB_SERIAL' => 'required',
-        //     'REMOTA_DIA_ACTIVACION' => 'required',
-        //     'REMOTA_DIA_CORTE' => 'required',
-        //     'REMOTA_DETALLE' => 'required',
-        //     'REMOTA_STATUS' => 'required',
-        //     'REMOTA_IP_MODEM' => 'required',
-        //     'REMOTA_IP_GESTION' => 'required',
-        //     'REMOTA_PLATO' => 'required',
-        //     'REMOTA_BONDA' => 'required',
-        //     'SELECT_PROVEEDOR' => 'required',
-        //     'SELECT_SATELITE' => 'required',
-        //     'SELECT_PLAN' => 'required',
-        //     'SELECT_RESELLER' => 'required',
-        //     'REMOTA_PLANUP' => 'required',
-        //     'REMOTA_PLANDOWN' => 'required',
-        //     'REMOTA_COSTO_PLAN' => 'required',
-        //     'REMOTA_RENTA' => 'required'
-        // ]);
+
 
         $remota->REMOTA_NODO = $request->REMOTA_NODO;
         $remota->REMOTA_EQUIPO = $request->REMOTA_EQUIPO;
