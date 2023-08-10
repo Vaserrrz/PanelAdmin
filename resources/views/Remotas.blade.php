@@ -1197,10 +1197,10 @@
             fetch(`/remotas_plan_properties?PLAN_ID=${planId}`)
                 .then(response => response.json())
                 .then(properties => {
-                    renta_plan.value = properties[0].PLAN_PRECIO
-                    costo_plan.value = properties[0].PLAN_COSTO
-                    planUp.value = properties[0].PLAN_SUBIDA
-                    planDown.value = properties[0].PLAN_BAJADA
+                    renta_plan.value = properties[0].plan_PRECIO
+                    costo_plan.value = properties[0].plan_COSTO
+                    planUp.value = properties[0].plan_SUBIDA
+                    planDown.value = properties[0].plan_BAJADA
                 });
         });
 

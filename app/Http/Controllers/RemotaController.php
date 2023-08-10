@@ -102,10 +102,10 @@ class RemotaController extends Controller
         ]);
 
         $remota = new remota();
-        $remota->REMOTA_NODO = $request->REMOTA_NODO;
-        $remota->REMOTA_EQUIPO = $request->REMOTA_EQUIPO;
-        $remota->REMOTA_SERIAL = $request->REMOTA_SERIAL;
-        $remota->REMOTA_COORDENADA = $request->REMOTA_COORDENADA;
+        $remota->REMOTA_NODO = $request->REMOTA_NODO_MA;
+        $remota->REMOTA_EQUIPO = $request->REMOTA_EQUIPO_MA;
+        $remota->REMOTA_SERIAL = $request->REMOTA_SERIAL_MA;
+        $remota->REMOTA_COORDENADA = $request->REMOTA_COORDENADA_MA;
         $remota->REMOTA_BUC = $request->REMOTA_BUC;
         $remota->REMOTA_BUC_SERIAL = $request->REMOTA_BUC_SERIAL;
         $remota->REMOTA_LNB = $request->REMOTA_LNB;
@@ -114,21 +114,21 @@ class RemotaController extends Controller
         $remota->REMOTA_PLANUP = $request->REMOTA_PLANUP;
         $remota->REMOTA_COSTO_PLAN = $request->REMOTA_COSTO_PLAN;
         $remota->REMOTA_RENTA = $request->REMOTA_RENTA;
-        $remota->REMOTA_DIA_CORTE = $request->REMOTA_DIA_CORTE;
-        $remota->REMOTA_DIA_ACTIVACION = $request->REMOTA_DIA_ACTIVACION;
+        $remota->REMOTA_DIA_CORTE = $request->REMOTA_DIA_CORTE_MA;
+        $remota->REMOTA_DIA_ACTIVACION = $request->REMOTA_DIA_ACTIVACION_MA;
         $remota->REMOTA_DETALLE = $request->REMOTA_DETALLE;
         $remota->REMOTA_PLATO = $request->REMOTA_PLATO;
         $remota->REMOTA_IP_MODEM = $request->REMOTA_IP_MODEM;
         $remota->REMOTA_IP_GESTION = $request->REMOTA_IP_GESTION;
         $remota->REMOTA_STATUS = $request->REMOTA_STATUS== 'on'? 1:0;
         $remota->REMOTA_BONDA = $request->REMOTA_BONDA;
-        $remota->CLIENTE_ID = $request->SELECT_CLIENTE;
-        $remota->PLAN_ID = $request->SELECT_PLAN;
-        $remota->PROVEEDOR_ID = $request->SELECT_PROVEEDOR;
-        $remota->SOCIO_ID = $request->SELECT_SOCIO;
-        $remota->RESELLER_ID = $request->SELECT_RESELLER;
-        $remota->ENCARGADO_ID = $request->SELECT_ENCARGADO;
-        $remota->SATELITE_ID = $request->SELECT_SATELITE;
+        $remota->CLIENTE_ID = $request->SELECT_CLIENTE_MA;
+        $remota->PLAN_ID = $request->SELECT_PLAN_MA;
+        $remota->PROVEEDOR_ID = $request->SELECT_PROVEEDOR_MA;
+        $remota->SOCIO_ID = $request->SELECT_SOCIO_MA;
+        $remota->RESELLER_ID = $request->SELECT_RESELLER_MA;
+        $remota->ENCARGADO_ID = $request->SELECT_ENCARGADO_MA;
+        $remota->SATELITE_ID = $request->SELECT_SAT_MA;
         $remota->save();
 
         return redirect()->route('remotas', compact('remota'));
