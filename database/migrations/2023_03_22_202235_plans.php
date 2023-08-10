@@ -23,8 +23,8 @@ return new class extends Migration
             $table->integer('plan_PRECIO');
             $table->timestamps();
 
-            $table->unsignedBigInteger('satelite_ide');
-            $table->foreign('satelite_ide')
+            $table->unsignedBigInteger('SATELITE_ID');
+            $table->foreign('SATELITE_ID')
                 ->references('id')
                 ->on('satelites')
                 ->onDelete('cascade')
