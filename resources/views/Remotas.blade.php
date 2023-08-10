@@ -145,7 +145,7 @@
                                                             <select id="SELECT_SOCIO_MA" name="SELECT_SOCIO_MA" class="form-control select_socio">
                                                                 <option selected>Seleccione el Socio...</option>
                                                                 @forelse($socios as $socio)
-                                                                    <option value="{{$socio->id}}">{{$socio->SOCIO_NOMBRE}}</option>
+                                                                    <option value="{{$socio->id}}">{{$socio->nombre}}</option>
                                                                 @empty
                                                                 @endforelse
                                                             </select>
@@ -636,9 +636,9 @@
                                                                                     @forelse($socios as $socio)
 
                                                                                         @if ($remota->SOCIO_ID == $socio->id)
-                                                                                            <option value="{{$socio->id}}" selected>{{$socio->SOCIO_NOMBRE}}</option>
+                                                                                            <option value="{{$socio->id}}" selected>{{$socio->nombre}}</option>
                                                                                         @else
-                                                                                            <option value="{{$socio->id}}">{{$socio->SOCIO_NOMBRE}}</option>
+                                                                                            <option value="{{$socio->id}}">{{$socio->nombre}}</option>
                                                                                         @endif
 
                                                                                     @empty
@@ -798,9 +798,9 @@
                                                                                     @php $planes = App\Models\Plan::where('SATELITE_ID', $remota->SATELITE_ID)->get();@endphp
                                                                                     @forelse($planes as $plan)
                                                                                         @if ($remota->PLAN_ID == $plan->id)
-                                                                                            <option selected value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
+                                                                                            <option selected value="{{$plan->id}}">{{$plan->plan_NOMBRE}}</option>
                                                                                         @else
-                                                                                            <option value="{{$plan->id}}">{{$plan->PLAN_NOMBRE}}</option>
+                                                                                            <option value="{{$plan->id}}">{{$plan->plan_NOMBRE}}</option>
                                                                                         @endif
                                                                                     @empty
                                                                                     No hay hay satelites registrados
@@ -1089,16 +1089,16 @@
                 .then(properties => {
                     // console.log(properties);
                     renta_planesME.forEach(renta => {
-                        renta.value = properties[0].PLAN_PRECIO
+                        renta.value = properties[0].plan_PRECIO
                     });
                     costo_planesME.forEach(costo => {
-                        costo.value = properties[0].PLAN_COSTO
+                        costo.value = properties[0].plan_COSTO
                     });
                     planesUpME.forEach(up => {
-                        up.value = properties[0].PLAN_SUBIDA
+                        up.value = properties[0].plan_SUBIDA
                     });
                     planesDownME.forEach(down => {
-                        down.value = properties[0].PLAN_BAJADA
+                        down.value = properties[0].plan_BAJADA
                     });
                 });
             });

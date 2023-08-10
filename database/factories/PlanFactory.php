@@ -27,7 +27,6 @@ class PlanFactory extends Factory
             'PLAN_CONTENCION' => $this->faker->randomNumber(2),
             'PLAN_COSTO' => $this->faker->randomNumber(2),
             'PLAN_PRECIO' => $this->faker->randomNumber(2),
-            'PROVEEDOR_ID' => Proveedor::inRandomOrder()->first()->id,
             'SATELITE_ID' => Satelite::inRandomOrder()->first()->id,
             'RESELLER_ID' => Revendedor::inRandomOrder()->first()->id,
 

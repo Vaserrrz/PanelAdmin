@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
         // Encargados / encargados
         $this->call(EncargadoSeeder::class);
         // Remotas / remotas
-        $this->call(RemotaSeeder::class);
+        // $this->call(RemotaSeeder::class);
     }
 
 }

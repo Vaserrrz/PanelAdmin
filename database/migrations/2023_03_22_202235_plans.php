@@ -36,13 +36,6 @@ return new class extends Migration
                 ->on('revendedors')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-
-            $table->unsignedBigInteger('PROVEEDOR_ID');
-            $table->foreign('PROVEEDOR_ID')
-                ->references('id')
-                ->on('proveedors')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
         });
     }
 
