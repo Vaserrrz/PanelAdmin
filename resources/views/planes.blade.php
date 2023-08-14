@@ -215,7 +215,7 @@
 
 
                                                                     <div class="row">
-                                                                        {{-- PROVEEDOR --}}
+
 
                                                                         {{-- SATELITE --}}
                                                                         <div class="col col-md-6">
@@ -296,72 +296,72 @@
 
 @section('js')
     <script>
-        //CONSTANTES MODAL AGREGAR
-        const proveedorSelectMA = document.getElementById('SELECT_PROVEEDOR_MA');
-        const selectSatMA = document.getElementById('SELECT_SAT_MA');
+        // //CONSTANTES MODAL AGREGAR
+        // const proveedorSelectMA = document.getElementById('SELECT_PROVEEDOR_MA');
+        // const selectSatMA = document.getElementById('SELECT_SAT_MA');
 
-        //CONSTANTES MODAL EDITAR
-        const selectProveedoresME = document.querySelectorAll('.select_proveedor');
-        const selectSatelitesME = document.querySelectorAll('.select_satelite');
+        // //CONSTANTES MODAL EDITAR
+        // const selectProveedoresME = document.querySelectorAll('.select_proveedor');
+        // const selectSatelitesME = document.querySelectorAll('.select_satelite');
 
-        // console.log(SELECT_PROVEEDOR_MA);
-        // console.log(SELECT_SAT_MA);
-        // console.log(SELECT_PROVEEDOR_ME);
-        // console.log(SELECT_SAT_ME);
+        // // console.log(SELECT_PROVEEDOR_MA);
+        // // console.log(SELECT_SAT_MA);
+        // // console.log(SELECT_PROVEEDOR_ME);
+        // // console.log(SELECT_SAT_ME);
 
-        //MODAL AGREGAR
-        proveedorSelectMA.addEventListener('change', () => {
-            const proveedorId = proveedorSelectMA.value;
-            fetch(`/planes_satelites?PROVEEDOR_ID=${proveedorId}`)
-            .then(response => response.json())
-            .then(satelites => {
-                console.log(satelites)
+        // //MODAL AGREGAR
+        // proveedorSelectMA.addEventListener('change', () => {
+        //     const proveedorId = proveedorSelectMA.value;
+        //     fetch(`/planes_satelites?PROVEEDOR_ID=${proveedorId}`)
+        //     .then(response => response.json())
+        //     .then(satelites => {
+        //         console.log(satelites)
 
-                // Limpiar opciones anteriores
-                selectSatMA.innerHTML = '<option value="">Seleccione un Satelite</option>';
-                // Si no se ha seleccionado un satélite, salir del listener
-                if (!proveedorId) {
-                    return;
-                }
-                // Agregar nuevas opciones
-                satelites.forEach(sat => {
-                    const option = document.createElement('option');
-                    option.value = sat.id;
-                    option.text = sat.SAT_NOMBRE;
-                    selectSatMA.add(option);
-                });
-            });
-        });
+        //         // Limpiar opciones anteriores
+        //         selectSatMA.innerHTML = '<option value="">Seleccione un Satelite</option>';
+        //         // Si no se ha seleccionado un satélite, salir del listener
+        //         if (!proveedorId) {
+        //             return;
+        //         }
+        //         // Agregar nuevas opciones
+        //         satelites.forEach(sat => {
+        //             const option = document.createElement('option');
+        //             option.value = sat.id;
+        //             option.text = sat.SAT_NOMBRE;
+        //             selectSatMA.add(option);
+        //         });
+        //     });
+        // });
 
-        //MODAL EDITAR 123
-        selectProveedoresME.forEach(select_proveedor => {
-            select_proveedor.addEventListener('change', function() {
-                selectSatelitesME.forEach(select_satelite => {
-                    actualizarSatelites(select_proveedor,select_satelite)
-                });
-            });
-        });
-        function actualizarSatelites(select_proveedor,select_satelite) {
-            select_satelite.innerHTML = '<option value="">Seleccione un Satelite</option>';
+        // //MODAL EDITAR 123
+        // selectProveedoresME.forEach(select_proveedor => {
+        //     select_proveedor.addEventListener('change', function() {
+        //         selectSatelitesME.forEach(select_satelite => {
+        //             actualizarSatelites(select_proveedor,select_satelite)
+        //         });
+        //     });
+        // });
+        // function actualizarSatelites(select_proveedor,select_satelite) {
+        //     select_satelite.innerHTML = '<option value="">Seleccione un Satelite</option>';
 
-            select_satelite.disabled = false;
-            const proveedorIdME = select_proveedor.value
-            if (!proveedorIdME) {
-                return;
-            }
-            fetch(`/planes_satelites?PROVEEDOR_ID=${proveedorIdME}`)
-            .then(response => response.json())
-            .then(satelites => {
-                console.log(satelites)
-                select_satelite.disabled = false;
-                satelites.forEach(satelite => {
-                    const option = document.createElement('option')
-                    option.value = satelite.id;
-                    option.textContent = satelite.SAT_NOMBRE;
-                    select_satelite.appendChild(option);
-                });
-            });
-        }
+        //     select_satelite.disabled = false;
+        //     const proveedorIdME = select_proveedor.value
+        //     if (!proveedorIdME) {
+        //         return;
+        //     }
+        //     fetch(`/planes_satelites?PROVEEDOR_ID=${proveedorIdME}`)
+        //     .then(response => response.json())
+        //     .then(satelites => {
+        //         console.log(satelites)
+        //         select_satelite.disabled = false;
+        //         satelites.forEach(satelite => {
+        //             const option = document.createElement('option')
+        //             option.value = satelite.id;
+        //             option.textContent = satelite.SAT_NOMBRE;
+        //             select_satelite.appendChild(option);
+        //         });
+        //     });
+        // }
 
 
 

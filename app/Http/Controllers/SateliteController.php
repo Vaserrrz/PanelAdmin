@@ -17,9 +17,9 @@ class SateliteController extends Controller
     public function index(Proveedor $proveedor,Revendedor $revendedor)
     {
         $satelites = satelite::paginate();
-        $proveedor = Proveedor::all();
-        $revendedor = Revendedor::all();
-        return view('satelites', compact('revendedor','proveedor','satelites'));
+        $proveedores = Proveedor::all();
+        $revendedores = Revendedor::all();
+        return view('satelites', compact('revendedores','proveedores','satelites'));
     }
     /**
      * Show the form for creating a new resource.
