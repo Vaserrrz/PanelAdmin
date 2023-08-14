@@ -71,7 +71,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group">
+                                                {{-- <div class="form-group">
                                                     <label for="SATELITE">Proveedor</label>
                                                     <select id="SELECT_PROVEEDOR_MA" name="SELECT_PROVEEDOR" class="form-control">
                                                         <option selected>Escoga el Satelite...</option>
@@ -80,7 +80,7 @@
                                                         @empty
                                                         @endforelse
                                                     </select>
-                                                </div>
+                                                </div> --}}
 
                                                 <div class="form-group">
                                                     <label for="SATELITE">Satelite</label>
@@ -138,12 +138,12 @@
                                             <th scope="row">{{ $plan->id  }}</th>
 
                                             <td>
-                                                <a href="{{route('planes.details', $plan->id)}}"> {{ $plan->PLAN_NOMBRE }}</a>
+                                                <a href="{{route('planes.details', $plan->id)}}"> {{ $plan->plan_NOMBRE }}</a>
                                             </td>
-                                            <td>{{ $plan->PLAN_SUBIDA }}</td>
-                                            <td>{{ $plan->PLAN_BAJADA }}</td>
-                                            <td>{{ $plan->PLAN_CONTENCION }}</td>
-                                            <td>{{ $plan->PLAN_PRECIO   }}</td>
+                                            <td>{{ $plan->plan_SUBIDA }}</td>
+                                            <td>{{ $plan->plan_BAJADA }}</td>
+                                            <td>{{ $plan->plan_CONTENCION }}</td>
+                                            <td>{{ $plan->plan_PRECIO   }}</td>
                                             <td>
                                                 {{-- EDITAR  --}}
                                                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-editar-{{ $plan->id  }}">
@@ -170,21 +170,21 @@
                                                                         <div class="col col-md-4">
                                                                             <div class="form-group">
                                                                                 <label for="PLAN_NOMBRE">Nombre</label>
-                                                                                <input type="text" class="form-control" id="PLAN_NOMBRE" placeholder="Ingrese el Nombre del Plan" name="PLAN_NOMBRE" value="{{$plan->PLAN_NOMBRE}}">
+                                                                                <input type="text" class="form-control" id="PLAN_NOMBRE" placeholder="Ingrese el Nombre del Plan" name="PLAN_NOMBRE" value="{{$plan->plan_NOMBRE}}">
                                                                             </div>
                                                                         </div>
                                                                         {{-- SUBIDA --}}
                                                                         <div class="col col-md-4">
                                                                             <div class="form-group">
                                                                                 <label for="PLAN_SUBIDA">Subida</label>
-                                                                                <input type="text" class="form-control" id="PLAN_SUBIDA" placeholder="Ingrese la Subida del plan" name="PLAN_SUBIDA" value="{{$plan->PLAN_SUBIDA}}">
+                                                                                <input type="text" class="form-control" id="PLAN_SUBIDA" placeholder="Ingrese la Subida del plan" name="PLAN_SUBIDA" value="{{$plan->plan_SUBIDA}}">
                                                                             </div>
                                                                         </div>
                                                                         {{-- BAJADA --}}
                                                                         <div class="col col-md-4">
                                                                             <div class="form-group">
                                                                                 <label for="plan_TELF">Bajada</label>
-                                                                                <input type="text" class="form-control" id="PLAN_BAJADA" placeholder="Ingrese la Bajada del plan" name="PLAN_BAJADA" value="{{$plan->PLAN_BAJADA}}">
+                                                                                <input type="text" class="form-control" id="PLAN_BAJADA" placeholder="Ingrese la Bajada del plan" name="PLAN_BAJADA" value="{{$plan->plan_BAJADA}}">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -194,21 +194,21 @@
                                                                         <div class="col col-md-4">
                                                                             <div class="form-group">
                                                                                 <label for="plan_TELF2">Contencion</label>
-                                                                                <input type="text" class="form-control" id="PLAN_CONTENCION" placeholder="Ingrese el telefono secundario del plan" name="PLAN_CONTENCION" value="{{$plan->PLAN_CONTENCION}}">
+                                                                                <input type="text" class="form-control" id="PLAN_CONTENCION" placeholder="Ingrese el telefono secundario del plan" name="PLAN_CONTENCION" value="{{$plan->plan_CONTENCION}}">
                                                                             </div>
                                                                         </div>
                                                                         {{-- COSTO --}}
                                                                         <div class="col col-md-4">
                                                                             <div class="form-group">
                                                                                 <label for="PLAN_COSTO">Costo</label>
-                                                                                <input type="text" class="form-control" id="PLAN_COSTO" placeholder="Ingrese el Costo del plan" name="PLAN_COSTO" value="{{$plan->PLAN_COSTO}}">
+                                                                                <input type="text" class="form-control" id="PLAN_COSTO" placeholder="Ingrese el Costo del plan" name="PLAN_COSTO" value="{{$plan->plan_COSTO}}">
                                                                             </div>
                                                                         </div>
                                                                         {{-- PRECIO --}}
                                                                         <div class="col col-md-4">
                                                                             <div class="form-group">
                                                                                 <label for="PLAN_PRECIO">Precio</label>
-                                                                                <input type="text" class="form-control" id="PLAN_PRECIO" placeholder="Ingrese EL Precio del Plan" name="PLAN_PRECIO" value="{{$plan->PLAN_PRECIO}}">
+                                                                                <input type="text" class="form-control" id="PLAN_PRECIO" placeholder="Ingrese EL Precio del Plan" name="PLAN_PRECIO" value="{{$plan->plan_PRECIO}}">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -216,38 +216,16 @@
 
                                                                     <div class="row">
                                                                         {{-- PROVEEDOR --}}
-                                                                        <div class="col col-md-4">
-                                                                            <div class="form-group">
-                                                                                <label for="PROVEEDOR">Proveedor</label>
-                                                                                <select id="SELECT_PROVEEDOR_ME" class="form-control select_proveedor">
-                                                                                    <option selected>Escoga el Proveedor...</option>
-                                                                                    @forelse($proveedores as $proveedor)
-                                                                                        @if ($plan->PROVEEDOR_ID == $proveedor->id)
-                                                                                            <option value="{{$proveedor->id}}" selected>{{$proveedor->RAZON}}</option>
-                                                                                        @else
-                                                                                            <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
-                                                                                        @endif
-                                                                                    @empty
-                                                                                    No hay proveedores registrados
-                                                                                    @endforelse
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>
+
                                                                         {{-- SATELITE --}}
-                                                                        <div class="col col-md-4">
+                                                                        <div class="col col-md-6">
                                                                             <div class="form-group">
                                                                                 <label for="SATELITES">Satelite</label>
                                                                                 <select id="SELECT_SAT_ME" name="SELECT_SATELITE" class="form-control select_satelite">
                                                                                     <option selected>Escoga el Satelite...</option>
-
-                                                                                    @php $satelites = App\Models\Satelite::where('PROVEEDOR_ID',$plan->PROVEEDOR_ID)->get();@endphp
-
+                                                                                    {{-- @php $satelites = App\Models\Satelite::where('PROVEEDOR_ID',$plan->PROVEEDOR_ID)->get();@endphp --}}
                                                                                     @forelse($satelites as $satelite)
-                                                                                        @if ($plan->SATELITE_ID == $satelite->id)
-                                                                                            <option selected value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
-                                                                                        @else
-                                                                                            <option value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
-                                                                                        @endif
+                                                                                    <option selected value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
                                                                                     @empty
                                                                                         No hay hay satelites registrados
                                                                                     @endforelse
@@ -255,7 +233,7 @@
                                                                             </div>
                                                                         </div>
                                                                         {{-- REVENDEDOR --}}
-                                                                        <div class="col col-md-4">
+                                                                        <div class="col col-md-6">
                                                                             <div class="form-group">
                                                                                 <label for="REVENDEDOR">Revendedor</label>
                                                                                 <select id="SELECT_REVENDEDOR" class="form-control">

@@ -89,7 +89,7 @@
                                                 <select id="SELECT_PROVEEDOR" name="SELECT_PROVEEDOR" class="form-control">
                                                     <option selected>Escoga el Proveedor...</option>
                                                     @forelse($proveedor as $proveedor)
-                                                        <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
+                                                        <option value="{{$proveedor->id}}">{{$proveedor->razon}}</option>
                                                     @empty
                                                     @endforelse
                                                 </select>
@@ -150,24 +150,28 @@
                                             <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-editar-{{ $satelite->id }}">
                                                 Editar
                                             </button>
+
+
                                             {{-- modal editar --}}
                                             <div class="modal fade modal xl" id="modal-editar-{{ $satelite->id }}"        aria-hidden="true">
                                                 <div class="modal-dialog modal-xl">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Editar - satelite</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
+                                                            <h5 class="modal-title" id="exampleModalLabel">Editar - satelite</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
                                                         </div>
+
                                                         <div class="modal-body">
                                                             <form  action="{{route('satelites.update',$satelite->id)}}"  method="POST">
                                                                 @csrf
                                                                 @method('PUT')
-                                                                {{-- Nombre --}}
+
+                                                                {{-- NOMBRE --}}
                                                                 <div class="form-group">
-                                                                <label for="SAT_NOMBRE">Nombre</label>
-                                                                <input type="text" class="form-control" id="SAT_NOMBRE" placeholder="Ingrese el Nombre del satelite" name="SAT_NOMBRE" value="{{$satelite->SAT_NOMBRE}}">
+                                                                    <label for="SAT_NOMBRE">Nombre</label>
+                                                                    <input type="text" class="form-control" id="SAT_NOMBRE" placeholder="Ingrese el Nombre del satelite" name="SAT_NOMBRE" value="{{$satelite->SAT_NOMBRE}}">
                                                                 </div>
 
                                                                 {{-- DESCRIPCION --}}
