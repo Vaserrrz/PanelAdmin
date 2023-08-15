@@ -19,6 +19,11 @@
     </head>
 
     <body>
+        <style>
+            body {
+                background-color: brown;
+            }
+        </style>
         <div class="wrapper @if (!auth()->check() || request()->route()->getName() == "") wrapper-full-page @endif">
 
             @if (auth()->check() && request()->route()->getName() != "")
@@ -30,7 +35,6 @@
                 @yield('content')
             </div>
         </div>
-
     </body>
        {{--   Core JS Files   --}}
     <script src="{{ asset('light-bootstrap/js/core/jquery.3.2.1.min.js') }}" type="text/javascript"></script>

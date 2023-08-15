@@ -28,7 +28,6 @@ class RemotaController extends Controller
         $remotas = Remota::all();
         $socios = Socio::all();
         $revendedores = Revendedor::all();
-        $cliente = Cliente::all();
         // $proveedores = Proveedor::all();
         $clientes = Cliente::has('encargados')->with('encargados')->get();
         $encargados = Encargado::all();
@@ -40,7 +39,7 @@ class RemotaController extends Controller
         // $satelites = Satelite::whereHas('planes')->get();
         // $planes = Plan::all();
 
-
+        // return view('prueba');
 
         return view('Remotas', compact('remotas','planes','remotas','clientes','proveedores',
         'socios','revendedores','encargados','satelites'));
