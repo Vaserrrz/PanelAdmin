@@ -54,8 +54,8 @@
 
                                         {{--CLIENTE ID --}}
                                         <div class="form-group">
-                                            <label for="CLIENTE">Cliente ID</label>
-                                            <select id="SELECT_CLIENTE" name="SELECT_CLIENTE" class="form-control">
+                                            <label for="SELECT_CLIENTE_MA">Cliente ID</label>
+                                            <select id="SELECT_CLIENTE_MA" name="SELECT_CLIENTE_MA" class="form-control">
                                                 <option selected>Escoga el Cliente...</option>
                                                 @forelse($clientes as $cliente)
                                                     <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
@@ -135,6 +135,36 @@
                                                                 <label for="descripcion">Telefono</label>
                                                                 <input type="descripcion" class="form-control" id="ENCARGADO_TELF" placeholder="Ingrese el numero telefonico del encargado" name="ENCARGADO_TELF" value="{{ $encargado->ENCARGADO_TELF }}">
                                                             </div>
+
+                                                             {{-- CLIENTE ID  --}}
+                                                            {{-- <div class="form-group">
+                                                                <label for="SELECT_CLIENTE_ME">Cliente</label>
+                                                                <select id="SELECT_CLIENTE_ME" name="SELECT_CLIENTE_ME" class="form-control">
+                                                                    <option selected>Escoga el Cliente ...</option>
+                                                                    @forelse($clientes as $cliente)
+                                                                            <option selected value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
+                                                                    @empty
+                                                                    @endforelse
+                                                                </select>
+                                                            </div> --}}
+
+                                                            {{-- PROVEEDOR --}}
+                                                                <div class="form-group">
+                                                                    <label for="SELECT_CLIENTE_ME">Cliente</label>
+                                                                    <select id="SELECT_CLIENTE_ME" name="SELECT_CLIENTE_ME" class="form-control">
+                                                                        <option selected>Escoga el Cliente...</option>
+                                                                        @forelse($clientes as $cliente)
+                                                                            @if ($encargado->CLIENTE_ID == $cliente->id)
+                                                                                <option selected value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
+                                                                            @else
+                                                                                <option  value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
+                                                                            @endif
+                                                                        @empty
+                                                                        @endforelse
+                                                                    </select>
+                                                                </div>
+
+
 
 
 

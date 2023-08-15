@@ -56,7 +56,7 @@ class SateliteController extends Controller
         $satelite->SAT_FRECUENCIA = $request->SAT_FRECUENCIA;
         $satelite->SAT_BANDAS = $request->SAT_BANDAS;
         $satelite->RESELLER_ID = $request->SELECT_REVENDEDOR;
-        $satelite->PROVEEDOR_ID = $request->SELECT_PROVEEDOR;
+        $satelite->proveedor_id = $request->SELECT_PROVEEDOR;
         $satelite->save();
         return redirect()->route('satelites');
     }
@@ -105,7 +105,8 @@ class SateliteController extends Controller
             $satelite->SAT_LNB = $request->SAT_LNB;
             $satelite->SAT_FRECUENCIA = $request->SAT_FRECUENCIA;
             $satelite->SAT_BANDAS = $request->SAT_BANDAS;
-
+            $satelite->RESELLER_ID = $request->SELECT_RESELLER_ME;
+            $satelite->proveedor_id = $request->SELECT_PROVEEDOR_ME;
             $satelite->save();
 
             return redirect()->route('satelites');

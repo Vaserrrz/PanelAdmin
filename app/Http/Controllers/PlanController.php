@@ -57,26 +57,25 @@ class PlanController extends Controller
         $plan = new plan();
         $revendedor = Revendedor::all();
 
-        $request->validate([
-            'PLAN_NOMBRE' => 'required',
-            'PLAN_SUBIDA' => 'required',
-            'PLAN_BAJADA' => 'required',
-            'PLAN_CONTENCION' => 'required',
-            'PLAN_COSTO' => 'required',
-            'PLAN_PRECIO' => 'required',
-            'RESELLER_ID' => 'required',
-            'SATELITE_ID' => 'required',
-        ]);
+        // $request->validate([
+        //     'PLAN_NOMBRE' => 'required',
+        //     'PLAN_SUBIDA' => 'required',
+        //     'PLAN_BAJADA' => 'required',
+        //     'PLAN_CONTENCION' => 'required',
+        //     'PLAN_COSTO' => 'required',
+        //     'PLAN_PRECIO' => 'required',
+        //     'RESELLER_ID' => 'required',
+        //     'SATELITE_ID' => 'required',
+        // ]);
 
-        $plan->PLAN_NOMBRE = $request->PLAN_NOMBRE;
-        $plan->PLAN_SUBIDA = $request->PLAN_SUBIDA;
-        $plan->PLAN_BAJADA  = $request->PLAN_BAJADA ;
-        $plan->PLAN_CONTENCION = $request->PLAN_CONTENCION;
-        $plan->PLAN_COSTO = $request->PLAN_COSTO;
-        $plan->PLAN_PRECIO  = $request->PLAN_PRECIO;
-        $plan->PROVEEDOR_ID = $request->SELECT_PROVEEDOR;
-        $plan->RESELLER_ID = $request->SELECT_REVENDEDOR;
-        $plan->SATELITE_ID = $request->SELECT_SATELITE;
+        $plan->plan_NOMBRE = $request->PLAN_NOMBRE;
+        $plan->plan_SUBIDA = $request->PLAN_SUBIDA;
+        $plan->plan_BAJADA  = $request->PLAN_BAJADA ;
+        $plan->plan_CONTENCION = $request->PLAN_CONTENCION;
+        $plan->plan_COSTO = $request->PLAN_COSTO;
+        $plan->plan_PRECIO  = $request->PLAN_PRECIO;
+        $plan->RESELLER_ID = $request->SELECT_REVENDEDOR_MA;
+        $plan->SATELITE_ID = $request->SELECT_SATELITE_ME;
 
         $plan->save();
 
@@ -124,24 +123,26 @@ class PlanController extends Controller
      */
     public function update(Request $request, $id )
     {
-        $request->validate([
-            'PLAN_NOMBRE' => 'required',
-            'PLAN_SUBIDA' => 'required',
-            'PLAN_BAJADA' => 'required',
-            'PLAN_CONTENCION' => 'required',
-            'PLAN_COSTO' => 'required',
-            'PLAN_PRECIO' => 'required',
-            'RESELLER_ID' => 'required',
-            'SATELITE_ID' => 'required',
-        ]);
+        // $request->validate([
+        //     'PLAN_NOMBRE' => 'required',
+        //     'PLAN_SUBIDA' => 'required',
+        //     'PLAN_BAJADA' => 'required',
+        //     'PLAN_CONTENCION' => 'required',
+        //     'PLAN_COSTO' => 'required',
+        //     'PLAN_PRECIO' => 'required',
+        //     'RESELLER_ID' => 'required',
+        //     'SATELITE_ID' => 'required',
+        // ]);
 
         $plan = plan::find($id);
-        $plan->PLAN_NOMBRE = $request->PLAN_NOMBRE;
-        $plan->PLAN_SUBIDA = $request->PLAN_SUBIDA;
-        $plan->PLAN_BAJADA  = $request->PLAN_BAJADA ;
-        $plan->PLAN_CONTENCION = $request->PLAN_CONTENCION;
-        $plan->PLAN_COSTO = $request->PLAN_COSTO;
-        $plan->PLAN_PRECIO  = $request->PLAN_PRECIO;
+        $plan->plan_NOMBRE = $request->PLAN_NOMBRE;
+        $plan->plan_SUBIDA = $request->PLAN_SUBIDA;
+        $plan->plan_BAJADA  = $request->PLAN_BAJADA ;
+        $plan->plan_CONTENCION = $request->PLAN_CONTENCION;
+        $plan->plan_COSTO = $request->PLAN_COSTO;
+        $plan->plan_PRECIO  = $request->PLAN_PRECIO;
+        $plan->SATELITE_ID = $request->SELECT_SATELITE_ME;
+        $plan->RESELLER_ID = $request->SELECT_REVENDEDOR_ME;
         $plan->save();
         return redirect()->route('planes');
     }

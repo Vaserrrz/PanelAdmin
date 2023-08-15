@@ -97,15 +97,16 @@ class EncargadoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'ENCARGADO_NOMBRE' => 'required',
-            'ENCARGADO_TELF' => 'required',
-        ]);
+        // $request->validate([
+        //     'ENCARGADO_NOMBRE' => 'required',
+        //     'ENCARGADO_TELF' => 'required',
+        // ]);
 
         $encargado = encargado::find($id);
         $encargado->ENCARGADO_NOMBRE = $request->ENCARGADO_NOMBRE;
         $encargado->ENCARGADO_CORREO = $request->ENCARGADO_CORREO;
         $encargado->ENCARGADO_TELF = $request->ENCARGADO_TELF;
+        $encargado->CLIENTE_ID = $request->SELECT_CLIENTE_ME;
         $encargado->save();
         return redirect()->route('encargados');
     }

@@ -219,24 +219,33 @@
                                                                 {{-- PROVEEDOR --}}
                                                                 <div class="col col-md-12">
                                                                     <div class="form-group">
-                                                                        <label for="SELECT_PROVEEDOR">Proveedor</label>
-                                                                        <select id="SELECT_PROVEEDOR" class="form-control">
+                                                                        <label for="SELECT_PROVEEDOR_ME">Proveedor</label>
+                                                                        <select id="SELECT_PROVEEDOR_ME" name="SELECT_PROVEEDOR_ME" class="form-control">
                                                                             <option selected>Escoga el Proveedor...</option>
                                                                             @forelse($proveedores as $proveedor)
-                                                                                <option selected value="{{$proveedor->id}}">{{$proveedor->razon}}</option>
+                                                                                @if ($satelite->proveedor_id == $proveedor->id)
+                                                                                    <option selected value="{{$proveedor->id}}">{{$proveedor->razon}}</option>
+                                                                                @else
+                                                                                    <option  value="{{$proveedor->id}}">{{$proveedor->razon}}</option>
+                                                                                @endif
                                                                             @empty
                                                                             @endforelse
                                                                         </select>
                                                                     </div>
                                                                 </div>
 
+                                                                {{-- REVENDEDOR --}}
                                                                 <div class="col col-md-12">
                                                                     <div class="form-group">
-                                                                        <label for="REVENDEDOR">Revendedor</label>
-                                                                        <select id="SELECT_REVENDEDOR" class="form-control">
+                                                                        <label for="SELECT_RESELLER_ME">Revendedor</label>
+                                                                        <select id="SELECT_RESELLER_ME" name="SELECT_RESELLER_ME" class="form-control">
                                                                             <option selected>Escoga el Revendedor...</option>
                                                                             @forelse($revendedores as $revendedor)
-                                                                                <option selected value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                                                @if ($satelite->RESELLER_ID == $revendedor->id)
+                                                                                    <option selected value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                                                @else
+                                                                                    <option  value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                                                @endif
                                                                             @empty
                                                                             @endforelse
                                                                         </select>

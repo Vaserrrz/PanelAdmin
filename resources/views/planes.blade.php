@@ -94,8 +94,8 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="REVENDEDOR">Revendedor</label>
-                                                    <select id="SELECT_REVENDEDOR" name="SELECT_REVENDEDOR" class="form-control">
+                                                    <label for="SELECT_REVENDEDOR_MA">Revendedor</label>
+                                                    <select id="SELECT_REVENDEDOR_MA" name="SELECT_REVENDEDOR_MA" class="form-control">
                                                         <option selected>Escoga el Revendedor...</option>
                                                         @forelse($revendedores as $revendedor)
                                                             <option value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
@@ -215,31 +215,36 @@
 
 
                                                                     <div class="row">
-
-
                                                                         {{-- SATELITE --}}
                                                                         <div class="col col-md-6">
                                                                             <div class="form-group">
-                                                                                <label for="SATELITES">Satelite</label>
-                                                                                <select id="SELECT_SAT_ME" name="SELECT_SATELITE" class="form-control select_satelite">
+                                                                                <label for="SELECT_SATELITE_ME">Satelite</label>
+                                                                                <select id="SELECT_SATELITE_ME" name="SELECT_SATELITE_ME" class="form-control">
                                                                                     <option selected>Escoga el Satelite...</option>
-                                                                                    {{-- @php $satelites = App\Models\Satelite::where('PROVEEDOR_ID',$plan->PROVEEDOR_ID)->get();@endphp --}}
                                                                                     @forelse($satelites as $satelite)
-                                                                                    <option selected value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
+                                                                                        @if ($plan->SATELITE_ID == $satelite->id)
+                                                                                            <option selected value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
+                                                                                        @else
+                                                                                            <option  value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
+                                                                                        @endif
                                                                                     @empty
-                                                                                        No hay hay satelites registrados
                                                                                     @endforelse
                                                                                 </select>
                                                                             </div>
                                                                         </div>
+
                                                                         {{-- REVENDEDOR --}}
                                                                         <div class="col col-md-6">
                                                                             <div class="form-group">
-                                                                                <label for="REVENDEDOR">Revendedor</label>
-                                                                                <select id="SELECT_REVENDEDOR" class="form-control">
+                                                                                <label for="SELECT_REVENDEDOR_ME">Revendedor</label>
+                                                                                <select id="SELECT_REVENDEDOR_ME" name="SELECT_REVENDEDOR_ME" class="form-control">
                                                                                     <option selected>Escoga el Revendedor...</option>
                                                                                     @forelse($revendedores as $revendedor)
-                                                                                        <option selected value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                                                        @if ($plan->RESELLER_ID == $revendedor->id)
+                                                                                            <option selected value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                                                        @else
+                                                                                            <option  value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                                                        @endif
                                                                                     @empty
                                                                                     @endforelse
                                                                                 </select>
