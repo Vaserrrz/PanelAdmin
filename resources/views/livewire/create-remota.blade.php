@@ -1,29 +1,36 @@
 <div>
-    <button type="button" class="btn btn-danger float-right mr-4" wire:model="$set('open', true)"  data-toggle="ModalAgregar" data-target="ModalAgregar">
+    {{-- <button type="button" class="btn btn-danger float-right mr-4" wire:model="$set('open', true)"  data-toggle="ModalAgregar" data-target="ModalAgregar">
         Crear Remota
 
 
+    </button> --}}
+
+    <button  type="button" class="btn btn-success float-right mr-4" data-toggle="modal"  data-target="#ModalAgregar">
+        Crear Remota
     </button>
 
-    <div class="modal fade" id="ModalAgregar" tabindex="-1" role="dialog" aria-labelledby="ModalAgregar" aria-hidden="true" wire:model="open">
-        <div class="modal-dialog modal-xl modal-dialog-centered " role="document" >
+    <!-- MODAL AGREGAR -->
+    <div class="modal fade" id="ModalAgregar" tabindex="-1" aria-labelledby="ModalAgregar" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
+
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+                    <h5 class="modal-title" id="ModalAgregar">Agregar - Remota</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
                 <div class="modal-body">
-                    <form  action="{{ route('remotas.store') }}"  method="POST" lang="es" id="Form_MA">
+                    <form  action="{{ route('remotas.store') }}"  method="POST" lang="es">
                         @csrf
 
                         <div class="row">
                             <div class="col col-md-8">
                                 <div class="form-group">
-                                    <label for="REMOTA_NODO_MA">NODO</label>
-                                    <input type="text" value="{{old('REMOTA_NODO_MA')}}" class="form-control" id="REMOTA_NODO_MA" placeholder="Ingrese el Nodo de la Remota" name="REMOTA_NODO_MA">
-                                    @error('REMOTA_NODO_MA')
+                                    <label for="REMOTA_NODO">NODO</label>
+                                    <input type="text" value="{{old('REMOTA_NODO')}}" class="form-control" id="REMOTA_NODO" placeholder="Ingrese el Nodo de la Remota" name="REMOTA_NODO" required>
+                                    @error('REMOTA_NODO')
                                         <br>
                                             <small>
                                                 *{{$message}}
@@ -35,15 +42,17 @@
 
                             <div class="col col-md-4">
                                 <div class="form-group">
-                                    <label for="SELECT_CLIENTE_MA">Cliente</label>
-                                    <select id="SELECT_CLIENTE_MA" name="SELECT_CLIENTE_MA" class="form-control">
-                                        <option value="">Escoga el cliente...</option>
+                                    <label for="CLIENTE">Cliente</label>
+
+                                    <select id="SELECT_CLIENTE_MA" name="SELECT_CLIENTE_MA" class="form-control select_cliente" required>
+                                        <option selected>Escoga el cliente...</option>
                                         @forelse($clientes as $cliente)
                                             <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
                                         @empty
-                                            <option>No hay clientes registrados</option>
+                                            No hay hay clientes registrados
                                         @endforelse
                                     </select>
+
                                     @error('SELECT_CLIENTE_MA')
                                         <br>
                                             <small>
@@ -59,8 +68,8 @@
                             <div class="col col-md-8">
                                 <div class="form-group">
                                     <label for="REMOTA_EQUIPO">Equipo</label>
-                                    <input type="text" value="{{old('REMOTA_EQUIPO')}}" class="form-control" id="REMOTA_EQUIPO_MA" placeholder="Ingrese el Equipo de la Remota" name="REMOTA_EQUIPO_MA">
-                                    @error('REMOTA_EQUIPO_MA')
+                                    <input type="text" value="{{old('REMOTA_EQUIPO')}}" class="form-control" id="REMOTA_EQUIPO" placeholder="Ingrese el Equipo de la Remota" name="REMOTA_EQUIPO">
+                                    @error('REMOTA_EQUIPO')
                                         <br>
                                             <small>
                                                 *{{$message}}
@@ -73,15 +82,15 @@
 
                             <div class="col col-md-4">
                                 <div class="form-group">
-                                    <label for="SELECT_ENCARGADO_MA">Encargado</label>
-                                    <select id="SELECT_ENCARGADO_MA" name="SELECT_ENCARGADO_MA" class="form-control select_encargado">
+                                    <label for="ENCARGADO">Encargado</label>
+                                    <select id="SELECT_ENCARGADO_MA" name="SELECT_ENCARGADO" class="form-control select_encargado">
                                         <option selected>Seleccione un Encargado...</option>
                                         @forelse($encargados as $encargado)
                                             <option value="{{$encargado->id}}">{{$encargado->ENCARGADO_NOMBRE}}</option>
                                         @empty
                                         @endforelse
                                     </select>
-                                    @error('SELECT_ENCARGADO_MA')
+                                    @error('SELECT_ENCARGADO')
                                         <br>
                                             <small>
                                                 *{{$message}}
@@ -96,8 +105,8 @@
                             <div class="col col-md-4">
                                 <div class="form-group">
                                     <label for="descripcion">Serial</label>
-                                    <input type="text" value="{{old('REMOTA_SERIAL_MA')}}" class="form-control" id="REMOTA_SERIAL_MA" placeholder="Ingrese el Serial de la Remota" name="REMOTA_SERIAL_MA">
-                                    @error('REMOTA_SERIAL_MA')
+                                    <input type="text" value="{{old('REMOTA_SERIAL')}}" class="form-control" id="REMOTA_SERIAL" placeholder="Ingrese el Serial de la Remota" name="REMOTA_SERIAL">
+                                    @error('REMOTA_SERIAL')
                                         <br>
                                             <small>
                                                 *{{$message}}
@@ -110,9 +119,9 @@
 
                             <div class="col col-md-4">
                                 <div class="form-group">
-                                    <label for="REMOTA_COORDENADA_MA">Coordenadas</label>
-                                    <input type="text" value="{{old('REMOTA_COORDENADA_MA')}}" class="form-control" id="REMOTA_COORDENADA_MA" placeholder="Ingrese las Coordenadas de la Remota" name="REMOTA_COORDENADA">
-                                    @error('REMOTA_COORDENADA_MA')
+                                    <label for="REMOTA_COORDENADA">Coordenadas</label>
+                                    <input type="text" value="{{old('REMOTA_COORDENADA')}}" class="form-control" id="REMOTA_COORDENADA" placeholder="Ingrese las Coordenadas de la Remota" name="REMOTA_COORDENADA">
+                                    @error('REMOTA_COORDENADA')
                                         <br>
                                             <small>
                                                 *{{$message}}
@@ -124,11 +133,11 @@
 
                             <div class="col col-md-4">
                                 <div class="form-group">
-                                    <label for="SELECT_SOCIO_MA">Socio</label>
-                                    <select id="SELECT_SOCIO_MA" name="SELECT_SOCIO_MA" class="form-control select_socio">
+                                    <label for="SOCIO">Socio</label>
+                                    <select id="SELECT_SOCIO" name="SELECT_SOCIO_MA" class="form-control select_socio">
                                         <option selected>Seleccione el Socio...</option>
                                         @forelse($socios as $socio)
-                                            <option value="{{$socio->id}}">{{$socio->nombre}}</option>
+                                            <option value="{{$socio->id}}">{{$socio->SOCIO_NOMBRE}}</option>
                                         @empty
                                         @endforelse
                                     </select>
@@ -208,9 +217,9 @@
                         <div class="row">
                             <div class="col col-md-6">
                                 <div class="form-group">
-                                    <label for="REMOTA_DIA_ACTIVACION_MA">Dia Activacion</label>
-                                    <input type="date" value="{{old('REMOTA_DIA_ACTIVACION_MA')}}" class="form-control" id="REMOTA_DIA_ACTIVACION_MA" placeholder="Ingrese el Dia de Activacion de la Remota" name="REMOTA_DIA_ACTIVACION_MA">
-                                    @error('REMOTA_DIA_ACTIVACION_MA')
+                                    <label for="REMOTA_DIA_ACTIVACION">Dia Activacion</label>
+                                    <input type="date" value="{{old('REMOTA_DIA_ACTIVACION')}}" class="form-control" id="REMOTA_DIA_ACTIVACION" placeholder="Ingrese el Dia de Activacion de la Remota" name="REMOTA_DIA_ACTIVACION">
+                                    @error('REMOTA_DIA_ACTIVACION')
                                         <br>
                                             <small>
                                                 *{{$message}}
@@ -221,9 +230,9 @@
                             </div>
                             <div class="col col-md-6">
                                 <div class="form-group">
-                                    <label for="REMOTA_DIA_CORTE_MA">Dia de Corte</label>
-                                    <input type="date" value="{{old('REMOTA_DIA_CORTE_MA')}}" class="form-control" id="REMOTA_DIA_CORTE_MA" placeholder="Ingrese el dia de corte de la Remota" name="REMOTA_DIA_CORTE_MA">
-                                    @error('REMOTA_DIA_CORTE_MA')
+                                    <label for="REMOTA_DIA_CORTE">Dia de Corte</label>
+                                    <input type="date" value="{{old('REMOTA_DIA_CORTE')}}" class="form-control" id="REMOTA_DIA_CORTE" placeholder="Ingrese el dia de corte de la Remota" name="REMOTA_DIA_CORTE">
+                                    @error('REMOTA_DIA_CORTE')
                                         <br>
                                             <small>
                                                 *{{$message}}
@@ -326,20 +335,17 @@
                         <div class="row">
                             <div class="col col-md-4">
                                 <div class="form-group">
-                                    <label for="SELECT_PROVEEDOR_MA">Proveedores</label>
-                                    <select id="SELECT_PROVEEDOR_MA" name="SELECT_PROVEEDOR_MA" class="form-control">
-                                        <option value="" value="">Seleccione un Proveedor...</option>
+                                    <label for="PROVEEDOR">Proveedor</label>
+                                    <select id="SELECT_PROVEEDOR_MA" name="SELECT_PROVEEDOR" class="form-control">
+                                        <option value="">Seleccione un Proveedor...</option>
                                         @forelse($proveedores as $proveedor)
-                                            <option value="{{$proveedor->id}}">{{$proveedor->razon}}</option>
+                                            <option value="{{$proveedor->id}}">{{$proveedor->RAZON}}</option>
                                         @empty
                                             No hay Satelites registrados
                                         @endforelse
                                     </select>
-                                    @error('SELECT_PROVEEDOR_MA')
+                                    @error('SELECT_PROVEEDOR')
                                         <br>
-                                        <small>
-                                            *{{$message}}
-                                        </small>
                                             <small>
                                                 *{{$message}}
                                             </small>
@@ -351,11 +357,11 @@
                             {{-- SATELITES --}}
                             <div class="col col-md-4">
                                 <div class="form-group">
-                                    <label for="SELECT_SAT_MA">Satelites</label>
-                                    <select id="SELECT_SAT_MA" name="SELECT_SAT_MA" class="form-control" >
+                                    <label for="SATELITES">Satelites</label>
+                                    <select id="SELECT_SAT_MA" name="SELECT_SATELITE" class="form-control" >
                                         <option value="">Seleccione el Satelite...</option>
                                     </select>
-                                    @error('SELECT_SAT_MA')
+                                    @error('SELECT_SATELITE')
                                         <br>
                                             <small>
                                                 *{{$message}}
@@ -369,11 +375,11 @@
                             {{-- PLAN --}}
                             <div class="col col-md-4">
                                 <div class="form-group">
-                                    <label for="SELECT_PLAN_MA">Plan</label>
-                                    <select id="SELECT_PLAN_MA" name="SELECT_PLAN_MA" class="form-control">
+                                    <label for="PLAN">Plan</label>
+                                    <select id="SELECT_PLAN_MA" name="SELECT_PLAN" class="form-control">
                                         <option value="">Seleccione un plan . . . </option>
                                     </select>
-                                    @error('SELECT_PLAN_MA')
+                                    @error('SELECT_PLAN')
                                         <br>
                                             <small>
                                                 *{{$message}}
@@ -462,14 +468,12 @@
                             </div>
                         </div>
 
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
 
                     </form>
-
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" id="BOTON_GUARDAR_MA" class="btn btn-primary">Guardar</button>
                 </div>
             </div>
         </div>
