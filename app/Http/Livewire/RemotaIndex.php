@@ -14,13 +14,15 @@ use Livewire\WithPagination;
 class RemotaIndex extends Component
 {
     public $search;
-
-    public $sort;
+    public $sort = "id";
+    public $direction = "desc";
 
     public function render()
     {
         $remotas = Remota::where('REMOTA_EQUIPO','LIKE', '%'.$this->search.'%')
-                         ->orwhere('REMOTA_SERIAL','LIKE', '%'.$this->search.'%')->get();
+                         ->orwhere('REMOTA_SERIAL','LIKE', '%'.$this->search.'%')
+                         ->orderBy($this->sort, $this->direction)
+                         ->get();
 
         $socios = Socio::all();
         $revendedores = Revendedor::all();
@@ -34,7 +36,20 @@ class RemotaIndex extends Component
         'socios','revendedores','encargados','satelites'));
     }
 
-    public function order(){
+    public function order($sort){
+
+        if ($this->sort == $sort) {
+            if ($this->direction == 'desc') {
+                $this->direction = 'asc';
+            } else {
+                $this->direction = 'desc';
+            }
+        } else {
+            $this->sort = $sort;
+            $this->direction = 'asc';
+        }
+
+
 
     }
 }

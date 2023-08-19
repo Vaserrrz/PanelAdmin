@@ -2,11 +2,12 @@
 
 @section('title', 'Remotas')
 @section('content_header')
-	<h1>Remotas Satelital</h1>
+
 @stop
 
 @section('content')
-  @livewire('remota-index')
+<div class="py-5">
+    @livewire('remota-index')
 @stop
 
 @section('css')
@@ -90,18 +91,18 @@
                     renta_planesME.forEach
                 });
                 //Limpiando Propiedades de Plan al cambio de Proveedor
-                // renta_planesME.forEach(renta => {
-                //     renta.value = ''
-                // });
-                // costo_planesME.forEach(costo => {
-                //     costo.value = ''
-                // });
-                // planesUpME.forEach(up => {
-                //     up.value = ''
-                // });
-                // planesDownME.forEach(down => {
-                //     down.value = ''
-                // });
+                renta_planesME.forEach(renta => {
+                    renta.value = ''
+                });
+                costo_planesME.forEach(costo => {
+                    costo.value = ''
+                });
+                planesUpME.forEach(up => {
+                    up.value = ''
+                });
+                planesDownME.forEach(down => {
+                    down.value = ''
+                });
             });
         });
         function actualizarSatelites(select_proveedor,select_satelite) {
@@ -244,12 +245,12 @@
             .then(satelites => {
 
                 // Limpiar opciones anteriores
-                // selectSatMA.innerHTML = '<option value="">Seleccione un Satelite</option>';
-                // selectPlanMA.innerHTML = '<option value="">Seleccione un Plan</option>';
-                // renta_plan.value = ''
-                // costo_plan.value = ''
-                // planUp.value = ''
-                // planDown.value = ''
+                selectSatMA.innerHTML = '<option value="">Seleccione un Satelite</option>';
+                selectPlanMA.innerHTML = '<option value="">Seleccione un Plan</option>';
+                renta_plan.value = ''
+                costo_plan.value = ''
+                planUp.value = ''
+                planDown.value = ''
 
                 // Si no se ha seleccionado un satélite, salir del listener
                 if (!proveedorId) {
