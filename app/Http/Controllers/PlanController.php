@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Plan;
 use App\Models\Proveedor;
-use App\Models\Revendedor;
+use App\Models\Persona;
 use App\Models\Satelite;
 
 class PlanController extends Controller
@@ -17,8 +17,8 @@ class PlanController extends Controller
      */
     public function index()
     {
-        $planes = plan::all();
-        $revendedores = Revendedor::all();
+        $planes = Plan::all();
+        $revendedores = Persona::all();
         $proveedor = Proveedor::all();
         $satelites = Satelite::all();
 
@@ -52,10 +52,12 @@ class PlanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Revendedor $revendedor)
+
+     // , Revendedor $revendedor
+    public function store(Request $request)
     {
         $plan = new plan();
-        $revendedor = Revendedor::all();
+        //$revendedor = Persona::all();
 
         // $request->validate([
         //     'PLAN_NOMBRE' => 'required',
@@ -74,19 +76,21 @@ class PlanController extends Controller
         $plan->plan_CONTENCION = $request->PLAN_CONTENCION;
         $plan->plan_COSTO = $request->PLAN_COSTO;
         $plan->plan_PRECIO  = $request->PLAN_PRECIO;
-        $plan->RESELLER_ID = $request->SELECT_REVENDEDOR_MA;
-        $plan->SATELITE_ID = $request->SELECT_SATELITE_ME;
+        $plan->RESELLER_ID = $request->SELECT_REVENDEDOR;
+        $plan->SATELITE_ID = $request->SELECT_SATELITE;
 
         $plan->save();
 
 
-        return redirect()->route('planes',compact('revendedor'));
+        return redirect()->route('planes');
     }
-    public function details(plan $plan, proveedor $proveedor, Revendedor $revendedor)
+    public function details(plan $plan, proveedor $proveedor, persona $revendedor)
     {
-        $proveedor = $proveedor::all();
+        $satelite = Satelite::where('id',$plan->SATELITE_ID)->first();
 
-        $revendedor = $revendedor::all();
+        $proveedor = Proveedor::select('razon as nombre')->where('id',$satelite->proveedor_id)->first();
+
+        $revendedor = Persona::select('nombre')->where('id',$plan->RESELLER_ID)->first();
 
         return view('details.planes', compact('plan','proveedor','revendedor'));
 

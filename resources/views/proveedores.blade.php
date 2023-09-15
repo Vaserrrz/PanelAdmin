@@ -84,7 +84,7 @@
                                                 {{-- CORREO --}}
                                                 <div class="form-group">
                                                 <label for="Correo">Correo</label>
-                                                <input type="email" class="form-control" id="PROVEEDOR_CORREO" placeholder="Ingrese el correo del proveedor" name="PROVEEDOR_CORREO">
+                                                <input type="email" class="form-control" id="CORREO" placeholder="Ingrese el correo del proveedor" name="CORREO">
                                                 </div>
 
                                                 {{-- CI/RIF --}}
@@ -116,7 +116,7 @@
 
                                 <thead>
                                     <tr>
-                                        <th scope="col">ID</th>
+
                                         <th scope="col">Razón Social</th>
                                         <th scope="col">Contacto</th>
 
@@ -129,16 +129,11 @@
                                     @forelse ($proveedores as $proveedor)
                                     <tr>
 
-                                        <th scope="row">{{ $proveedor->id  }}</th>
-                                            <td>
-                                                <a href="{{route('proveedores.details', $proveedor->id)}}">{{$proveedor->razon}}</a>
-                                            </td>
-                                            <td>{{ $proveedor->contacto}}</td>
-
-                                            <td>
-
-
-
+                                        <td>
+                                            <a href="{{route('proveedores.details', $proveedor->id)}}">{{$proveedor->razon}}</a>
+                                        </td>
+                                        <td>{{ $proveedor->contacto}}</td>
+                                        <td>
                                             {{-- Editar  --}}
                                             {{-- Buton editar  --}}
                                             <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modal-editar-{{ $proveedor->id  }}">
@@ -201,7 +196,7 @@
                                                                     {{-- CORREO --}}
                                                                 <div class="form-group">
                                                                     <label for="Correo">Correo</label>
-                                                                    <input type="email" class="form-control" id="PROVEEDOR_CORREO" placeholder="Ingrese el correo del proveedor" name="PROVEEDOR_CORREO" value="{{$proveedor->correo}}">
+                                                                    <input type="email" class="form-control" id="CORREO" placeholder="Ingrese el correo del proveedor" name="CORREO" value="{{$proveedor->correo}}">
                                                                 </div>
 
                                                                     {{-- CI/RIF --}}

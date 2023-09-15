@@ -6,7 +6,7 @@ use App\Models\Cliente;
 use App\Models\Encargado;
 use App\Models\Proveedor;
 use App\Models\Remota;
-use App\Models\Revendedor;
+use App\Models\Persona;
 use App\Models\Socio;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -24,8 +24,8 @@ class RemotaIndex extends Component
                          ->orderBy($this->sort, $this->direction)
                          ->get();
 
-        $socios = Socio::all();
-        $revendedores = Revendedor::all();
+        $socios = Persona::where('tipo','Socio')->get();
+        $revendedores = Persona::all();
         $clientes = Cliente::has('encargados')->with('encargados')->get();
         $encargados = Encargado::all();
         $satelites = [];

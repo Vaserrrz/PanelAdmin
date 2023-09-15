@@ -7,8 +7,8 @@ use App\Models\Remota;
 use App\Models\Plan;
 use App\Models\Cliente;
 use App\Models\Proveedor;
-use App\Models\Socio;
-use App\Models\Revendedor;
+//use App\Models\Socio;
+use App\Models\Persona;
 use App\Models\Encargado;
 use App\Models\Satelite;
 use Termwind\Components\Dd;
@@ -26,15 +26,15 @@ class RemotaController extends Controller
     public function index()
     {
         $remotas = Remota::all();
-        $socios = Socio::all();
-        $revendedores = Revendedor::all();
-        // $proveedores = Proveedor::all();
-        $clientes = Cliente::has('encargados')->with('encargados')->get();
+        $socios = Persona::where('tipo','Socio')->get();
+        $revendedores = Persona::all();
+        //$proveedores = Proveedor::all();
+        $clientes = Cliente::with('encargados')->get();
         $encargados = Encargado::all();
 
         $satelites = [];
         $planes = [];
-        $proveedores = Proveedor::Has('satelites')->with('satelites')->get();
+        $proveedores = Proveedor::with('satelites')->get();
         // $proveedores = Proveedor::has('satelites')->has('planes')->get();
         // $satelites = Satelite::whereHas('planes')->get();
         // $planes = Plan::all();
@@ -51,10 +51,10 @@ class RemotaController extends Controller
      */
     public function getSatelites(Request $request)
     {
-        $proveedor_id = $request->PROVEEDOR_ID;
+        $proveedor_id = $request->proveedor_id;
         $satelites = Satelite::has('planes')->get();
         $satelites = Satelite::whereHas('planes', function ($query) use($proveedor_id) {
-            $query->where('PROVEEDOR_ID', '=',$proveedor_id);
+            $query->where('proveedor_id', '=',$proveedor_id);
         })->get();
 
         return response()->json($satelites);
@@ -66,7 +66,7 @@ class RemotaController extends Controller
         return response()->json($Plan);
     }
     public function getEncargado(Request $request){
-        $encargado = Encargado::where('CLIENTE_ID', $request->CLIENTE_ID)->get();
+        $encargado = Encargado::where('cliente_id', $request->cliente_id)->get();
         return response()->json($encargado);
     }
     /**
@@ -229,4 +229,3 @@ class RemotaController extends Controller
     }
 
 }
-

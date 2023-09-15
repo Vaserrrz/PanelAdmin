@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', 'Encargados')
+@section('title', 'Personas')
 
 @section('content_header')
-    <h1>Encargado: {{$encargado->ENCARGADO_NOMBRE}} </h1>
-@stop
+    <h1>{{$persona->tipo}}: {{$persona->nombre}} </h1>
+@endsection
 
 @section('content')
 
@@ -12,7 +12,7 @@
     <div class="row">
 
         <div class="col col-md-12">
-            <a class="btn btn-primary" href="{{ route('encargados') }}"> {{ __('Volver') }}</a>
+            <a class="btn btn-primary" href="{{ route('personas') }}"> {{ __('Volver') }}</a>
             <div class="card">
                 <div class="card-header">
                     <h4><b>Datos Asociados</b> </h4>
@@ -29,11 +29,15 @@
                         <div class="co col-md-12">
                             <div class="form">
                                 <span class="block">Telefono: </span>
-                                <label>{{$encargado->ENCARGADO_TELF}} </label><br>
+                                <label>{{$persona->telef1}} </label><br>
                                 <span class="block">Correo: </span>
-                                <label>{{$encargado->ENCARGADO_CORREO}}</label><br>
-                                <span class="block">Cliente: </span>
-                                <label>{{$cliente->nombre}}</label>
+                                <label>{{$persona->correo}}</label><br>
+                                <span class="block">Dirección: </span>
+                                <label>{{$persona->direccion}}</label>
+                                @if ($persona->tipo == "Técnico")
+                                    <br><span class="block">Whatsapp: </span>
+                                    <label>{{$persona->whatsapp}}</label>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -44,11 +48,11 @@
 
 </div>
 
-@stop
+@endsection
 
 @section('css')
-@stop
+@endsection
 
 @section('js')
     {{-- <script> alert('Hi!'); </script> --}}
-@stop
+@endsection

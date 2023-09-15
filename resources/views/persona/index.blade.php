@@ -1,5 +1,9 @@
 @extends('adminlte::page')
 
+@section('title')
+    Persona
+@endsection
+
 @section('content_header')
     <h1>Personas</h1>
 @endsection
@@ -11,12 +15,19 @@
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-                             <div class="float-right">
-                                <a href="{{ route('personas.create') }}" class="btn btn-success btn-sm float-right"  data-placement="left" >
+
+                            <div class="co col-md-6 float-left">
+                                <a href="{{ route('personas.create') }}" class="btn btn-success btn-sm float-left"  data-placement="left" >
                                   {{ __('Agregar') }}
                                   {{-- class="btn btn-success" data-toggle="modal" data-target="#modal-agregar"> --}}
                                 </a>
-                              </div>
+                            </div>
+                            <div class="co col-md-6 float-right">
+                                <a href={{ route('admin.home') }} class="btn btn-primary btn-sm float-right"  data-placement="left" >
+                                    {{ __('Volver') }}
+                                    {{-- class="btn btn-success" data-toggle="modal" data-target="#modal-agregar"> --}}
+                                  </a>
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -38,29 +49,31 @@
 
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
-                                    <tr>
+                                    <tr align="center">
 										<th width="32%" >Nombre</th>
-										<th>Cedula</th>
-										<th>Telefono Principal</th>
-										<th width="25%" >Correo</th>
-										<th>Tipo</th>
 
-                                        <th width="10%"></th>
+										<th>Telefono Princ.</th>
+										<th width="30%" >Correo</th>
+										<th>Tipo</th>
+                                        <th width="18%" >Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @forelse ($personas as $persona)
                                         <tr>
 											<td>{{ $persona->nombre }}</td>
-											<td>{{ $persona->cedula }}</td>
-											<td>{{ $persona->telef1 }}</td>
+											<td align="center">{{ $persona->telef1 }}</td>
 											<td>{{ $persona->correo }}</td>
-											<td>{{ $persona->tipo }}</td>
+											<td align="center">{{ $persona->tipo }}</td>
 
-                                            <td>
+                                            <td align="center">
                                                 <form action="{{ route('personas.destroy',$persona->id) }}" method="POST">
                                                     {{-- <a class="btn btn-sm btn-primary " href="{{ route('personas.show',$persona->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a> --}}
                                                     <a class="btn btn-sm" href="{{ route('personas.edit',$persona->id) }}"><i class="fa fa-fw fa-edit" title="Editar"></i></a>
+                                                    @if ($persona->tipo == "Técnico")
+                                                        <a class="btn btn-sm" href="{{ route('personas.index') }}"><i class="fa fa-map-pin" title="Zona de trabajo"></i></a>
+                                                    @endif
+                                                    <a class="btn btn-sm" href="{{ route('personas.details',$persona->id) }}"><i class="fa fa-info" title="Detalles"></i></a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-sm">

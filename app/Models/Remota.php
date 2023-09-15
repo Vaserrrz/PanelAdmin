@@ -17,10 +17,6 @@ class Remota extends Model
         return $this->belongsTo('App\Models\Cliente');
     }
 
-    public function encargado(){
-        return $this->belongsTo('App\Models\Encargado');
-    }
-
     public function plan(){
         return $this->belongsTo('App\Models\Plan');
     }
@@ -30,7 +26,7 @@ class Remota extends Model
     }
 
     public function revendedor(){
-        return $this->belongsTo('App\Models\Revendedor');
+        return $this->belongsTo(Persona::class,'RESELLER_ID','id');
     }
 
     public function satelite(){
@@ -38,6 +34,6 @@ class Remota extends Model
     }
 
     public function socio(){
-        return $this->belongsTo('App\Models\Socio');
+        return $this->belongsTo(Persona::class,'SOCIO_ID','id');
     }
 }

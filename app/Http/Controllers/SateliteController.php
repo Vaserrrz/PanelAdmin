@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Proveedor;
 use App\Models\Revendedor;
 use App\Models\Satelite;
+use App\Persona;
 use Illuminate\Http\Request;
 
 class SateliteController extends Controller
@@ -18,7 +19,7 @@ class SateliteController extends Controller
     {
         $satelites = satelite::paginate();
         $proveedores = Proveedor::all();
-        $revendedores = Revendedor::all();
+        $revendedores = Persona::all();
         return view('satelites', compact('revendedores','proveedores','satelites'));
     }
     /**

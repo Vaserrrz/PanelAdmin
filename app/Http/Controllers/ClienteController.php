@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\Encargado;
 use Illuminate\Http\Request;
 
 class ClienteController extends Controller
@@ -60,7 +61,8 @@ class ClienteController extends Controller
     }
     public function details(Cliente $cliente)
     {
-        return view('details.clientes', compact('cliente'));
+        $encargados = Encargado::where('cliente_id',$cliente->id)->get();
+        return view('details.clientes', compact('cliente','encargados'));
 
     }
     /**

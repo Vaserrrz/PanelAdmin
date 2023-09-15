@@ -65,7 +65,7 @@ class PersonaController extends Controller
             'tipo' => $request->tipo
         ]); */
 
-        return redirect()->route('personas.index')
+        return redirect()->route('personas')
             ->with('success', 'Creado exitosamente.');
     }
 
@@ -75,13 +75,30 @@ class PersonaController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
+    public function details($id)
+    {
+        /* $satelite = Satelite::where('id',$plan->SATELITE_ID)->first();
 
-    public function show($tipo)
+        $proveedor = Proveedor::select('razon as nombre')->where('id',$satelite->proveedor_id)->first();
+
+        $revendedor = Persona::select('nombre')->where('id',$plan->RESELLER_ID)->first();
+ */
+        $persona = Persona::where('id',$id)->firstOrFail();
+        if ($persona->tipo == "Técnico"){
+           // $tecnico =
+            return view('persona.details', compact('persona'));
+        }else{
+            return view('persona.details', compact('persona'));
+        }
+
+
+    }
+   /*  public function show($tipo)
     {
         $personas = Persona::where('tipo',$tipo)->orderBY('tipo')->paginate();
 
         return view('persona.index', compact('personas'));
-    }
+    } */
 
     /**
      * Show the form for editing the specified resource.
@@ -109,7 +126,7 @@ class PersonaController extends Controller
 
         $persona->update($request->all());
 
-        return redirect()->route('personas.index')
+        return redirect()->route('personas')
             ->with('success', 'Actualizado exitosamente.');
     }
 
@@ -122,7 +139,7 @@ class PersonaController extends Controller
     {
         $persona = Persona::find($id)->delete();
 
-        return redirect()->route('personas.index')
+        return redirect()->route('personas')
             ->with('success', 'Eliminado exitosamente');
     }
 }

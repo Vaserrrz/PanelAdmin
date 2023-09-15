@@ -8,17 +8,27 @@
 
 @section('content')
 
-
-
 <div class="container">
     <div class="row">
         <div class="col col-md-12">
             <div class="card">
                 <div class="card-header">
                     <div class="card-body">
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-agregar">
+                        <div class="co col-md-6 float-left">
+                            <a data-toggle="modal" data-target="#modal-agregar" class="btn btn-success btn-sm float-left"  data-placement="left" >
+                              {{ __('Agregar') }}
+                              {{-- class="btn btn-success" data-toggle="modal" data-target="#modal-agregar"> --}}
+                            </a>
+                        </div>
+                        <div class="co col-md-6 float-right">
+                            <a href={{ route('admin.home') }} class="btn btn-primary btn-sm float-right"  data-placement="left" >
+                                {{ __('Volver') }}
+                                {{-- class="btn btn-success" data-toggle="modal" data-target="#modal-agregar"> --}}
+                              </a>
+                        </div>
+                       {{--  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-agregar">
                            Agregar
-                        </button>
+                        </button> --}}
 
                         <!-- Modal -->
                         <div class="modal fade" id="modal-agregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -106,7 +116,7 @@
                         <table class="table table-bordered">
                             <thead>
                               <tr>
-                                <th scope="col">ID</th>
+
                                 <th scope="col">Razón Social</th>
                                 <th scope="col">Dirección</th>
                                 <th scope="col">Teléfono</th>
@@ -118,8 +128,6 @@
                             <tbody>
                                 @forelse ($clientes as $cliente)
                                     <tr>
-                                        <th scope="row">{{ $cliente->id  }}</th>
-
                                         <td>
                                             <a href="{{route('clientes.details', $cliente->id)}}">
                                                 {{ $cliente->CLIENTE_RAZON }}
@@ -151,19 +159,19 @@
                                                             {{-- CI/RIF --}}
                                                             <div class="form-group">
                                                                 <label for="email">CI/RIF</label>
-                                                                <input type="text" class="form-control" id="CI/RIF" placeholder="Ingrese Cedula/RIF del cliente" name="CI_RIF" value="{{$cliente->CI_RIF}}">
+                                                                <input type="text" class="form-control" id="CI/RIF" placeholder="Cédula/RIF del cliente" name="CI_RIF" value="{{$cliente->CI_RIF}}">
                                                             </div>
 
                                                             {{-- RAZON --}}
                                                             <div class="form-group">
                                                               <label for="CLIENTE_RAZON">Razon</label>
-                                                              <input type="text" class="form-control" id="CLIENTE_RAZON" placeholder="Ingrese la razon social del cliente" name="CLIENTE_RAZON" value="{{$cliente->CLIENTE_RAZON}}">
+                                                              <input type="text" class="form-control" id="CLIENTE_RAZON" placeholder="Nombre de la Razón Social del cliente" name="CLIENTE_RAZON" value="{{$cliente->CLIENTE_RAZON}}">
                                                             </div>
 
                                                             {{-- DIRECCION --}}
                                                             <div class="form-group">
                                                                 <label for="CLIENTE_DIRECCION">Direccion</label>
-                                                                <input type="text" class="form-control" id="CLIENTE_DIRECCION" placeholder="Ingrese la direccion del cliente" name="CLIENTE_DIRECCION" value="{{$cliente->CLIENTE_DIRECCION}}">
+                                                                <input type="text" class="form-control" id="CLIENTE_DIRECCION" placeholder="Dirección del cliente" name="CLIENTE_DIRECCION" value="{{$cliente->CLIENTE_DIRECCION}}">
                                                             </div>
 
                                                               {{-- DETALLE --}}

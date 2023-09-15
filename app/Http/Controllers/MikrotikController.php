@@ -38,20 +38,20 @@ class MikrotikController extends Controller
     {
         $mikrotik = new mikrotik();
 
-        $mikrotik->MK_NOMBRE = $request->MK_NOMBRE;
-        $mikrotik->MK_IP = $request->MK_IP;
-        $mikrotik->MK_SERIAL  = $request->MK_SERIAL ;
-        $mikrotik->MK_IDENTITY = $request->MK_IDENTITY;
-        $mikrotik->MK_MODEL = $request->MK_MODEL;
-        $mikrotik->MK_VPNUSER  = $request->MK_VPNUSER;
-        $mikrotik->MK_VPNPASSWORD = $request->MK_VPNPASSWORD;
-        $mikrotik->MK_VPNSERVER = $request->MK_VPNSERVER;
-        $mikrotik->MK_ETHRCORTE1  = $request->MK_ETHRCORTE1 ;
-        $mikrotik->MK_ETHRCORTE2 = $request->MK_ETHRCORTE2;
-        $mikrotik->MK_USUARIO = $request->MK_USUARIO;
-        $mikrotik->MK_CLAVE  = $request->MK_CLAVE;
-        $mikrotik->MK_PUERTO = $request->MK_PUERTO;
-        $mikrotik->MK_PROTOCOLO  = $request->MK_PROTOCOLO;
+        $mikrotik->mk_nombre = $request->MK_NOMBRE;
+        $mikrotik->mk_ip = $request->MK_IP;
+        $mikrotik->mk_serial  = $request->MK_SERIAL ;
+        $mikrotik->mk_identify = $request->MK_IDENTITY;
+        $mikrotik->mk_model = $request->MK_MODEL;
+        $mikrotik->mk_vpn_user  = $request->MK_VPNUSER;
+        $mikrotik->mk_vpn_password = $request->MK_VPNPASSWORD;
+        $mikrotik->mk_vpn_server = $request->MK_VPNSERVER;
+        $mikrotik->mk_ethr_corte1  = $request->MK_ETHRCORTE1 ;
+        $mikrotik->mk_ethr_corte2 = $request->MK_ETHRCORTE2;
+        $mikrotik->mk_usuario = $request->MK_USUARIO;
+        $mikrotik->mk_clave  = $request->MK_CLAVE;
+        $mikrotik->mk_puerto = $request->MK_PUERTO;
+        $mikrotik->mk_protocolo  = $request->MK_PROTOCOLO;
 
         $mikrotik->save();
 
@@ -100,20 +100,20 @@ class MikrotikController extends Controller
     {
             $mikrotik = mikrotik::find($id);
 
-            $mikrotik->MK_NOMBRE = $request->MK_NOMBRE;
-            $mikrotik->MK_IP = $request->MK_IP;
-            $mikrotik->MK_SERIAL  = $request->MK_SERIAL ;
-            $mikrotik->MK_IDENTITY = $request->MK_IDENTITY;
-            $mikrotik->MK_MODEL = $request->MK_MODEL;
-            $mikrotik->MK_VPNUSER  = $request->MK_VPNUSER;
-            $mikrotik->MK_VPNPASSWORD = $request->MK_VPNPASSWORD;
-            $mikrotik->MK_VPNSERVER = $request->MK_VPNSERVER;
-            $mikrotik->MK_ETHRCORTE1  = $request->MK_ETHRCORTE1 ;
-            $mikrotik->MK_ETHRCORTE2 = $request->MK_ETHRCORTE2;
-            $mikrotik->MK_USUARIO = $request->MK_USUARIO;
-            $mikrotik->MK_CLAVE  = $request->MK_CLAVE;
-            $mikrotik->MK_PUERTO = $request->MK_PUERTO;
-            $mikrotik->MK_PROTOCOLO  = $request->MK_PROTOCOLO;
+            $mikrotik->mk_nombre = $request->MK_NOMBRE;
+            $mikrotik->mk_ip = $request->MK_IP;
+            $mikrotik->mk_serial  = $request->MK_SERIAL ;
+            $mikrotik->mk_identify = $request->MK_IDENTITY;
+            $mikrotik->mk_model = $request->MK_MODEL;
+            $mikrotik->mk_vpn_user  = $request->MK_VPNUSER;
+            $mikrotik->mk_vpn_password = $request->MK_VPNPASSWORD;
+            $mikrotik->mk_vpn_server = $request->MK_VPNSERVER;
+            $mikrotik->mk_ethr_corte1  = $request->MK_ETHRCORTE1 ;
+            $mikrotik->mk_ethr_corte2 = $request->MK_ETHRCORTE2;
+            $mikrotik->mk_usuario = $request->MK_USUARIO;
+            $mikrotik->mk_clave  = $request->MK_CLAVE;
+            $mikrotik->mk_puerto = $request->MK_PUERTO;
+            $mikrotik->mk_protocolo  = $request->MK_PROTOCOLO;
 
             $mikrotik->save();
             return redirect()->route('mikrotiks');

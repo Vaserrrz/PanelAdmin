@@ -62,7 +62,7 @@ Route::get('proveedores/{proveedor}',[ ProveedorController::class,'details'])->n
 //REMOTAS
 Route::get('remotas', [RemotaController::class, 'index'])->name('remotas');
 //ruta de guardar
-Route::post('remotas',[ RemotaController::class,'store'])->name('remotas.store');
+Route::post('remotas',[ RemotaController::class,'create'])->name('remotas.create');
 // ruta editar
 Route::get('remotas/{remota}/edit',[ RemotaController::class,'edit'])->name('remotas.edit');
 // ruta update
@@ -77,9 +77,14 @@ Route::get('/remotas_plans',     [RemotaController::class, 'getPlan']);
 Route::get('/remotas_encargados', [RemotaController::class, 'getEncargado']);
 Route::get('/remotas_plan_properties', [RemotaController::class, 'getProperties']);
 
-//PERSONAS
-route::resource('personas',PersonaController::class);
-route::get('personas/{tipo}',[PersonaController::class,'tipo'])->name('personas.tipo');
+// Rutas de PERSONAS
+Route::get('personas',[PersonaController::class, 'index'])->name('personas');                       // Principal
+Route::post('personas',[ PersonaController::class,'store'])->name('personas.store');                // Agregar
+Route::get('personas/{persona}/edit',[ PersonaController::class,'edit'])->name('personas.edit');    // Editar
+Route::post('personas/{persona}',[ PersonaController::class,'update'])->name('personas.update');    // Modificar
+Route::get('personas/{tipo}',[PersonaController::class,'tipo'])->name('personas.tipo');             // Segun el tipo de persona
+Route::get('personas/{persona}',[ PersonaController::class,'details'])->name('personas.details');   // Detalles
+Route::delete('personas/{tipo}',[ PersonaController::class,'destroy'])->name('personas.destroy');   // Eliminar
 
 //ENCARGADOS
 Route::get('encargados', [EncargadoController::class, 'index'])->name('encargados');
@@ -121,7 +126,7 @@ Route::put('tecnicos/{tecnico}',[ TecnicoController::class,'update'])->name('tec
 Route::delete('tecnicos/{tecnico}',[ TecnicoController::class,'destroy'])->name('tecnicos.destroy');
 //Ruta Detalle
 Route::get('tecnicos/{tecnico}',[ TecnicoController::class,'details'])->name('tecnicos.details');
- */
+
 
 //REVENDEDORES
 Route::get('revendedores', [Revendedores::class, 'index'])->name('revendedores');

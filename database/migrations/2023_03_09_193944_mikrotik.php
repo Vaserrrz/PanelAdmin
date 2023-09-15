@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('Mikrotiks', function(Blueprint $table){
             $table->id('id');
             $table->string('mk_nombre', 50);
-            $table->string('mk_ip', 100);
+            $table->string('mk_ip', 15);
             $table->string('mk_serial', 50);
             $table->string('mk_identify', 50);
             $table->string('mk_model', 50);
@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('mk_ethr_corte2', 50);
             $table->string('mk_usuario');
             $table->string('mk_clave', 50);
-            $table->string('mk_puerto', 50);
+            $table->string('mk_puerto', 10);
             $table->string('mk_protocolo', 50);
             /*$table->string('MK_IDREMOTASAT	', 50);*/
             $table->timestamps();

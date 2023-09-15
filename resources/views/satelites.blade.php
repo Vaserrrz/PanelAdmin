@@ -101,7 +101,7 @@
                                                 <select id="SELECT_REVENDEDOR" name="SELECT_REVENDEDOR" class="form-control">
                                                     <option selected>Escoga el Revendedor...</option>
                                                     @forelse($revendedores as $revendedor)
-                                                        <option value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                        <option value="{{$revendedor->id}}">{{$revendedor->nombre}}</option>
                                                     @empty
                                                     @endforelse
                                                 </select>
@@ -128,7 +128,6 @@
                         <table class="table table-bordered">
                             <thead>
                               <tr>
-                                <th scope="col">ID</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Azimut</th>
                                 <th scope="col">Elevacion</th>
@@ -139,7 +138,6 @@
                             <tbody>
                                 @forelse ($satelites as $satelite)
                                     <tr>
-                                        <th scope="row">{{ $satelite->id }}</th>
                                         <td>{{ $satelite->SAT_NOMBRE }}</td>
                                         <td>{{ $satelite->SAT_AZNUT }}</td>
                                         <td>{{ $satelite->SAT_ELEVACION }}</td>

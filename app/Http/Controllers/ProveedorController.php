@@ -48,7 +48,7 @@ class ProveedorController extends Controller
         $proveedor->CONTACTO  = $request->CONTACTO ;
         $proveedor->METODO_PAGO = $request->METODO_PAGO;
         $proveedor->DETALLE_PAGO = $request->DETALLE_PAGO;
-        $proveedor->PROVEEDOR_CORREO  = $request->PROVEEDOR_CORREO;
+        $proveedor->CORREO  = $request->CORREO;
 
 
         $proveedor->save();
@@ -107,7 +107,7 @@ class ProveedorController extends Controller
         $proveedor->CONTACTO  = $request->CONTACTO ;
         $proveedor->METODO_PAGO = $request->METODO_PAGO;
         $proveedor->DETALLE_PAGO = $request->DETALLE_PAGO;
-        $proveedor->PROVEEDOR_CORREO  = $request->PROVEEDOR_CORREO ;
+        $proveedor->CORREO  = $request->CORREO ;
         $proveedor->save();
         return redirect()->route('proveedores');
     }
