@@ -79,12 +79,13 @@ Route::get('/remotas_plan_properties', [RemotaController::class, 'getProperties'
 
 // Rutas de PERSONAS
 Route::get('personas',[PersonaController::class, 'index'])->name('personas');                       // Principal
+Route::get('personas/create',[ PersonaController::class,'create'])->name('personas.create');       // Crear
 Route::post('personas',[ PersonaController::class,'store'])->name('personas.store');                // Agregar
 Route::get('personas/{persona}/edit',[ PersonaController::class,'edit'])->name('personas.edit');    // Editar
-Route::post('personas/{persona}',[ PersonaController::class,'update'])->name('personas.update');    // Modificar
+Route::put('personas/{persona}',[ PersonaController::class,'update'])->name('personas.update');    // Modificar
 Route::get('personas/{tipo}',[PersonaController::class,'tipo'])->name('personas.tipo');             // Segun el tipo de persona
 Route::get('personas/{persona}',[ PersonaController::class,'details'])->name('personas.details');   // Detalles
-Route::delete('personas/{tipo}',[ PersonaController::class,'destroy'])->name('personas.destroy');   // Eliminar
+Route::delete('personas/{persona}',[ PersonaController::class,'destroy'])->name('personas.destroy');   // Eliminar
 
 //ENCARGADOS
 Route::get('encargados', [EncargadoController::class, 'index'])->name('encargados');

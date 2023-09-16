@@ -75,7 +75,7 @@ class PersonaController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function details($id)
+    public function details(Persona $persona)
     {
         /* $satelite = Satelite::where('id',$plan->SATELITE_ID)->first();
 
@@ -83,7 +83,7 @@ class PersonaController extends Controller
 
         $revendedor = Persona::select('nombre')->where('id',$plan->RESELLER_ID)->first();
  */
-        $persona = Persona::where('id',$id)->firstOrFail();
+       // $persona = Persona::where('id',$id)->firstOrFail();
         if ($persona->tipo == "Técnico"){
            // $tecnico =
             return view('persona.details', compact('persona'));

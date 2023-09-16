@@ -53,7 +53,7 @@
 										<th width="32%" >Nombre</th>
 
 										<th>Telefono Princ.</th>
-										<th width="30%" >Correo</th>
+										<th width="28%" >Correo</th>
 										<th>Tipo</th>
                                         <th width="18%" >Acciones</th>
                                     </tr>
@@ -71,7 +71,7 @@
                                                     {{-- <a class="btn btn-sm btn-primary " href="{{ route('personas.show',$persona->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a> --}}
                                                     <a class="btn btn-sm" href="{{ route('personas.edit',$persona->id) }}"><i class="fa fa-fw fa-edit" title="Editar"></i></a>
                                                     @if ($persona->tipo == "Técnico")
-                                                        <a class="btn btn-sm" href="{{ route('personas.index') }}"><i class="fa fa-map-pin" title="Zona de trabajo"></i></a>
+                                                        <a class="btn btn-sm" href="{{ route('personas') }}"><i class="fa fa-map-pin" title="Zona de trabajo"></i></a>
                                                     @endif
                                                     <a class="btn btn-sm" href="{{ route('personas.details',$persona->id) }}"><i class="fa fa-info" title="Detalles"></i></a>
                                                     @csrf
