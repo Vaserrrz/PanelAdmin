@@ -12,7 +12,7 @@
     <div class="row">
 
         <div class="col col-md-12">
-            <a class="btn btn-primary" href="{{ route('personas') }}"> {{ __('Volver') }}</a>
+            <a class="btn btn-primary" href="{{ route('personas.index') }}"> {{ __('Volver') }}</a>
             <div class="card">
                 <div class="card-header">
                     <h4><b>Datos Asociados</b> </h4>

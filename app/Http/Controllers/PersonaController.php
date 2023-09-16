@@ -49,7 +49,6 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        //$persona = $request;
         $request->validate(Persona::$rules);
         $persona = Persona::create($request->all());
 
@@ -65,8 +64,7 @@ class PersonaController extends Controller
             'tipo' => $request->tipo
         ]); */
 
-        return redirect()->route('personas')
-            ->with('success', 'Creado exitosamente.');
+        return redirect()->route('personas.index')->with('success', 'Creado exitosamente.');
     }
 
     /**
@@ -77,28 +75,22 @@ class PersonaController extends Controller
      */
     public function details(Persona $persona)
     {
-        /* $satelite = Satelite::where('id',$plan->SATELITE_ID)->first();
-
-        $proveedor = Proveedor::select('razon as nombre')->where('id',$satelite->proveedor_id)->first();
-
-        $revendedor = Persona::select('nombre')->where('id',$plan->RESELLER_ID)->first();
- */
-       // $persona = Persona::where('id',$id)->firstOrFail();
+        // $persona = Persona::where('id',$id)->firstOrFail();
         if ($persona->tipo == "Técnico"){
            // $tecnico =
-            return view('persona.details', compact('persona'));
+            return view('persona.details1', compact('persona'));
         }else{
             return view('persona.details', compact('persona'));
         }
 
 
     }
-   /*  public function show($tipo)
+    public function show($tipo)
     {
         $personas = Persona::where('tipo',$tipo)->orderBY('tipo')->paginate();
 
         return view('persona.index', compact('personas'));
-    } */
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -126,7 +118,7 @@ class PersonaController extends Controller
 
         $persona->update($request->all());
 
-        return redirect()->route('personas')
+        return redirect()->route('personas.index')
             ->with('success', 'Actualizado exitosamente.');
     }
 
@@ -139,7 +131,7 @@ class PersonaController extends Controller
     {
         $persona = Persona::find($id)->delete();
 
-        return redirect()->route('personas')
+        return redirect()->route('personas.index')
             ->with('success', 'Eliminado exitosamente');
     }
 }

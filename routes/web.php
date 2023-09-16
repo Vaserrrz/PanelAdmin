@@ -77,6 +77,7 @@ Route::get('/remotas_plans',     [RemotaController::class, 'getPlan']);
 Route::get('/remotas_encargados', [RemotaController::class, 'getEncargado']);
 Route::get('/remotas_plan_properties', [RemotaController::class, 'getProperties']);
 
+/*
 // Rutas de PERSONAS
 Route::get('personas',[PersonaController::class, 'index'])->name('personas');                       // Principal
 Route::get('personas/create',[ PersonaController::class,'create'])->name('personas.create');       // Crear
@@ -86,6 +87,12 @@ Route::put('personas/{persona}',[ PersonaController::class,'update'])->name('per
 Route::get('personas/{tipo}',[PersonaController::class,'tipo'])->name('personas.tipo');             // Segun el tipo de persona
 Route::get('personas/{persona}',[ PersonaController::class,'details'])->name('personas.details');   // Detalles
 Route::delete('personas/{persona}',[ PersonaController::class,'destroy'])->name('personas.destroy');   // Eliminar
+ */
+
+//PERSONAS
+Route::resource('personas',PersonaController::class);
+Route::get('personas/{tipo}',[PersonaController::class,'tipo'])->name('personas.tipo');
+Route::get('personas/{persona}',[ PersonaController::class,'details'])->name('personas.details');   // Detalles
 
 //ENCARGADOS
 Route::get('encargados', [EncargadoController::class, 'index'])->name('encargados');
