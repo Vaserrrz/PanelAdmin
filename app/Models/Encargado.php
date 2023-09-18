@@ -10,6 +10,10 @@ class Encargado extends Model
     use HasFactory;
 
     public function cliente(){
-        return $this->belongsTo(Cliente::class,'CLIENTE_ID');
+        return $this->belongsTo('App\Models\Cliente');
+    }
+
+    public function remotas(){
+        return $this->hasOne('App\Models\Remota');
     }
 }
