@@ -15,13 +15,15 @@ return new class extends Migration
     {
         Schema::create('Tecnicos', function(Blueprint $table){
             $table->id('id');
-            $table->string('nombre', 60);
-            $table->string('correo', 100);
-            $table->string('telef1', 20);
-            $table->string('telef2', 20);
+            $table->unsignedBigInteger('persona_id');
+            $table->foreign('persona_id')
+                ->references('id')
+                ->on('personas')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->string('zona_trabajo', 50);
-            $table->string('INCIDENCIA', 200);
-            $table->string('REEMPLAZO', 100);
+            $table->string('incidencia', 200);
+            $table->string('reemplazo', 100);
             $table->timestamps();
             $table->softDeletes();
         });

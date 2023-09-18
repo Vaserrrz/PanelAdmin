@@ -33,7 +33,7 @@ class Plan extends Model
 
 
     public function revendedores(){
-        return $this->belongsTo('App\Models\Revendedor');
+        return $this->belongsTo(Persona::class,'RESELLER_ID');
     }
 
     public function satelites(){

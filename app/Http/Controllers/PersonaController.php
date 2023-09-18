@@ -49,7 +49,6 @@ class PersonaController extends Controller
      */
     public function store(Request $request)
     {
-        //$persona = $request;
         $request->validate(Persona::$rules);
         $persona = Persona::create($request->all());
 
@@ -65,8 +64,7 @@ class PersonaController extends Controller
             'tipo' => $request->tipo
         ]); */
 
-        return redirect()->route('personas.index')
-            ->with('success', 'Creado exitosamente.');
+        return redirect()->route('personas.index')->with('success', 'Creado exitosamente.');
     }
 
     /**
@@ -75,7 +73,18 @@ class PersonaController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
+    public function details(Persona $persona)
+    {
+        // $persona = Persona::where('id',$id)->firstOrFail();
+        if ($persona->tipo == "Técnico"){
+           // $tecnico =
+            return view('persona.details1', compact('persona'));
+        }else{
+            return view('persona.details', compact('persona'));
+        }
 
+
+    }
     public function show($tipo)
     {
         $personas = Persona::where('tipo',$tipo)->orderBY('tipo')->paginate();

@@ -38,7 +38,7 @@ return new class extends Migration
             $table->unsignedBigInteger('RESELLER_ID')->nullable();
             $table->foreign('RESELLER_ID')
                 ->references('id')
-                ->on('revendedors')
+                ->on('personas')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });

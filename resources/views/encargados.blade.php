@@ -4,21 +4,30 @@
 
 @section('content_header')
     <h1>Encargados</h1>
-@stop
+@endsection
 
 @section('content')
-
-
-
 <div class="container">
     <div class="row">
         <div class="col col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-body">
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-agregar">
-                           Agregar
-                        </button>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+
+                        <div class="co col-md-6 float-left">
+                            <a data-toggle="modal" data-target="#modal-agregar" class="btn btn-success btn-sm float-left"  data-placement="left" >
+                              {{ __('Agregar') }}
+                              {{-- class="btn btn-success" data-toggle="modal" data-target="#modal-agregar"> --}}
+                            </a>
+                        </div>
+                        <div class="co col-md-6 float-right">
+                            <a href={{ route('admin.home') }} class="btn btn-primary btn-sm float-right"  data-placement="left" >
+                                {{ __('Volver') }}
+                                {{-- class="btn btn-success" data-toggle="modal" data-target="#modal-agregar"> --}}
+                              </a>
+                        </div>
+                    </div>
+                </div>
 
                         <!-- Modal -->
                         <div class="modal fade" id="modal-agregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -36,26 +45,26 @@
                                         {{-- Nombre --}}
                                         <div class="form-group">
                                           <label for="ENCARGADO_NOMBRE">Nombre</label>
-                                          <input type="text" class="form-control" id="ENCARGADO_NOMBRE" placeholder="Ingrese el nombre del encargado" name="ENCARGADO_NOMBRE">
+                                          <input type="text" class="form-control" id="ENCARGADO_NOMBRE" placeholder="Nombre del Encargado" name="ENCARGADO_NOMBRE">
                                         </div>
 
                                         {{-- Email --}}
                                         <div class="form-group">
                                             <label for="ENCARGADO_CORREO">Correo</label>
-                                            <input type="email" class="form-control" id="ENCARGADO_CORREO" placeholder="Ingrese el correo del encargado" name="ENCARGADO_CORREO">
+                                            <input type="email" class="form-control" id="ENCARGADO_CORREO" placeholder="Correo del Encargado" name="ENCARGADO_CORREO">
                                         </div>
 
                                         {{-- Descripcion --}}
                                         <div class="form-group">
                                             <label for="ENCARGADO_TELF">Telefono</label>
-                                            <input type="integer" class="form-control" id="ENCARGADO_TELF" placeholder="Ingrese el telefono del encargado" name="ENCARGADO_TELF">
+                                            <input type="integer" class="form-control" id="ENCARGADO_TELF" placeholder="Telefono del Encargado" name="ENCARGADO_TELF">
                                         </div>
 
 
                                         {{--CLIENTE ID --}}
                                         <div class="form-group">
-                                            <label for="SELECT_CLIENTE_MA">Cliente ID</label>
-                                            <select id="SELECT_CLIENTE_MA" name="SELECT_CLIENTE_MA" class="form-control">
+                                            <label for="SELECT_CLIENTE">Nombre del Cliente</label>
+                                            <select id="SELECT_CLIENTE" name="SELECT_CLIENTE" class="form-control">
                                                 <option selected>Escoga el Cliente...</option>
                                                 @forelse($clientes as $cliente)
                                                     <option value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
@@ -81,7 +90,7 @@
                         <table class="table table-bordered">
                             <thead>
                               <tr>
-                                <th scope="col">ID</th>
+
                                 <th scope="col">NOMBRE</th>
                                 <th scope="col">TELEFONO</th>
                                 <th scope="col">CORREO</th>
@@ -91,8 +100,6 @@
                             <tbody>
                                 @forelse ($encargados as $encargado)
                                     <tr>
-                                        <th scope="row">{{ $encargado->id }}</th>
-
                                         <td>
                                             <a href="{{route('encargados.details', $encargado->id)}}"> {{ $encargado->ENCARGADO_NOMBRE }}</a>
                                         </td>
@@ -137,22 +144,10 @@
                                                             </div>
 
                                                              {{-- CLIENTE ID  --}}
-                                                            {{-- <div class="form-group">
+                                                            <div class="form-group">
                                                                 <label for="SELECT_CLIENTE_ME">Cliente</label>
                                                                 <select id="SELECT_CLIENTE_ME" name="SELECT_CLIENTE_ME" class="form-control">
-                                                                    <option selected>Escoga el Cliente ...</option>
-                                                                    @forelse($clientes as $cliente)
-                                                                            <option selected value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
-                                                                    @empty
-                                                                    @endforelse
-                                                                </select>
-                                                            </div> --}}
-
-                                                            {{-- PROVEEDOR --}}
-                                                                <div class="form-group">
-                                                                    <label for="SELECT_CLIENTE_ME">Cliente</label>
-                                                                    <select id="SELECT_CLIENTE_ME" name="SELECT_CLIENTE_ME" class="form-control">
-                                                                        <option selected>Escoga el Cliente...</option>
+                                                                    <option selected>Escoga el Cliente...</option>
                                                                         @forelse($clientes as $cliente)
                                                                             @if ($encargado->CLIENTE_ID == $cliente->id)
                                                                                 <option selected value="{{$cliente->id}}">{{$cliente->CLIENTE_RAZON}}</option>
@@ -201,27 +196,16 @@
 
                             </tbody>
                         </table>
-                        <div class="card-footer">
-
-                        </div>
-                    </div>
-                </div>
             </div>
-
         </div>
-
     </div>
-
 </div>
 
-
-
-
-@stop
+@endsection
 
 @section('css')
-@stop
+@endsection
 
 @section('js')
     {{-- <script> alert('Hi!'); </script> --}}
-@stop
+@endsection

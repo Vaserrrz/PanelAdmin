@@ -9,13 +9,26 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col col-md-12">
+            <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="card-body">
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-agregar">
-                            Agregar
-                            </button>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+
+                            <div class="co col-md-6 float-left">
+                                <a data-toggle="modal" data-target="#modal-agregar" class="btn btn-success btn-sm float-left"  data-placement="left" >
+                                  {{ __('Agregar') }}
+                                  {{-- class="btn btn-success" data-toggle="modal" data-target="#modal-agregar"> --}}
+                                </a>
+                            </div>
+                            <div class="co col-md-6 float-right">
+                                <a href={{ route('admin.home') }} class="btn btn-primary btn-sm float-right"  data-placement="left" >
+                                    {{ __('Volver') }}
+                                    {{-- class="btn btn-success" data-toggle="modal" data-target="#modal-agregar"> --}}
+                                  </a>
+                            </div>
+                        </div>
+                    </div>
+
 
                             <!-- MODAL AGREGAR -->
                             <div class="modal fade" id="modal-agregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -84,7 +97,7 @@
 
                                                 <div class="form-group">
                                                     <label for="SATELITE">Satelite</label>
-                                                    <select id="SELECT_SAT_MA" name="SELECT_SATELITE" class="form-control">
+                                                    <select id="SELECT_SATELITE" name="SELECT_SATELITE" class="form-control">
                                                         <option selected>Escoga el Satelite...</option>
                                                         @forelse($satelites as $satelite)
                                                             <option value="{{$satelite->id}}">{{$satelite->SAT_NOMBRE}}</option>
@@ -94,11 +107,11 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label for="SELECT_REVENDEDOR_MA">Revendedor</label>
-                                                    <select id="SELECT_REVENDEDOR_MA" name="SELECT_REVENDEDOR_MA" class="form-control">
+                                                    <label for="REVENDEDOR">Revendedor</label>
+                                                    <select id="SELECT_REVENDEDOR" name="SELECT_REVENDEDOR" class="form-control">
                                                         <option selected>Escoga el Revendedor...</option>
                                                         @forelse($revendedores as $revendedor)
-                                                            <option value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                            <option value="{{$revendedor->id}}">{{$revendedor->nombre}}</option>
                                                         @empty
                                                         @endforelse
                                                     </select>
@@ -123,7 +136,6 @@
                             <table class="table table-bordered">
                                 <thead>
                                 <tr>
-                                    <th scope="col">ID</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Subida</th>
                                     <th scope="col">Bajada</th>
@@ -135,10 +147,8 @@
                                 <tbody>
                                     @forelse ($planes as $plan)
                                         <tr>
-                                            <th scope="row">{{ $plan->id  }}</th>
-
                                             <td>
-                                                <a href="{{route('planes.details', $plan->id)}}"> {{ $plan->plan_NOMBRE }}</a>
+                                                <a href="{{route('planes.details', $plan->id)}}"> {{ ucfirst($plan->plan_NOMBRE) }}</a>
                                             </td>
                                             <td>{{ $plan->plan_SUBIDA }}</td>
                                             <td>{{ $plan->plan_BAJADA }}</td>
@@ -241,9 +251,9 @@
                                                                                     <option selected>Escoga el Revendedor...</option>
                                                                                     @forelse($revendedores as $revendedor)
                                                                                         @if ($plan->RESELLER_ID == $revendedor->id)
-                                                                                            <option selected value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                                                            <option selected value="{{$revendedor->id}}">{{$revendedor->nombre}}</option>
                                                                                         @else
-                                                                                            <option  value="{{$revendedor->id}}">{{$revendedor->NOMBRE_RESELLER}}</option>
+                                                                                            <option  value="{{$revendedor->id}}">{{$revendedor->nombre}}</option>
                                                                                         @endif
                                                                                     @empty
                                                                                     @endforelse

@@ -2,7 +2,7 @@
 
 @section('title', 'Remotas')
 @section('content_header')
-
+    <h1>Remotas Satelital</h1>
 @stop
 
 @section('content')

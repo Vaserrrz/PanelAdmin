@@ -3,7 +3,7 @@
 @section('title', 'Tecnicos')
 
 @section('content_header')
-    <h1>Proveedores</h1>
+    <h1>Proveedor: {{$proveedor->razon}}</h1>
 @stop
 
 @section('content')
@@ -12,12 +12,10 @@
 
     <div class="row">
         <div class="col col-md-12">
+            <a class="btn btn-primary" href="{{ route('proveedores') }}"> {{ __('Volver') }}</a>
             <div class="card">
                 <div class="card-header">
-                    {{$proveedor->RAZON}}
-                </div>
-                <div class="card-body">
-                  <h5 class="card-title">Informacion Proveedor</h5>
+                    <h4><b>Información Adicional</b> </h4>
                 </div>
           </div>
        </div>
@@ -28,54 +26,20 @@
             <div class="card p-5">
                 <form>
                     <div class="row">
-                                    <div class="col col-md-6">
-                                        <div class="form-group">
-                                            <label for="exampleFormControlInput1">CI_RIF</label>
-                                            <input class="form-control" type="text" value="{{$proveedor->CI_RIF}}" readonly>
-                                          </div>
-                                    </div>
-
-
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="exampleFormControlInput1">Direccion</label>
-                                            <input class="form-control" type="text" value="{{$proveedor->DIRECCION}}" readonly>
-                                          </div>
-                                    </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col col-md-8">
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">Correo Electronico</label>
-                                <input class="form-control" type="TEXT" value="{{$proveedor->PROVEEDOR_CORREO}}" readonly>
-                            </div>
+                        <div class="form">
+                            <span class="block">Cédula o RIF: </span>
+                            <label>{{$proveedor->ci_rif}}</label><br>
+                            <span class="block">Dirección: </span>
+                            <label>{{$proveedor->direccion}}</label><br>
+                            <span class="block">Correo Electrónico: </span>
+                            <label>{{$proveedor->correo}}</label><br>
+                            <span class="block">Persona de Contacto: </span>
+                            <label>{{$proveedor->contacto}}</label><br>
+                            <span class="block">Metodo de Pago: </span>
+                            <label>{{$proveedor->metodo_pago}}</label><br>
+                            <span class="block">Detalle de Pago: </span>
+                            <label>{{$proveedor->detalle_pago}}</label>
                         </div>
-                        <div class="col col-md-4">
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">Contacto</label>
-                                <input class="form-control" type="text" value="{{$proveedor->CONTACTO}}" readonly>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-
-                        <div class="col col-md-6">
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">Detalle de Pago</label>
-                                <input class="form-control" type="text" value="{{$proveedor->DETALLE_PAGO}}" readonly>
-                            </div>
-                        </div>
-                        <div class="col col-md-6">
-                            <div class="form-group">
-                                <label for="exampleFormControlInput1">Metodo de Pago</label>
-                                <input class="form-control" type="text" value="{{$proveedor->METODO_PAGO}}" readonly>
-                            </div>
-                        </div>
-                    </div>
-
-
                 </form>
             </div>
         </div>

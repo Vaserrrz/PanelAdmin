@@ -81,12 +81,11 @@ class EncargadoController extends Controller
 
 
     }*/
-    public function details(Encargado $encargado, Cliente $cliente)
+    public function details(Encargado $encargado, Cliente  $cliente)
     {
-        $cliente = $cliente::all();
 
+        $cliente = Cliente::select('cliente_razon as nombre')->where('id',$encargado->cliente_id)->first();
         return view('details.encargados', compact('encargado','cliente'));
-
     }
     /**
      * Update the specified resource in storage.
@@ -97,10 +96,10 @@ class EncargadoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $request->validate([
-        //     'ENCARGADO_NOMBRE' => 'required',
-        //     'ENCARGADO_TELF' => 'required',
-        // ]);
+        $request->validate([
+            'ENCARGADO_NOMBRE' => 'required',
+            'ENCARGADO_TELF' => 'required',
+        ]);
 
         $encargado = encargado::find($id);
         $encargado->ENCARGADO_NOMBRE = $request->ENCARGADO_NOMBRE;
@@ -121,6 +120,3 @@ class EncargadoController extends Controller
         return redirect()->route('encargados');
     }
 }
-
-
-

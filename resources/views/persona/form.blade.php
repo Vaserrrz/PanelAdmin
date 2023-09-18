@@ -18,17 +18,17 @@
         </div>
         <div class="form-group">
             {{ Form::label('Telefono principal') }}
-            {{ Form::text('telef1', $persona->telef1, ['maxlength' => 15,'pattern' => '[0-9]*', 'class' => 'form-control' . ($errors->has('telef1') ? ' is-invalid' : ''), 'placeholder' => 'Telefono Movil']) }}
+            {{ Form::tel('telef1', $persona->telef1, ['maxlength' => 12,'pattern' => '[0-9]*', 'class' => 'form-control' . ($errors->has('telef1') ? ' is-invalid' : ''), 'placeholder' => 'Telefono Movil']) }}
             {!! $errors->first('telef1', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('Telefono Alternativo') }}
-            {{ Form::text('telef2', $persona->telef2, ['maxlength' => 15,'pattern' => '[0-9]*', 'class' => 'form-control' . ($errors->has('telef2') ? ' is-invalid' : ''), 'placeholder' => 'Telefono Alternativo']) }}
+            {{ Form::tel('telef2', $persona->telef2, ['maxlength' => 12,'pattern' => '[0-9]*', 'class' => 'form-control' . ($errors->has('telef2') ? ' is-invalid' : ''), 'placeholder' => 'Telefono Alternativo']) }}
             {{-- {!! $errors->first('telef2', '<div class="invalid-feedback">:message</div>') !!} --}}
         </div>
         <div class="form-group">
             {{ Form::label('whatsapp') }}
-            {{ Form::text('whatsapp', $persona->whatsapp, ['maxlength' => 15,'pattern' => '[0-9]*','class' => 'form-control' . ($errors->has('whatsapp') ? ' is-invalid' : ''), 'placeholder' => 'Telefono asociado a Whatsapp']) }}
+            {{ Form::text('whatsapp', $persona->whatsapp, ['maxlength' => 12,'pattern' => '[0-9]*','class' => 'form-control' . ($errors->has('whatsapp') ? ' is-invalid' : ''), 'placeholder' => 'Telefono asociado a Whatsapp']) }}
             {{-- {!! $errors->first('whatsapp', '<div class="invalid-feedback">:message</div>') !!} --}}
         </div>
         <div class="form-group">

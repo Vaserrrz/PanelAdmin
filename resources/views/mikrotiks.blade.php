@@ -15,11 +15,22 @@
         <div class="col col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-body">
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-agregar">
-                           Agregar
-                        </button>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
 
+                        <div class="co col-md-6 float-left">
+                            <a data-toggle="modal" data-target="#modal-agregar" class="btn btn-success btn-sm float-left"  data-placement="left" >
+                              {{ __('Agregar') }}
+                              {{-- class="btn btn-success" data-toggle="modal" data-target="#modal-agregar"> --}}
+                            </a>
+                        </div>
+                        <div class="co col-md-6 float-right">
+                            <a href={{ route('admin.home') }} class="btn btn-primary btn-sm float-right"  data-placement="left" >
+                                {{ __('Volver') }}
+                                {{-- class="btn btn-success" data-toggle="modal" data-target="#modal-agregar"> --}}
+                              </a>
+                        </div>
+                    </div>
+                </div>
                         <!-- Modal -->
                         <div class="modal fade" id="modal-agregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -37,85 +48,85 @@
                                         {{-- NOMBRE --}}
                                         <div class="form-group">
                                             <label for="MK_NOMBRE">Nombre</label>
-                                            <input type="text" class="form-control" id="MK_NOMBRE" placeholder="Ingrese el Nombre del mikrotik" name="MK_NOMBRE">
+                                            <input type="text" class="form-control" id="MK_NOMBRE" placeholder="Nombre del Mikrotik" name="MK_NOMBRE" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
                                         </div>
 
                                         {{-- IP --}}
                                         <div class="form-group">
                                             <label for="MK_IP">IP</label>
-                                            <input type="TEXT" class="form-control" id="MK_IP" placeholder="Ingrese el IP del mikrotik" name="MK_IP">
+                                            <input type="TEXT" class="form-control" id="MK_IP" placeholder="IP del Mikrotik" name="MK_IP">
                                         </div>
 
                                         {{-- mikrotik SERIAL --}}
                                         <div class="form-group">
                                           <label for="MK_SERIAL">Serial</label>
-                                          <input type="text" class="form-control" id="MK_SERIAL" placeholder="Ingrese el Serial del mikrotik" name="MK_SERIAL">
+                                          <input type="text" class="form-control" id="MK_SERIAL" placeholder="Serial del Mikrotik" name="MK_SERIAL" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
                                         </div>
 
                                         {{-- IDENTITY  --}}
                                         <div class="form-group">
                                             <label for="MK_IDENTITY">IDENTITY</label>
-                                            <input type="text" class="form-control" id="MK_IDENTITY" placeholder="Ingrese el IDENTITY del mikrotik" name="MK_IDENTITY">
+                                            <input type="text" class="form-control" id="MK_IDENTITY" placeholder="IDENTITY del Mikrotik" name="MK_IDENTITY">
                                           </div>
 
                                         {{-- MODEL --}}
                                         <div class="form-group">
                                             <label for="MK_MODEL">Modelo</label>
-                                            <input type="text" class="form-control" id="MK_MODEL" placeholder="Ingrese el Modelo del mikrotik" name="MK_MODEL">
+                                            <input type="text" class="form-control" id="MK_MODEL" placeholder="Modelo del Mikrotik" name="MK_MODEL" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
                                         </div>
 
                                         {{-- VPNUSER --}}
                                         <div class="form-group">
                                             <label for="MK_VPNUSER">Usuario(VPN)</label>
-                                            <input type="text" class="form-control" id="MK_VPNUSER" placeholder="Ingrese EL Usuario (VPN) del mikrotik" name="MK_VPNUSER">
+                                            <input type="text" class="form-control" id="MK_VPNUSER" placeholder="Usuario (VPN) del Mikrotik" name="MK_VPNUSER">
                                         </div>
 
                                         {{-- VPNPASSWORD --}}
                                         <div class="form-group">
                                             <label for="MK_VPNPASSWORD">Contraseña(VPN)</label>
-                                            <input type="password" class="form-control" id="MK_VPNPASSWORD" placeholder="Ingrese la Contraseña (VPN) del mikrotik" name="MK_VPNPASSWORD">
+                                            <input type="text" class="form-control" id="MK_VPNPASSWORD" placeholder="Contraseña (VPN) del Mikrotik" name="MK_VPNPASSWORD">
                                         </div>
 
                                         {{-- VPNSERVER --}}
                                         <div class="form-group">
                                             <label for="MK_VPNSERVER">Servidor(VPN)</label>
-                                            <input type="text" class="form-control" id="MK_VPNSERVER" placeholder="Ingrese El Servidor (VPN) del mikrotik" name="MK_VPNSERVER">
+                                            <input type="text" class="form-control" id="MK_VPNSERVER" placeholder="Servidor (VPN) del Mikrotik" name="MK_VPNSERVER">
                                         </div>
 
                                          {{-- ETHRCORTE1 --}}
                                          <div class="form-group">
                                             <label for="MK_ETHRCORTE1">ETHRCORTE1</label>
-                                            <input type="text" class="form-control" id="MK_ETHRCORTE1" placeholder="Ingrese el ETHRCORTE1 del mikrotik" name="MK_ETHRCORTE1">
+                                            <input type="text" class="form-control" id="MK_ETHRCORTE1" placeholder="ETHRCORTE1 del Mikrotik" name="MK_ETHRCORTE1">
                                         </div>
 
                                         {{-- ETHRCORTE2 --}}
                                         <div class="form-group">
                                             <label for="MK_ETHRCORTE2">ETHRCORTE2</label>
-                                            <input type="text" class="form-control" id="MK_ETHRCORTE2" placeholder="Ingrese el ETHRCORTE2 del mikrotik" name="MK_ETHRCORTE2">
+                                            <input type="text" class="form-control" id="MK_ETHRCORTE2" placeholder="ETHRCORTE2 del Mikrotik" name="MK_ETHRCORTE2">
                                         </div>
 
                                          {{-- USUARIO --}}
                                          <div class="form-group">
                                             <label for="MK_USUARIO">Usuario</label>
-                                            <input type="text" class="form-control" id="MK_USUARIO" placeholder="Ingrese un nombre de Usuario" name="MK_USUARIO">
+                                            <input type="text" class="form-control" id="MK_USUARIO" placeholder="Nombre de Usuario" name="MK_USUARIO">
                                         </div>
 
                                         {{-- CLAVE --}}
                                         <div class="form-group">
                                             <label for="MK_CLAVE">Clave</label>
-                                            <input type="password" class="form-control" id="MK_CLAVE" placeholder="Crear clave para el usuario" name="MK_CLAVE">
+                                            <input type="text" class="form-control" id="MK_CLAVE" placeholder="Clave para el Usuario" name="MK_CLAVE">
                                         </div>
 
                                          {{-- PUERTO --}}
                                          <div class="form-group">
                                             <label for="MK_PUERTO">Puerto</label>
-                                            <input type="TEXT" class="form-control" id="MK_PUERTO" placeholder="Ingrese el Puerto del mikrotik" name="MK_PUERTO">
+                                            <input type="text" class="form-control" id="MK_PUERTO" placeholder="Puerto del Mikrotik" name="MK_PUERTO">
                                         </div>
 
                                         {{-- PROTOCOLO --}}
                                         <div class="form-group">
                                             <label for="MK_PROTOCOLO">Protocolo</label>
-                                            <input type="TEXT" class="form-control" id="MK_PROTOCOLO" placeholder="Ingrese el Protocolo del mikrotik" name="MK_PROTOCOLO">
+                                            <input type="text" class="form-control" id="MK_PROTOCOLO" placeholder="Protocolo del Mikrotik" name="MK_PROTOCOLO" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
                                         </div>
 
                                         <div class="modal-footer">
@@ -131,7 +142,7 @@
                         <table class="table table-bordered">
                             <thead>
                               <tr>
-                                <th scope="col">ID</th>
+
                                 <th scope="col">Nombre</th>
                                 <th scope="col">IP</th>
                                 <th scope="col">IDENTITY</th>
@@ -142,15 +153,13 @@
                             <tbody>
                                 @forelse ($mikrotiks as $mikrotik)
                                     <tr>
-                                        <th scope="row">{{ $mikrotik->id  }}</th>
-
                                         <td>
-                                            <a href="{{route('mikrotiks.details', $mikrotik->id)}}"> {{ $mikrotik->MK_NOMBRE }}</a>
+                                            <a href="{{route('mikrotiks.details', $mikrotik->id)}}"> {{ $mikrotik->mk_nombre }}</a>
                                         </td>
 
-                                        <td>{{ $mikrotik->MK_IP }}</td>
-                                        <td>{{ $mikrotik->MK_SERIAL }}</td>
-                                        <td>{{ $mikrotik->MK_IDENTITY }}</td>
+                                        <td>{{ $mikrotik->mk_ip }}</td>
+                                        <td>{{ $mikrotik->mk_serial }}</td>
+                                        <td>{{ $mikrotik->mk_identify }}</td>
 
 
                                         <td>
@@ -179,13 +188,13 @@
                                                                 {{-- NOMBRE --}}
                                                                 <div class="form-group">
                                                                     <label for="MK_NOMBRE">Nombre</label>
-                                                                    <input type="text" class="form-control" id="MK_NOMBRE" placeholder="Ingrese el Nombre del mikrotik" name="MK_NOMBRE">
+                                                                    <input type="text" class="form-control" id="MK_NOMBRE" placeholder="Ingrese el Nombre del mikrotik" name="MK_NOMBRE" style="text-transform:uppercase;"  onkeyup="javascript:this.value=this.value.toUpperCase();">
                                                                 </div>
 
                                                                 {{-- IP --}}
                                                                 <div class="form-group">
                                                                     <label for="MK_IP">IP</label>
-                                                                    <input type="TEXT" class="form-control" id="MK_IP" placeholder="Ingrese el IP del mikrotik" name="MK_IP">
+                                                                    <input type="text" class="form-control" id="MK_IP" placeholder="Ingrese el IP del mikrotik" name="MK_IP">
                                                                 </div>
 
                                                                 {{-- mikrotik SERIAL --}}
