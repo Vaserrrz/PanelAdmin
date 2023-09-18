@@ -14,7 +14,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form  action="{{ route('remotas.store') }}"  method="POST" lang="es" id="Form_MA">
+                    <form  action="{{ route('remotas.create') }}"  method="POST" lang="es" id="Form_MA">
                         @csrf
 
                         <div class="row">
