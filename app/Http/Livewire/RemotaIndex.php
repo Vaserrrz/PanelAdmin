@@ -48,8 +48,5 @@ class RemotaIndex extends Component
             $this->sort = $sort;
             $this->direction = 'asc';
         }
-
-
-
     }
 }

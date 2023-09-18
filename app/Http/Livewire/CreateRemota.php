@@ -14,6 +14,7 @@ class CreateRemota extends Component
 {
 
     public $open = false;
+    public $title, $content;
     public function render()
     {
         $remotas = Remota::all();
@@ -29,4 +30,10 @@ class CreateRemota extends Component
         return view('livewire.create-remota', compact('remotas','planes','remotas','clientes','proveedores',
         'socios','revendedores','encargados','satelites'));
     }
+
+    public function abrirModal()
+    {
+        $this->open = true;
+    }
+
 }

@@ -311,28 +311,28 @@
                 });
         });
 
-    //Validacion ModalH
-    BtnGuardarMA.addEventListener('onclick', () => {
+        //Validacion ModalH
+        BtnGuardarMA.addEventListener('onclick', () => {
 
-    });
-        // ALERTA BOTON ELIMINAR
-        // function alerta_borrar(){
-        //         Swal.fire({
-        //             title: 'Esta seguro de eliminar esta Remota',
-        //             text: "No podra revertir este cambio",
-        //             icon: 'Advertencia',
-        //             showCancelButton: true,
-        //             confirmButtonColor: '#3085d6',
-        //             cancelButtonColor: '#d33',
-        //             confirmButtonText: 'Confirmar'
-        //         }).then((result) => {
-        //             if (result.isConfirmed) {
-        //             Swal.fire(
-        //             'Eliminada!',
-        //             'success'
-        //             )
-        //         }
-        //     })
-        // }
+        });
+            // ALERTA BOTON ELIMINAR
+            // function alerta_borrar(){
+            //         Swal.fire({
+            //             title: 'Esta seguro de eliminar esta Remota',
+            //             text: "No podra revertir este cambio",
+            //             icon: 'Advertencia',
+            //             showCancelButton: true,
+            //             confirmButtonColor: '#3085d6',
+            //             cancelButtonColor: '#d33',
+            //             confirmButtonText: 'Confirmar'
+            //         }).then((result) => {
+            //             if (result.isConfirmed) {
+            //             Swal.fire(
+            //             'Eliminada!',
+            //             'success'
+            //             )
+            //         }
+            //     })
+            // }
     </script>
 @stop
