@@ -16,11 +16,15 @@ class RemotaIndex extends Component
     public $search;
     public $sort = "id";
     public $direction = "desc";
+    /**
+     * Summary of render
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function render()
     {
 
-        $remotas = Remota::where('REMOTA_EQUIPO','LIKE', '%'.$this->search.'%')
-                         ->orwhere('REMOTA_SERIAL','LIKE', '%'.$this->search.'%')
+        $remotas = Remota::where('REMOTA_EQUIPO','like', '%'.$this->search.'%')
+                         ->orwhere('REMOTA_SERIAL','like', '%'.$this->search.'%')
                          ->orderBy($this->sort, $this->direction)
                          ->get();
 
