@@ -1,5 +1,4 @@
 <div>
-    {{-- The whole world belongs to you. --}}
     <div class="max-w-7x1 mx-auto px-4 sm:px-6 lg:pg-8 py-12">
         <div class="container">
             <div class="row">

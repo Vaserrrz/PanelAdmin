@@ -7,7 +7,7 @@
 
 @section('content')
     <div class="py-5">
-        @livewire('index-remota')
+        @livewire('remota-index')
     </div>
 @stop
 
