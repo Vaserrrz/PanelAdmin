@@ -15,7 +15,7 @@
         "laravel/jetstream": "^3.0",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
-        "livewire/livewire": "*",
+        "livewire/livewire": "^3.0",
         "spatie/laravel-permission": "^5.10"
     },
     "require-dev": {
