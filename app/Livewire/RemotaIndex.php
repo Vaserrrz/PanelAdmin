@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Livewire;
 
 use App\Models\Cliente;
 use App\Models\Encargado;
@@ -16,9 +16,9 @@ class RemotaIndex extends Component
     public $search;
     public $sort = "id";
     public $direction = "desc";
-
     public function render()
     {
+
         $remotas = Remota::where('REMOTA_EQUIPO','LIKE', '%'.$this->search.'%')
                          ->orwhere('REMOTA_SERIAL','LIKE', '%'.$this->search.'%')
                          ->orderBy($this->sort, $this->direction)
@@ -32,7 +32,7 @@ class RemotaIndex extends Component
         $planes = [];
         $proveedores = Proveedor::Has('satelites')->with('satelites')->get();
 
-        return view('livewire.remota-index', compact('remotas','planes','remotas','clientes','proveedores',
+        return view('livewire.remota.remota-index', compact('remotas','planes','remotas','clientes','proveedores',
         'socios','revendedores','encargados','satelites'));
     }
 

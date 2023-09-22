@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Livewire;
 
 use App\Models\Cliente;
 use App\Models\Encargado;
@@ -10,9 +10,8 @@ use App\Models\Revendedor;
 use App\Models\Socio;
 use Livewire\Component;
 
-class CreateRemota extends Component
+class Prueba2 extends Component
 {
-
     public $open = false;
     public $title, $content;
     public function render()
@@ -27,12 +26,8 @@ class CreateRemota extends Component
         $proveedores = Proveedor::Has('satelites')->with('satelites')->get();
 
 
-        return view('livewire.create-remota', compact('remotas','planes','remotas','clientes','proveedores',
-        'socios','revendedores','encargados','satelites'));
-    }
 
-    public function abrirModal()
-    {
-        $this->open = true;
+        return view('livewire.test.prueba2', compact('remotas','planes','remotas','clientes','proveedores',
+        'socios','revendedores','encargados','satelites'));
     }
 }

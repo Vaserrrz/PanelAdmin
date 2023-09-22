@@ -26,12 +26,8 @@ class RemotaCreate extends Component
         $proveedores = Proveedor::Has('satelites')->with('satelites')->get();
 
 
-        return view('livewire.remota-create', compact('remotas','planes','remotas','clientes','proveedores',
-        'socios','revendedores','encargados','satelites'));
-    }
 
-    public function abrirModal()
-    {
-        $this->open = true;
+        return view('livewire.remota.remota-create', compact('remotas','planes','remotas','clientes','proveedores',
+        'socios','revendedores','encargados','satelites'));
     }
 }
