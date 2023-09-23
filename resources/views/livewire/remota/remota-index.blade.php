@@ -11,9 +11,6 @@
                             {{--Agregar Remota--}}
                             @livewire('remota-create')
 
-
-
-
                             <div class="card-body">
                                 <div class="px-6 py-4 flex items-center">
                                     {{-- //Barra de búsqueda// --}}
@@ -29,7 +26,6 @@
 
                                                     {{-- SORT --}}
                                                     @if ($sort == 'id')
-
                                                         @if ($direction == 'asc')
                                                             <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>
                                                         @else

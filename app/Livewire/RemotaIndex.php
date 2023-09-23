@@ -39,9 +39,6 @@ class RemotaIndex extends Component
         'socios','revendedores','encargados','satelites'));
     }
 
-    public $todos = [];
-
-    public $todo = '';
     public function order($sort){
 
         if ($this->sort == $sort) {

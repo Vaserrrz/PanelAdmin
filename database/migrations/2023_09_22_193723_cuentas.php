@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('cedula');
             $table->string('direccion');
+            $table->timestamps();
         });
     }
 

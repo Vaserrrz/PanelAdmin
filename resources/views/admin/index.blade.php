@@ -32,7 +32,7 @@
                 <div class="col">
                     <p class="card-text" style="color: rgb(0, 0, 0);">Starlink</p>
                     <p class="card-text" style="color: rgb(0, 0, 0);">Estandar</p>
-                    <p class="card-text" style="color: rgb(0, 0, 0);">Otra</p>
+                    <p class="card-text" style="color: rgb(0, 0, 0);">Total: {{$cuenta}}</p>
 
                 </div>
             </div>
@@ -51,21 +51,21 @@
         <div class="card text-bg-dark mb-5 mx-1" style="max-width: 300px; width: 45%; height: 200px;">
             <div class="card-header">
                 <h1 class="card-title text-center font-weight-bold">
-                    Pagos Pendientes
+                    Remotas
                 </h1>
             </div>
             <div class="card-body">
-                <p class="card-text" style="color: red;">pendientes</p>
+                <p class="card-text" style="color: black;">Numero de Remotas: {{$remota}}</p>
             </div>
         </div>
         <div class="card text-bg-dark mb-5 mx-1" style="max-width: 300px; width: 45%; height: 200px;">
             <div class="card-header">
                 <h1 class="card-title text-center font-weight-bold">
-                    Pagos
+                    Pagos Pendientes
                 </h1>
             </div>
             <div class="card-body">
-                <p class="card-text" style="color: green;">realizados</p>
+                <p class="card-text" style="color: red;">pendientes</p>
             </div>
         </div>
     </div>
