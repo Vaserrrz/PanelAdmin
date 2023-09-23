@@ -23,10 +23,7 @@ class RemotaIndex extends Component
     public function render()
     {
 
-        $remotas = Remota::where('REMOTA_EQUIPO','like', '%'.$this->search.'%')
-                         ->orwhere('REMOTA_SERIAL','like', '%'.$this->search.'%')
-                         ->orderBy($this->sort, $this->direction)
-                         ->get();
+        $remotas = Remota::where('REMOTA_EQUIPO','like','%'.$this->search.'%')->get();
 
         $socios = Socio::all();
         $revendedores = Revendedor::all();
@@ -40,6 +37,9 @@ class RemotaIndex extends Component
         'socios','revendedores','encargados','satelites'));
     }
 
+    public $todos = [];
+
+    public $todo = '';
     public function order($sort){
 
         if ($this->sort == $sort) {

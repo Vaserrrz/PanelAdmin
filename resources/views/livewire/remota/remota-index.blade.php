@@ -11,6 +11,9 @@
                             {{--Agregar Remota--}}
                             @livewire('remota-create')
 
+
+
+
                             <div class="card-body">
                                 <div class="px-6 py-4 flex items-center">
                                     {{-- //Barra de búsqueda// --}}
