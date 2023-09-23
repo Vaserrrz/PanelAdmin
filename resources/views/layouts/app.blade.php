@@ -16,7 +16,7 @@
         <link href="{{ asset('light-bootstrap/css/light-bootstrap-dashboard.css?v=2.0.0') }} " rel="stylesheet" />
         {{-- CSS Just for demo purpose, dont include it in your project --}}
         <link href="{{ asset('light-bootstrap/css/demo.css') }}" rel="stylesheet" />
-        @livewireStyles
+
     </head>
 
     <body>
@@ -31,7 +31,7 @@
                 @yield('content')
             </div>
         </div>
-        @livewireScripts
+
     </body>
        {{--   Core JS Files   --}}
     <script src="{{ asset('light-bootstrap/js/core/jquery.3.2.1.min.js') }}" type="text/javascript"></script>

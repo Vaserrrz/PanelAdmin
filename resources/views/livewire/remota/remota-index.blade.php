@@ -17,7 +17,7 @@
                             <div class="card-body">
                                 <div class="px-6 py-4 flex items-center">
                                     {{-- //Barra de búsqueda// --}}
-                                    <input class="form-control flex-1" type="text" id="search-remotas" placeholder="Ingrese el nombre de la Remota a buscar" wire:model="search">
+                                    <input class="form-control flex-1" type="text" id="search-remotas" placeholder="Ingrese el nombre de la Remota a buscar" wire:model.live="search">
                                 </div>
 
                                 @if ($remotas->count())
