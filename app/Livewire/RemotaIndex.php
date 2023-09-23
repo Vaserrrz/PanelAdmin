@@ -23,7 +23,9 @@ class RemotaIndex extends Component
     public function render()
     {
 
-        $remotas = Remota::where('REMOTA_EQUIPO','like','%'.$this->search.'%')->get();
+        $remotas = Remota::where('REMOTA_EQUIPO','like','%'.$this->search.'%')
+                        ->orWhere('CLIENTE_ID','like','%'.$this->search.'%')
+                        ->orWhere('REMOTA_SERIAL','like','%'.$this->search.'%')->get();
 
         $socios = Socio::all();
         $revendedores = Revendedor::all();
