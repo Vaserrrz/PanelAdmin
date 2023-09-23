@@ -11,10 +11,13 @@
                             {{--Agregar Remota--}}
                             @livewire('remota-create')
 
+
+
+
                             <div class="card-body">
                                 <div class="px-6 py-4 flex items-center">
                                     {{-- //Barra de búsqueda// --}}
-                                    <input class="form-control flex-1" type="text" id="search-remotas" placeholder="Ingrese el nombre de la Remota a buscar" wire:model="search" />
+                                    <input class="form-control flex-1" type="text" id="search-remotas" placeholder="Ingrese el nombre de la Remota a buscar" wire:model.live="search">
                                 </div>
 
                                 @if ($remotas->count())
@@ -187,7 +190,6 @@
                                                                             </div>
 
                                                                             <div class="row">
-
                                                                                 <div class="col col-md-4">
                                                                                     <div class="form-group">
                                                                                         <label for="descripcion">Serial</label>
@@ -260,14 +262,37 @@
                                                                             <div class="row">
                                                                                 <div class="col col-md-6">
                                                                                     <div class="form-group">
+                                                                                        <label for="REMOTA_ANTENA_SERIAL">Serial Antena </label>
+                                                                                        <input type="text" value="{{$remota->REMOTA_ANTENA_SERIAL}}" class="form-control" id="REMOTA_ANTENA_SERIAL" placeholder="Ingrese el Serial de la Remota" name="REMOTA_ANTENA_SERIAL">
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="col col-md-6">
+                                                                                    <div class="form-group">
+                                                                                        <label for="REMOTA_KIT_SERIAL">Serial Kit</label>
+                                                                                        <input type="text" value="{{$remota->REMOTA_KIT_SERIAL}}" class="form-control" id="REMOTA_KIT_SERIAL" placeholder="Ingrese el Serial de la Remota" name="REMOTA_KIT_SERIAL">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row">
+                                                                                <div class="col col-md-4">
+                                                                                    <div class="form-group">
                                                                                         <label for="REMOTA_DIA_ACTIVACION">Dia Activacion</label>
                                                                                         <input type="date" class="form-control" id="REMOTA_DIA_ACTIVACION" placeholder="Ingrese el Dia de Activacion de la Remota" name="REMOTA_DIA_ACTIVACION"  value="{{$remota->REMOTA_DIA_ACTIVACION}}">
                                                                                     </div>
                                                                                 </div>
-                                                                                <div class="col col-md-6">
+                                                                                <div class="col col-md-4">
                                                                                     <div class="form-group">
                                                                                         <label for="REMOTA_DIA_CORTE">Dia de Corte</label>
                                                                                         <input type="date" class="form-control" id="REMOTA_DIA_CORTE" placeholder="Ingrese el dia de corte de la Remota" name="REMOTA_DIA_CORTE"  value="{{$remota->REMOTA_DIA_CORTE}}">
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="col col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <label for="REMOTA_FECHA_CUENTA">Fecha Cuenta</label>
+                                                                                        <input type="DATE" value="{{$remota->REMOTA_FECHA_CUENTA}}" class="form-control" id="REMOTA_FECHA_CUENTA" name="REMOTA_FECHA_CUENTA">
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -388,7 +413,7 @@
 
                                                                                 <div class="col col-md-12">
                                                                                     <div class="form-group">
-                                                                                        <label for="inputState">Revendedor</label>
+                                                                                        <label for="SELECT_RESELLER">Revendedor</label>
                                                                                         <select id="SELECT_RESELLER" name="SELECT_RESELLER" class="form-control">
                                                                                             <option selected>Escoga el Revendedor...</option>
                                                                                             @forelse($revendedores as $revendedor)
@@ -474,7 +499,6 @@
 
                                 <div class="card-footer">
                                 </div>
-
 
                             </div>
                         </div>

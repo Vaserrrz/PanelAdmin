@@ -55,12 +55,15 @@ return new class extends Migration
             $table->string('REMOTA_BUC_SERIAL', 100)->nullable();
             $table->string('REMOTA_LNB', 100)->nullable();
             $table->string('REMOTA_LNB_SERIAL')->nullable();
+            $table->string('REMOTA_KIT_SERIAL')->nullable();
+            $table->string('REMOTA_ANTENA_SERIAL')->nullable();
             $table->integer('REMOTA_PLANDOWN')->nullable();
             $table->integer('REMOTA_PLANUP')->nullable();
             $table->string('REMOTA_COSTO_PLAN', 100);
             $table->string('REMOTA_RENTA', 100);
             $table->date('REMOTA_DIA_CORTE');
             $table->date('REMOTA_DIA_ACTIVACION');
+            $table->date('REMOTA_FECHA_CUENTA')->nullable();
             $table->string('REMOTA_DETALLE', 300)->nullable();
             $table->string('REMOTA_PLATO', 100)->nullable();
             $table->string('REMOTA_IP_MODEM', 100)->nullable();

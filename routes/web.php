@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CuentaController;
 use App\Http\Controllers\RemotaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
@@ -193,6 +194,22 @@ Route::put('mikrotiks/{Mikrotik}',[ MikrotikController::class,'update'])->name('
 Route::delete('mikrotiks/{Mikrotik}',[ MikrotikController::class,'destroy'])->name('mikrotiks.destroy');
 //Ruta Detalle
 Route::get('mikrotiks/{Mikrotik}',[ MikrotikController::class,'details'])->name('mikrotiks.details');
+
+
+
+//CUENTAS
+Route::get('cuentas', [CuentaController::class, 'index'])->name('cuentas');
+//ruta de guardar
+Route::post('cuentas',[ CuentaController::class,'store'])->name('cuentas.store');
+// ruta editar
+Route::get('cuentas/{cuenta}/edit',[ CuentaController::class,'edit'])->name('cuentas.edit');
+// ruta update
+Route::put('mikrotiks/{cuenta}',[ CuentaController::class,'update'])->name('cuentas.update');
+// Ruta eliminar delete
+Route::delete('cuentas/{cuenta}',[ CuentaController::class,'destroy'])->name('cuentas.destroy');
+//Ruta Detalle
+Route::get('cuentas/{cuenta}',[ CuentaController::class,'details'])->name('cuentas.details');
+
 
 Route::middleware([
     'auth:sanctum',

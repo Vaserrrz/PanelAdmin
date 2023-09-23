@@ -107,6 +107,9 @@ class RemotaController extends Controller
         $remota->REMOTA_COORDENADA = $request->REMOTA_COORDENADA_MA;
         $remota->REMOTA_BUC = $request->REMOTA_BUC;
         $remota->REMOTA_BUC_SERIAL = $request->REMOTA_BUC_SERIAL;
+        $remota->REMOTA_FECHA_CUENTA = $request->REMOTA_FECHA_CUENTA;
+        $remota->REMOTA_KIT_SERIAL = $request->REMOTA_KIT_SERIAL;
+        $remota->REMOTA_ANTENA_SERIAL = $request->REMOTA_ANTENA_SERIAL;
         $remota->REMOTA_LNB = $request->REMOTA_LNB;
         $remota->REMOTA_LNB_SERIAL = $request->REMOTA_LNB_SERIAL;
         $remota->REMOTA_PLANDOWN = $request->REMOTA_PLANDOWN;
@@ -186,6 +189,9 @@ class RemotaController extends Controller
         $remota->REMOTA_COORDENADA = $request->REMOTA_COORDENADA;
         $remota->REMOTA_BUC = $request->REMOTA_BUC;
         $remota->REMOTA_BUC_SERIAL = $request->REMOTA_BUC_SERIAL;
+        $remota->REMOTA_FECHA_CUENTA = $request->REMOTA_FECHA_CUENTA;
+        $remota->REMOTA_KIT_SERIAL = $request->REMOTA_KIT_SERIAL;
+        $remota->REMOTA_ANTENA_SERIAL = $request->REMOTA_ANTENA_SERIAL;
         $remota->REMOTA_LNB = $request->REMOTA_LNB;
         $remota->REMOTA_LNB_SERIAL = $request->REMOTA_LNB_SERIAL;
         $remota->REMOTA_PLANDOWN = $request->REMOTA_PLANDOWN;

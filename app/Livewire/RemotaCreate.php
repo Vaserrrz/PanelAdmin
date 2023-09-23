@@ -10,10 +10,25 @@ use App\Models\Revendedor;
 use App\Models\Socio;
 use Livewire\Component;
 
+/**
+ * Summary of RemotaCreate
+ */
 class RemotaCreate extends Component
 {
+    /**
+     * Summary of open
+     * @var
+     */
     public $open = false;
+    /**
+     * Summary of content
+     * @var
+     */
     public $title, $content;
+    /**
+     * Summary of render
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function render()
     {
         $remotas = Remota::all();

@@ -380,6 +380,11 @@ return [
             'icon' => 'fas fa-fw  fa-book',
             'submenu' => [
                 [
+                    'text' => 'Cuentas Starlink',
+                    'url'  => 'cuentas',
+                    'icon' => 'fas fa-fx fa-users',
+                ],
+                [
                     'text' => 'Cuentas por Cobrar',
                     'url'  => '#',
                     'icon' => 'fas fa-fw fa-credit-card',
@@ -394,6 +399,7 @@ return [
                     'url'  => '#',
                     'icon' => 'fas fa-fw fa-credit-card',
                 ],
+
               /*   [
                     'text' => 'Socios',
                     'url'  => 'socios',

@@ -94,7 +94,7 @@
                         <div class="row">
                             <div class="col col-md-4">
                                 <div class="form-group">
-                                    <label for="descripcion">Serial</label>
+                                    <label for="descripcion">Serial Modem/Router</label>
                                     <input type="text" value="{{old('REMOTA_SERIAL_MA')}}" class="form-control" id="REMOTA_SERIAL_MA" placeholder="Ingrese el Serial de la Remota" name="REMOTA_SERIAL_MA">
                                     @error('REMOTA_SERIAL_MA')
                                         <br>
@@ -207,9 +207,9 @@
                         <div class="row">
                             <div class="col col-md-6">
                                 <div class="form-group">
-                                    <label for="REMOTA_DIA_ACTIVACION_MA">Dia Activacion</label>
-                                    <input type="date" value="{{old('REMOTA_DIA_ACTIVACION_MA')}}" class="form-control" id="REMOTA_DIA_ACTIVACION_MA" placeholder="Ingrese el Dia de Activacion de la Remota" name="REMOTA_DIA_ACTIVACION_MA">
-                                    @error('REMOTA_DIA_ACTIVACION_MA')
+                                    <label for="REMOTA_ANTENA_SERIAL">Serial Antena </label>
+                                    <input type="text" value="{{old('REMOTA_ANTENA_SERIAL')}}" class="form-control" id="REMOTA_ANTENA_SERIAL" placeholder="Ingrese el Serial de la Remota" name="REMOTA_ANTENA_SERIAL">
+                                    @error('REMOTA_ANTENA_SERIAL')
                                         <br>
                                             <small>
                                                 *{{$message}}
@@ -218,17 +218,39 @@
                                     @enderror
                                 </div>
                             </div>
+
                             <div class="col col-md-6">
                                 <div class="form-group">
-                                    <label for="REMOTA_DIA_CORTE_MA">Dia de Corte</label>
-                                    <input type="date" value="{{old('REMOTA_DIA_CORTE_MA')}}" class="form-control" id="REMOTA_DIA_CORTE_MA" placeholder="Ingrese el dia de corte de la Remota" name="REMOTA_DIA_CORTE_MA">
-                                    @error('REMOTA_DIA_CORTE_MA')
+                                    <label for="REMOTA_KIT_SERIAL">Serial Kit</label>
+                                    <input type="text" value="{{old('REMOTA_KIT_SERIAL')}}" class="form-control" id="REMOTA_KIT_SERIAL" placeholder="Ingrese el Serial de la Remota" name="REMOTA_KIT_SERIAL">
+                                    @error('REMOTA_KIT_SERIAL')
                                         <br>
                                             <small>
                                                 *{{$message}}
                                             </small>
                                         <br>
                                     @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col col-md-4">
+                                <div class="form-group">
+                                    <label for="REMOTA_DIA_ACTIVACION_MA">Dia Activacion</label>
+                                    <input type="date" value="{{old('REMOTA_DIA_ACTIVACION_MA')}}" class="form-control" id="REMOTA_DIA_ACTIVACION_MA" placeholder="Ingrese el Dia de Activacion de la Remota" name="REMOTA_DIA_ACTIVACION_MA">
+                                </div>
+                            </div>
+                            <div class="col col-md-4">
+                                <div class="form-group">
+                                    <label for="REMOTA_DIA_CORTE_MA">Dia de Corte</label>
+                                    <input type="date" value="{{old('REMOTA_DIA_CORTE_MA')}}" class="form-control" id="REMOTA_DIA_CORTE_MA" placeholder="Ingrese el dia de corte de la Remota" name="REMOTA_DIA_CORTE_MA">
+                                </div>
+                            </div>
+                            <div class="col col-md-4">
+                                <div class="form-group">
+                                    <label for="REMOTA_FECHA_CUENTA">Fecha Cuenta</label>
+                                    <input type="DATE" value="{{old('REMOTA_FECHA_CUENTA')}}" class="form-control" id="REMOTA_FECHA_CUENTA" name="REMOTA_FECHA_CUENTA">
                                 </div>
                             </div>
                         </div>

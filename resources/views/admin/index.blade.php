@@ -8,6 +8,13 @@
 
 @section('content')
     <p>Panel Administrador</p>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h1 class="card-title">Cuentas</h1>
+          <p class="card-text" style="color: green;">activas</p>
+        </div>
+      </div>
 @stop
 
 @section('css')
