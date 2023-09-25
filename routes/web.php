@@ -4,6 +4,7 @@ use App\Http\Controllers\CuentaController;
 use App\Http\Controllers\RemotaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\DashyController;
 use App\Http\Controllers\EncargadoController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\SocioController;
@@ -28,7 +29,6 @@ use Symfony\Component\Routing\Annotation\Route as AnnotationRoute;
 */
 
 Route::get('/', function () {
-
     return view('auth.login');
 });
 
@@ -44,6 +44,9 @@ Route::put('clientes/{cliente}',[ ClienteController::class,'update'])->name('cli
 Route::delete('clientes/{cliente}',[ ClienteController::class,'destroy'])->name('clientes.destroy');
 //detail
 Route::get('clientes/{cliente}',[ ClienteController::class,'details'])->name('clientes.details');
+
+
+Route::get('dashy',[ DashyController::class,'index'])->name('dashy');
 
 
 //PROVEEDORES

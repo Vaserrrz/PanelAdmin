@@ -63,8 +63,8 @@ return [
     |
     */
 
-    'logo' => '<b>Rout</b>CLOUD',
-    'logo_img' => 'light-bootstrap/img/logo.png',
+    'logo' => '<b>Cloud</b>Sat',
+    'logo_img' => null,
     'logo_img_class' => 'brand-image elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -380,7 +380,7 @@ return [
             'icon' => 'fas fa-fw  fa-book',
             'submenu' => [
                 [
-                    'text' => 'Cuentas Starlink',
+                    'text' => 'Cuentas',
                     'url'  => 'cuentas',
                     'icon' => 'fas fa-fx fa-users',
                 ],
