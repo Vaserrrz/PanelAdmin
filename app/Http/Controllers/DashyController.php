@@ -8,6 +8,6 @@ class DashyController extends Controller
 {
     public function index()
     {
-        return view('dashy');
+        return view('dashydash');
     }
 }
