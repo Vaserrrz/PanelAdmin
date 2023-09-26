@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="37px" viewBox="0 0 42 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Google_Drive_logo</title>
+    <defs>
+        <path d="M27.8104167,0 L14.1166667,0 L0,24.3072 L6.67916667,36 L35.2479167,36 L41.9270833,24.3072 C41.9270833,24.3072 27.8104167,0 27.8104167,0 Z M13.5479167,24.3072 L20.9708333,11.664 L28.39375,24.3072 L13.5479167,24.3072 Z" id="path-1"></path>
+        <linearGradient x1="25.2842357%" y1="50.1216747%" x2="100.620926%" y2="84.4744193%" id="linearGradient-3">
+            <stop stop-color="#1A237E" stop-opacity="0.2" offset="0%"></stop>
+            <stop stop-color="#1A237E" stop-opacity="0.02" offset="100%"></stop>
+        </linearGradient>
+        <path d="M27.8104167,0 L14.1166667,0 L0,24.3072 L6.67916667,36 L35.2479167,36 L41.9270833,24.3072 C41.9270833,24.3072 27.8104167,0 27.8104167,0 Z M13.5479167,24.3072 L20.9708333,11.664 L28.39375,24.3072 L13.5479167,24.3072 Z" id="path-4"></path>
+        <path d="M27.8104167,0 L14.1166667,0 L0,24.3072 L6.67916667,36 L35.2479167,36 L41.9270833,24.3072 C41.9270833,24.3072 27.8104167,0 27.8104167,0 Z M13.5479167,24.3072 L20.9708333,11.664 L28.39375,24.3072 L13.5479167,24.3072 Z" id="path-6"></path>
+        <radialGradient cx="33.8956391%" cy="1.01062%" fx="33.8956391%" fy="1.01062%" r="116.193659%" gradientTransform="translate(0.338956,0.010106),scale(0.857143,1.000000),translate(-0.338956,-0.010106)" id="radialGradient-8">
+            <stop stop-color="#FFFFFF" stop-opacity="0.1" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Apps/File-Manager" transform="translate(-922.000000, -214.000000)">
+            <g id="Storages" transform="translate(30.000000, 183.000000)">
+                <g id="Box" transform="translate(863.000000, 0.000000)">
+                    <g id="logo" transform="translate(20.000000, 20.000000)">
+                        <g id="Google_Drive_logo" transform="translate(9.000000, 11.500000)">
+                            <g id="Clipped">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <g id="SVGID_1_"></g>
+                                <g id="Group" mask="url(#mask-2)" fill-rule="nonzero">
+                                    <g transform="translate(6.562500, 24.192000)" id="Path">
+                                        <polygon fill="#4285F4" points="0.116666667 0.1152 0.116666667 11.808 28.6854167 11.808 35.3645833 0.1152"></polygon>
+                                        <polygon fill="url(#linearGradient-3)" points="6.98541667 0.1152 13.8541667 11.808 0.116666667 11.808"></polygon>
+                                        <polygon fill-opacity="0.2" fill="#FFFFFF" points="6.85416667 0.3312 34.9854167 0.3312 35.3791667 0.1008 6.98541667 0.1008"></polygon>
+                                        <polygon fill-opacity="0.2" fill="#1A237E" points="34.9708333 0.3312 28.5541667 11.5776 0.247916667 11.5776 0.116666667 11.808 28.6854167 11.808 35.3645833 0.1152"></polygon>
+                                        <polygon fill-opacity="0.05" fill="#1A237E" points="7.11666667 0.3312 6.98541667 0.1008 0.116666667 11.808 0.379166667 11.808"></polygon>
+                                    </g>
+                                </g>
+                            </g>
+                            <g id="Clipped">
+                                <mask id="mask-5" fill="white">
+                                    <use xlink:href="#path-4"></use>
+                                </mask>
+                                <g id="SVGID_4_"></g>
+                                <g id="Group" mask="url(#mask-5)" fill-rule="nonzero">
+                                    <polygon id="Path" fill="#0F9D58" points="14.1166667 0 0 24.3072 6.67916667 36 22.7791667 8.5536"></polygon>
+                                    <polygon id="Path" fill-opacity="0.1" fill="#263238" points="14.1166667 0 14.2479167 0.6624 20.69375 11.6496 6.67916667 35.5392 0.2625 24.2928 0 24.2928 6.67916667 36 20.9708333 11.6496"></polygon>
+                                    <polygon id="Path" fill-opacity="0.2" fill="#FFFFFF" points="0.2625 24.3072 14.2625 0.2304 14.1166667 0 0 24.3072"></polygon>
+                                </g>
+                            </g>
+                            <g id="Clipped">
+                                <mask id="mask-7" fill="white">
+                                    <use xlink:href="#path-6"></use>
+                                </mask>
+                                <g id="SVGID_6_"></g>
+                                <g id="Group" mask="url(#mask-7)" fill-rule="nonzero">
+                                    <g transform="translate(14.000000, 0.000000)" id="Path">
+                                        <polygon fill="#FFCD40" points="13.8104167 0 0.116666667 0 14.3791667 24.3072 27.9270833 24.3072"></polygon>
+                                        <polygon fill-opacity="0.2" fill="#FFFFFF" points="13.8104167 0 0.116666667 0 0.510416667 0.2304 13.6645833 0.2304 27.6645833 24.3072 27.9270833 24.3072"></polygon>
+                                        <polygon fill-opacity="0.1" fill="#BF360C" points="14.5104167 24.0768 0.510416667 0.2304 0.116666667 0 14.3791667 24.3072"></polygon>
+                                    </g>
+                                </g>
+                            </g>
+                            <path d="M27.8587826,0 L14.1412174,0 L0,24.3072 L6.69078261,36 L35.3092174,36 L42,24.3072 C42,24.3072 27.8587826,0 27.8587826,0 Z M13.5714783,24.3072 L21.0073043,11.664 L28.4431304,24.3072 L13.5714783,24.3072 Z" id="Shape" fill="url(#radialGradient-8)" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

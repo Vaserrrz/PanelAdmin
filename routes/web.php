@@ -33,6 +33,11 @@ Route::get('/', function () {
 });
 
 
+Route::get('/test', function () {
+    return view('dashboard');
+});
+
+
 //CLIENTES
 Route::get('clientes',[ ClienteController::class,'index'])->name('clientes');
 Route::post('clientes',[ ClienteController::class,'store'])->name('clientes.store');
