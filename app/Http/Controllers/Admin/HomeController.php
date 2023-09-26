@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Remota;
+use App\Models\Cuenta;
 use Illuminate\Http\Request;
+use App\Models\Remota;
 
 class HomeController extends Controller
 {
     public function index(){
-       /* dd( Remota::with('plan')->find(1));*/
-        return view('admin.index');
+        $cuenta = Cuenta::count();
+        $remota = Remota::count();
+        return view('admin.index', compact('cuenta','remota'));
     }
 }
