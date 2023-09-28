@@ -51,9 +51,6 @@ Route::delete('clientes/{cliente}',[ ClienteController::class,'destroy'])->name(
 Route::get('clientes/{cliente}',[ ClienteController::class,'details'])->name('clientes.details');
 
 
-Route::get('dashy',[ DashyController::class,'index'])->name('dashy');
-
-
 //PROVEEDORES
 Route::get('proveedores', [ProveedorController::class, 'index'])->name('proveedores');
 //ruta de guardar

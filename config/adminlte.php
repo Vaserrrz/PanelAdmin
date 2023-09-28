@@ -63,7 +63,7 @@ return [
     |
     */
 
-    'logo' => '<b>Cloud</b>Sat',
+    'logo' => '<b></b>Sat',
     'logo_img' => null,
     'logo_img_class' => 'brand-image elevation-3',
     'logo_img_xl' => null,

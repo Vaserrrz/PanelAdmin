@@ -6,11 +6,8 @@
                     <div class="card">
                         <div class="card-header">
                             <h1>Remotas Satelital</h1>
-
-
                             {{--Agregar Remota--}}
                             @livewire('remota-create')
-
                             <div class="card-body">
                                 <div class="px-6 py-4 flex items-center">
                                     {{-- //Barra de búsqueda// --}}
