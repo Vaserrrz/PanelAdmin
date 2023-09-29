@@ -4,6 +4,7 @@ use App\Http\Controllers\CuentaController;
 use App\Http\Controllers\RemotaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\DashyController;
 use App\Http\Controllers\EncargadoController;
 use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\SocioController;
@@ -28,8 +29,12 @@ use Symfony\Component\Routing\Annotation\Route as AnnotationRoute;
 */
 
 Route::get('/', function () {
-
     return view('auth.login');
+});
+
+
+Route::get('/test', function () {
+    return view('dashboard');
 });
 
 
