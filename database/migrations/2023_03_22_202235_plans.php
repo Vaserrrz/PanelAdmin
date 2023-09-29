@@ -30,12 +30,12 @@ return new class extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->unsignedBigInteger('RESELLER_ID');
-            $table->foreign('RESELLER_ID')
-                ->references('id')
-                ->on('personas')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            // $table->unsignedBigInteger('RESELLER_ID');
+            // $table->foreign('RESELLER_ID')
+            //     ->references('id')
+            //     ->on('personas')
+            //     ->onDelete('cascade')
+            //     ->onUpdate('cascade');
         });
     }
 

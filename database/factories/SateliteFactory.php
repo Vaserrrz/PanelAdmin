@@ -33,7 +33,7 @@ class SateliteFactory extends Factory
             'SAT_FRECUENCIA' => $this->faker->randomNumber(2),
             'SAT_BANDAS' => $this->faker->randomNumber(2),
             'PROVEEDOR_ID' => Proveedor::inRandomOrder()->first()->id,
-            'RESELLER_ID' => Revendedor::inRandomOrder()->first()->id,
+            // 'RESELLER_ID' => Revendedor::inRandomOrder()->first()->id,
         ];
     }
 }

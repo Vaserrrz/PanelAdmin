@@ -28,7 +28,7 @@ class PlanFactory extends Factory
             'PLAN_COSTO' => $this->faker->randomNumber(2),
             'PLAN_PRECIO' => $this->faker->randomNumber(2),
             'SATELITE_ID' => Satelite::inRandomOrder()->first()->id,
-            'RESELLER_ID' => Revendedor::inRandomOrder()->first()->id,
+            // 'RESELLER_ID' => Revendedor::inRandomOrder()->first()->id,
 
         ];
     }
