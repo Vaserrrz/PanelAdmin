@@ -63,40 +63,41 @@
                 </div>
             </div>
             <div class="card-footer text-end">
-                <a href="javascript: void(0);" class="card-link">Ver clientes</a>
+                <a href="./clientes" class="card-link">Ver clientes</a>
             </div>
         </div>
         <div class="card border-primary mb-3 mx-1" style="max-width: 18rem;">
             <div class="card-body">
                 <h3 class="card-title mb-(-1) mx-1">CUENTAS</h5>
                 <div class="card-content">
-                   Cuent registrados:<h1>0</h1>
+                   Cuentas activas:<h1>0</h1>
+                   Cuentas Suspendidas:
                 </div>
             </div>
             <div class="card-footer text-end">
-                <a href="javascript: void(0);" class="card-link">Ver clientes</a>
+                <a href="./cuentas" class="card-link">Ver cuentas</a>
             </div>
         </div>
         <div class="card border-primary mb-3 mx-1" style="max-width: 18rem;">
             <div class="card-body">
-                <h3 class="card-title mb-(-1) mx-1">PAGOS</h5>
+                <h3 class="card-title mb-(-1) mx-1">MIKROTIKS</h5>
                 <div class="card-content">
-                   Clientes registrados:<h1>0</h1>
+                   Mikrotiks registrados:<h1>0</h1>
                 </div>
             </div>
             <div class="card-footer text-end">
-                <a href="javascript: void(0);" class="card-link">Ver clientes</a>
+                <a href="./mikrotiks" class="card-link">Ver Mikrotiks</a>
             </div>
         </div>
         <div class="card border-primary mb-3 mx-1" style="max-width: 18rem;">
             <div class="card-body">
                 <h3 class="card-title mb-(-1) mx-1">PAGOS PENDIENTES</h5>
                 <div class="card-content">
-                   Clientes registrados:<h1>0</h1>
+                   :<h1>0</h1>
                 </div>
             </div>
             <div class="card-footer text-end">
-                <a href="javascript: void(0);" class="card-link">Ver clientes</a>
+                <a href="/pagos" class="card-link">Ver pagos</a>
             </div>
         </div>
     </div>
@@ -104,16 +105,15 @@
     <div class="row">
         <div class="card border-primary mb-3 mx-1" style="max-width: 18rem;">
             <div class="card-body">
-                <h3 class="card-title mb-(-1) mx-1">CLIENTES</h5>
+                <h3 class="card-title mb-(-1) mx-1">REMOTAS</h5>
                 <div class="card-content">
-                   Clientes registrados:<h1>0</h1>
+                   Remotas activas:<h1>0</h1>
                 </div>
             </div>
             <div class="card-footer text-end">
-                <a href="javascript: void(0);" class="card-link">Ver clientes</a>
+                <a href="./remotas" class="card-link">Ver remotas</a>
             </div>
         </div>
-
     </div>
 
 

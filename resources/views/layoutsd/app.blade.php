@@ -246,12 +246,12 @@
                             <div class="collapse show" id="dashboardsCollapse">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a href="./index.html" class="nav-link ">
+                                        <a href="./clientes" class="nav-link ">
                                             <span>Clientes</span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="./dashboard-ecommerce.html" class="nav-link ">
+                                        <a href="./encargados" class="nav-link ">
                                             <span>Encargados</span>
                                         </a>
                                     </li>
@@ -307,7 +307,7 @@
 
                         {{-- Remotas --}}
                         <li class="nav-item">
-                            <a class="nav-link " href="./chat.html">
+                            <a class="nav-link " href="./remotas">
                                 <svg viewBox="0 0 24 24" class="nav-link-icon" height="18" width="18"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -416,7 +416,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="./#" class="nav-link ">
+                                        <a href="./tecnicos" class="nav-link ">
                                             <span>Técnicos</span>
                                         </a>
                                     </li>
