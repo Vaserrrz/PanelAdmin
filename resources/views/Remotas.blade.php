@@ -8,30 +8,6 @@
 @section('contenido')
     <div class="py-5">
         @livewire('remota-index')
-
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Launch demo modal
-        </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                ...
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-            </div>
-        </div>
     </div>
 @stop
 
@@ -54,12 +30,14 @@
         const selectPlanMA = document.getElementById('SELECT_PLAN_MA');
         const clienteSelectMA = document.getElementById('SELECT_CLIENTE_MA');
         const encargadoSelectMA = document.getElementById('SELECT_ENCARGADO_MA');
+
         //PROPIEDADES PLAN (AGREGAR)
         const renta_plan = document.getElementById('REMOTA_RENTA');
         const costo_plan = document.getElementById('REMOTA_COSTO_PLAN');
         const planUp = document.getElementById('REMOTA_PLANUP');
         const planDown = document.getElementById('REMOTA_PLANDOWN');
-
+        console.log(SELECT_PROVEEDOR_MA);
+        console.log(SELECT_SAT_MA);
 
         // CONSTANTES MODAL EDITAR
         const SelectClientesME = document.querySelectorAll('.select_cliente');
@@ -67,6 +45,7 @@
         const selectProveedoresME = document.querySelectorAll('.select_proveedor');
         const selectSatelitesME = document.querySelectorAll('.select_satelite');
         const selectPlanesME = document.querySelectorAll('.select_plan');
+
         //PROPIEDADES PLAN (EDITAR)
         const renta_planesME = document.querySelectorAll('.select_renta_plan');
         const costo_planesME = document.querySelectorAll('.select_costo_plan');

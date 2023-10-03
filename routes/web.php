@@ -40,6 +40,7 @@ Route::get('/test', function () {
 
 //CLIENTES
 Route::get('clientes',[ ClienteController::class,'index'])->name('clientes');
+
 Route::post('clientes',[ ClienteController::class,'store'])->name('clientes.store');
 // ruta editar
 Route::get('clientes/{cliente}/edit',[ ClienteController::class,'edit'])->name('clientes.edit');

@@ -1,12 +1,12 @@
-@extends('adminlte::page')
+@extends('layoutsd.app')
 
-@section('title', 'Panel Principal')
+@section('titulo', 'Panel Principal')
 
 @section('content_header')
     <h1>Dashboard</h1>
 @stop
 
-@section('content')
+@section('contenido')
 
 
     <div class="row">
