@@ -8,6 +8,8 @@
 @section('contenido')
     <div class="py-5">
         @livewire('remota-index')
+
+
     </div>
 @stop
 
