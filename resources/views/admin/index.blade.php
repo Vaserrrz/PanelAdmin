@@ -9,67 +9,112 @@
 @section('contenido')
 
 
+{{--
     <div class="row">
-        <div class="card text-bg-dark mb-5 mx-1" style="max-width: 300px; width: 45%; height: 200px;">
-            <div class="card-header">
-                <h1 class="card-title text-center font-weight-bold">
-                    Clientes
-                </h1>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">
-                </h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="card text-bg-primary mb-5 mx-1" style="max-width: 270px; height: 140px;">            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-body">
+                        <h3 class="card-title mb-2">Card title</h5>
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="card-body">
+
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="card text-bg-dark mb-5 mx-1" style="max-width: 300px; width: 45%; height: 200px;">
-            <div class="card-header">
-                <h1 class="card-title text-center font-weight-bold">
-                    Cuentas
-                </h1>
+        <div class="card text-bg-primary mb-5 mx-1" style="max-width: 270px; height: 140px;">            <div class="row g-0">
+            <div class="col-md-12">
+                <div class="card-body">
+                    <h3 class="card-title mb-2">Card title</h5>
+                </div>
             </div>
-            <div class="card-body">
-                <div class="col">
-                    <p class="card-text" style="color: rgb(0, 0, 0);">Starlink</p>
-                    <p class="card-text" style="color: rgb(0, 0, 0);">Estandar</p>
-                    <p class="card-text" style="color: rgb(0, 0, 0);">Total: {{$cuenta}}</p>
+            <div class="row g-0">
+                <div class="card-body">
 
                 </div>
             </div>
         </div>
-        <div class="card text-bg-dark mb-5 mx-1" style="max-width: 300px; width: 45%; height: 200px;">
-            <div class="card-header">
-                <h1 class="card-title text-center font-weight-bold">
-                    Mikrotik
-                </h1>
-            </div>
-            <div class="card-body">
-                <p class="card-text" style="color: green;">activos</p>
-                <p class="card-text" style="color: orange;">suspendidos</p>
-            </div>
-        </div>
-        <div class="card text-bg-dark mb-5 mx-1" style="max-width: 300px; width: 45%; height: 200px;">
-            <div class="card-header">
-                <h1 class="card-title text-center font-weight-bold">
-                    Remotas
-                </h1>
-            </div>
-            <div class="card-body">
-                <p class="card-text" style="color: black;">Numero de Remotas: {{$remota}}</p>
+    </div> --}}
+    {{-- <div class="row">
+        <div class="card text-bg-primary mb-5 mx-1" style="max-width: 270px; height: 140px;">            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-body">
+                        <h3 class="card-title mb-2">Card title</h5>
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="card-body">
+
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="card text-bg-dark mb-5 mx-1" style="max-width: 300px; width: 45%; height: 200px;">
-            <div class="card-header">
-                <h1 class="card-title text-center font-weight-bold">
-                    Pagos Pendientes
-                </h1>
-            </div>
+    </div> --}}
+
+
+    <div class="row">
+        <div class="card border-primary mb-3 mx-1" style="max-width: 18rem;">
             <div class="card-body">
-                <p class="card-text" style="color: red;">pendientes</p>
+                <h3 class="card-title mb-(-1) mx-1">CLIENTES</h5>
+                <div class="card-content">
+                   Clientes registrados:<h1>0</h1>
+                </div>
+            </div>
+            <div class="card-footer text-end">
+                <a href="javascript: void(0);" class="card-link">Ver clientes</a>
+            </div>
+        </div>
+        <div class="card border-primary mb-3 mx-1" style="max-width: 18rem;">
+            <div class="card-body">
+                <h3 class="card-title mb-(-1) mx-1">CUENTAS</h5>
+                <div class="card-content">
+                   Cuent registrados:<h1>0</h1>
+                </div>
+            </div>
+            <div class="card-footer text-end">
+                <a href="javascript: void(0);" class="card-link">Ver clientes</a>
+            </div>
+        </div>
+        <div class="card border-primary mb-3 mx-1" style="max-width: 18rem;">
+            <div class="card-body">
+                <h3 class="card-title mb-(-1) mx-1">PAGOS</h5>
+                <div class="card-content">
+                   Clientes registrados:<h1>0</h1>
+                </div>
+            </div>
+            <div class="card-footer text-end">
+                <a href="javascript: void(0);" class="card-link">Ver clientes</a>
+            </div>
+        </div>
+        <div class="card border-primary mb-3 mx-1" style="max-width: 18rem;">
+            <div class="card-body">
+                <h3 class="card-title mb-(-1) mx-1">PAGOS PENDIENTES</h5>
+                <div class="card-content">
+                   Clientes registrados:<h1>0</h1>
+                </div>
+            </div>
+            <div class="card-footer text-end">
+                <a href="javascript: void(0);" class="card-link">Ver clientes</a>
             </div>
         </div>
     </div>
 
+    <div class="row">
+        <div class="card border-primary mb-3 mx-1" style="max-width: 18rem;">
+            <div class="card-body">
+                <h3 class="card-title mb-(-1) mx-1">CLIENTES</h5>
+                <div class="card-content">
+                   Clientes registrados:<h1>0</h1>
+                </div>
+            </div>
+            <div class="card-footer text-end">
+                <a href="javascript: void(0);" class="card-link">Ver clientes</a>
+            </div>
+        </div>
+
+    </div>
 
 
 
